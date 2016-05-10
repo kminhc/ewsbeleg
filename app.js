@@ -1,4 +1,4 @@
-var bg, card, slider;
+var bg, card, layerA, layerB, layerC, scroll, slider;
 
 bg = new BackgroundLayer({
   backgroundColor: "#eee"
@@ -16,7 +16,7 @@ card.style.boxShadow = "0 1px 2px rgba(0,0,0,0.1)";
 
 card.center();
 
-card.y -= 250;
+card.y += 250;
 
 slider = new SliderComponent({
   min: 0,
@@ -32,23 +32,36 @@ slider.y += 165;
 
 card.addSubLayer(slider);
 
-logo.states.add({
-  second: {
-    y: 200,
-    scale: 1.5,
-    rotation: 225
-  },
-  third: {
-    y: 300,
-    scale: 0.5,
-    blur: 25
-  }
+scroll = new ScrollComponent({
+  width: 120,
+  height: 120
 });
 
-logo.states.animationOptions = {
-  curve: "spring(250,25,0)"
-};
+scroll.scrollHorizontal = false;
 
-logo.on(Events.Click, function() {
-  return logo.states.next();
+scroll.center();
+
+layerA = new Layer({
+  width: 120,
+  height: 50,
+  backgroundColor: "#12bbf0",
+  superLayer: scroll.content
+});
+
+layerA.html = "Lied 1";
+
+layerB = new Layer({
+  width: 120,
+  height: 50,
+  backgroundColor: "#12bbf0",
+  y: 55,
+  superLayer: scroll.content
+});
+
+layerC = new Layer({
+  width: 120,
+  height: 50,
+  backgroundColor: "#12bbf0",
+  y: 110,
+  superLayer: scroll.content
 });
