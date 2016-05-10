@@ -11,6 +11,11 @@ slider = new SliderComponent
     knobSize: 30
 slider.center()
 
+lay = new Layer
+    width: 150
+    height: 200
+    
+
 # Create additional states (the original state is 'default')
 logo.states.add
     second:

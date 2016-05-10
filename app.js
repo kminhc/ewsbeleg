@@ -1,4 +1,4 @@
-var slider;
+var lay, slider;
 
 new BackgroundLayer({
   backgroundColor: "#151517"
@@ -12,6 +12,11 @@ slider = new SliderComponent({
 });
 
 slider.center();
+
+lay = new Layer({
+  width: 150,
+  height: 200
+});
 
 logo.states.add({
   second: {
