@@ -1,20 +1,28 @@
 # Prototyping with Framer
 
 # Create a background
-new BackgroundLayer backgroundColor: "#151517"
+bg = new BackgroundLayer backgroundColor: "#eee"
+
+# new card
+card = new Layer backgroundColor: "#12bbf0", width: 300, height: 200, borderRadius: 4, clip: true
+
+card.style.boxShadow = "0 1px 2px rgba(0,0,0,0.1)"
+card.center()
+card.y-=250
 
 #slider
 slider = new SliderComponent
     min: 0
     max: 1
-    value: 0.5
-    knobSize: 30
-slider.center()
+    knobSize: 10
+    width: 250
+    height: 5
+slider.x += 25
+slider.y += 165
 
-lay = new Layer
-    width: 150
-    height: 200
-    
+card.addSubLayer(slider)
+
+
 
 # Create additional states (the original state is 'default')
 logo.states.add

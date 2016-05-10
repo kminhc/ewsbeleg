@@ -1,22 +1,36 @@
-var lay, slider;
+var bg, card, slider;
 
-new BackgroundLayer({
-  backgroundColor: "#151517"
+bg = new BackgroundLayer({
+  backgroundColor: "#eee"
 });
+
+card = new Layer({
+  backgroundColor: "#12bbf0",
+  width: 300,
+  height: 200,
+  borderRadius: 4,
+  clip: true
+});
+
+card.style.boxShadow = "0 1px 2px rgba(0,0,0,0.1)";
+
+card.center();
+
+card.y -= 250;
 
 slider = new SliderComponent({
   min: 0,
   max: 1,
-  value: 0.5,
-  knobSize: 30
+  knobSize: 10,
+  width: 250,
+  height: 5
 });
 
-slider.center();
+slider.x += 25;
 
-lay = new Layer({
-  width: 150,
-  height: 200
-});
+slider.y += 165;
+
+card.addSubLayer(slider);
 
 logo.states.add({
   second: {
