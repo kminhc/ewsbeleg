@@ -1,4 +1,4 @@
-var bg, card, layerA, layerB, layerC, scroll, slider;
+var bg, card, layerA, layerB, layerC, layerZ, scroll, slider, view;
 
 bg = new BackgroundLayer({
   backgroundColor: "#eee"
@@ -8,8 +8,7 @@ card = new Layer({
   backgroundColor: "#12bbf0",
   width: 300,
   height: 200,
-  borderRadius: 4,
-  clip: true
+  borderRadius: 4
 });
 
 card.style.boxShadow = "0 1px 2px rgba(0,0,0,0.1)";
@@ -41,18 +40,38 @@ scroll.scrollHorizontal = false;
 
 scroll.center();
 
+view = new ScrollComponent({
+  x: 25,
+  y: 15,
+  width: 250,
+  height: 130
+});
+
+view.scrollVertical = false;
+
+layerZ = new Layer({
+  x: 0,
+  y: 0,
+  width: 1000,
+  height: 130,
+  image: "images/wave.png",
+  superLayer: view.content
+});
+
+card.addSubLayer(view);
+
 layerA = new Layer({
   width: 120,
   height: 50,
+  borderRadius: 4,
   backgroundColor: "#12bbf0",
   superLayer: scroll.content
 });
 
-layerA.html = "Lied 1";
-
 layerB = new Layer({
   width: 120,
   height: 50,
+  borderRadius: 4,
   backgroundColor: "#12bbf0",
   y: 55,
   superLayer: scroll.content
@@ -61,6 +80,7 @@ layerB = new Layer({
 layerC = new Layer({
   width: 120,
   height: 50,
+  borderRadius: 4,
   backgroundColor: "#12bbf0",
   y: 110,
   superLayer: scroll.content
