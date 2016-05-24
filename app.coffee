@@ -11,7 +11,8 @@ LsongDisplay = new Layer
 
 LsongDisplay.style.boxShadow = "0 1px 2px rgba(0,0,0,0.1)"
 LsongDisplay.center()
-LsongDisplay.y+=250
+LsongDisplay.y -= 215
+LsongDisplay.x -= 20
 
 #SliderTimeline
 SliderTimeline = new SliderComponent
@@ -27,7 +28,7 @@ LsongDisplay.addSubLayer(SliderTimeline)
 
 # Create a ScrollComponent
 ScrollSongList = new ScrollComponent
-    width: 120
+    width: 157
     height: 120
     visible: false
 ScrollSongList.scrollHorizontal = false
@@ -37,7 +38,7 @@ ScrollSongList.y -= 215
 
 #Titelleiste
 LtitleDisplay = new Layer
-    width: 120
+    width: 157
     height: 30
     borderRadius: 4
     backgroundColor: "#12bbf0"
@@ -67,8 +68,8 @@ LsongDisplay.addSubLayer(view);
 
 # Create the content layers
 Lsong1 = new Layer
-    width: 120
-    height: 50
+    width: 157
+    height: 30
     borderRadius: 4
     backgroundColor: "#12bbf0"
     superLayer: ScrollSongList.content
@@ -78,11 +79,11 @@ Lsong1.onTap ->
     ScrollSongList.visible = false
 
 Lsong2 = new Layer
-    width: 120
-    height: 50
+    width: 157
+    height: 30
     borderRadius: 4
     backgroundColor: "#12bbf0"
-    y: 55
+    y: 35
     superLayer: ScrollSongList.content
 Utils.labelLayer(Lsong2, "Lied 2");
 Lsong2.onTap ->
@@ -90,11 +91,11 @@ Lsong2.onTap ->
     ScrollSongList.visible = false
 
 Lsong3 = new Layer
-    width: 120
-    height: 50
+    width: 157
+    height: 30
     borderRadius: 4
     backgroundColor: "#12bbf0"
-    y: 110
+    y: 70
     superLayer: ScrollSongList.content
 Utils.labelLayer(Lsong3, "Lied 3");
 Lsong3.onTap ->
