@@ -1,7 +1,7 @@
 # Prototyping with Framer
 # Create a background
 bg = new BackgroundLayer backgroundColor: "#eee"
-
+title = "Titel/Interpret"
 # new LsongDisplay
 LsongDisplay = new Layer
     backgroundColor: "#12bbf0"
@@ -29,9 +29,23 @@ LsongDisplay.addSubLayer(SliderTimeline)
 ScrollSongList = new ScrollComponent
     width: 120
     height: 120
+    visible: false
 ScrollSongList.scrollHorizontal = false
 ScrollSongList.center()
+ScrollSongList.x -= 290
+ScrollSongList.y -= 215
 
+#Titelleiste
+LtitleDisplay = new Layer
+    width: 120
+    height: 30
+    borderRadius: 4
+    backgroundColor: "#12bbf0"
+
+LtitleDisplay.center();
+LtitleDisplay.x -= 290
+LtitleDisplay.y -= 300
+Utils.labelLayer(LtitleDisplay,title)
 #Waveform SliderTimeline
 view = new ScrollComponent
     x:25
@@ -58,6 +72,10 @@ Lsong1 = new Layer
     borderRadius: 4
     backgroundColor: "#12bbf0"
     superLayer: ScrollSongList.content
+Utils.labelLayer(Lsong1, "Lied 1");
+Lsong1.onTap ->
+    Utils.labelLayer(LtitleDisplay, "Lied 1")
+    ScrollSongList.visible = false
 
 Lsong2 = new Layer
     width: 120
@@ -66,6 +84,10 @@ Lsong2 = new Layer
     backgroundColor: "#12bbf0"
     y: 55
     superLayer: ScrollSongList.content
+Utils.labelLayer(Lsong2, "Lied 2");
+Lsong2.onTap ->
+    Utils.labelLayer(LtitleDisplay, "Lied 2")
+    ScrollSongList.visible = false
 
 Lsong3 = new Layer
     width: 120
@@ -74,3 +96,21 @@ Lsong3 = new Layer
     backgroundColor: "#12bbf0"
     y: 110
     superLayer: ScrollSongList.content
+Utils.labelLayer(Lsong3, "Lied 3");
+Lsong3.onTap ->
+    Utils.labelLayer(LtitleDisplay, "Lied 3")
+    ScrollSongList.visible = false
+
+LopenSongListButton = new Layer
+    width: 30
+    height: 30
+    borderRadius: 4
+    backgroundColor: "#12bbf0"
+LopenSongListButton.center();
+LopenSongListButton.x -= 200
+LopenSongListButton.y -= 300
+LopenSongListButton.onTap ->
+    if ScrollSongList.visible is false
+        ScrollSongList.visible = true
+    else
+      ScrollSongList.visible = false
