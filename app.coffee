@@ -2,16 +2,16 @@
 # Create a background
 bg = new BackgroundLayer backgroundColor: "#eee"
 
-# new card
-card = new Layer
+# new LsongChoice
+LsongChoice = new Layer
     backgroundColor: "#12bbf0"
     width: 300
     height: 200
     borderRadius: 4
 
-card.style.boxShadow = "0 1px 2px rgba(0,0,0,0.1)"
-card.center()
-card.y+=250
+LsongChoice.style.boxShadow = "0 1px 2px rgba(0,0,0,0.1)"
+LsongChoice.center()
+LsongChoice.y+=250
 
 #slider
 slider = new SliderComponent
@@ -23,14 +23,14 @@ slider = new SliderComponent
 slider.x += 25
 slider.y += 165
 
-card.addSubLayer(slider)
+LsongChoice.addSubLayer(slider)
 
 # Create a ScrollComponent
-scroll = new ScrollComponent
+StimeLine = new ScrollComponent
     width: 120
     height: 120
-scroll.scrollHorizontal = false
-scroll.center()
+StimeLine.scrollHorizontal = false
+StimeLine.center()
 
 #create a slider
 view = new ScrollComponent
@@ -41,7 +41,7 @@ view = new ScrollComponent
 
 view.scrollVertical = false
 
-layerZ = new Layer
+LwaveForm = new Layer
     x:0
     y:0
     width:1000
@@ -49,27 +49,27 @@ layerZ = new Layer
     image:"images/wave.png"
     superLayer: view.content
 
-card.addSubLayer(view);
+LsongChoice.addSubLayer(view);
 # Create the content layers
-layerA = new Layer
+Lsong1 = new Layer
     width: 120
     height: 50
     borderRadius: 4
     backgroundColor: "#12bbf0"
-    superLayer: scroll.content
+    superLayer: StimeLine.content
 
-layerB = new Layer
+Lsong2 = new Layer
     width: 120
     height: 50
     borderRadius: 4
     backgroundColor: "#12bbf0"
     y: 55
-    superLayer: scroll.content
+    superLayer: StimeLine.content
 
-layerC = new Layer
+Lsong3 = new Layer
     width: 120
     height: 50
     borderRadius: 4
     backgroundColor: "#12bbf0"
     y: 110
-    superLayer: scroll.content
+    superLayer: StimeLine.content
