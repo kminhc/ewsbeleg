@@ -14,7 +14,25 @@ LsongDisplay.center()
 LsongDisplay.y -= 215
 LsongDisplay.x -= 20
 
-#SliderTimeline
+#Waveform SliderTimeline
+view = new ScrollComponent
+    x:25
+    y:15
+    width:250
+    height:130
+
+view.scrollVertical = false
+
+LwaveForm = new Layer
+    x:0
+    y:20
+    width:1000
+    height:110
+    image:"images/wave.png"
+    superLayer: view.content
+
+LsongDisplay.addSubLayer(view);
+
 SliderTimeline = new SliderComponent
     min: 0
     max: 1
@@ -25,6 +43,50 @@ SliderTimeline.x += 25
 SliderTimeline.y += 165
 
 LsongDisplay.addSubLayer(SliderTimeline)
+
+# new LsongDisplay
+LsongDisplay2 = new Layer
+    backgroundColor: "#12bbf0"
+    width: 300
+    height: 200
+    borderRadius: 4
+
+LsongDisplay2.style.boxShadow = "0 1px 2px rgba(0,0,0,0.1)"
+LsongDisplay2.center()
+LsongDisplay2.y += 10
+LsongDisplay2.x -= 20
+
+#Waveform SliderTimeline
+view2 = new ScrollComponent
+    x:25
+    y:15
+    width:250
+    height:130
+
+view2.scrollVertical = false
+
+LwaveForm2 = new Layer
+    x:0
+    y:20
+    width:1000
+    height:110
+    image:"images/wave.png"
+    superLayer: view2.content
+
+LsongDisplay2.addSubLayer(view2);
+#SliderTimeline
+SliderTimeline2 = new SliderComponent
+    min: 0
+    max: 1
+    knobSize: 10
+    width: 250
+    height: 5
+SliderTimeline2.x += 25
+SliderTimeline2.y += 165
+
+LsongDisplay2.addSubLayer(SliderTimeline2)
+
+
 
 # Create a ScrollComponent
 ScrollSongList = new ScrollComponent
@@ -47,24 +109,6 @@ LtitleDisplay.center();
 LtitleDisplay.x -= 290
 LtitleDisplay.y -= 300
 Utils.labelLayer(LtitleDisplay,title)
-#Waveform SliderTimeline
-view = new ScrollComponent
-    x:25
-    y:15
-    width:250
-    height:130
-
-view.scrollVertical = false
-
-LwaveForm = new Layer
-    x:0
-    y:0
-    width:1000
-    height:130
-    image:"images/wave.png"
-    superLayer: view.content
-
-LsongDisplay.addSubLayer(view);
 
 # Create the content layers
 Lsong1 = new Layer
@@ -106,7 +150,7 @@ LopenSongListButton = new Layer
     width: 30
     height: 30
     borderRadius: 4
-    backgroundColor: "#12bbf0"
+    backgroundColor: "#adbbf0"
 LopenSongListButton.center();
 LopenSongListButton.x -= 200
 LopenSongListButton.y -= 300
@@ -115,3 +159,12 @@ LopenSongListButton.onTap ->
         ScrollSongList.visible = true
     else
       ScrollSongList.visible = false
+
+LnewDisplay = new Layer
+    width: 30
+    height: 30
+    borderRadius: 4
+    backgroundColor: "#adbbf0"
+LnewDisplay.center();
+LnewDisplay.y += 150
+LnewDisplay.x += 115
