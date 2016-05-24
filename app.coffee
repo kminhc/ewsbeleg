@@ -86,7 +86,48 @@ SliderTimeline2.y += 165
 
 LsongDisplay2.addSubLayer(SliderTimeline2)
 
+# new LsongDisplay
+LsongDisplay3 = new Layer
+    backgroundColor: "#12bbf0"
+    width: 300
+    height: 200
+    borderRadius: 4
+    visible: false
 
+LsongDisplay3.style.boxShadow = "0 1px 2px rgba(0,0,0,0.1)"
+LsongDisplay3.center()
+LsongDisplay3.y += 235
+LsongDisplay3.x -= 20
+
+#Waveform SliderTimeline
+view3 = new ScrollComponent
+    x:25
+    y:15
+    width:250
+    height:130
+
+view3.scrollVertical = false
+
+LwaveForm3 = new Layer
+    x:0
+    y:20
+    width:1000
+    height:110
+    image:"images/wave.png"
+    superLayer: view3.content
+
+LsongDisplay3.addSubLayer(view3);
+#SliderTimeline
+SliderTimeline3 = new SliderComponent
+    min: 0
+    max: 1
+    knobSize: 10
+    width: 250
+    height: 5
+SliderTimeline3.x += 25
+SliderTimeline3.y += 165
+
+LsongDisplay3.addSubLayer(SliderTimeline3)
 
 # Create a ScrollComponent
 ScrollSongList = new ScrollComponent
@@ -168,3 +209,10 @@ LnewDisplay = new Layer
 LnewDisplay.center();
 LnewDisplay.y += 150
 LnewDisplay.x += 115
+
+LnewDisplay.onTap ->
+    test = LsongDisplay3.copy()
+
+    test.visible = true
+    #LsongDisplay3.visible = true
+    LnewDisplay.y += 220
