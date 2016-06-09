@@ -177,7 +177,6 @@ PlayButton1 = new Layer
     borderRadius: 4
     backgroundColor: "#770EC7"
     image:"images/background.png"
-
 PlayButton1.x = 0;
 PlayButton1.y = 0;
 
@@ -187,7 +186,6 @@ PlayButton2 = new Layer
     height: 30
     borderRadius: 4
     backgroundColor: "#770EC7"
-
 PlayButton2.x = 30;
 PlayButton2.y = 0;
 
@@ -196,7 +194,6 @@ PlayButton3 = new Layer
     height: 30
     borderRadius: 4
     backgroundColor: "#770EC7"
-
 PlayButton3.x = 60;
 PlayButton3.y = 0;
 
@@ -205,7 +202,6 @@ PlayButton4 = new Layer
     height: 30
     borderRadius: 4
     backgroundColor: "#770EC7"
-
 PlayButton4.x = 90;
 PlayButton4.y = 0;
 
@@ -214,7 +210,6 @@ PlayButton5 = new Layer
     height: 30
     borderRadius: 4
     backgroundColor: "#770EC7"
-
 PlayButton5.x = 120;
 PlayButton5.y = 0;
 
@@ -223,6 +218,5 @@ PlayButton6 = new Layer
     height: 30
     borderRadius: 4
     backgroundColor: "#770EC7"
-
 PlayButton6.x = 150;
 PlayButton6.y = 0;
