@@ -201,13 +201,15 @@ LopenSongListButton.onTap ->
     else
       ScrollSongList.visible = false
 
+
+
 LnewDisplay = new Layer
     width: 30
     height: 30
     borderRadius: 4
     backgroundColor: "#adbbf0"
 LnewDisplay.center();
-LnewDisplay.y += 100
+LnewDisplay.y += 240
 LnewDisplay.x -= 595
 
 LnewCloseBtn = new Layer
@@ -230,6 +232,127 @@ LnewCloseBtn.onTap ->
       LnewCloseBtn.visible = false
       #LsongDisplay3.visible = true
       LnewDisplay.visible = true
+
+#-----Playbuttons-----#
+
+PlayDisplay= new Layer
+    width: 300
+    height: 120
+    borderRadius: 4
+    backgroundColor: "#adbbf0"
+PlayDisplay.center();
+PlayDisplay.x -= 730
+PlayDisplay.y += 140
+#PlayDisplay.index=2
+
+
+PlayButton1 = new Layer
+    width: 35
+    height: 35
+    borderRadius: 4
+    backgroundColor: "#770EC7"
+    image:"images/background.png"
+    superLayer:PlayDisplay.content
+PlayButton1.center();
+PlayButton1.x -= 630;
+PlayButton1.y += 110;
+
+
+PlayButton2 = new Layer
+    width: 35
+    height: 35
+    borderRadius: 4
+    backgroundColor: "#770EC7"
+    image:"images/background.png"
+PlayButton2.center();
+PlayButton2.x -= 675;
+PlayButton2.y += 110;
+
+PlayButton3 = new Layer
+    width: 70
+    height: 35
+    borderRadius: 4
+    backgroundColor: "#770EC7"
+    image:"images/icon.png"
+PlayButton3.center();
+PlayButton3.x -= 730;
+PlayButton3.y += 110;
+
+PlayButton4 = new Layer
+    width: 35
+    height: 35
+    borderRadius: 4
+    backgroundColor: "#770EC7"
+    image:"images/background.png"
+PlayButton4.center();
+PlayButton4.x -= 785;
+PlayButton4.y += 110;
+
+PlayButton5 = new Layer
+    width: 35
+    height: 35
+    borderRadius: 4
+    backgroundColor: "#770EC7"
+    image:"images/background.png"
+PlayButton5.center();
+PlayButton5.x -= 830;
+PlayButton5.y += 110;
+
+#---Settingbutton--#
+
+PlayButton6 = new Layer
+    width: 60
+    height: 46
+    borderRadius: 6
+    backgroundColor: "#770EC7"
+    image:"images/background.png"
+PlayButton6.center();
+PlayButton6.x -= 630;
+PlayButton6.y += 160;
+
+PlayButton7 = new Layer
+    width: 40
+    height: 23
+    borderRadius: 6
+    backgroundColor: "#770EC7"
+    image:"images/background.png"
+PlayButton7.center();
+PlayButton7.x -= 685;
+PlayButton7.y += 150;
+
+PlayButton8 = new Layer
+    width: 40
+    height: 23
+    borderRadius: 6
+    backgroundColor: "#770EC7"
+    image:"images/background.png"
+PlayButton8.center();
+PlayButton8.x -= 685;
+PlayButton8.y += 170;
+
+PlayButton9 = new Layer
+    width: 70
+    height: 35
+    borderRadius: 4
+    backgroundColor: "#770EC7"
+    image:"images/background.png"
+PlayButton9.center();
+PlayButton9.x -= 745;
+PlayButton9.y += 160;
+
+PlayButton10 = new Layer
+    width: 70
+    height: 35
+    borderRadius: 4
+    backgroundColor: "#770EC7"
+    image:"images/background.png"
+PlayButton10.center();
+PlayButton10.x -= 820;
+PlayButton10.y += 160;
+
+
+
+#----Mitte Fenster---#
 
 LMainWindow = new Layer
     height: 610
