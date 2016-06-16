@@ -1,4 +1,4 @@
-var LMainWindow, LnewCloseBtn, LnewDisplay, LopenSongListButton, Lsong1, Lsong2, Lsong3, LsongDisplay, LsongDisplay2, LsongDisplay3, LtitleDisplay, LwaveForm, LwaveForm2, LwaveForm3, PlayButton1, PlayButton10, PlayButton2, PlayButton3, PlayButton4, PlayButton5, PlayButton6, PlayButton7, PlayButton8, PlayButton9, PlayDisplay, ScrollSongList, SliderTimeline, SliderTimeline2, SliderTimeline3, bg, title, view, view2, view3;
+var LFastBackBtn, LFastForwardBtn, LMainWindow, LPlayBtn, LbpmDisplay, LbpmLabel, LnewCloseBtn, LnewDisplay, LopenSongListButton, LskipToEndBtn, LskipToStart, Lsong1, Lsong2, Lsong3, LsongDisplay, LsongDisplay2, LsongDisplay3, LtitleDisplay, LvolDownBtn, LvolUpBtn, LvolumeBtn, LwaveForm, LwaveForm2, LwaveForm3, PlayDisplay, ScrollSongList, SliderTimeline, SliderTimeline2, SliderTimeline3, bg, title, view, view2, view3;
 
 bg = new BackgroundLayer({
   backgroundColor: "#eee"
@@ -284,6 +284,106 @@ LnewCloseBtn.onTap(function() {
   return LnewDisplay.visible = true;
 });
 
+LskipToEndBtn = new Layer({
+  width: 35,
+  height: 35,
+  x: 230,
+  y: 15,
+  borderRadius: 4,
+  backgroundColor: "#770EC7",
+  image: "images/background.png"
+});
+
+LFastForwardBtn = new Layer({
+  width: 35,
+  height: 35,
+  x: 190,
+  y: 15,
+  borderRadius: 4,
+  backgroundColor: "#770EC7",
+  image: "images/background.png"
+});
+
+LPlayBtn = new Layer({
+  width: 70,
+  height: 35,
+  x: 115,
+  y: 15,
+  borderRadius: 4,
+  backgroundColor: "#770EC7",
+  image: "images/icon.png"
+});
+
+LFastBackBtn = new Layer({
+  width: 35,
+  height: 35,
+  x: 75,
+  y: 15,
+  borderRadius: 4,
+  backgroundColor: "#770EC7",
+  image: "images/background.png"
+});
+
+LskipToStart = new Layer({
+  width: 35,
+  height: 35,
+  x: 35,
+  y: 15,
+  borderRadius: 4,
+  backgroundColor: "#770EC7",
+  image: "images/background.png"
+});
+
+LvolumeBtn = new Layer({
+  width: 60,
+  height: 46,
+  x: 220,
+  y: 60,
+  borderRadius: 6,
+  backgroundColor: "#770EC7",
+  image: "images/background.png"
+});
+
+LvolUpBtn = new Layer({
+  width: 40,
+  height: 23,
+  x: 175,
+  y: 60,
+  borderRadius: 6,
+  backgroundColor: "#770EC7",
+  image: "images/background.png"
+});
+
+LvolDownBtn = new Layer({
+  width: 40,
+  height: 23,
+  x: 175,
+  y: 83,
+  borderRadius: 6,
+  backgroundColor: "#770EC7",
+  image: "images/background.png"
+});
+
+LbpmDisplay = new Layer({
+  width: 70,
+  height: 35,
+  x: 100,
+  y: 65,
+  borderRadius: 4,
+  backgroundColor: "#770EC7",
+  image: "images/background.png"
+});
+
+LbpmLabel = new Layer({
+  width: 70,
+  height: 35,
+  x: 25,
+  y: 65,
+  borderRadius: 4,
+  backgroundColor: "#770EC7",
+  image: "images/background.png"
+});
+
 PlayDisplay = new Layer({
   width: 300,
   height: 120,
@@ -297,146 +397,25 @@ PlayDisplay.x -= 730;
 
 PlayDisplay.y += 140;
 
-PlayButton1 = new Layer({
-  width: 35,
-  height: 35,
-  borderRadius: 4,
-  backgroundColor: "#770EC7",
-  image: "images/background.png",
-  superLayer: PlayDisplay.content
-});
+PlayDisplay.addSubLayer(LskipToEndBtn);
 
-PlayButton1.center();
+PlayDisplay.addSubLayer(LFastForwardBtn);
 
-PlayButton1.x -= 630;
+PlayDisplay.addSubLayer(LPlayBtn);
 
-PlayButton1.y += 110;
+PlayDisplay.addSubLayer(LFastBackBtn);
 
-PlayButton2 = new Layer({
-  width: 35,
-  height: 35,
-  borderRadius: 4,
-  backgroundColor: "#770EC7",
-  image: "images/background.png"
-});
+PlayDisplay.addSubLayer(LskipToStart);
 
-PlayButton2.center();
+PlayDisplay.addSubLayer(LvolumeBtn);
 
-PlayButton2.x -= 675;
+PlayDisplay.addSubLayer(LvolUpBtn);
 
-PlayButton2.y += 110;
+PlayDisplay.addSubLayer(LvolDownBtn);
 
-PlayButton3 = new Layer({
-  width: 70,
-  height: 35,
-  borderRadius: 4,
-  backgroundColor: "#770EC7",
-  image: "images/icon.png"
-});
+PlayDisplay.addSubLayer(LbpmDisplay);
 
-PlayButton3.center();
-
-PlayButton3.x -= 730;
-
-PlayButton3.y += 110;
-
-PlayButton4 = new Layer({
-  width: 35,
-  height: 35,
-  borderRadius: 4,
-  backgroundColor: "#770EC7",
-  image: "images/background.png"
-});
-
-PlayButton4.center();
-
-PlayButton4.x -= 785;
-
-PlayButton4.y += 110;
-
-PlayButton5 = new Layer({
-  width: 35,
-  height: 35,
-  borderRadius: 4,
-  backgroundColor: "#770EC7",
-  image: "images/background.png"
-});
-
-PlayButton5.center();
-
-PlayButton5.x -= 830;
-
-PlayButton5.y += 110;
-
-PlayButton6 = new Layer({
-  width: 60,
-  height: 46,
-  borderRadius: 6,
-  backgroundColor: "#770EC7",
-  image: "images/background.png"
-});
-
-PlayButton6.center();
-
-PlayButton6.x -= 630;
-
-PlayButton6.y += 160;
-
-PlayButton7 = new Layer({
-  width: 40,
-  height: 23,
-  borderRadius: 6,
-  backgroundColor: "#770EC7",
-  image: "images/background.png"
-});
-
-PlayButton7.center();
-
-PlayButton7.x -= 685;
-
-PlayButton7.y += 150;
-
-PlayButton8 = new Layer({
-  width: 40,
-  height: 23,
-  borderRadius: 6,
-  backgroundColor: "#770EC7",
-  image: "images/background.png"
-});
-
-PlayButton8.center();
-
-PlayButton8.x -= 685;
-
-PlayButton8.y += 170;
-
-PlayButton9 = new Layer({
-  width: 70,
-  height: 35,
-  borderRadius: 4,
-  backgroundColor: "#770EC7",
-  image: "images/background.png"
-});
-
-PlayButton9.center();
-
-PlayButton9.x -= 745;
-
-PlayButton9.y += 160;
-
-PlayButton10 = new Layer({
-  width: 70,
-  height: 35,
-  borderRadius: 4,
-  backgroundColor: "#770EC7",
-  image: "images/background.png"
-});
-
-PlayButton10.center();
-
-PlayButton10.x -= 820;
-
-PlayButton10.y += 160;
+PlayDisplay.addSubLayer(LbpmLabel);
 
 LMainWindow = new Layer({
   height: 610,
