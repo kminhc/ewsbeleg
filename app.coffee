@@ -239,8 +239,7 @@ LskipToEndBtn = new Layer
     x: 230
     y: 15
     borderRadius: 4
-    backgroundColor: "#770EC7"
-    image:"images/background.png"
+    image:"images/icons/endrechts.png"
 
 LFastForwardBtn = new Layer
     width: 35
@@ -248,8 +247,7 @@ LFastForwardBtn = new Layer
     x: 190
     y: 15
     borderRadius: 4
-    backgroundColor: "#770EC7"
-    image:"images/background.png"
+    image:"images/icons/vor.png"
 
 LPlayBtn = new Layer
     width: 70
@@ -257,8 +255,7 @@ LPlayBtn = new Layer
     x: 115
     y: 15
     borderRadius: 4
-    backgroundColor: "#770EC7"
-    image:"images/icon.png"
+    image:"images/icons/play.png"
 
 LFastBackBtn = new Layer
     width: 35
@@ -266,8 +263,7 @@ LFastBackBtn = new Layer
     x: 75
     y: 15
     borderRadius: 4
-    backgroundColor: "#770EC7"
-    image:"images/background.png"
+    image:"images/icons/zurück.png"
 
 LskipToStart = new Layer
     width: 35
@@ -275,8 +271,7 @@ LskipToStart = new Layer
     x: 35
     y: 15
     borderRadius: 4
-    backgroundColor: "#770EC7"
-    image:"images/background.png"
+    image:"images/icons/endlinks.png"
 
 LvolumeBtn = new Layer
     width: 60
@@ -285,7 +280,7 @@ LvolumeBtn = new Layer
     y: 60
     borderRadius: 6
     backgroundColor: "#770EC7"
-    image:"images/background.png"
+    image:"images/icons/lupeplus.png"
 
 LvolUpBtn = new Layer
     width: 40
@@ -293,8 +288,7 @@ LvolUpBtn = new Layer
     x: 175
     y: 60
     borderRadius: 6
-    backgroundColor: "#770EC7"
-    image:"images/background.png"
+    image:"images/icons/pfeilhoch.png"
 
 LvolDownBtn = new Layer
     width: 40
@@ -302,8 +296,7 @@ LvolDownBtn = new Layer
     x: 175
     y: 83
     borderRadius: 6
-    backgroundColor: "#770EC7"
-    image:"images/background.png"
+    image:"images/icons/pfeilrunter.png"
 
 LbpmDisplay = new Layer
     width: 70
@@ -321,7 +314,6 @@ LbpmLabel = new Layer
     y: 65
     borderRadius: 4
     backgroundColor: "#770EC7"
-    image:"images/background.png"
 
 #-----Playbuttons-----#
 PlayDisplay = new Layer

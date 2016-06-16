@@ -290,8 +290,7 @@ LskipToEndBtn = new Layer({
   x: 230,
   y: 15,
   borderRadius: 4,
-  backgroundColor: "#770EC7",
-  image: "images/background.png"
+  image: "images/icons/endrechts.png"
 });
 
 LFastForwardBtn = new Layer({
@@ -300,8 +299,7 @@ LFastForwardBtn = new Layer({
   x: 190,
   y: 15,
   borderRadius: 4,
-  backgroundColor: "#770EC7",
-  image: "images/background.png"
+  image: "images/icons/vor.png"
 });
 
 LPlayBtn = new Layer({
@@ -310,8 +308,7 @@ LPlayBtn = new Layer({
   x: 115,
   y: 15,
   borderRadius: 4,
-  backgroundColor: "#770EC7",
-  image: "images/icon.png"
+  image: "images/icons/play.png"
 });
 
 LFastBackBtn = new Layer({
@@ -320,8 +317,7 @@ LFastBackBtn = new Layer({
   x: 75,
   y: 15,
   borderRadius: 4,
-  backgroundColor: "#770EC7",
-  image: "images/background.png"
+  image: "images/icons/zurück.png"
 });
 
 LskipToStart = new Layer({
@@ -330,8 +326,7 @@ LskipToStart = new Layer({
   x: 35,
   y: 15,
   borderRadius: 4,
-  backgroundColor: "#770EC7",
-  image: "images/background.png"
+  image: "images/icons/endlinks.png"
 });
 
 LvolumeBtn = new Layer({
@@ -341,7 +336,7 @@ LvolumeBtn = new Layer({
   y: 60,
   borderRadius: 6,
   backgroundColor: "#770EC7",
-  image: "images/background.png"
+  image: "images/icons/lupeplus.png"
 });
 
 LvolUpBtn = new Layer({
@@ -350,8 +345,7 @@ LvolUpBtn = new Layer({
   x: 175,
   y: 60,
   borderRadius: 6,
-  backgroundColor: "#770EC7",
-  image: "images/background.png"
+  image: "images/icons/pfeilhoch.png"
 });
 
 LvolDownBtn = new Layer({
@@ -360,8 +354,7 @@ LvolDownBtn = new Layer({
   x: 175,
   y: 83,
   borderRadius: 6,
-  backgroundColor: "#770EC7",
-  image: "images/background.png"
+  image: "images/icons/pfeilrunter.png"
 });
 
 LbpmDisplay = new Layer({
@@ -380,8 +373,7 @@ LbpmLabel = new Layer({
   x: 25,
   y: 65,
   borderRadius: 4,
-  backgroundColor: "#770EC7",
-  image: "images/background.png"
+  backgroundColor: "#770EC7"
 });
 
 PlayDisplay = new Layer({
