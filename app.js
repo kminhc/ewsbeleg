@@ -1,8 +1,6 @@
 var LFastBackBtn, LFastForwardBtn, LMainWindow, LPlayBtn, LbpmDisplay, LbpmLabel, LnewCloseBtn, LnewDisplay, LopenSongListButton, LskipToEndBtn, LskipToStart, Lsong1, Lsong2, Lsong3, LsongDisplay, LsongDisplay2, LsongDisplay3, LtitleDisplay, LvolDownBtn, LvolUpBtn, LvolumeBtn, LwaveForm, LwaveForm2, LwaveForm3, PlayDisplay, ScrollSongList, SliderTimeline, SliderTimeline2, SliderTimeline3, bg, title, view, view2, view3;
 
-bg = new BackgroundLayer({
-  backgroundColor: "#eee"
-});
+bg = new BackgroundLayer;
 
 title = "Titel/Interpret";
 
@@ -162,12 +160,6 @@ ScrollSongList = new ScrollComponent({
 
 ScrollSongList.scrollHorizontal = false;
 
-ScrollSongList.center();
-
-ScrollSongList.x -= 730;
-
-ScrollSongList.y -= 264;
-
 LtitleDisplay = new Layer({
   width: 300,
   height: 30,
@@ -182,6 +174,10 @@ LtitleDisplay.x -= 730;
 LtitleDisplay.y -= 350;
 
 Utils.labelLayer(LtitleDisplay, title);
+
+LtitleDisplay.addSubLayer(ScrollSongList);
+
+ScrollSongList.y = Align.top(35);
 
 Lsong1 = new Layer({
   width: 300,
@@ -234,11 +230,9 @@ LopenSongListButton = new Layer({
   backgroundColor: "#adbbf0"
 });
 
-LopenSongListButton.center();
+LtitleDisplay.addSubLayer(LopenSongListButton);
 
-LopenSongListButton.x -= 595;
-
-LopenSongListButton.y -= 350;
+LopenSongListButton.x = Align.right;
 
 LopenSongListButton.onTap(function() {
   if (ScrollSongList.visible === false) {
@@ -275,13 +269,15 @@ LnewDisplay.onTap(function() {
   LsongDisplay3.visible = true;
   LnewCloseBtn.visible = true;
   LsongDisplay3.addSubLayer(LnewCloseBtn);
-  return LnewDisplay.visible = false;
+  LnewDisplay.visible = false;
+  return PlayDisplay.y += 205;
 });
 
 LnewCloseBtn.onTap(function() {
   LsongDisplay3.visible = false;
   LnewCloseBtn.visible = false;
-  return LnewDisplay.visible = true;
+  LnewDisplay.visible = true;
+  return PlayDisplay.y -= 205;
 });
 
 LskipToEndBtn = new Layer({

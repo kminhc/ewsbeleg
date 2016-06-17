@@ -1,6 +1,7 @@
 # Prototyping with Framer
 # Create a background
-bg = new BackgroundLayer backgroundColor: "#eee"
+bg = new BackgroundLayer
+
 title = "Titel/Interpret"
 # new LsongDisplay
 LsongDisplay = new Layer
@@ -135,9 +136,7 @@ ScrollSongList = new ScrollComponent
     height: 120
     visible: false
 ScrollSongList.scrollHorizontal = false
-ScrollSongList.center()
-ScrollSongList.x -= 730
-ScrollSongList.y -= 264
+
 
 #Titelleiste
 LtitleDisplay = new Layer
@@ -150,6 +149,8 @@ LtitleDisplay.center();
 LtitleDisplay.x -= 730
 LtitleDisplay.y -= 350
 Utils.labelLayer(LtitleDisplay,title)
+LtitleDisplay.addSubLayer(ScrollSongList);
+ScrollSongList.y = Align.top(35)
 
 # Create the content layers
 Lsong1 = new Layer
@@ -192,15 +193,14 @@ LopenSongListButton = new Layer
     height: 30
     borderRadius: 4
     backgroundColor: "#adbbf0"
-LopenSongListButton.center();
-LopenSongListButton.x -= 595
-LopenSongListButton.y -= 350
+LtitleDisplay.addSubLayer(LopenSongListButton);
+LopenSongListButton.x = Align.right
+
 LopenSongListButton.onTap ->
     if ScrollSongList.visible is false
         ScrollSongList.visible = true
     else
       ScrollSongList.visible = false
-
 
 
 LnewDisplay = new Layer
@@ -226,12 +226,14 @@ LnewDisplay.onTap ->
     LsongDisplay3.addSubLayer(LnewCloseBtn)
     #LsongDisplay3.visible = true
     LnewDisplay.visible = false
+    PlayDisplay.y += 205
 
 LnewCloseBtn.onTap ->
       LsongDisplay3.visible = false
       LnewCloseBtn.visible = false
       #LsongDisplay3.visible = true
       LnewDisplay.visible = true
+      PlayDisplay.y -= 205
 
 LskipToEndBtn = new Layer
     width: 35
