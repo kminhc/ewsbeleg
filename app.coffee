@@ -9,11 +9,10 @@ LsongDisplay = new Layer
     width: 300
     height: 200
     borderRadius: 4
+    y: Align.top(35)
 
 LsongDisplay.style.boxShadow = "0 1px 2px rgba(0,0,0,0.1)"
-LsongDisplay.center()
-LsongDisplay.y -= 230
-LsongDisplay.x -= 730
+
 
 #Waveform SliderTimeline
 view = new ScrollComponent
@@ -48,14 +47,13 @@ LsongDisplay.addSubLayer(SliderTimeline)
 # new LsongDisplay
 LsongDisplay2 = new Layer
     backgroundColor: "#12bbf0"
+    y: Align.top(240)
     width: 300
     height: 200
     borderRadius: 4
 
 LsongDisplay2.style.boxShadow = "0 1px 2px rgba(0,0,0,0.1)"
-LsongDisplay2.center()
-LsongDisplay2.y -= 25
-LsongDisplay2.x -= 730
+
 
 #Waveform SliderTimeline
 view2 = new ScrollComponent
@@ -90,15 +88,14 @@ LsongDisplay2.addSubLayer(SliderTimeline2)
 # new LsongDisplay
 LsongDisplay3 = new Layer
     backgroundColor: "#12bbf0"
+    y: Align.top(445)
     width: 300
     height: 200
     borderRadius: 4
     visible: false
 
 LsongDisplay3.style.boxShadow = "0 1px 2px rgba(0,0,0,0.1)"
-LsongDisplay3.center()
-LsongDisplay3.y += 180
-LsongDisplay3.x -= 730
+
 
 #Waveform SliderTimeline
 view3 = new ScrollComponent
@@ -132,6 +129,7 @@ LsongDisplay3.addSubLayer(SliderTimeline3)
 
 # Create a ScrollComponent
 ScrollSongList = new ScrollComponent
+    z: 50
     width: 300
     height: 120
     visible: false
@@ -144,10 +142,6 @@ LtitleDisplay = new Layer
     height: 30
     borderRadius: 4
     backgroundColor: "#12bbf0"
-
-LtitleDisplay.center();
-LtitleDisplay.x -= 730
-LtitleDisplay.y -= 350
 Utils.labelLayer(LtitleDisplay,title)
 LtitleDisplay.addSubLayer(ScrollSongList);
 ScrollSongList.y = Align.top(35)
@@ -204,13 +198,12 @@ LopenSongListButton.onTap ->
 
 
 LnewDisplay = new Layer
+    x: Align.left(270)
+    y: Align.top(615)
     width: 30
     height: 30
     borderRadius: 4
     backgroundColor: "#adbbf0"
-LnewDisplay.center();
-LnewDisplay.y += 240
-LnewDisplay.x -= 595
 
 LnewCloseBtn = new Layer
       x: 270
@@ -327,13 +320,11 @@ LbpmLabel = new Layer
 
 #-----Playbuttons-----#
 PlayDisplay = new Layer
+    y: Align.top(445)
     width: 300
     height: 120
     borderRadius: 4
     backgroundColor: "#adbbf0"
-PlayDisplay.center();
-PlayDisplay.x -= 730
-PlayDisplay.y += 140
 PlayDisplay.addSubLayer(LskipToEndBtn);
 PlayDisplay.addSubLayer(LFastForwardBtn);
 PlayDisplay.addSubLayer(LPlayBtn);
@@ -353,3 +344,19 @@ LMainWindow = new Layer
 LMainWindow.center();
 LMainWindow.y -= 25
 LMainWindow.x -= 70
+
+LCtrlParent = new Layer
+    width:300
+    height: 770
+    x: Align.left
+    y: Align.top
+    backgroundColor: "transparent"
+LCtrlParent.y += 132
+LCtrlParent.x += 80
+
+LCtrlParent.addSubLayer(LtitleDisplay)
+LCtrlParent.addSubLayer(LsongDisplay)
+LCtrlParent.addSubLayer(LsongDisplay2)
+LCtrlParent.addSubLayer(LsongDisplay3)
+LCtrlParent.addSubLayer(PlayDisplay)
+LCtrlParent.addSubLayer(LnewDisplay)
