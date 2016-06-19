@@ -2,6 +2,11 @@
 # Create a background
 bg = new BackgroundLayer
 
+Lbg = new Layer
+    width: 1920
+    height:1080
+    backgroundColor:"#262626"
+
 title = "Titel/Interpret"
 
 # new LsongDisplay
@@ -187,7 +192,7 @@ LopenSongListButton = new Layer
     width: 30
     height: 30
     borderRadius: 4
-    backgroundColor: "#303030"
+  #  backgroundColor: "#303030"
     image: "images/icons/ordnerzu.png"
 LtitleDisplay.addSubLayer(LopenSongListButton);
 LopenSongListButton.x = Align.right
@@ -207,7 +212,7 @@ LnewDisplay = new Layer
     width: 30
     height: 30
     borderRadius: 4
-    backgroundColor: "#303030"
+    backgroundColor: "#ffffff"
     image: "images/icons/neu.png"
 
 
@@ -555,7 +560,7 @@ LnewDisplayR = new Layer
     width: 30
     height: 30
     borderRadius: 4
-    backgroundColor: "#303030"
+    backgroundColor: "#ffffff"
     image: "images/icons/neu.png"
 
 LnewCloseBtnR = new Layer
@@ -792,8 +797,6 @@ LMainWindow.x += 385
 LMainWindow.addSubLayer(LfirstTrack)
 LMainWindow.addSubLayer(LSecondTrack)
 
-
-
 viewMain = new ScrollComponent
     x:60
     y:15
@@ -805,7 +808,7 @@ viewMain.scrollVertical = false
 LmainWaveForm = new Layer
     x:0
     y:20
-    width:1000
+    width:9000
     height:200
     image:"images/wave.png"
     superLayer: viewMain.content
