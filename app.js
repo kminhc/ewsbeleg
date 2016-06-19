@@ -1,4 +1,4 @@
-var LCtrlParent, LCtrlParentR, LFastBackBtn, LFastBackBtnM, LFastBackBtnR, LFastForwardBtn, LFastForwardBtnM, LFastForwardBtnR, LMainControl, LMainControlBtns, LMainWindow, LMuteBar, LPlayBtn, LPlayBtnM, LPlayBtnR, LSecondTrack, LbpmDisplay, LbpmDisplayR, LbpmLabel, LbpmLabelR, LfirstTrack, LmainWaveForm, LmainWaveForm2, LnewCloseBtn, LnewCloseBtnR, LnewDisplay, LnewDisplayR, LopenSongListButton, LopenSongListButtonR, LskipToEndBtn, LskipToEndBtnM, LskipToEndBtnR, LskipToStart, LskipToStartM, LskipToStartR, Lsong1, Lsong1R, Lsong2, Lsong2R, Lsong3, Lsong3R, LsongDisplay, LsongDisplay2, LsongDisplay2R, LsongDisplay3, LsongDisplay3R, LsongDisplayR, LtitleDisplay, LtitleDisplayR, LvolDownBtn, LvolDownBtnR, LvolUpBtn, LvolUpBtnR, LvolumeBtn, LvolumeBtnR, LwaveForm, LwaveForm2, LwaveForm2R, LwaveForm3, LwaveForm3R, LwaveFormR, PlayDisplay, PlayDisplayR, ScrollSongList, ScrollSongListR, SliderTimeline, SliderTimeline2, SliderTimeline2R, SliderTimeline3, SliderTimeline3R, SliderTimelineR, bg, title, view, view2, view2R, view3, view3R, viewMain, viewMain2, viewR;
+var LCtrlParent, LCtrlParentR, LFastBackBtn, LFastBackBtnM, LFastBackBtnR, LFastForwardBtn, LFastForwardBtnM, LFastForwardBtnR, LMagMinus, LMagMinus2, LMagPlus, LMagPlus2, LMainControl, LMainControlBtns, LMainWindow, LMuteBar, LMuteBar2, LMuteBtn, LMuteBtn2, LPlayBtn, LPlayBtnM, LPlayBtnR, LSecondTrack, LbpmDisplay, LbpmDisplayR, LbpmLabel, LbpmLabelR, LfirstTrack, LmainWaveForm, LmainWaveForm2, LnewCloseBtn, LnewCloseBtnR, LnewDisplay, LnewDisplayR, LopenSongListButton, LopenSongListButtonR, LskipToEndBtn, LskipToEndBtnM, LskipToEndBtnR, LskipToStart, LskipToStartM, LskipToStartR, Lsong1, Lsong1R, Lsong2, Lsong2R, Lsong3, Lsong3R, LsongDisplay, LsongDisplay2, LsongDisplay2R, LsongDisplay3, LsongDisplay3R, LsongDisplayR, LtitleDisplay, LtitleDisplayR, LvolDownBtn, LvolDownBtnR, LvolUpBtn, LvolUpBtnR, LvolumeBtn, LvolumeBtnR, LwaveForm, LwaveForm2, LwaveForm2R, LwaveForm3, LwaveForm3R, LwaveFormR, PlayDisplay, PlayDisplayR, ScrollSongList, ScrollSongListR, SliderTimeline, SliderTimeline2, SliderTimeline2R, SliderTimeline3, SliderTimeline3R, SliderTimelineR, bg, title, view, view2, view2R, view3, view3R, viewMain, viewMain2, viewR;
 
 bg = new BackgroundLayer;
 
@@ -819,6 +819,7 @@ LSecondTrack = new Layer({
 });
 
 LMuteBar = new Layer({
+  backgroundColor: "transparent",
   height: 180,
   width: 30,
   x: Align.left(25),
@@ -826,6 +827,82 @@ LMuteBar = new Layer({
 });
 
 LfirstTrack.addSubLayer(LMuteBar);
+
+LMuteBtn = new Layer({
+  backgroundColor: "#565656",
+  y: 40,
+  width: 30,
+  height: 30,
+  borderRadius: 4,
+  image: "images/icons/mute.png"
+});
+
+LMuteBar.addSubLayer(LMuteBtn);
+
+LMagPlus = new Layer({
+  backgroundColor: "#565656",
+  width: 30,
+  height: 30,
+  y: 75,
+  borderRadius: 4,
+  image: "images/icons/lupeplus.png"
+});
+
+LMuteBar.addSubLayer(LMagPlus);
+
+LMagMinus = new Layer({
+  backgroundColor: "#565656",
+  width: 30,
+  height: 30,
+  y: 110,
+  borderRadius: 4,
+  image: "images/icons/lupeminus.png"
+});
+
+LMuteBar.addSubLayer(LMagMinus);
+
+LMuteBar2 = new Layer({
+  backgroundColor: "transparent",
+  height: 180,
+  width: 30,
+  x: Align.left(25),
+  y: Align.top(35)
+});
+
+LSecondTrack.addSubLayer(LMuteBar2);
+
+LMuteBtn2 = new Layer({
+  backgroundColor: "#565656",
+  y: 40,
+  width: 30,
+  height: 30,
+  borderRadius: 4,
+  image: "images/icons/mute.png"
+});
+
+LMuteBar2.addSubLayer(LMuteBtn2);
+
+LMagPlus2 = new Layer({
+  backgroundColor: "#565656",
+  width: 30,
+  height: 30,
+  y: 75,
+  borderRadius: 4,
+  image: "images/icons/lupeplus.png"
+});
+
+LMuteBar2.addSubLayer(LMagPlus2);
+
+LMagMinus2 = new Layer({
+  backgroundColor: "#565656",
+  width: 30,
+  height: 30,
+  y: 110,
+  borderRadius: 4,
+  image: "images/icons/lupeminus.png"
+});
+
+LMuteBar2.addSubLayer(LMagMinus2);
 
 LMainWindow = new Layer({
   height: 610,

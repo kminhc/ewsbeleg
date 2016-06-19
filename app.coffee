@@ -712,12 +712,74 @@ LSecondTrack = new Layer
     y: Align.top(255)
 
 LMuteBar = new Layer
+    backgroundColor: "transparent"
     height: 180
     width: 30
     x: Align.left(25)
     y: Align.top(35)
 LfirstTrack.addSubLayer(LMuteBar)
 
+LMuteBtn = new Layer
+    backgroundColor: "#565656"
+    y: 40
+    width: 30
+    height: 30
+    borderRadius: 4
+    image:"images/icons/mute.png"
+LMuteBar.addSubLayer(LMuteBtn)
+
+LMagPlus = new Layer
+    backgroundColor: "#565656"
+    width: 30
+    height: 30
+    y: 75
+    borderRadius: 4
+    image:"images/icons/lupeplus.png"
+LMuteBar.addSubLayer(LMagPlus)
+
+LMagMinus = new Layer
+    backgroundColor: "#565656"
+    width: 30
+    height: 30
+    y: 110
+    borderRadius: 4
+    image:"images/icons/lupeminus.png"
+LMuteBar.addSubLayer(LMagMinus)
+
+LMuteBar2 = new Layer
+    backgroundColor: "transparent"
+    height: 180
+    width: 30
+    x: Align.left(25)
+    y: Align.top(35)
+LSecondTrack.addSubLayer(LMuteBar2)
+
+LMuteBtn2 = new Layer
+    backgroundColor: "#565656"
+    y: 40
+    width: 30
+    height: 30
+    borderRadius: 4
+    image:"images/icons/mute.png"
+LMuteBar2.addSubLayer(LMuteBtn2)
+
+LMagPlus2 = new Layer
+    backgroundColor: "#565656"
+    width: 30
+    height: 30
+    y: 75
+    borderRadius: 4
+    image:"images/icons/lupeplus.png"
+LMuteBar2.addSubLayer(LMagPlus2)
+
+LMagMinus2 = new Layer
+    backgroundColor: "#565656"
+    width: 30
+    height: 30
+    y: 110
+    borderRadius: 4
+    image:"images/icons/lupeminus.png"
+LMuteBar2.addSubLayer(LMagMinus2)
 
 LMainWindow = new Layer
     height: 610
@@ -729,6 +791,8 @@ LMainWindow.y += 167
 LMainWindow.x += 385
 LMainWindow.addSubLayer(LfirstTrack)
 LMainWindow.addSubLayer(LSecondTrack)
+
+
 
 viewMain = new ScrollComponent
     x:60
