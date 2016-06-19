@@ -213,6 +213,7 @@ LopenSongListButton = new Layer({
   width: 30,
   height: 30,
   borderRadius: 4,
+  backgroundColor: "#656565",
   image: "images/icons/ordnerzu.png"
 });
 
@@ -236,7 +237,7 @@ LnewDisplay = new Layer({
   width: 30,
   height: 30,
   borderRadius: 4,
-  backgroundColor: "#ffffff",
+  backgroundColor: "#656565",
   image: "images/icons/neu.png"
 });
 
@@ -245,7 +246,7 @@ LnewCloseBtn = new Layer({
   width: 30,
   height: 30,
   borderRadius: 4,
-  backgroundColor: "#303030",
+  backgroundColor: "#656565",
   image: "images/icons/close.png"
 });
 
@@ -611,7 +612,7 @@ LopenSongListButtonR = new Layer({
   width: 30,
   height: 30,
   borderRadius: 4,
-  backgroundColor: "#303030",
+  backgroundColor: "#656565",
   image: "images/icons/ordnerzu.png"
 });
 
@@ -635,7 +636,7 @@ LnewDisplayR = new Layer({
   width: 30,
   height: 30,
   borderRadius: 4,
-  backgroundColor: "#ffffff",
+  backgroundColor: "#656565",
   image: "images/icons/neu.png"
 });
 
@@ -644,7 +645,7 @@ LnewCloseBtnR = new Layer({
   width: 30,
   height: 30,
   borderRadius: 4,
-  backgroundColor: "#303030",
+  backgroundColor: "#656565",
   image: "images/icons/close.png"
 });
 
@@ -834,7 +835,7 @@ LMuteBar = new Layer({
 LfirstTrack.addSubLayer(LMuteBar);
 
 LMuteBtn = new Layer({
-  backgroundColor: "#565656",
+  backgroundColor: "#525252",
   y: 40,
   width: 30,
   height: 30,
@@ -845,7 +846,7 @@ LMuteBtn = new Layer({
 LMuteBar.addSubLayer(LMuteBtn);
 
 LMagPlus = new Layer({
-  backgroundColor: "#565656",
+  backgroundColor: "#525252",
   width: 30,
   height: 30,
   y: 75,
@@ -856,7 +857,7 @@ LMagPlus = new Layer({
 LMuteBar.addSubLayer(LMagPlus);
 
 LMagMinus = new Layer({
-  backgroundColor: "#565656",
+  backgroundColor: "#525252",
   width: 30,
   height: 30,
   y: 110,
@@ -877,7 +878,7 @@ LMuteBar2 = new Layer({
 LSecondTrack.addSubLayer(LMuteBar2);
 
 LMuteBtn2 = new Layer({
-  backgroundColor: "#565656",
+  backgroundColor: "#525252",
   y: 40,
   width: 30,
   height: 30,
@@ -888,7 +889,7 @@ LMuteBtn2 = new Layer({
 LMuteBar2.addSubLayer(LMuteBtn2);
 
 LMagPlus2 = new Layer({
-  backgroundColor: "#565656",
+  backgroundColor: "#525252",
   width: 30,
   height: 30,
   y: 75,
@@ -899,7 +900,7 @@ LMagPlus2 = new Layer({
 LMuteBar2.addSubLayer(LMagPlus2);
 
 LMagMinus2 = new Layer({
-  backgroundColor: "#565656",
+  backgroundColor: "#525252",
   width: 30,
   height: 30,
   y: 110,
