@@ -46,11 +46,8 @@ LsongDisplay.addSubLayer(SliderTimeline)
 
 # new LsongDisplay
 LsongDisplay2 = new Layer
-<<<<<<< HEAD
     backgroundColor: "#525252"
-=======
     y: Align.top(240)
->>>>>>> 621754dfeec7556276830570b5efcaa0a5f6b7da
     width: 300
     height: 200
     borderRadius: 4
@@ -90,7 +87,7 @@ LsongDisplay2.addSubLayer(SliderTimeline2)
 
 # new LsongDisplay
 LsongDisplay3 = new Layer
-    backgroundColor: "#12bbf0"
+    backgroundColor: "#525252"
     y: Align.top(445)
     width: 300
     height: 200
@@ -144,14 +141,7 @@ LtitleDisplay = new Layer
     width: 300
     height: 30
     borderRadius: 4
-<<<<<<< HEAD
     backgroundColor: "#525252"
-
-LtitleDisplay.center();
-LtitleDisplay.x -= 730
-LtitleDisplay.y -= 350
-=======
->>>>>>> 621754dfeec7556276830570b5efcaa0a5f6b7da
 Utils.labelLayer(LtitleDisplay,title)
 LtitleDisplay.addSubLayer(ScrollSongList);
 ScrollSongList.y = Align.top(35)
@@ -196,7 +186,7 @@ LopenSongListButton = new Layer
     width: 30
     height: 30
     borderRadius: 4
-    backgroundColor: "#adbbf0"
+    backgroundColor: "#303030"
 LtitleDisplay.addSubLayer(LopenSongListButton);
 LopenSongListButton.x = Align.right
 
@@ -213,21 +203,14 @@ LnewDisplay = new Layer
     width: 30
     height: 30
     borderRadius: 4
-<<<<<<< HEAD
-    backgroundColor: "#525252"
-LnewDisplay.center();
-LnewDisplay.y += 240
-LnewDisplay.x -= 595
-=======
-    backgroundColor: "#adbbf0"
->>>>>>> 621754dfeec7556276830570b5efcaa0a5f6b7da
+    backgroundColor: "#303030"
 
 LnewCloseBtn = new Layer
       x: 270
       width: 30
       height: 30
       borderRadius: 4
-      backgroundColor: "#adbbf0"
+      backgroundColor: "#303030"
 LnewCloseBtn.visible = false
 
 LnewDisplay.onTap ->
@@ -331,13 +314,7 @@ PlayDisplay = new Layer
     width: 300
     height: 120
     borderRadius: 4
-<<<<<<< HEAD
     backgroundColor: "#525252"
-PlayDisplay.center();
-PlayDisplay.x -= 730
-PlayDisplay.y += 140
-=======
->>>>>>> 621754dfeec7556276830570b5efcaa0a5f6b7da
 PlayDisplay.addSubLayer(LskipToEndBtn);
 PlayDisplay.addSubLayer(LFastForwardBtn);
 PlayDisplay.addSubLayer(LPlayBtn);
@@ -355,7 +332,7 @@ LMainWindow = new Layer
     width: 1000
     borderRadius: 4
 LMainWindow.center();
-LMainWindow.y -= 25
+LMainWindow.y -= 5
 LMainWindow.x -= 70
 
 LCtrlParent = new Layer

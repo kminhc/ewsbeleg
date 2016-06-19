@@ -49,12 +49,8 @@ SliderTimeline.y += 165;
 LsongDisplay.addSubLayer(SliderTimeline);
 
 LsongDisplay2 = new Layer({
-<<<<<<< HEAD
   backgroundColor: "#525252",
-=======
-  backgroundColor: "#12bbf0",
   y: Align.top(240),
->>>>>>> 621754dfeec7556276830570b5efcaa0a5f6b7da
   width: 300,
   height: 200,
   borderRadius: 4
@@ -97,7 +93,7 @@ SliderTimeline2.y += 165;
 LsongDisplay2.addSubLayer(SliderTimeline2);
 
 LsongDisplay3 = new Layer({
-  backgroundColor: "#12bbf0",
+  backgroundColor: "#525252",
   y: Align.top(445),
   width: 300,
   height: 200,
@@ -211,7 +207,7 @@ LopenSongListButton = new Layer({
   width: 30,
   height: 30,
   borderRadius: 4,
-  backgroundColor: "#adbbf0"
+  backgroundColor: "#303030"
 });
 
 LtitleDisplay.addSubLayer(LopenSongListButton);
@@ -232,7 +228,7 @@ LnewDisplay = new Layer({
   width: 30,
   height: 30,
   borderRadius: 4,
-  backgroundColor: "#525252"
+  backgroundColor: "#303030"
 });
 
 LnewCloseBtn = new Layer({
@@ -240,7 +236,7 @@ LnewCloseBtn = new Layer({
   width: 30,
   height: 30,
   borderRadius: 4,
-  backgroundColor: "#adbbf0"
+  backgroundColor: "#303030"
 });
 
 LnewCloseBtn.visible = false;
@@ -386,7 +382,7 @@ LMainWindow = new Layer({
 
 LMainWindow.center();
 
-LMainWindow.y -= 25;
+LMainWindow.y -= 5;
 
 LMainWindow.x -= 70;
 
