@@ -1,8 +1,6 @@
-var LFastBackBtn, LFastForwardBtn, LMainWindow, LPlayBtn, LbpmDisplay, LbpmLabel, LnewCloseBtn, LnewDisplay, LopenSongListButton, LskipToEndBtn, LskipToStart, Lsong1, Lsong2, Lsong3, LsongDisplay, LsongDisplay2, LsongDisplay3, LtitleDisplay, LvolDownBtn, LvolUpBtn, LvolumeBtn, LwaveForm, LwaveForm2, LwaveForm3, PlayDisplay, ScrollSongList, SliderTimeline, SliderTimeline2, SliderTimeline3, bg, title, view, view2, view3;
+var LCtrlParent, LFastBackBtn, LFastForwardBtn, LMainWindow, LPlayBtn, LbpmDisplay, LbpmLabel, LnewCloseBtn, LnewDisplay, LopenSongListButton, LskipToEndBtn, LskipToStart, Lsong1, Lsong2, Lsong3, LsongDisplay, LsongDisplay2, LsongDisplay3, LtitleDisplay, LvolDownBtn, LvolUpBtn, LvolumeBtn, LwaveForm, LwaveForm2, LwaveForm3, PlayDisplay, ScrollSongList, SliderTimeline, SliderTimeline2, SliderTimeline3, bg, title, view, view2, view3;
 
-bg = new BackgroundLayer({
-  backgroundColor: "#eee"
-});
+bg = new BackgroundLayer;
 
 title = "Titel/Interpret";
 
@@ -10,16 +8,11 @@ LsongDisplay = new Layer({
   backgroundColor: "#525252",
   width: 300,
   height: 200,
-  borderRadius: 4
+  borderRadius: 4,
+  y: Align.top(35)
 });
 
 LsongDisplay.style.boxShadow = "0 1px 2px rgba(0,0,0,0.1)";
-
-LsongDisplay.center();
-
-LsongDisplay.y -= 230;
-
-LsongDisplay.x -= 730;
 
 view = new ScrollComponent({
   x: 25,
@@ -56,19 +49,18 @@ SliderTimeline.y += 165;
 LsongDisplay.addSubLayer(SliderTimeline);
 
 LsongDisplay2 = new Layer({
+<<<<<<< HEAD
   backgroundColor: "#525252",
+=======
+  backgroundColor: "#12bbf0",
+  y: Align.top(240),
+>>>>>>> 621754dfeec7556276830570b5efcaa0a5f6b7da
   width: 300,
   height: 200,
   borderRadius: 4
 });
 
 LsongDisplay2.style.boxShadow = "0 1px 2px rgba(0,0,0,0.1)";
-
-LsongDisplay2.center();
-
-LsongDisplay2.y -= 25;
-
-LsongDisplay2.x -= 730;
 
 view2 = new ScrollComponent({
   x: 25,
@@ -106,6 +98,7 @@ LsongDisplay2.addSubLayer(SliderTimeline2);
 
 LsongDisplay3 = new Layer({
   backgroundColor: "#12bbf0",
+  y: Align.top(445),
   width: 300,
   height: 200,
   borderRadius: 4,
@@ -113,12 +106,6 @@ LsongDisplay3 = new Layer({
 });
 
 LsongDisplay3.style.boxShadow = "0 1px 2px rgba(0,0,0,0.1)";
-
-LsongDisplay3.center();
-
-LsongDisplay3.y += 180;
-
-LsongDisplay3.x -= 730;
 
 view3 = new ScrollComponent({
   x: 25,
@@ -155,18 +142,13 @@ SliderTimeline3.y += 165;
 LsongDisplay3.addSubLayer(SliderTimeline3);
 
 ScrollSongList = new ScrollComponent({
+  z: 50,
   width: 300,
   height: 120,
   visible: false
 });
 
 ScrollSongList.scrollHorizontal = false;
-
-ScrollSongList.center();
-
-ScrollSongList.x -= 730;
-
-ScrollSongList.y -= 264;
 
 LtitleDisplay = new Layer({
   width: 300,
@@ -175,13 +157,11 @@ LtitleDisplay = new Layer({
   backgroundColor: "#525252"
 });
 
-LtitleDisplay.center();
-
-LtitleDisplay.x -= 730;
-
-LtitleDisplay.y -= 350;
-
 Utils.labelLayer(LtitleDisplay, title);
+
+LtitleDisplay.addSubLayer(ScrollSongList);
+
+ScrollSongList.y = Align.top(35);
 
 Lsong1 = new Layer({
   width: 300,
@@ -234,11 +214,9 @@ LopenSongListButton = new Layer({
   backgroundColor: "#adbbf0"
 });
 
-LopenSongListButton.center();
+LtitleDisplay.addSubLayer(LopenSongListButton);
 
-LopenSongListButton.x -= 595;
-
-LopenSongListButton.y -= 350;
+LopenSongListButton.x = Align.right;
 
 LopenSongListButton.onTap(function() {
   if (ScrollSongList.visible === false) {
@@ -249,17 +227,13 @@ LopenSongListButton.onTap(function() {
 });
 
 LnewDisplay = new Layer({
+  x: Align.left(270),
+  y: Align.top(615),
   width: 30,
   height: 30,
   borderRadius: 4,
   backgroundColor: "#525252"
 });
-
-LnewDisplay.center();
-
-LnewDisplay.y += 240;
-
-LnewDisplay.x -= 595;
 
 LnewCloseBtn = new Layer({
   x: 270,
@@ -275,13 +249,15 @@ LnewDisplay.onTap(function() {
   LsongDisplay3.visible = true;
   LnewCloseBtn.visible = true;
   LsongDisplay3.addSubLayer(LnewCloseBtn);
-  return LnewDisplay.visible = false;
+  LnewDisplay.visible = false;
+  return PlayDisplay.y += 205;
 });
 
 LnewCloseBtn.onTap(function() {
   LsongDisplay3.visible = false;
   LnewCloseBtn.visible = false;
-  return LnewDisplay.visible = true;
+  LnewDisplay.visible = true;
+  return PlayDisplay.y -= 205;
 });
 
 LskipToEndBtn = new Layer({
@@ -375,17 +351,12 @@ LbpmLabel = new Layer({
 });
 
 PlayDisplay = new Layer({
+  y: Align.top(445),
   width: 300,
   height: 120,
   borderRadius: 4,
   backgroundColor: "#525252"
 });
-
-PlayDisplay.center();
-
-PlayDisplay.x -= 730;
-
-PlayDisplay.y += 140;
 
 PlayDisplay.addSubLayer(LskipToEndBtn);
 
@@ -418,3 +389,27 @@ LMainWindow.center();
 LMainWindow.y -= 25;
 
 LMainWindow.x -= 70;
+
+LCtrlParent = new Layer({
+  width: 300,
+  height: 770,
+  x: Align.left,
+  y: Align.top,
+  backgroundColor: "transparent"
+});
+
+LCtrlParent.y += 132;
+
+LCtrlParent.x += 80;
+
+LCtrlParent.addSubLayer(LtitleDisplay);
+
+LCtrlParent.addSubLayer(LsongDisplay);
+
+LCtrlParent.addSubLayer(LsongDisplay2);
+
+LCtrlParent.addSubLayer(LsongDisplay3);
+
+LCtrlParent.addSubLayer(PlayDisplay);
+
+LCtrlParent.addSubLayer(LnewDisplay);
