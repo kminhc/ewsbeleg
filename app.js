@@ -1,20 +1,8 @@
-var LCtrlParent, LCtrlParentR, LFastBackBtn, LFastBackBtnR, LFastForwardBtn, LFastForwardBtnR, LMainWindow, LPlayBtn, LPlayBtnR, LbpmDisplay, LbpmDisplayR, LbpmLabel, LbpmLabelR, LnewCloseBtn, LnewCloseBtnR, LnewDisplay, LnewDisplayR, LopenSongListButton, LopenSongListButtonR, LskipToEndBtn, LskipToEndBtnR, LskipToStart, LskipToStartR, Lsong1, Lsong1R, Lsong2, Lsong2R, Lsong3, Lsong3R, LsongDisplay, LsongDisplay2, LsongDisplay2R, LsongDisplay3, LsongDisplay3R, LsongDisplayR, LtitleDisplay, LtitleDisplayR, LvolDownBtn, LvolDownBtnR, LvolUpBtn, LvolUpBtnR, LvolumeBtn, LvolumeBtnR, LwaveForm, LwaveForm2, LwaveForm2R, LwaveForm3, LwaveForm3R, LwaveFormR, PlayDisplay, PlayDisplayR, ScrollSongList, ScrollSongListR, SliderTimeline, SliderTimeline2, SliderTimeline2R, SliderTimeline3, SliderTimeline3R, SliderTimelineR, bg, title, view, view2, view2R, view3, view3R, viewR;
+var LCtrlParent, LCtrlParentR, LFastBackBtn, LFastBackBtnM, LFastBackBtnR, LFastForwardBtn, LFastForwardBtnM, LFastForwardBtnR, LMainControl, LMainControlBtns, LMainWindow, LMuteBar, LPlayBtn, LPlayBtnM, LPlayBtnR, LSecondTrack, LbpmDisplay, LbpmDisplayR, LbpmLabel, LbpmLabelR, LfirstTrack, LmainWaveForm, LmainWaveForm2, LnewCloseBtn, LnewCloseBtnR, LnewDisplay, LnewDisplayR, LopenSongListButton, LopenSongListButtonR, LskipToEndBtn, LskipToEndBtnM, LskipToEndBtnR, LskipToStart, LskipToStartM, LskipToStartR, Lsong1, Lsong1R, Lsong2, Lsong2R, Lsong3, Lsong3R, LsongDisplay, LsongDisplay2, LsongDisplay2R, LsongDisplay3, LsongDisplay3R, LsongDisplayR, LtitleDisplay, LtitleDisplayR, LvolDownBtn, LvolDownBtnR, LvolUpBtn, LvolUpBtnR, LvolumeBtn, LvolumeBtnR, LwaveForm, LwaveForm2, LwaveForm2R, LwaveForm3, LwaveForm3R, LwaveFormR, PlayDisplay, PlayDisplayR, ScrollSongList, ScrollSongListR, SliderTimeline, SliderTimeline2, SliderTimeline2R, SliderTimeline3, SliderTimeline3R, SliderTimelineR, bg, title, view, view2, view2R, view3, view3R, viewMain, viewMain2, viewR;
 
 bg = new BackgroundLayer;
 
 title = "Titel/Interpret";
-
-LMainWindow = new Layer({
-  height: 610,
-  width: 1150,
-  borderRadius: 4,
-  x: Align.left,
-  y: Align.top
-});
-
-LMainWindow.y += 167;
-
-LMainWindow.x += 385;
 
 LsongDisplay = new Layer({
   backgroundColor: "#525252",
@@ -815,3 +803,152 @@ LCtrlParentR.addSubLayer(LsongDisplay3R);
 LCtrlParentR.addSubLayer(PlayDisplayR);
 
 LCtrlParentR.addSubLayer(LnewDisplayR);
+
+LfirstTrack = new Layer({
+  width: 1150,
+  height: 250,
+  x: Align.left,
+  y: Align.top
+});
+
+LSecondTrack = new Layer({
+  width: 1150,
+  height: 250,
+  x: Align.left,
+  y: Align.top(255)
+});
+
+LMuteBar = new Layer({
+  height: 180,
+  width: 30,
+  x: Align.left(25),
+  y: Align.top(35)
+});
+
+LfirstTrack.addSubLayer(LMuteBar);
+
+LMainWindow = new Layer({
+  height: 610,
+  width: 1150,
+  borderRadius: 4,
+  x: Align.left,
+  y: Align.top
+});
+
+LMainWindow.y += 167;
+
+LMainWindow.x += 385;
+
+LMainWindow.addSubLayer(LfirstTrack);
+
+LMainWindow.addSubLayer(LSecondTrack);
+
+viewMain = new ScrollComponent({
+  x: 60,
+  y: 15,
+  width: 1070,
+  height: 200
+});
+
+viewMain.scrollVertical = false;
+
+LmainWaveForm = new Layer({
+  x: 0,
+  y: 20,
+  width: 1000,
+  height: 200,
+  image: "images/wave.png",
+  superLayer: viewMain.content
+});
+
+LfirstTrack.addSubLayer(viewMain);
+
+viewMain2 = new ScrollComponent({
+  x: 60,
+  y: 15,
+  width: 1070,
+  height: 200
+});
+
+viewMain2.scrollVertical = false;
+
+LmainWaveForm2 = new Layer({
+  x: 0,
+  y: 20,
+  width: 1000,
+  height: 200,
+  image: "images/wave.png",
+  superLayer: viewMain2.content
+});
+
+LSecondTrack.addSubLayer(viewMain2);
+
+LMainControl = new Layer({
+  width: 1150,
+  height: 100,
+  x: Align.left,
+  y: Align.top(510)
+});
+
+LMainWindow.addSubLayer(LMainControl);
+
+LMainControlBtns = new Layer({
+  width: 225,
+  height: 35,
+  backgroundColor: "transparent"
+});
+
+LMainControl.addSubLayer(LMainControlBtns);
+
+LskipToEndBtnM = new Layer({
+  width: 35,
+  height: 35,
+  x: 190,
+  borderRadius: 4,
+  image: "images/icons/endrechts.png"
+});
+
+LFastForwardBtnM = new Layer({
+  width: 35,
+  height: 35,
+  x: 150,
+  borderRadius: 4,
+  image: "images/icons/vor.png"
+});
+
+LPlayBtnM = new Layer({
+  width: 70,
+  height: 35,
+  x: 80,
+  borderRadius: 4,
+  image: "images/icons/play.png"
+});
+
+LFastBackBtnM = new Layer({
+  width: 35,
+  height: 35,
+  x: 40,
+  borderRadius: 4,
+  image: "images/icons/zurück.png"
+});
+
+LskipToStartM = new Layer({
+  width: 35,
+  height: 35,
+  borderRadius: 4,
+  image: "images/icons/endlinks.png"
+});
+
+LMainControlBtns.addSubLayer(LskipToStartM);
+
+LMainControlBtns.addSubLayer(LFastBackBtnM);
+
+LMainControlBtns.addSubLayer(LPlayBtnM);
+
+LMainControlBtns.addSubLayer(LFastForwardBtnM);
+
+LMainControlBtns.addSubLayer(LskipToEndBtnM);
+
+LMainControlBtns.x += 463;
+
+LMainControlBtns.y += 10;
