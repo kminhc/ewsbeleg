@@ -7,7 +7,7 @@ bg = new BackgroundLayer({
 title = "Titel/Interpret";
 
 LsongDisplay = new Layer({
-  backgroundColor: "#12bbf0",
+  backgroundColor: "#525252",
   width: 300,
   height: 200,
   borderRadius: 4
@@ -56,7 +56,7 @@ SliderTimeline.y += 165;
 LsongDisplay.addSubLayer(SliderTimeline);
 
 LsongDisplay2 = new Layer({
-  backgroundColor: "#12bbf0",
+  backgroundColor: "#525252",
   width: 300,
   height: 200,
   borderRadius: 4
@@ -172,7 +172,7 @@ LtitleDisplay = new Layer({
   width: 300,
   height: 30,
   borderRadius: 4,
-  backgroundColor: "#12bbf0"
+  backgroundColor: "#525252"
 });
 
 LtitleDisplay.center();
@@ -252,7 +252,7 @@ LnewDisplay = new Layer({
   width: 30,
   height: 30,
   borderRadius: 4,
-  backgroundColor: "#adbbf0"
+  backgroundColor: "#525252"
 });
 
 LnewDisplay.center();
@@ -335,8 +335,7 @@ LvolumeBtn = new Layer({
   x: 220,
   y: 60,
   borderRadius: 6,
-  backgroundColor: "#770EC7",
-  image: "images/icons/lupeplus.png"
+  image: "images/icons/lauter.png"
 });
 
 LvolUpBtn = new Layer({
@@ -363,8 +362,7 @@ LbpmDisplay = new Layer({
   x: 100,
   y: 65,
   borderRadius: 4,
-  backgroundColor: "#770EC7",
-  image: "images/background.png"
+  backgroundColor: "#ffffff"
 });
 
 LbpmLabel = new Layer({
@@ -373,14 +371,14 @@ LbpmLabel = new Layer({
   x: 25,
   y: 65,
   borderRadius: 4,
-  backgroundColor: "#770EC7"
+  image: "images/icons/bpm2.png"
 });
 
 PlayDisplay = new Layer({
   width: 300,
   height: 120,
   borderRadius: 4,
-  backgroundColor: "#adbbf0"
+  backgroundColor: "#525252"
 });
 
 PlayDisplay.center();

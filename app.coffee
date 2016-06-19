@@ -4,7 +4,7 @@ bg = new BackgroundLayer backgroundColor: "#eee"
 title = "Titel/Interpret"
 # new LsongDisplay
 LsongDisplay = new Layer
-    backgroundColor: "#12bbf0"
+    backgroundColor: "#525252"
     width: 300
     height: 200
     borderRadius: 4
@@ -46,7 +46,7 @@ LsongDisplay.addSubLayer(SliderTimeline)
 
 # new LsongDisplay
 LsongDisplay2 = new Layer
-    backgroundColor: "#12bbf0"
+    backgroundColor: "#525252"
     width: 300
     height: 200
     borderRadius: 4
@@ -144,7 +144,7 @@ LtitleDisplay = new Layer
     width: 300
     height: 30
     borderRadius: 4
-    backgroundColor: "#12bbf0"
+    backgroundColor: "#525252"
 
 LtitleDisplay.center();
 LtitleDisplay.x -= 730
@@ -207,7 +207,7 @@ LnewDisplay = new Layer
     width: 30
     height: 30
     borderRadius: 4
-    backgroundColor: "#adbbf0"
+    backgroundColor: "#525252"
 LnewDisplay.center();
 LnewDisplay.y += 240
 LnewDisplay.x -= 595
@@ -279,8 +279,7 @@ LvolumeBtn = new Layer
     x: 220
     y: 60
     borderRadius: 6
-    backgroundColor: "#770EC7"
-    image:"images/icons/lupeplus.png"
+    image:"images/icons/lauter.png"
 
 LvolUpBtn = new Layer
     width: 40
@@ -304,8 +303,7 @@ LbpmDisplay = new Layer
     x: 100
     y: 65
     borderRadius: 4
-    backgroundColor: "#770EC7"
-    image:"images/background.png"
+    backgroundColor: "#ffffff"
 
 LbpmLabel = new Layer
     width: 70
@@ -313,14 +311,14 @@ LbpmLabel = new Layer
     x: 25
     y: 65
     borderRadius: 4
-    backgroundColor: "#770EC7"
+    image:"images/icons/bpm2.png"
 
 #-----Playbuttons-----#
 PlayDisplay = new Layer
     width: 300
     height: 120
     borderRadius: 4
-    backgroundColor: "#adbbf0"
+    backgroundColor: "#525252"
 PlayDisplay.center();
 PlayDisplay.x -= 730
 PlayDisplay.y += 140
