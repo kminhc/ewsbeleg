@@ -220,7 +220,7 @@ LopenSongListButton = new Layer({
   height: 30,
   borderRadius: 4,
   backgroundColor: "#303030",
-  image: "images/icons/downmenü.png"
+  image: "images/icons/ordnerzu.png"
 });
 
 LtitleDisplay.addSubLayer(LopenSongListButton);
@@ -229,9 +229,11 @@ LopenSongListButton.x = Align.right;
 
 LopenSongListButton.onTap(function() {
   if (ScrollSongList.visible === false) {
-    return ScrollSongList.visible = true;
+    ScrollSongList.visible = true;
+    return LopenSongListButton.image = "images/icons/ordnerplus.png";
   } else {
-    return ScrollSongList.visible = false;
+    ScrollSongList.visible = false;
+    return LopenSongListButton.image = "images/icons/ordnerzu.png";
   }
 });
 
@@ -617,7 +619,7 @@ LopenSongListButtonR = new Layer({
   height: 30,
   borderRadius: 4,
   backgroundColor: "#303030",
-  image: "images/icons/downmenü.png"
+  image: "images/icons/ordnerzu.png"
 });
 
 LtitleDisplayR.addSubLayer(LopenSongListButtonR);
@@ -626,8 +628,10 @@ LopenSongListButtonR.x = Align.right;
 
 LopenSongListButtonR.onTap(function() {
   if (ScrollSongListR.visible === false) {
+    LopenSongListButtonR.image = "images/icons/ordnerplus.png";
     return ScrollSongListR.visible = true;
   } else {
+    LopenSongListButtonR.image = "images/icons/ordnerzu.png";
     return ScrollSongListR.visible = false;
   }
 });

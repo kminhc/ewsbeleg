@@ -199,15 +199,17 @@ LopenSongListButton = new Layer
     height: 30
     borderRadius: 4
     backgroundColor: "#303030"
-    image: "images/icons/downmenü.png"
+    image: "images/icons/ordnerzu.png"
 LtitleDisplay.addSubLayer(LopenSongListButton);
 LopenSongListButton.x = Align.right
 
 LopenSongListButton.onTap ->
     if ScrollSongList.visible is false
         ScrollSongList.visible = true
+        LopenSongListButton.image = "images/icons/ordnerplus.png"
     else
       ScrollSongList.visible = false
+      LopenSongListButton.image = "images/icons/ordnerzu.png"
 
 
 LnewDisplay = new Layer
@@ -544,15 +546,18 @@ LopenSongListButtonR = new Layer
     height: 30
     borderRadius: 4
     backgroundColor: "#303030"
-    image: "images/icons/downmenü.png"
+    image: "images/icons/ordnerzu.png"
 LtitleDisplayR.addSubLayer(LopenSongListButtonR);
 LopenSongListButtonR.x = Align.right
 
 LopenSongListButtonR.onTap ->
     if ScrollSongListR.visible is false
+        LopenSongListButtonR.image = "images/icons/ordnerplus.png"
         ScrollSongListR.visible = true
     else
+      LopenSongListButtonR.image = "images/icons/ordnerzu.png"
       ScrollSongListR.visible = false
+
 
 
 LnewDisplayR = new Layer
