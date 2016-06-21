@@ -262,7 +262,8 @@ ScrollSongList = new ScrollComponent({
   z: 50,
   width: 300,
   height: 120,
-  visible: false
+  visible: false,
+  backgroundColor: "transparent"
 });
 
 ScrollSongList.scrollHorizontal = false;
@@ -291,7 +292,8 @@ Lsong1 = new Layer({
   width: 300,
   height: 30,
   borderRadius: 4,
-  superLayer: ScrollSongList.content
+  superLayer: ScrollSongList.content,
+  backgroundColor: "656565"
 });
 
 Lsong1.html = "Lied 1";
@@ -313,7 +315,8 @@ Lsong2 = new Layer({
   height: 30,
   borderRadius: 4,
   y: 35,
-  superLayer: ScrollSongList.content
+  superLayer: ScrollSongList.content,
+  backgroundColor: "656565"
 });
 
 Lsong2.html = "Lied 2";
@@ -335,7 +338,8 @@ Lsong3 = new Layer({
   height: 30,
   borderRadius: 4,
   y: 70,
-  superLayer: ScrollSongList.content
+  superLayer: ScrollSongList.content,
+  backgroundColor: "656565"
 });
 
 Lsong3.html = "Lied 3";
@@ -1186,7 +1190,8 @@ ScrollSongListR = new ScrollComponent({
   z: 50,
   width: 300,
   height: 120,
-  visible: false
+  visible: false,
+  backgroundColor: "transparent"
 });
 
 ScrollSongListR.scrollHorizontal = false;
@@ -1215,7 +1220,8 @@ Lsong1R = new Layer({
   width: 300,
   height: 30,
   borderRadius: 4,
-  superLayer: ScrollSongListR.content
+  superLayer: ScrollSongListR.content,
+  backgroundColor: "656565"
 });
 
 Lsong1R.html = "Lied 1";
@@ -1237,7 +1243,8 @@ Lsong2R = new Layer({
   height: 30,
   borderRadius: 4,
   y: 35,
-  superLayer: ScrollSongListR.content
+  superLayer: ScrollSongListR.content,
+  backgroundColor: "656565"
 });
 
 Lsong2R.html = "Lied 2";
@@ -1259,7 +1266,8 @@ Lsong3R = new Layer({
   height: 30,
   borderRadius: 4,
   y: 70,
-  superLayer: ScrollSongListR.content
+  superLayer: ScrollSongListR.content,
+  backgroundColor: "656565"
 });
 
 Lsong3R.html = "Lied 3";

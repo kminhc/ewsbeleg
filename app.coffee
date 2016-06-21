@@ -230,6 +230,7 @@ ScrollSongList = new ScrollComponent
     width: 300
     height: 120
     visible: false
+    backgroundColor: "transparent"
 ScrollSongList.scrollHorizontal = false
 
 
@@ -256,6 +257,7 @@ Lsong1 = new Layer
     borderRadius: 4
     #backgroundColor: "#12bbf0"
     superLayer: ScrollSongList.content
+    backgroundColor: "656565"
 Lsong1.html = "Lied 1"
 Lsong1.style =
     fontSize: "15px"
@@ -273,6 +275,7 @@ Lsong2 = new Layer
     #backgroundColor: "#12bbf0"
     y: 35
     superLayer: ScrollSongList.content
+    backgroundColor: "656565"
 Lsong2.html = "Lied 2"
 Lsong2.style =
     fontSize: "15px"
@@ -290,6 +293,7 @@ Lsong3 = new Layer
     #backgroundColor: "#12bbf0"
     y: 70
     superLayer: ScrollSongList.content
+    backgroundColor: "656565"
 Lsong3.html = "Lied 3"
 Lsong3.style =
     fontSize: "15px"
@@ -1007,6 +1011,7 @@ ScrollSongListR = new ScrollComponent
     width: 300
     height: 120
     visible: false
+    backgroundColor: "transparent"
 ScrollSongListR.scrollHorizontal = false
 
 
@@ -1032,6 +1037,7 @@ Lsong1R = new Layer
     borderRadius: 4
     #backgroundColor: "#12bbf0"
     superLayer: ScrollSongListR.content
+    backgroundColor: "656565"
 Lsong1R.html = "Lied 1"
 Lsong1R.style =
     fontSize: "15px"
@@ -1049,6 +1055,7 @@ Lsong2R = new Layer
     #backgroundColor: "#12bbf0"
     y: 35
     superLayer: ScrollSongListR.content
+    backgroundColor: "656565"
 Lsong2R.html = "Lied 2"
 Lsong2R.style =
     fontSize: "15px"
@@ -1066,6 +1073,7 @@ Lsong3R = new Layer
     #backgroundColor: "#12bbf0"
     y: 70
     superLayer: ScrollSongListR.content
+    backgroundColor: "656565"
 Lsong3R.html = "Lied 3"
 Lsong3R.style =
     fontSize: "15px"
