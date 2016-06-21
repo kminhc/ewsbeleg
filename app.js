@@ -1,4 +1,4 @@
-var AFastBackBtn, AFastBackBtn2, AFastBackBtn2R, AFastBackBtnR, Afastforward, Afastforward2, Afastforward2R, AfastforwardR, Aplay, Aplay2, Aplay2R, AplayR, LCtrlParent, LCtrlParentR, LFastBackBtn, LFastBackBtnM, LFastBackBtnR, LFastForwardBtn, LFastForwardBtnM, LFastForwardBtnR, LMagMinus, LMagMinus2, LMagPlus, LMagPlus2, LMainControl, LMainControlBtns, LMainWindow, LMuteBar, LMuteBar2, LMuteBtn, LMuteBtn2, LPauseBtn, LPauseBtnR, LPlayBtn, LPlayBtnM, LPlayBtnR, LSecondTrack, Lbg, LbpmDisplay, LbpmDisplayR, LbpmLabel, LbpmLabelR, LdisplayToggle, LdisplayToggle2, LdisplayToggle2M, LdisplayToggle2R, LdisplayToggle3, LdisplayToggle3R, LdisplayToggleM, LdisplayToggleR, Lexpand, LfirstTrack, LmainWaveForm, LmainWaveForm2, LnewCloseBtn, LnewCloseBtnR, LnewDisplay, LnewDisplayR, LopenSongListButton, LopenSongListButtonR, LskipToEndBtn, LskipToEndBtnM, LskipToEndBtnR, LskipToStart, LskipToStartM, LskipToStartR, Lsong1, Lsong1R, Lsong2, Lsong2R, Lsong3, Lsong3R, LsongDisplay, LsongDisplay2, LsongDisplay2R, LsongDisplay3, LsongDisplay3R, LsongDisplayR, LtitleDisplay, LtitleDisplayR, LvolDownBtn, LvolDownBtnR, LvolUpBtn, LvolUpBtnR, LvolumeBtn, LvolumeBtnR, LwaveForm, LwaveForm2, LwaveForm2R, LwaveForm3, LwaveForm3R, LwaveFormR, PlayDisplay, PlayDisplayR, ScrollSongList, ScrollSongListR, SliderTimeline, SliderTimeline2, SliderTimeline2R, SliderTimeline3, SliderTimeline3R, SliderTimelineR, bg, title, view, view2, view2R, view3, view3R, viewMain, viewMain2, viewR;
+var AFastBackBtn, AFastBackBtn2, AFastBackBtn2R, AFastBackBtnR, Afastforward, Afastforward2, Afastforward2R, AfastforwardR, Aplay, Aplay2, Aplay2R, AplayM, AplayM2, AplayR, LCtrlParent, LCtrlParentR, LFastBackBtn, LFastBackBtnM, LFastBackBtnR, LFastForwardBtn, LFastForwardBtnM, LFastForwardBtnR, LMagMinus, LMagMinus2, LMagPlus, LMagPlus2, LMainControl, LMainControlBtns, LMainWindow, LMuteBar, LMuteBar2, LMuteBtn, LMuteBtn2, LPauseBtn, LPauseBtnR, LPlayBtn, LPlayBtnM, LPlayBtnR, LSecondTrack, Lbg, LbpmDisplay, LbpmDisplayR, LbpmLabel, LbpmLabelR, Lcontract, Lcontract2, LdisplayToggle, LdisplayToggle2, LdisplayToggle2M, LdisplayToggle2R, LdisplayToggle3, LdisplayToggle3R, LdisplayToggleM, LdisplayToggleR, Lexpand, Lexpand2, LfirstTrack, Llogo, LmainWaveForm, LmainWaveForm2, LnewCloseBtn, LnewCloseBtnR, LnewDisplay, LnewDisplayR, LopenSongListButton, LopenSongListButtonR, LskipToEndBtn, LskipToEndBtnM, LskipToEndBtnR, LskipToStart, LskipToStartM, LskipToStartR, Lsong1, Lsong1R, Lsong2, Lsong2R, Lsong3, Lsong3R, LsongDisplay, LsongDisplay2, LsongDisplay2R, LsongDisplay3, LsongDisplay3R, LsongDisplayR, LtitleDisplay, LtitleDisplayR, LvolDownBtn, LvolDownBtnR, LvolUpBtn, LvolUpBtnR, LvolumeBtn, LvolumeBtnR, LwaveForm, LwaveForm2, LwaveForm2R, LwaveForm3, LwaveForm3R, LwaveFormR, PlayDisplay, PlayDisplayR, ScrollSongList, ScrollSongListR, SliderTimeline, SliderTimeline2, SliderTimeline2R, SliderTimeline3, SliderTimeline3R, SliderTimelineR, bg, title, view, view2, view2R, view3, view3R, viewMain, viewMain2, viewR;
 
 bg = new BackgroundLayer;
 
@@ -9,6 +9,14 @@ Lbg = new Layer({
 });
 
 title = "Titel/Interpret";
+
+Llogo = new Layer({
+  width: 600,
+  x: Align.left(700),
+  y: Align.top(),
+  image: "images/titel.png",
+  backgroundColor: 525252
+});
 
 LsongDisplay = new Layer({
   backgroundColor: "#525252",
@@ -471,7 +479,23 @@ LFastForwardBtn.onTap(function() {
   Afastforward2.start();
   return Afastforward.onAnimationEnd(function() {
     LPlayBtn.visible = true;
-    return LPauseBtn.visible = false;
+    LPauseBtn.visible = false;
+    Afastforward = new Animation({
+      layer: view,
+      properties: {
+        scrollX: 8750
+      },
+      curve: "linear",
+      time: 15
+    });
+    return Afastforward2 = new Animation({
+      layer: view2,
+      properties: {
+        scrollX: 8750
+      },
+      curve: "linear",
+      time: 15
+    });
   });
 });
 
@@ -517,6 +541,7 @@ LPlayBtn.onTap(function() {
       });
     });
   });
+  AplayM.start();
   Aplay.start();
   return Aplay2.start();
 });
@@ -765,7 +790,7 @@ SliderTimelineR = new SliderComponent({
 
 SliderTimelineR.x += 25;
 
-SliderTimelineR.y += 165;
+SliderTimelineR.y += 170;
 
 LsongDisplayR.addSubLayer(SliderTimelineR);
 
@@ -1383,7 +1408,7 @@ LMuteBar = new Layer({
   height: 180,
   width: 30,
   x: Align.left(25),
-  y: Align.top(35)
+  y: Align.top(10)
 });
 
 LfirstTrack.addSubLayer(LMuteBar);
@@ -1462,6 +1487,17 @@ Lexpand = new Layer({
 
 LMuteBar.addSubLayer(Lexpand);
 
+Lcontract = new Layer({
+  backgroundColor: "#525252",
+  width: 30,
+  height: 30,
+  y: 180,
+  borderRadius: 4,
+  image: "images/icons/klpfeile.png"
+});
+
+LMuteBar.addSubLayer(Lcontract);
+
 LMagMinus = new Layer({
   backgroundColor: "#525252",
   width: 30,
@@ -1478,7 +1514,7 @@ LMuteBar2 = new Layer({
   height: 180,
   width: 30,
   x: Align.left(25),
-  y: Align.top(35)
+  y: Align.top(10)
 });
 
 LSecondTrack.addSubLayer(LMuteBar2);
@@ -1546,6 +1582,28 @@ LMagMinus2.onTap(function() {
   }
 });
 
+Lexpand2 = new Layer({
+  backgroundColor: "#525252",
+  width: 30,
+  height: 30,
+  y: 145,
+  borderRadius: 4,
+  image: "images/icons/grpfeile.png"
+});
+
+LMuteBar2.addSubLayer(Lexpand2);
+
+Lcontract2 = new Layer({
+  backgroundColor: "#525252",
+  width: 30,
+  height: 30,
+  y: 180,
+  borderRadius: 4,
+  image: "images/icons/klpfeile.png"
+});
+
+LMuteBar2.addSubLayer(Lcontract2);
+
 LMainWindow = new Layer({
   height: 610,
   width: 1150,
@@ -1566,7 +1624,7 @@ LMainWindow.addSubLayer(LSecondTrack);
 viewMain = new ScrollComponent({
   x: 60,
   y: 25,
-  width: 1070,
+  width: 1065,
   height: 200
 });
 
@@ -1616,7 +1674,7 @@ LdisplayToggleM.onTap(function() {
 viewMain2 = new ScrollComponent({
   x: 60,
   y: 25,
-  width: 1070,
+  width: 1065,
   height: 200
 });
 
@@ -1632,6 +1690,24 @@ LmainWaveForm2 = new Layer({
 });
 
 LSecondTrack.addSubLayer(viewMain2);
+
+AplayM = new Animation({
+  layer: viewMain,
+  properties: {
+    scrollX: 8750
+  },
+  curve: "linear",
+  time: 30
+});
+
+AplayM2 = new Animation({
+  layer: viewMain2,
+  properties: {
+    scrollX: 8750
+  },
+  curve: "linear",
+  time: 30
+});
 
 LdisplayToggle2M = new Layer({
   height: 25,

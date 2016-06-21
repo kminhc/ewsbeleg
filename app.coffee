@@ -9,6 +9,13 @@ Lbg = new Layer
 
 title = "Titel/Interpret"
 
+Llogo = new Layer
+    width: 600
+    x: Align.left(700)
+    y: Align.top()
+    image: "images/titel.png"
+    backgroundColor: 525252
+
 # new LsongDisplay
 LsongDisplay = new Layer
     backgroundColor: "#525252"
@@ -404,6 +411,19 @@ LFastForwardBtn.onTap ->
     Afastforward.onAnimationEnd ->
         LPlayBtn.visible = true
         LPauseBtn.visible = false
+        Afastforward = new Animation
+            layer: view
+            properties:
+                scrollX: 8750
+            curve: "linear"
+            time: 15
+
+        Afastforward2 = new Animation
+            layer: view2
+            properties:
+                scrollX: 8750
+            curve: "linear"
+            time: 15
 
 LFastBackBtn.onTap ->
     if LPlayBtn.visible is true
@@ -440,8 +460,10 @@ LPlayBtn.onTap ->
                 curve: "linear"
                 time: 30
 
+    AplayM.start()
     Aplay.start()
     Aplay2.start()
+
 
 LPauseBtn.onTap ->
     if LPauseBtn.visible is true
@@ -644,7 +666,7 @@ SliderTimelineR = new SliderComponent
     width: 250
     height: 5
 SliderTimelineR.x += 25
-SliderTimelineR.y += 165
+SliderTimelineR.y += 170
 
 LsongDisplayR.addSubLayer(SliderTimelineR)
 
@@ -1165,7 +1187,7 @@ LMuteBar = new Layer
     height: 180
     width: 30
     x: Align.left(25)
-    y: Align.top(35)
+    y: Align.top(10)
 LfirstTrack.addSubLayer(LMuteBar)
 
 LMuteBtn = new Layer
@@ -1224,6 +1246,15 @@ Lexpand = new Layer
     image:"images/icons/grpfeile.png"
 LMuteBar.addSubLayer(Lexpand)
 
+Lcontract = new Layer
+    backgroundColor: "#525252"
+    width: 30
+    height: 30
+    y: 180
+    borderRadius: 4
+    image:"images/icons/klpfeile.png"
+LMuteBar.addSubLayer(Lcontract)
+
 LMagMinus = new Layer
     backgroundColor: "#525252"
     width: 30
@@ -1238,7 +1269,7 @@ LMuteBar2 = new Layer
     height: 180
     width: 30
     x: Align.left(25)
-    y: Align.top(35)
+    y: Align.top(10)
 LSecondTrack.addSubLayer(LMuteBar2)
 
 LMuteBtn2 = new Layer
@@ -1288,6 +1319,24 @@ LMagMinus2.onTap ->
     if LmainWaveForm2.image is "images/Deck_1_bpm_klein.png"
       LmainWaveForm2.image = "images/Deck_1_bpm.png"
 
+Lexpand2 = new Layer
+    backgroundColor: "#525252"
+    width: 30
+    height: 30
+    y: 145
+    borderRadius: 4
+    image:"images/icons/grpfeile.png"
+LMuteBar2.addSubLayer(Lexpand2)
+
+Lcontract2 = new Layer
+    backgroundColor: "#525252"
+    width: 30
+    height: 30
+    y: 180
+    borderRadius: 4
+    image:"images/icons/klpfeile.png"
+LMuteBar2.addSubLayer(Lcontract2)
+
 LMainWindow = new Layer
     height: 610
     width: 1150
@@ -1303,7 +1352,7 @@ LMainWindow.addSubLayer(LSecondTrack)
 viewMain = new ScrollComponent
     x:60
     y:25
-    width:1070
+    width:1065
     height:200
 
 viewMain.scrollVertical = false
@@ -1344,7 +1393,7 @@ LdisplayToggleM.onTap ->
 viewMain2 = new ScrollComponent
     x:60
     y:25
-    width:1070
+    width:1065
     height:200
 
 viewMain2.scrollVertical = false
@@ -1357,6 +1406,20 @@ LmainWaveForm2 = new Layer
     image:"images/Deck_1_wave.png"
     superLayer: viewMain2.content
 LSecondTrack.addSubLayer(viewMain2)
+
+AplayM = new Animation
+    layer: viewMain
+    properties:
+        scrollX: 8750
+    curve: "linear"
+    time: 30
+
+AplayM2 = new Animation
+    layer: viewMain2
+    properties:
+        scrollX: 8750
+    curve: "linear"
+    time: 30
 
 #Display Toggle Button
 LdisplayToggle2M = new Layer
