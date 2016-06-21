@@ -26,7 +26,6 @@ view = new ScrollComponent
     y:15
     width:250
     height:130
-
 view.scrollVertical = false
 
 #Display content
@@ -63,8 +62,6 @@ LdisplayToggle.onTap ->
       LdisplayToggle.html = "Waveform"
       LwaveForm.image = "images/Deck_1_wave.png"
 
-
-
 SliderTimeline = new SliderComponent
     min: 0
     max: 1
@@ -73,8 +70,8 @@ SliderTimeline = new SliderComponent
     height: 5
 SliderTimeline.x += 25
 SliderTimeline.y += 165
-
 LsongDisplay.addSubLayer(SliderTimeline)
+
 
 # new LsongDisplay
 LsongDisplay2 = new Layer
@@ -83,9 +80,7 @@ LsongDisplay2 = new Layer
     width: 300
     height: 200
     borderRadius: 4
-
 LsongDisplay2.style.boxShadow = "0 1px 2px rgba(0,0,0,0.1)"
-
 
 #Waveform SliderTimeline
 view2 = new ScrollComponent
@@ -321,6 +316,23 @@ LskipToEndBtn = new Layer
     y: 15
     borderRadius: 4
     image:"images/icons/endrechts.png"
+LskipToEndBtn.onTap ->
+    view.scrollX = 8750
+    view2.scrollX = 8750
+
+Afastforward = new Animation
+    layer: view
+    properties:
+        scrollX: 8750
+    curve: "linear"
+    time: 15
+
+Afastforward2 = new Animation
+    layer: view2
+    properties:
+        scrollX: 8750
+    curve: "linear"
+    time: 15
 
 LFastForwardBtn = new Layer
     width: 35
@@ -329,6 +341,16 @@ LFastForwardBtn = new Layer
     y: 15
     borderRadius: 4
     image:"images/icons/vor.png"
+LFastForwardBtn.onTap ->
+    if LPlayBtn.visible is true
+        LPlayBtn.visible = false
+        LPauseBtn.visible = true
+    Afastforward.start()
+    Afastforward2.start()
+
+Afastforward.onAnimationEnd ->
+    LPlayBtn.visible = true
+    LPauseBtn.visible = false
 
 LPlayBtn = new Layer
     width: 70
@@ -337,6 +359,59 @@ LPlayBtn = new Layer
     y: 15
     borderRadius: 4
     image:"images/icons/play.png"
+
+LPauseBtn = new Layer
+    width: 70
+    height: 35
+    x: 115
+    y: 15
+    borderRadius: 4
+    visible: false
+    image:"images/icons/pause.png"
+
+Aplay = new Animation
+    layer: view
+    properties:
+        scrollX: 8750
+    curve: "linear"
+    time: 30
+
+Aplay2 = new Animation
+    layer: view2
+    properties:
+        scrollX: 8750
+    curve: "linear"
+    time: 30
+
+LPlayBtn.onTap ->
+    if LPlayBtn.visible is true
+        LPlayBtn.visible = false
+        LPauseBtn.visible = true
+    Aplay.start()
+    Aplay2.start()
+
+LPauseBtn.onTap ->
+    if LPauseBtn.visible is true
+        LPlayBtn.visible = true
+        LPauseBtn.visible = false
+    Aplay.stop()
+    Aplay2.stop()
+    Afastforward.stop()
+    Afastforward2.stop()
+
+AFastBackBtn = new Animation
+    layer: view
+    properties:
+        scrollX: 0
+    curve: "linear"
+    time: 15
+
+AFastBackBtn2 = new Animation
+    layer: view2
+    properties:
+        scrollX: 0
+    curve: "linear"
+    time: 15
 
 LFastBackBtn = new Layer
     width: 35
@@ -353,6 +428,9 @@ LskipToStart = new Layer
     y: 15
     borderRadius: 4
     image:"images/icons/endlinks.png"
+LskipToStart.onTap ->
+    view.scrollX = 0
+    view2.scrollX = 0
 
 LvolumeBtn = new Layer
     width: 60
@@ -404,6 +482,7 @@ PlayDisplay = new Layer
 PlayDisplay.addSubLayer(LskipToEndBtn);
 PlayDisplay.addSubLayer(LFastForwardBtn);
 PlayDisplay.addSubLayer(LPlayBtn);
+PlayDisplay.addSubLayer(LPauseBtn);
 PlayDisplay.addSubLayer(LFastBackBtn);
 PlayDisplay.addSubLayer(LskipToStart);
 PlayDisplay.addSubLayer(LvolumeBtn);
