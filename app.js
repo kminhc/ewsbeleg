@@ -1,4 +1,4 @@
-var AFastBackBtn, AFastBackBtn2, AFastBackBtn2R, AFastBackBtnR, Afastforward, Afastforward2, Afastforward2R, AfastforwardR, Aplay, Aplay2, Aplay2R, AplayR, LCtrlParent, LCtrlParentR, LFastBackBtn, LFastBackBtnM, LFastBackBtnR, LFastForwardBtn, LFastForwardBtnM, LFastForwardBtnR, LMagMinus, LMagMinus2, LMagPlus, LMagPlus2, LMainControl, LMainControlBtns, LMainWindow, LMuteBar, LMuteBar2, LMuteBtn, LMuteBtn2, LPauseBtn, LPauseBtnR, LPlayBtn, LPlayBtnM, LPlayBtnR, LSecondTrack, Lbg, LbpmDisplay, LbpmDisplayR, LbpmLabel, LbpmLabelR, LdisplayToggle, LdisplayToggle2, LdisplayToggle2M, LdisplayToggle2R, LdisplayToggle3, LdisplayToggle3R, LdisplayToggleM, LdisplayToggleR, LfirstTrack, LmainWaveForm, LmainWaveForm2, LnewCloseBtn, LnewCloseBtnR, LnewDisplay, LnewDisplayR, LopenSongListButton, LopenSongListButtonR, LskipToEndBtn, LskipToEndBtnM, LskipToEndBtnR, LskipToStart, LskipToStartM, LskipToStartR, Lsong1, Lsong1R, Lsong2, Lsong2R, Lsong3, Lsong3R, LsongDisplay, LsongDisplay2, LsongDisplay2R, LsongDisplay3, LsongDisplay3R, LsongDisplayR, LtitleDisplay, LtitleDisplayR, LvolDownBtn, LvolDownBtnR, LvolUpBtn, LvolUpBtnR, LvolumeBtn, LvolumeBtnR, LwaveForm, LwaveForm2, LwaveForm2R, LwaveForm3, LwaveForm3R, LwaveFormR, PlayDisplay, PlayDisplayR, ScrollSongList, ScrollSongListR, SliderTimeline, SliderTimeline2, SliderTimeline2R, SliderTimeline3, SliderTimeline3R, SliderTimelineR, bg, title, view, view2, view2R, view3, view3R, viewMain, viewMain2, viewR;
+var AFastBackBtn, AFastBackBtn2, AFastBackBtn2R, AFastBackBtnR, Afastforward, Afastforward2, Afastforward2R, AfastforwardR, Aplay, Aplay2, Aplay2R, AplayR, LCtrlParent, LCtrlParentR, LFastBackBtn, LFastBackBtnM, LFastBackBtnR, LFastForwardBtn, LFastForwardBtnM, LFastForwardBtnR, LMagMinus, LMagMinus2, LMagPlus, LMagPlus2, LMainControl, LMainControlBtns, LMainWindow, LMuteBar, LMuteBar2, LMuteBtn, LMuteBtn2, LPauseBtn, LPauseBtnR, LPlayBtn, LPlayBtnM, LPlayBtnR, LSecondTrack, Lbg, LbpmDisplay, LbpmDisplayR, LbpmLabel, LbpmLabelR, LdisplayToggle, LdisplayToggle2, LdisplayToggle2M, LdisplayToggle2R, LdisplayToggle3, LdisplayToggle3R, LdisplayToggleM, LdisplayToggleR, Lexpand, LfirstTrack, LmainWaveForm, LmainWaveForm2, LnewCloseBtn, LnewCloseBtnR, LnewDisplay, LnewDisplayR, LopenSongListButton, LopenSongListButtonR, LskipToEndBtn, LskipToEndBtnM, LskipToEndBtnR, LskipToStart, LskipToStartM, LskipToStartR, Lsong1, Lsong1R, Lsong2, Lsong2R, Lsong3, Lsong3R, LsongDisplay, LsongDisplay2, LsongDisplay2R, LsongDisplay3, LsongDisplay3R, LsongDisplayR, LtitleDisplay, LtitleDisplayR, LvolDownBtn, LvolDownBtnR, LvolUpBtn, LvolUpBtnR, LvolumeBtn, LvolumeBtnR, LwaveForm, LwaveForm2, LwaveForm2R, LwaveForm3, LwaveForm3R, LwaveFormR, PlayDisplay, PlayDisplayR, ScrollSongList, ScrollSongListR, SliderTimeline, SliderTimeline2, SliderTimeline2R, SliderTimeline3, SliderTimeline3R, SliderTimelineR, bg, title, view, view2, view2R, view3, view3R, viewMain, viewMain2, viewR;
 
 bg = new BackgroundLayer;
 
@@ -22,7 +22,7 @@ LsongDisplay.style.boxShadow = "0 1px 2px rgba(0,0,0,0.1)";
 
 view = new ScrollComponent({
   x: 25,
-  y: 15,
+  y: 25,
   width: 250,
   height: 130
 });
@@ -31,7 +31,7 @@ view.scrollVertical = false;
 
 LwaveForm = new Layer({
   x: 0,
-  y: 20,
+  y: 15,
   width: 9000,
   height: 110,
   image: "images/Deck_1_wave.png",
@@ -42,30 +42,30 @@ LsongDisplay.addSubLayer(view);
 
 LdisplayToggle = new Layer({
   height: 25,
-  width: 60,
-  x: 25,
-  y: 5
+  width: 300,
+  x: 0,
+  y: 0
 });
 
-LdisplayToggle.html = "Waveform";
+LdisplayToggle.html = "WAVE";
 
-LdisplayToggle.backgroundColor = "transparent";
+LdisplayToggle.backgroundColor = "#656565";
 
 LdisplayToggle.style = {
-  fontFamily: "Futura-CondensedExtraBold",
-  fontSize: "25px",
+  fontSize: "15px",
   textAlign: "center",
-  color: "black"
+  color: "black",
+  fontWeight: "bold"
 };
 
 LsongDisplay.addSubLayer(LdisplayToggle);
 
 LdisplayToggle.onTap(function() {
-  if (LdisplayToggle.html === "Waveform") {
-    LdisplayToggle.html = "Spectrum";
+  if (LdisplayToggle.html === "WAVE") {
+    LdisplayToggle.html = "SPECTRUM";
     return LwaveForm.image = "images/Deck_1_bpm.png";
   } else {
-    LdisplayToggle.html = "Waveform";
+    LdisplayToggle.html = "WAVE";
     return LwaveForm.image = "images/Deck_1_wave.png";
   }
 });
@@ -80,7 +80,7 @@ SliderTimeline = new SliderComponent({
 
 SliderTimeline.x += 25;
 
-SliderTimeline.y += 165;
+SliderTimeline.y += 170;
 
 LsongDisplay.addSubLayer(SliderTimeline);
 
@@ -96,7 +96,7 @@ LsongDisplay2.style.boxShadow = "0 1px 2px rgba(0,0,0,0.1)";
 
 view2 = new ScrollComponent({
   x: 25,
-  y: 15,
+  y: 25,
   width: 250,
   height: 130
 });
@@ -105,7 +105,7 @@ view2.scrollVertical = false;
 
 LwaveForm2 = new Layer({
   x: 0,
-  y: 20,
+  y: 15,
   width: 9000,
   height: 110,
   image: "images/Deck_1_wave.png",
@@ -116,30 +116,30 @@ LsongDisplay2.addSubLayer(view2);
 
 LdisplayToggle2 = new Layer({
   height: 25,
-  width: 60,
-  x: 25,
-  y: 5
+  width: 300,
+  x: 0,
+  y: 0
 });
 
-LdisplayToggle2.html = "Waveform";
+LdisplayToggle2.html = "WAVE";
 
-LdisplayToggle2.backgroundColor = "transparent";
+LdisplayToggle2.backgroundColor = "#656565";
 
 LdisplayToggle2.style = {
-  fontFamily: "Futura-CondensedExtraBold",
-  fontSize: "25px",
+  fontSize: "15px",
   textAlign: "center",
-  color: "black"
+  color: "black",
+  fontWeight: "bold"
 };
 
 LsongDisplay2.addSubLayer(LdisplayToggle2);
 
 LdisplayToggle2.onTap(function() {
-  if (LdisplayToggle2.html === "Waveform") {
-    LdisplayToggle2.html = "Spectrum";
+  if (LdisplayToggle2.html === "WAVE") {
+    LdisplayToggle2.html = "SPECTRUM";
     return LwaveForm2.image = "images/Deck_1_bpm.png";
   } else {
-    LdisplayToggle2.html = "Waveform";
+    LdisplayToggle2.html = "WAVE";
     return LwaveForm2.image = "images/Deck_1_wave.png";
   }
 });
@@ -154,7 +154,7 @@ SliderTimeline2 = new SliderComponent({
 
 SliderTimeline2.x += 25;
 
-SliderTimeline2.y += 165;
+SliderTimeline2.y += 170;
 
 LsongDisplay2.addSubLayer(SliderTimeline2);
 
@@ -171,7 +171,7 @@ LsongDisplay3.style.boxShadow = "0 1px 2px rgba(0,0,0,0.1)";
 
 view3 = new ScrollComponent({
   x: 25,
-  y: 15,
+  y: 25,
   width: 250,
   height: 130
 });
@@ -180,7 +180,7 @@ view3.scrollVertical = false;
 
 LwaveForm3 = new Layer({
   x: 0,
-  y: 20,
+  y: 15,
   width: 9000,
   height: 110,
   image: "images/Deck_1_wave.png",
@@ -191,30 +191,30 @@ LsongDisplay3.addSubLayer(view3);
 
 LdisplayToggle3 = new Layer({
   height: 25,
-  width: 60,
-  x: 25,
-  y: 5
+  width: 300,
+  x: 0,
+  y: 0
 });
 
-LdisplayToggle3.html = "Waveform";
+LdisplayToggle3.html = "WAVE";
 
-LdisplayToggle3.backgroundColor = "transparent";
+LdisplayToggle3.backgroundColor = "#656565";
 
 LdisplayToggle3.style = {
-  fontFamily: "Futura-CondensedExtraBold",
-  fontSize: "25px",
+  fontSize: "15px",
   textAlign: "center",
-  color: "black"
+  color: "black",
+  fontWeight: "bold"
 };
 
 LsongDisplay3.addSubLayer(LdisplayToggle3);
 
 LdisplayToggle3.onTap(function() {
-  if (LdisplayToggle3.html === "Waveform") {
-    LdisplayToggle3.html = "Spectrum";
+  if (LdisplayToggle3.html === "WAVE") {
+    LdisplayToggle3.html = "SPECTRUM";
     return LwaveForm3.image = "images/Deck_1_bpm.png";
   } else {
-    LdisplayToggle3.html = "Waveform";
+    LdisplayToggle3.html = "WAVE";
     return LwaveForm3.image = "images/Deck_1_wave.png";
   }
 });
@@ -229,7 +229,7 @@ SliderTimeline3 = new SliderComponent({
 
 SliderTimeline3.x += 25;
 
-SliderTimeline3.y += 165;
+SliderTimeline3.y += 170;
 
 LsongDisplay3.addSubLayer(SliderTimeline3);
 
@@ -333,8 +333,8 @@ LnewDisplay = new Layer({
 
 LnewCloseBtn = new Layer({
   x: 270,
-  width: 30,
-  height: 30,
+  width: 25,
+  height: 25,
   borderRadius: 4,
   backgroundColor: "#656565",
   image: "images/icons/close.png"
@@ -495,7 +495,27 @@ LPlayBtn.onTap(function() {
   }
   Aplay.onAnimationEnd(function() {
     LPlayBtn.visible = true;
-    return LPauseBtn.visible = false;
+    LPauseBtn.visible = false;
+    Aplay = new Animation({
+      layer: view,
+      properties: {
+        scrollX: 8750
+      },
+      curve: "linear",
+      time: 30
+    });
+    return Aplay2.onAnimationEnd(function() {
+      LPlayBtn.visible = true;
+      LPauseBtn.visible = false;
+      return Aplay2 = new Animation({
+        layer: view2,
+        properties: {
+          scrollX: 8750
+        },
+        curve: "linear",
+        time: 30
+      });
+    });
   });
   Aplay.start();
   return Aplay2.start();
@@ -687,7 +707,7 @@ LsongDisplayR.style.boxShadow = "0 1px 2px rgba(0,0,0,0.1)";
 
 viewR = new ScrollComponent({
   x: 25,
-  y: 15,
+  y: 20,
   width: 250,
   height: 130
 });
@@ -707,30 +727,30 @@ LsongDisplayR.addSubLayer(viewR);
 
 LdisplayToggleR = new Layer({
   height: 25,
-  width: 60,
-  x: 25,
-  y: 5
+  width: 300,
+  x: 0,
+  y: 0
 });
 
-LdisplayToggleR.html = "Waveform";
+LdisplayToggleR.html = "WAVE";
 
-LdisplayToggleR.backgroundColor = "transparent";
+LdisplayToggleR.backgroundColor = "#656565";
 
 LdisplayToggleR.style = {
-  fontFamily: "Futura-CondensedExtraBold",
-  fontSize: "25px",
+  fontSize: "15px",
   textAlign: "center",
-  color: "black"
+  color: "black",
+  fontWeight: "bold"
 };
 
 LsongDisplayR.addSubLayer(LdisplayToggleR);
 
 LdisplayToggleR.onTap(function() {
-  if (LdisplayToggleR.html === "Waveform") {
-    LdisplayToggleR.html = "Spectrum";
+  if (LdisplayToggleR.html === "WAVE") {
+    LdisplayToggleR.html = "SPECTRUM";
     return LwaveFormR.image = "images/Deck_1_bpm.png";
   } else {
-    LdisplayToggleR.html = "Waveform";
+    LdisplayToggleR.html = "WAVE";
     return LwaveFormR.image = "images/Deck_1_wave.png";
   }
 });
@@ -761,7 +781,7 @@ LsongDisplay2R.style.boxShadow = "0 1px 2px rgba(0,0,0,0.1)";
 
 view2R = new ScrollComponent({
   x: 25,
-  y: 15,
+  y: 20,
   width: 250,
   height: 130
 });
@@ -781,30 +801,30 @@ LsongDisplay2R.addSubLayer(view2R);
 
 LdisplayToggle2R = new Layer({
   height: 25,
-  width: 60,
-  x: 25,
-  y: 5
+  width: 300,
+  x: 0,
+  y: 0
 });
 
-LdisplayToggle2R.html = "Waveform";
+LdisplayToggle2R.html = "WAVE";
 
-LdisplayToggle2R.backgroundColor = "transparent";
+LdisplayToggle2R.backgroundColor = "656565";
 
 LdisplayToggle2R.style = {
-  fontFamily: "Futura-CondensedExtraBold",
-  fontSize: "25px",
+  fontSize: "15px",
   textAlign: "center",
-  color: "black"
+  color: "black",
+  fontWeight: "bold"
 };
 
 LsongDisplay2R.addSubLayer(LdisplayToggle2R);
 
 LdisplayToggle2R.onTap(function() {
-  if (LdisplayToggle2R.html === "Waveform") {
-    LdisplayToggle2R.html = "Spectrum";
+  if (LdisplayToggle2R.html === "WAVE") {
+    LdisplayToggle2R.html = "SPECTRUM";
     return LwaveForm2R.image = "images/Deck_1_bpm.png";
   } else {
-    LdisplayToggle2R.html = "Waveform";
+    LdisplayToggle2R.html = "WAVE";
     return LwaveForm2R.image = "images/Deck_1_wave.png";
   }
 });
@@ -819,7 +839,7 @@ SliderTimeline2R = new SliderComponent({
 
 SliderTimeline2R.x += 25;
 
-SliderTimeline2R.y += 165;
+SliderTimeline2R.y += 170;
 
 LsongDisplay2R.addSubLayer(SliderTimeline2R);
 
@@ -836,7 +856,7 @@ LsongDisplay3R.style.boxShadow = "0 1px 2px rgba(0,0,0,0.1)";
 
 view3R = new ScrollComponent({
   x: 25,
-  y: 15,
+  y: 20,
   width: 250,
   height: 130
 });
@@ -845,7 +865,7 @@ view3R.scrollVertical = false;
 
 LwaveForm3R = new Layer({
   x: 0,
-  y: 20,
+  y: 15,
   width: 9000,
   height: 110,
   image: "images/Deck_1_wave.png",
@@ -856,30 +876,30 @@ LsongDisplay3R.addSubLayer(view3R);
 
 LdisplayToggle3R = new Layer({
   height: 25,
-  width: 60,
-  x: 25,
-  y: 5
+  width: 300,
+  x: 0,
+  y: 0
 });
 
-LdisplayToggle3R.html = "Waveform";
+LdisplayToggle3R.html = "WAVE";
 
-LdisplayToggle3R.backgroundColor = "transparent";
+LdisplayToggle3R.backgroundColor = "656565";
 
 LdisplayToggle3R.style = {
-  fontFamily: "Futura-CondensedExtraBold",
-  fontSize: "25px",
+  fontSize: "15px",
   textAlign: "center",
-  color: "black"
+  color: "black",
+  fontWeight: "bold"
 };
 
 LsongDisplay3R.addSubLayer(LdisplayToggle3R);
 
 LdisplayToggle3R.onTap(function() {
-  if (LdisplayToggle3R.html === "Waveform") {
-    LdisplayToggle3R.html = "Spectrum";
+  if (LdisplayToggle3R.html === "WAVE") {
+    LdisplayToggle3R.html = "SPECTRUM";
     return LwaveForm3R.image = "images/Deck_1_bpm.png";
   } else {
-    LdisplayToggle3R.html = "Waveform";
+    LdisplayToggle3R.html = "WAVE";
     return LwaveForm3R.image = "images/Deck_1_wave.png";
   }
 });
@@ -894,7 +914,7 @@ SliderTimeline3R = new SliderComponent({
 
 SliderTimeline3R.x += 25;
 
-SliderTimeline3R.y += 165;
+SliderTimeline3R.y += 175;
 
 LsongDisplay3R.addSubLayer(SliderTimeline3R);
 
@@ -998,8 +1018,8 @@ LnewDisplayR = new Layer({
 
 LnewCloseBtnR = new Layer({
   x: 270,
-  width: 30,
-  height: 30,
+  width: 25,
+  height: 25,
   borderRadius: 4,
   backgroundColor: "#656565",
   image: "images/icons/close.png"
@@ -1345,11 +1365,13 @@ LCtrlParentR.addSubLayer(LnewDisplayR);
 LfirstTrack = new Layer({
   width: 1150,
   height: 250,
+  backgroundColor: "#656565",
   x: Align.left,
   y: Align.top
 });
 
 LSecondTrack = new Layer({
+  backgroundColor: "#656565",
   width: 1150,
   height: 250,
   x: Align.left,
@@ -1429,6 +1451,28 @@ LMagMinus.onTap(function() {
   }
 });
 
+Lexpand = new Layer({
+  backgroundColor: "#525252",
+  width: 30,
+  height: 30,
+  y: 145,
+  borderRadius: 4,
+  image: "images/icons/grpfeile.png"
+});
+
+LMuteBar.addSubLayer(Lexpand);
+
+LMagMinus = new Layer({
+  backgroundColor: "#525252",
+  width: 30,
+  height: 30,
+  y: 110,
+  borderRadius: 4,
+  image: "images/icons/lupeminus.png"
+});
+
+LMuteBar.addSubLayer(LMagMinus);
+
 LMuteBar2 = new Layer({
   backgroundColor: "transparent",
   height: 180,
@@ -1507,7 +1551,8 @@ LMainWindow = new Layer({
   width: 1150,
   borderRadius: 4,
   x: Align.left,
-  y: Align.top
+  y: Align.top,
+  backgroundColor: "transparent"
 });
 
 LMainWindow.y += 167;
@@ -1520,7 +1565,7 @@ LMainWindow.addSubLayer(LSecondTrack);
 
 viewMain = new ScrollComponent({
   x: 60,
-  y: 15,
+  y: 25,
   width: 1070,
   height: 200
 });
@@ -1540,37 +1585,37 @@ LfirstTrack.addSubLayer(viewMain);
 
 LdisplayToggleM = new Layer({
   height: 25,
-  width: 60,
-  x: 55,
-  y: 5
+  width: 1150,
+  x: 0,
+  y: 0
 });
 
-LdisplayToggleM.html = "Waveform";
+LdisplayToggleM.html = "WAVE";
 
-LdisplayToggleM.backgroundColor = "transparent";
+LdisplayToggleM.backgroundColor = "#525252";
 
 LdisplayToggleM.style = {
-  fontFamily: "Futura-CondensedExtraBold",
-  fontSize: "25px",
+  fontSize: "15px",
   textAlign: "center",
-  color: "black"
+  color: "black",
+  fontWeight: "bold"
 };
 
 LfirstTrack.addSubLayer(LdisplayToggleM);
 
 LdisplayToggleM.onTap(function() {
-  if (LdisplayToggleM.html === "Waveform") {
-    LdisplayToggleM.html = "Spectrum";
+  if (LdisplayToggleM.html === "WAVE") {
+    LdisplayToggleM.html = "SPECTRUM";
     return LmainWaveForm.image = "images/Deck_1_bpm.png";
   } else {
-    LdisplayToggleM.html = "Waveform";
+    LdisplayToggleM.html = "WAVE";
     return LmainWaveForm.image = "images/Deck_1_wave.png";
   }
 });
 
 viewMain2 = new ScrollComponent({
   x: 60,
-  y: 15,
+  y: 25,
   width: 1070,
   height: 200
 });
@@ -1590,30 +1635,30 @@ LSecondTrack.addSubLayer(viewMain2);
 
 LdisplayToggle2M = new Layer({
   height: 25,
-  width: 60,
-  x: 55,
-  y: 5
+  width: 1150,
+  x: 0,
+  y: 0
 });
 
-LdisplayToggle2M.html = "Waveform";
+LdisplayToggle2M.html = "WAVE";
 
-LdisplayToggle2M.backgroundColor = "transparent";
+LdisplayToggle2M.backgroundColor = "#525252";
 
 LdisplayToggle2M.style = {
-  fontFamily: "Futura-CondensedExtraBold",
-  fontSize: "25px",
+  fontSize: "15px",
   textAlign: "center",
-  color: "black"
+  color: "black",
+  fontWeight: "bold"
 };
 
 LSecondTrack.addSubLayer(LdisplayToggle2M);
 
 LdisplayToggle2M.onTap(function() {
-  if (LdisplayToggle2M.html === "Waveform") {
-    LdisplayToggle2M.html = "Spectrum";
+  if (LdisplayToggle2M.html === "WAVE") {
+    LdisplayToggle2M.html = "SPECTRUM";
     return LmainWaveForm2.image = "images/Deck_1_bpm.png";
   } else {
-    LdisplayToggle2M.html = "Waveform";
+    LdisplayToggle2M.html = "WAVE";
     return LmainWaveForm2.image = "images/Deck_1_wave.png";
   }
 });

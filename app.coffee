@@ -23,7 +23,7 @@ LsongDisplay.style.boxShadow = "0 1px 2px rgba(0,0,0,0.1)"
 #Waveform Scrollimage
 view = new ScrollComponent
     x:25
-    y:15
+    y:25
     width:250
     height:130
 view.scrollVertical = false
@@ -31,7 +31,7 @@ view.scrollVertical = false
 #Display content
 LwaveForm = new Layer
     x:0
-    y:20
+    y:15
     width:9000
     height:110
     image:"images/Deck_1_wave.png"
@@ -41,25 +41,25 @@ LsongDisplay.addSubLayer(view);
 #Display Toggle Button
 LdisplayToggle = new Layer
     height: 25
-    width: 60
-    x: 25
-    y: 5
-LdisplayToggle.html = "Waveform"
-LdisplayToggle.backgroundColor = "transparent"
+    width: 300
+    x: 0
+    y: 0
+LdisplayToggle.html = "WAVE"
+LdisplayToggle.backgroundColor = "#656565"
 LdisplayToggle.style=
-  fontFamily: "Futura-CondensedExtraBold"
-  fontSize: "25px"
+  fontSize: "15px"
   textAlign: "center"
   color: "black"
+  fontWeight: "bold"
 LsongDisplay.addSubLayer(LdisplayToggle);
 
 #ontap for Display
 LdisplayToggle.onTap ->
-    if LdisplayToggle.html is "Waveform"
-      LdisplayToggle.html = "Spectrum"
+    if LdisplayToggle.html is "WAVE"
+      LdisplayToggle.html = "SPECTRUM"
       LwaveForm.image = "images/Deck_1_bpm.png"
     else
-      LdisplayToggle.html = "Waveform"
+      LdisplayToggle.html = "WAVE"
       LwaveForm.image = "images/Deck_1_wave.png"
 
 SliderTimeline = new SliderComponent
@@ -69,7 +69,7 @@ SliderTimeline = new SliderComponent
     width: 250
     height: 5
 SliderTimeline.x += 25
-SliderTimeline.y += 165
+SliderTimeline.y += 170
 LsongDisplay.addSubLayer(SliderTimeline)
 
 
@@ -85,7 +85,7 @@ LsongDisplay2.style.boxShadow = "0 1px 2px rgba(0,0,0,0.1)"
 #Waveform SliderTimeline
 view2 = new ScrollComponent
     x:25
-    y:15
+    y:25
     width:250
     height:130
 
@@ -93,7 +93,7 @@ view2.scrollVertical = false
 
 LwaveForm2 = new Layer
     x:0
-    y:20
+    y:15
     width:9000
     height:110
     image:"images/Deck_1_wave.png"
@@ -103,25 +103,25 @@ LsongDisplay2.addSubLayer(view2);
 #Display Toggle Button
 LdisplayToggle2 = new Layer
     height: 25
-    width: 60
-    x: 25
-    y: 5
-LdisplayToggle2.html = "Waveform"
-LdisplayToggle2.backgroundColor = "transparent"
+    width: 300
+    x: 0
+    y: 0
+LdisplayToggle2.html = "WAVE"
+LdisplayToggle2.backgroundColor = "#656565"
 LdisplayToggle2.style=
-  fontFamily: "Futura-CondensedExtraBold"
-  fontSize: "25px"
+  fontSize: "15px"
   textAlign: "center"
   color: "black"
+  fontWeight: "bold"
 LsongDisplay2.addSubLayer(LdisplayToggle2);
 
 #ontap for Display
 LdisplayToggle2.onTap ->
-    if LdisplayToggle2.html is "Waveform"
-      LdisplayToggle2.html = "Spectrum"
+    if LdisplayToggle2.html is "WAVE"
+      LdisplayToggle2.html = "SPECTRUM"
       LwaveForm2.image = "images/Deck_1_bpm.png"
     else
-      LdisplayToggle2.html = "Waveform"
+      LdisplayToggle2.html = "WAVE"
       LwaveForm2.image = "images/Deck_1_wave.png"
 
 #SliderTimeline
@@ -132,7 +132,7 @@ SliderTimeline2 = new SliderComponent
     width: 250
     height: 5
 SliderTimeline2.x += 25
-SliderTimeline2.y += 165
+SliderTimeline2.y += 170
 
 LsongDisplay2.addSubLayer(SliderTimeline2)
 
@@ -151,7 +151,7 @@ LsongDisplay3.style.boxShadow = "0 1px 2px rgba(0,0,0,0.1)"
 #Waveform SliderTimeline
 view3 = new ScrollComponent
     x:25
-    y:15
+    y:25
     width:250
     height:130
 
@@ -159,7 +159,7 @@ view3.scrollVertical = false
 
 LwaveForm3 = new Layer
     x:0
-    y:20
+    y:15
     width:9000
     height:110
     image:"images/Deck_1_wave.png"
@@ -169,25 +169,25 @@ LsongDisplay3.addSubLayer(view3);
 #Display Toggle Button
 LdisplayToggle3 = new Layer
     height: 25
-    width: 60
-    x: 25
-    y: 5
-LdisplayToggle3.html = "Waveform"
-LdisplayToggle3.backgroundColor = "transparent"
+    width: 300
+    x: 0
+    y: 0
+LdisplayToggle3.html = "WAVE"
+LdisplayToggle3.backgroundColor = "#656565"
 LdisplayToggle3.style=
-  fontFamily: "Futura-CondensedExtraBold"
-  fontSize: "25px"
+  fontSize: "15px"
   textAlign: "center"
   color: "black"
+  fontWeight: "bold"
 LsongDisplay3.addSubLayer(LdisplayToggle3);
 
 #ontap for Display
 LdisplayToggle3.onTap ->
-    if LdisplayToggle3.html is "Waveform"
-      LdisplayToggle3.html = "Spectrum"
+    if LdisplayToggle3.html is "WAVE"
+      LdisplayToggle3.html = "SPECTRUM"
       LwaveForm3.image = "images/Deck_1_bpm.png"
     else
-      LdisplayToggle3.html = "Waveform"
+      LdisplayToggle3.html = "WAVE"
       LwaveForm3.image = "images/Deck_1_wave.png"
 
 #SliderTimeline
@@ -198,7 +198,7 @@ SliderTimeline3 = new SliderComponent
     width: 250
     height: 5
 SliderTimeline3.x += 25
-SliderTimeline3.y += 165
+SliderTimeline3.y += 170
 
 LsongDisplay3.addSubLayer(SliderTimeline3)
 
@@ -287,8 +287,8 @@ LnewDisplay = new Layer
 
 LnewCloseBtn = new Layer
       x: 270
-      width: 30
-      height: 30
+      width: 25
+      height: 25
       borderRadius: 4
       backgroundColor: "#656565"
       image: "images/icons/close.png"
@@ -423,6 +423,22 @@ LPlayBtn.onTap ->
     Aplay.onAnimationEnd ->
         LPlayBtn.visible = true
         LPauseBtn.visible = false
+        Aplay = new Animation
+            layer: view
+            properties:
+                scrollX: 8750
+            curve: "linear"
+            time: 30
+
+        Aplay2.onAnimationEnd ->
+            LPlayBtn.visible = true
+            LPauseBtn.visible = false
+            Aplay2 = new Animation
+                layer: view2
+                properties:
+                    scrollX: 8750
+                curve: "linear"
+                time: 30
 
     Aplay.start()
     Aplay2.start()
@@ -582,7 +598,7 @@ LsongDisplayR.style.boxShadow = "0 1px 2px rgba(0,0,0,0.1)"
 #Waveform SliderTimeline
 viewR = new ScrollComponent
     x:25
-    y:15
+    y:20
     width:250
     height:130
 
@@ -600,25 +616,25 @@ LsongDisplayR.addSubLayer(viewR);
 #Display Toggle Button
 LdisplayToggleR = new Layer
     height: 25
-    width: 60
-    x: 25
-    y: 5
-LdisplayToggleR.html = "Waveform"
-LdisplayToggleR.backgroundColor = "transparent"
+    width: 300
+    x: 0
+    y: 0
+LdisplayToggleR.html = "WAVE"
+LdisplayToggleR.backgroundColor = "#656565"
 LdisplayToggleR.style=
-  fontFamily: "Futura-CondensedExtraBold"
-  fontSize: "25px"
+  fontSize: "15px"
   textAlign: "center"
   color: "black"
+  fontWeight: "bold"
 LsongDisplayR.addSubLayer(LdisplayToggleR);
 
 #ontap for Display
 LdisplayToggleR.onTap ->
-    if LdisplayToggleR.html is "Waveform"
-      LdisplayToggleR.html = "Spectrum"
+    if LdisplayToggleR.html is "WAVE"
+      LdisplayToggleR.html = "SPECTRUM"
       LwaveFormR.image = "images/Deck_1_bpm.png"
     else
-      LdisplayToggleR.html = "Waveform"
+      LdisplayToggleR.html = "WAVE"
       LwaveFormR.image = "images/Deck_1_wave.png"
 
 SliderTimelineR = new SliderComponent
@@ -646,7 +662,7 @@ LsongDisplay2R.style.boxShadow = "0 1px 2px rgba(0,0,0,0.1)"
 #Waveform SliderTimeline
 view2R = new ScrollComponent
     x:25
-    y:15
+    y:20
     width:250
     height:130
 
@@ -664,25 +680,25 @@ LsongDisplay2R.addSubLayer(view2R);
 #Display Toggle Button
 LdisplayToggle2R = new Layer
     height: 25
-    width: 60
-    x: 25
-    y: 5
-LdisplayToggle2R.html = "Waveform"
-LdisplayToggle2R.backgroundColor = "transparent"
+    width: 300
+    x: 0
+    y: 0
+LdisplayToggle2R.html = "WAVE"
+LdisplayToggle2R.backgroundColor = "656565"
 LdisplayToggle2R.style=
-  fontFamily: "Futura-CondensedExtraBold"
-  fontSize: "25px"
+  fontSize: "15px"
   textAlign: "center"
   color: "black"
+  fontWeight: "bold"
 LsongDisplay2R.addSubLayer(LdisplayToggle2R);
 
 #ontap for Display
 LdisplayToggle2R.onTap ->
-    if LdisplayToggle2R.html is "Waveform"
-      LdisplayToggle2R.html = "Spectrum"
+    if LdisplayToggle2R.html is "WAVE"
+      LdisplayToggle2R.html = "SPECTRUM"
       LwaveForm2R.image = "images/Deck_1_bpm.png"
     else
-      LdisplayToggle2R.html = "Waveform"
+      LdisplayToggle2R.html = "WAVE"
       LwaveForm2R.image = "images/Deck_1_wave.png"
 
 #SliderTimeline
@@ -693,7 +709,7 @@ SliderTimeline2R = new SliderComponent
     width: 250
     height: 5
 SliderTimeline2R.x += 25
-SliderTimeline2R.y += 165
+SliderTimeline2R.y += 170
 
 LsongDisplay2R.addSubLayer(SliderTimeline2R)
 
@@ -712,7 +728,7 @@ LsongDisplay3R.style.boxShadow = "0 1px 2px rgba(0,0,0,0.1)"
 #Waveform SliderTimeline
 view3R = new ScrollComponent
     x:25
-    y:15
+    y:20
     width:250
     height:130
 
@@ -720,7 +736,7 @@ view3R.scrollVertical = false
 
 LwaveForm3R = new Layer
     x:0
-    y:20
+    y:15
     width:9000
     height:110
     image:"images/Deck_1_wave.png"
@@ -730,25 +746,25 @@ LsongDisplay3R.addSubLayer(view3R);
 #Display Toggle Button
 LdisplayToggle3R = new Layer
     height: 25
-    width: 60
-    x: 25
-    y: 5
-LdisplayToggle3R.html = "Waveform"
-LdisplayToggle3R.backgroundColor = "transparent"
+    width: 300
+    x: 0
+    y: 0
+LdisplayToggle3R.html = "WAVE"
+LdisplayToggle3R.backgroundColor = "656565"
 LdisplayToggle3R.style=
-  fontFamily: "Futura-CondensedExtraBold"
-  fontSize: "25px"
+  fontSize: "15px"
   textAlign: "center"
   color: "black"
+  fontWeight: "bold"
 LsongDisplay3R.addSubLayer(LdisplayToggle3R);
 
 #ontap for Display
 LdisplayToggle3R.onTap ->
-    if LdisplayToggle3R.html is "Waveform"
-      LdisplayToggle3R.html = "Spectrum"
+    if LdisplayToggle3R.html is "WAVE"
+      LdisplayToggle3R.html = "SPECTRUM"
       LwaveForm3R.image = "images/Deck_1_bpm.png"
     else
-      LdisplayToggle3R.html = "Waveform"
+      LdisplayToggle3R.html = "WAVE"
       LwaveForm3R.image = "images/Deck_1_wave.png"
 
 #SliderTimeline
@@ -759,7 +775,7 @@ SliderTimeline3R = new SliderComponent
     width: 250
     height: 5
 SliderTimeline3R.x += 25
-SliderTimeline3R.y += 165
+SliderTimeline3R.y += 175
 
 LsongDisplay3R.addSubLayer(SliderTimeline3R)
 
@@ -848,8 +864,8 @@ LnewDisplayR = new Layer
 
 LnewCloseBtnR = new Layer
       x: 270
-      width: 30
-      height: 30
+      width: 25
+      height: 25
       borderRadius: 4
       backgroundColor: "#656565"
       image: "images/icons/close.png"
@@ -1133,10 +1149,12 @@ LCtrlParentR.addSubLayer(LnewDisplayR)
 LfirstTrack = new Layer
     width: 1150
     height: 250
+    backgroundColor: "#656565"
     x: Align.left
     y: Align.top
 
 LSecondTrack = new Layer
+    backgroundColor: "#656565"
     width: 1150
     height: 250
     x: Align.left
@@ -1196,6 +1214,24 @@ LMagMinus.onTap ->
       LmainWaveForm.image = "images/Deck_1_wave.png"
     if LmainWaveForm.image is "images/Deck_1_bpm_klein.png"
       LmainWaveForm.image = "images/Deck_1_bpm.png"
+
+Lexpand = new Layer
+    backgroundColor: "#525252"
+    width: 30
+    height: 30
+    y: 145
+    borderRadius: 4
+    image:"images/icons/grpfeile.png"
+LMuteBar.addSubLayer(Lexpand)
+
+LMagMinus = new Layer
+    backgroundColor: "#525252"
+    width: 30
+    height: 30
+    y: 110
+    borderRadius: 4
+    image:"images/icons/lupeminus.png"
+LMuteBar.addSubLayer(LMagMinus)
 
 LMuteBar2 = new Layer
     backgroundColor: "transparent"
@@ -1258,6 +1294,7 @@ LMainWindow = new Layer
     borderRadius: 4
     x: Align.left
     y: Align.top
+    backgroundColor: "transparent"
 LMainWindow.y += 167
 LMainWindow.x += 385
 LMainWindow.addSubLayer(LfirstTrack)
@@ -1265,7 +1302,7 @@ LMainWindow.addSubLayer(LSecondTrack)
 
 viewMain = new ScrollComponent
     x:60
-    y:15
+    y:25
     width:1070
     height:200
 
@@ -1283,30 +1320,30 @@ LfirstTrack.addSubLayer(viewMain)
 #Display Toggle Button
 LdisplayToggleM = new Layer
     height: 25
-    width: 60
-    x: 55
-    y: 5
-LdisplayToggleM.html = "Waveform"
-LdisplayToggleM.backgroundColor = "transparent"
+    width: 1150
+    x: 0
+    y: 0
+LdisplayToggleM.html = "WAVE"
+LdisplayToggleM.backgroundColor = "#525252"
 LdisplayToggleM.style=
-  fontFamily: "Futura-CondensedExtraBold"
-  fontSize: "25px"
+  fontSize: "15px"
   textAlign: "center"
   color: "black"
+  fontWeight: "bold"
 LfirstTrack.addSubLayer(LdisplayToggleM);
 
 #ontap for Display
 LdisplayToggleM.onTap ->
-    if LdisplayToggleM.html is "Waveform"
-      LdisplayToggleM.html = "Spectrum"
+    if LdisplayToggleM.html is "WAVE"
+      LdisplayToggleM.html = "SPECTRUM"
       LmainWaveForm.image = "images/Deck_1_bpm.png"
     else
-      LdisplayToggleM.html = "Waveform"
+      LdisplayToggleM.html = "WAVE"
       LmainWaveForm.image = "images/Deck_1_wave.png"
 
 viewMain2 = new ScrollComponent
     x:60
-    y:15
+    y:25
     width:1070
     height:200
 
@@ -1324,25 +1361,25 @@ LSecondTrack.addSubLayer(viewMain2)
 #Display Toggle Button
 LdisplayToggle2M = new Layer
     height: 25
-    width: 60
-    x: 55
-    y: 5
-LdisplayToggle2M.html = "Waveform"
-LdisplayToggle2M.backgroundColor = "transparent"
+    width: 1150
+    x: 0
+    y: 0
+LdisplayToggle2M.html = "WAVE"
+LdisplayToggle2M.backgroundColor = "#525252"
 LdisplayToggle2M.style=
-  fontFamily: "Futura-CondensedExtraBold"
-  fontSize: "25px"
-  textAlign: "center"
-  color: "black"
+    fontSize: "15px"
+    textAlign: "center"
+    color: "black"
+    fontWeight: "bold"
 LSecondTrack.addSubLayer(LdisplayToggle2M);
 
 #ontap for Display
 LdisplayToggle2M.onTap ->
-    if LdisplayToggle2M.html is "Waveform"
-      LdisplayToggle2M.html = "Spectrum"
+    if LdisplayToggle2M.html is "WAVE"
+      LdisplayToggle2M.html = "SPECTRUM"
       LmainWaveForm2.image = "images/Deck_1_bpm.png"
     else
-      LdisplayToggle2M.html = "Waveform"
+      LdisplayToggle2M.html = "WAVE"
       LmainWaveForm2.image = "images/Deck_1_wave.png"
 
 LMainControl = new Layer
