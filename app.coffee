@@ -239,7 +239,13 @@ LtitleDisplay = new Layer
     height: 30
     borderRadius: 4
     backgroundColor: "#525252"
-Utils.labelLayer(LtitleDisplay,title)
+LtitleDisplay.html = title
+LtitleDisplay.style =
+    fontSize: "15px"
+    textAlign: "center"
+    color: "white"
+    fontWeight: "bold"
+
 LtitleDisplay.addSubLayer(ScrollSongList);
 ScrollSongList.y = Align.top(35)
 
@@ -250,9 +256,14 @@ Lsong1 = new Layer
     borderRadius: 4
     #backgroundColor: "#12bbf0"
     superLayer: ScrollSongList.content
-Utils.labelLayer(Lsong1, "Lied 1");
+Lsong1.html = "Lied 1"
+Lsong1.style =
+    fontSize: "15px"
+    textAlign: "center"
+    color: "white"
+    fontWeight: "bold"
 Lsong1.onTap ->
-    Utils.labelLayer(LtitleDisplay, "Lied 1")
+    LtitleDisplay.html = "Lied 1"
     ScrollSongList.visible = false
 
 Lsong2 = new Layer
@@ -262,9 +273,14 @@ Lsong2 = new Layer
     #backgroundColor: "#12bbf0"
     y: 35
     superLayer: ScrollSongList.content
-Utils.labelLayer(Lsong2, "Lied 2");
+Lsong2.html = "Lied 2"
+Lsong2.style =
+    fontSize: "15px"
+    textAlign: "center"
+    color: "white"
+    fontWeight: "bold"
 Lsong2.onTap ->
-    Utils.labelLayer(LtitleDisplay, "Lied 2")
+    LtitleDisplay.html = "Lied 2"
     ScrollSongList.visible = false
 
 Lsong3 = new Layer
@@ -274,10 +290,16 @@ Lsong3 = new Layer
     #backgroundColor: "#12bbf0"
     y: 70
     superLayer: ScrollSongList.content
-Utils.labelLayer(Lsong3, "Lied 3");
+Lsong3.html = "Lied 3"
+Lsong3.style =
+    fontSize: "15px"
+    textAlign: "center"
+    color: "white"
+    fontWeight: "bold"
 Lsong3.onTap ->
-    Utils.labelLayer(LtitleDisplay, "Lied 3")
+    LtitleDisplay.html = "Lied 3"
     ScrollSongList.visible = false
+
 
 LopenSongListButton = new Layer
     width: 30
@@ -994,7 +1016,12 @@ LtitleDisplayR = new Layer
     height: 30
     borderRadius: 4
     backgroundColor: "#525252"
-Utils.labelLayer(LtitleDisplayR,title)
+LtitleDisplayR.html = title
+LtitleDisplayR.style =
+    fontSize: "15px"
+    textAlign: "center"
+    color: "white"
+    fontWeight: "bold"
 LtitleDisplayR.addSubLayer(ScrollSongListR);
 ScrollSongListR.y = Align.top(35)
 
@@ -1005,9 +1032,14 @@ Lsong1R = new Layer
     borderRadius: 4
     #backgroundColor: "#12bbf0"
     superLayer: ScrollSongListR.content
-Utils.labelLayer(Lsong1R, "Lied 1");
+Lsong1R.html = "Lied 1"
+Lsong1R.style =
+    fontSize: "15px"
+    textAlign: "center"
+    color: "white"
+    fontWeight: "bold"
 Lsong1R.onTap ->
-    Utils.labelLayer(LtitleDisplayR, "Lied 1")
+    LtitleDisplayR.html = "Lied 1"
     ScrollSongListR.visible = false
 
 Lsong2R = new Layer
@@ -1017,9 +1049,14 @@ Lsong2R = new Layer
     #backgroundColor: "#12bbf0"
     y: 35
     superLayer: ScrollSongListR.content
-Utils.labelLayer(Lsong2R, "Lied 2");
+Lsong2R.html = "Lied 2"
+Lsong2R.style =
+    fontSize: "15px"
+    textAlign: "center"
+    color: "white"
+    fontWeight: "bold"
 Lsong2R.onTap ->
-    Utils.labelLayer(LtitleDisplayR, "Lied 2")
+    LtitleDisplayR.html = "Lied 2"
     ScrollSongListR.visible = false
 
 Lsong3R = new Layer
@@ -1029,9 +1066,14 @@ Lsong3R = new Layer
     #backgroundColor: "#12bbf0"
     y: 70
     superLayer: ScrollSongListR.content
-Utils.labelLayer(Lsong3R, "Lied 3");
+Lsong3R.html = "Lied 3"
+Lsong3R.style =
+    fontSize: "15px"
+    textAlign: "center"
+    color: "white"
+    fontWeight: "bold"
 Lsong3R.onTap ->
-    Utils.labelLayer(LtitleDisplayR, "Lied 3")
+    LtitleDisplayR.html = "Lied 3"
     ScrollSongListR.visible = false
 
 LopenSongListButtonR = new Layer
