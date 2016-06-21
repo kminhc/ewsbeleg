@@ -20,24 +20,47 @@ LsongDisplay = new Layer
 LsongDisplay.style.boxShadow = "0 1px 2px rgba(0,0,0,0.1)"
 
 
-#Waveform SliderTimeline
+#Waveform Scrollimage
 view = new ScrollComponent
     x:25
     y:15
     width:250
     height:130
-
 view.scrollVertical = false
 
+#Display content
 LwaveForm = new Layer
     x:0
     y:20
-    width:1000
+    width:9000
     height:110
-    image:"images/wave.png"
+    image:"images/Deck_1_wave.png"
     superLayer: view.content
-
 LsongDisplay.addSubLayer(view);
+
+#Display Toggle Button
+LdisplayToggle = new Layer
+    height: 25
+    width: 60
+    x: 25
+    y: 5
+LdisplayToggle.html = "Waveform"
+LdisplayToggle.backgroundColor = "transparent"
+LdisplayToggle.style=
+  fontFamily: "Futura-CondensedExtraBold"
+  fontSize: "25px"
+  textAlign: "center"
+  color: "black"
+LsongDisplay.addSubLayer(LdisplayToggle);
+
+#ontap for Display
+LdisplayToggle.onTap ->
+    if LdisplayToggle.html is "Waveform"
+      LdisplayToggle.html = "Spectrum"
+      LwaveForm.image = "images/Deck_1_bpm.png"
+    else
+      LdisplayToggle.html = "Waveform"
+      LwaveForm.image = "images/Deck_1_wave.png"
 
 SliderTimeline = new SliderComponent
     min: 0
@@ -47,8 +70,8 @@ SliderTimeline = new SliderComponent
     height: 5
 SliderTimeline.x += 25
 SliderTimeline.y += 165
-
 LsongDisplay.addSubLayer(SliderTimeline)
+
 
 # new LsongDisplay
 LsongDisplay2 = new Layer
@@ -57,9 +80,7 @@ LsongDisplay2 = new Layer
     width: 300
     height: 200
     borderRadius: 4
-
 LsongDisplay2.style.boxShadow = "0 1px 2px rgba(0,0,0,0.1)"
-
 
 #Waveform SliderTimeline
 view2 = new ScrollComponent
@@ -73,12 +94,36 @@ view2.scrollVertical = false
 LwaveForm2 = new Layer
     x:0
     y:20
-    width:1000
+    width:9000
     height:110
-    image:"images/wave.png"
+    image:"images/Deck_1_wave.png"
     superLayer: view2.content
-
 LsongDisplay2.addSubLayer(view2);
+
+#Display Toggle Button
+LdisplayToggle2 = new Layer
+    height: 25
+    width: 60
+    x: 25
+    y: 5
+LdisplayToggle2.html = "Waveform"
+LdisplayToggle2.backgroundColor = "transparent"
+LdisplayToggle2.style=
+  fontFamily: "Futura-CondensedExtraBold"
+  fontSize: "25px"
+  textAlign: "center"
+  color: "black"
+LsongDisplay2.addSubLayer(LdisplayToggle2);
+
+#ontap for Display
+LdisplayToggle2.onTap ->
+    if LdisplayToggle2.html is "Waveform"
+      LdisplayToggle2.html = "Spectrum"
+      LwaveForm2.image = "images/Deck_1_bpm.png"
+    else
+      LdisplayToggle2.html = "Waveform"
+      LwaveForm2.image = "images/Deck_1_wave.png"
+
 #SliderTimeline
 SliderTimeline2 = new SliderComponent
     min: 0
@@ -115,12 +160,36 @@ view3.scrollVertical = false
 LwaveForm3 = new Layer
     x:0
     y:20
-    width:1000
+    width:9000
     height:110
-    image:"images/wave.png"
+    image:"images/Deck_1_wave.png"
     superLayer: view3.content
-
 LsongDisplay3.addSubLayer(view3);
+
+#Display Toggle Button
+LdisplayToggle3 = new Layer
+    height: 25
+    width: 60
+    x: 25
+    y: 5
+LdisplayToggle3.html = "Waveform"
+LdisplayToggle3.backgroundColor = "transparent"
+LdisplayToggle3.style=
+  fontFamily: "Futura-CondensedExtraBold"
+  fontSize: "25px"
+  textAlign: "center"
+  color: "black"
+LsongDisplay3.addSubLayer(LdisplayToggle3);
+
+#ontap for Display
+LdisplayToggle3.onTap ->
+    if LdisplayToggle3.html is "Waveform"
+      LdisplayToggle3.html = "Spectrum"
+      LwaveForm3.image = "images/Deck_1_bpm.png"
+    else
+      LdisplayToggle3.html = "Waveform"
+      LwaveForm3.image = "images/Deck_1_wave.png"
+
 #SliderTimeline
 SliderTimeline3 = new SliderComponent
     min: 0
@@ -247,6 +316,23 @@ LskipToEndBtn = new Layer
     y: 15
     borderRadius: 4
     image:"images/icons/endrechts.png"
+LskipToEndBtn.onTap ->
+    view.scrollX = 8750
+    view2.scrollX = 8750
+
+Afastforward = new Animation
+    layer: view
+    properties:
+        scrollX: 8750
+    curve: "linear"
+    time: 15
+
+Afastforward2 = new Animation
+    layer: view2
+    properties:
+        scrollX: 8750
+    curve: "linear"
+    time: 15
 
 LFastForwardBtn = new Layer
     width: 35
@@ -264,6 +350,43 @@ LPlayBtn = new Layer
     borderRadius: 4
     image:"images/icons/play.png"
 
+LPauseBtn = new Layer
+    width: 70
+    height: 35
+    x: 115
+    y: 15
+    borderRadius: 4
+    visible: false
+    image:"images/icons/pause.png"
+
+Aplay = new Animation
+    layer: view
+    properties:
+        scrollX: 8750
+    curve: "linear"
+    time: 30
+
+Aplay2 = new Animation
+    layer: view2
+    properties:
+        scrollX: 8750
+    curve: "linear"
+    time: 30
+
+AFastBackBtn = new Animation
+    layer: view
+    properties:
+        scrollX: 0
+    curve: "linear"
+    time: 15
+
+AFastBackBtn2 = new Animation
+    layer: view2
+    properties:
+        scrollX: 0
+    curve: "linear"
+    time: 15
+
 LFastBackBtn = new Layer
     width: 35
     height: 35
@@ -272,6 +395,91 @@ LFastBackBtn = new Layer
     borderRadius: 4
     image:"images/icons/zurück.png"
 
+LFastForwardBtn.onTap ->
+    if LPlayBtn.visible is true
+        LPlayBtn.visible = false
+        LPauseBtn.visible = true
+    Afastforward.start()
+    Afastforward2.start()
+    Afastforward.onAnimationEnd ->
+        LPlayBtn.visible = true
+        LPauseBtn.visible = false
+
+LFastBackBtn.onTap ->
+    if LPlayBtn.visible is true
+        LPlayBtn.visible = false
+        LPauseBtn.visible = true
+    AFastBackBtn.start()
+    AFastBackBtn2.start()
+    AFastBackBtn.onAnimationEnd ->
+        LPlayBtn.visible = true
+        LPauseBtn.visible = false
+
+LPlayBtn.onTap ->
+    if LPlayBtn.visible is true
+        LPlayBtn.visible = false
+        LPauseBtn.visible = true
+
+    Aplay.onAnimationEnd ->
+        LPlayBtn.visible = true
+        LPauseBtn.visible = false
+
+    Aplay.start()
+    Aplay2.start()
+
+LPauseBtn.onTap ->
+    if LPauseBtn.visible is true
+        LPlayBtn.visible = true
+        LPauseBtn.visible = false
+    Aplay.stop()
+    Aplay2.stop()
+    AFastBackBtn.stop()
+    AFastBackBtn2.stop()
+    Afastforward.stop()
+    Afastforward2.stop()
+
+    Aplay = new Animation
+        layer: view
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: (30 - (30/(8750/view.scrollX)))
+
+    Aplay2 = new Animation
+        layer: view2
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: (30 - (30/(8750/view2.scrollX)))
+
+    Afastforward = new Animation
+        layer: view
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: (15 - (15/(8750/view.scrollX)))
+
+    Afastforward2 = new Animation
+        layer: view2
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: (15 - (15/(8750/view2.scrollX)))
+
+    AFastBackBtn = new Animation
+        layer: view
+        properties:
+            scrollX: 0
+        curve: "linear"
+        time: (0 + (15/(8750/view.scrollX)))
+
+    AFastBackBtn2 = new Animation
+        layer: view2
+        properties:
+            scrollX: 0
+        curve: "linear"
+        time: (0 + (15/(8750/view2.scrollX)))
+
 LskipToStart = new Layer
     width: 35
     height: 35
@@ -279,6 +487,9 @@ LskipToStart = new Layer
     y: 15
     borderRadius: 4
     image:"images/icons/endlinks.png"
+LskipToStart.onTap ->
+    view.scrollX = 0
+    view2.scrollX = 0
 
 LvolumeBtn = new Layer
     width: 60
@@ -330,6 +541,7 @@ PlayDisplay = new Layer
 PlayDisplay.addSubLayer(LskipToEndBtn);
 PlayDisplay.addSubLayer(LFastForwardBtn);
 PlayDisplay.addSubLayer(LPlayBtn);
+PlayDisplay.addSubLayer(LPauseBtn);
 PlayDisplay.addSubLayer(LFastBackBtn);
 PlayDisplay.addSubLayer(LskipToStart);
 PlayDisplay.addSubLayer(LvolumeBtn);
@@ -379,12 +591,35 @@ viewR.scrollVertical = false
 LwaveFormR = new Layer
     x:0
     y:20
-    width:1000
+    width:9000
     height:110
-    image:"images/wave.png"
+    image:"images/Deck_1_wave.png"
     superLayer: viewR.content
-
 LsongDisplayR.addSubLayer(viewR);
+
+#Display Toggle Button
+LdisplayToggleR = new Layer
+    height: 25
+    width: 60
+    x: 25
+    y: 5
+LdisplayToggleR.html = "Waveform"
+LdisplayToggleR.backgroundColor = "transparent"
+LdisplayToggleR.style=
+  fontFamily: "Futura-CondensedExtraBold"
+  fontSize: "25px"
+  textAlign: "center"
+  color: "black"
+LsongDisplayR.addSubLayer(LdisplayToggleR);
+
+#ontap for Display
+LdisplayToggleR.onTap ->
+    if LdisplayToggleR.html is "Waveform"
+      LdisplayToggleR.html = "Spectrum"
+      LwaveFormR.image = "images/Deck_1_bpm.png"
+    else
+      LdisplayToggleR.html = "Waveform"
+      LwaveFormR.image = "images/Deck_1_wave.png"
 
 SliderTimelineR = new SliderComponent
     min: 0
@@ -420,12 +655,36 @@ view2R.scrollVertical = false
 LwaveForm2R = new Layer
     x:0
     y:20
-    width:1000
+    width:9000
     height:110
-    image:"images/wave.png"
+    image:"images/Deck_1_wave.png"
     superLayer: view2R.content
-
 LsongDisplay2R.addSubLayer(view2R);
+
+#Display Toggle Button
+LdisplayToggle2R = new Layer
+    height: 25
+    width: 60
+    x: 25
+    y: 5
+LdisplayToggle2R.html = "Waveform"
+LdisplayToggle2R.backgroundColor = "transparent"
+LdisplayToggle2R.style=
+  fontFamily: "Futura-CondensedExtraBold"
+  fontSize: "25px"
+  textAlign: "center"
+  color: "black"
+LsongDisplay2R.addSubLayer(LdisplayToggle2R);
+
+#ontap for Display
+LdisplayToggle2R.onTap ->
+    if LdisplayToggle2R.html is "Waveform"
+      LdisplayToggle2R.html = "Spectrum"
+      LwaveForm2R.image = "images/Deck_1_bpm.png"
+    else
+      LdisplayToggle2R.html = "Waveform"
+      LwaveForm2R.image = "images/Deck_1_wave.png"
+
 #SliderTimeline
 SliderTimeline2R = new SliderComponent
     min: 0
@@ -462,12 +721,36 @@ view3R.scrollVertical = false
 LwaveForm3R = new Layer
     x:0
     y:20
-    width:1000
+    width:9000
     height:110
-    image:"images/wave.png"
+    image:"images/Deck_1_wave.png"
     superLayer: view3R.content
-
 LsongDisplay3R.addSubLayer(view3R);
+
+#Display Toggle Button
+LdisplayToggle3R = new Layer
+    height: 25
+    width: 60
+    x: 25
+    y: 5
+LdisplayToggle3R.html = "Waveform"
+LdisplayToggle3R.backgroundColor = "transparent"
+LdisplayToggle3R.style=
+  fontFamily: "Futura-CondensedExtraBold"
+  fontSize: "25px"
+  textAlign: "center"
+  color: "black"
+LsongDisplay3R.addSubLayer(LdisplayToggle3R);
+
+#ontap for Display
+LdisplayToggle3R.onTap ->
+    if LdisplayToggle3R.html is "Waveform"
+      LdisplayToggle3R.html = "Spectrum"
+      LwaveForm3R.image = "images/Deck_1_bpm.png"
+    else
+      LdisplayToggle3R.html = "Waveform"
+      LwaveForm3R.image = "images/Deck_1_wave.png"
+
 #SliderTimeline
 SliderTimeline3R = new SliderComponent
     min: 0
@@ -594,6 +877,23 @@ LskipToEndBtnR = new Layer
     y: 15
     borderRadius: 4
     image:"images/icons/endrechts.png"
+LskipToEndBtnR.onTap ->
+    viewR.scrollX = 8750
+    view2R.scrollX = 8750
+
+AfastforwardR = new Animation
+    layer: viewR
+    properties:
+        scrollX: 8750
+    curve: "linear"
+    time: 15
+
+Afastforward2R = new Animation
+    layer: view2R
+    properties:
+        scrollX: 8750
+    curve: "linear"
+    time: 15
 
 LFastForwardBtnR = new Layer
     width: 35
@@ -611,6 +911,43 @@ LPlayBtnR = new Layer
     borderRadius: 4
     image:"images/icons/play.png"
 
+LPauseBtnR = new Layer
+    width: 70
+    height: 35
+    x: 115
+    y: 15
+    borderRadius: 4
+    visible: false
+    image:"images/icons/pause.png"
+
+AplayR = new Animation
+    layer: viewR
+    properties:
+        scrollX: 8750
+    curve: "linear"
+    time: 30
+
+Aplay2R = new Animation
+    layer: view2R
+    properties:
+        scrollX: 8750
+    curve: "linear"
+    time: 30
+
+AFastBackBtnR = new Animation
+    layer: viewR
+    properties:
+        scrollX: 0
+    curve: "linear"
+    time: 15
+
+AFastBackBtn2R = new Animation
+    layer: view2R
+    properties:
+        scrollX: 0
+    curve: "linear"
+    time: 15
+
 LFastBackBtnR = new Layer
     width: 35
     height: 35
@@ -619,6 +956,91 @@ LFastBackBtnR = new Layer
     borderRadius: 4
     image:"images/icons/zurück.png"
 
+LFastForwardBtnR.onTap ->
+    if LPlayBtnR.visible is true
+        LPlayBtnR.visible = false
+        LPauseBtnR.visible = true
+    AfastforwardR.start()
+    Afastforward2R.start()
+    AfastforwardR.onAnimationEnd ->
+        LPlayBtnR.visible = true
+        LPauseBtnR.visible = false
+
+LFastBackBtnR.onTap ->
+    if LPlayBtnR.visible is true
+        LPlayBtnR.visible = false
+        LPauseBtnR.visible = true
+    AFastBackBtnR.start()
+    AFastBackBtn2R.start()
+    AFastBackBtnR.onAnimationEnd ->
+        LPlayBtnR.visible = true
+        LPauseBtnR.visible = false
+
+LPlayBtnR.onTap ->
+    if LPlayBtnR.visible is true
+        LPlayBtnR.visible = false
+        LPauseBtnR.visible = true
+
+    AplayR.onAnimationEnd ->
+        LPlayBtnR.visible = true
+        LPauseBtnR.visible = false
+
+    AplayR.start()
+    Aplay2R.start()
+
+LPauseBtnR.onTap ->
+    if LPauseBtnR.visible is true
+        LPlayBtnR.visible = true
+        LPauseBtnR.visible = false
+    AplayR.stop()
+    Aplay2R.stop()
+    AFastBackBtnR.stop()
+    AFastBackBtn2R.stop()
+    AfastforwardR.stop()
+    Afastforward2R.stop()
+
+    AplayR = new Animation
+        layer: viewR
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: (30 - (30/(8750/viewR.scrollX)))
+
+    Aplay2R = new Animation
+        layer: view2R
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: (30 - (30/(8750/view2R.scrollX)))
+
+    AfastforwardR = new Animation
+        layer: viewR
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: (15 - (15/(8750/viewR.scrollX)))
+
+    Afastforward2R = new Animation
+        layer: view2R
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: (15 - (15/(8750/view2R.scrollX)))
+
+    AFastBackBtnR = new Animation
+        layer: viewR
+        properties:
+            scrollX: 0
+        curve: "linear"
+        time: (0 + (15/(8750/viewR.scrollX)))
+
+    AFastBackBtn2R = new Animation
+        layer: view2R
+        properties:
+            scrollX: 0
+        curve: "linear"
+        time: (0 + (15/(8750/view2R.scrollX)))
+
 LskipToStartR = new Layer
     width: 35
     height: 35
@@ -626,6 +1048,9 @@ LskipToStartR = new Layer
     y: 15
     borderRadius: 4
     image:"images/icons/endlinks.png"
+LskipToStartR.onTap ->
+    viewR.scrollX = 0
+    view2R.scrollX = 0
 
 LvolumeBtnR = new Layer
     width: 60
@@ -680,6 +1105,7 @@ PlayDisplayR.addSubLayer(LFastForwardBtnR);
 PlayDisplayR.addSubLayer(LFastBackBtnR);
 PlayDisplayR.addSubLayer(LskipToStartR);
 PlayDisplayR.addSubLayer(LPlayBtnR);
+PlayDisplayR.addSubLayer(LPauseBtnR);
 PlayDisplayR.addSubLayer(LvolumeBtnR);
 PlayDisplayR.addSubLayer(LvolUpBtnR);
 PlayDisplayR.addSubLayer(LvolDownBtnR);
@@ -742,6 +1168,16 @@ LMagPlus = new Layer
     image:"images/icons/lupeplus.png"
 LMuteBar.addSubLayer(LMagPlus)
 
+LMagPlus.onTap ->
+    if LmainWaveForm.image is "images/Deck_1_bpm.png"
+      LmainWaveForm.image = "images/Deck_1_bpm_klein.png"
+    if LmainWaveForm.image is "images/Deck_1_wave.png"
+      LmainWaveForm.image = "images/Deck_1_klein.png"
+    if LmainWaveForm.image is "images/Deck_1_gross.png"
+      LmainWaveForm.image = "images/Deck_1_wave.png"
+    if LmainWaveForm.image is "images/Deck_1_bpm_gross.png"
+      LmainWaveForm.image = "images/Deck_1_bpm.png"
+
 LMagMinus = new Layer
     backgroundColor: "#525252"
     width: 30
@@ -750,6 +1186,16 @@ LMagMinus = new Layer
     borderRadius: 4
     image:"images/icons/lupeminus.png"
 LMuteBar.addSubLayer(LMagMinus)
+
+LMagMinus.onTap ->
+    if LmainWaveForm.image is "images/Deck_1_bpm.png"
+      LmainWaveForm.image = "images/Deck_1_bpm_gross.png"
+    if LmainWaveForm.image is "images/Deck_1_wave.png"
+      LmainWaveForm.image = "images/Deck_1_gross.png"
+    if LmainWaveForm.image is "images/Deck_1_klein.png"
+      LmainWaveForm.image = "images/Deck_1_wave.png"
+    if LmainWaveForm.image is "images/Deck_1_bpm_klein.png"
+      LmainWaveForm.image = "images/Deck_1_bpm.png"
 
 LMuteBar2 = new Layer
     backgroundColor: "transparent"
@@ -777,6 +1223,16 @@ LMagPlus2 = new Layer
     image:"images/icons/lupeplus.png"
 LMuteBar2.addSubLayer(LMagPlus2)
 
+LMagPlus2.onTap ->
+    if LmainWaveForm2.image is "images/Deck_1_bpm.png"
+      LmainWaveForm2.image = "images/Deck_1_bpm_klein.png"
+    if LmainWaveForm2.image is "images/Deck_1_wave.png"
+      LmainWaveForm2.image = "images/Deck_1_klein.png"
+    if LmainWaveForm2.image is "images/Deck_1_gross.png"
+      LmainWaveForm2.image = "images/Deck_1_wave.png"
+    if LmainWaveForm2.image is "images/Deck_1_bpm_gross.png"
+      LmainWaveForm2.image = "images/Deck_1_bpm.png"
+
 LMagMinus2 = new Layer
     backgroundColor: "#525252"
     width: 30
@@ -785,6 +1241,16 @@ LMagMinus2 = new Layer
     borderRadius: 4
     image:"images/icons/lupeminus.png"
 LMuteBar2.addSubLayer(LMagMinus2)
+
+LMagMinus2.onTap ->
+    if LmainWaveForm2.image is "images/Deck_1_bpm.png"
+      LmainWaveForm2.image = "images/Deck_1_bpm_gross.png"
+    if LmainWaveForm2.image is "images/Deck_1_wave.png"
+      LmainWaveForm2.image = "images/Deck_1_gross.png"
+    if LmainWaveForm2.image is "images/Deck_1_klein.png"
+      LmainWaveForm2.image = "images/Deck_1_wave.png"
+    if LmainWaveForm2.image is "images/Deck_1_bpm_klein.png"
+      LmainWaveForm2.image = "images/Deck_1_bpm.png"
 
 LMainWindow = new Layer
     height: 610
@@ -810,10 +1276,33 @@ LmainWaveForm = new Layer
     y:20
     width:9000
     height:200
-    image:"images/wave.png"
+    image:"images/Deck_1_wave.png"
     superLayer: viewMain.content
-
 LfirstTrack.addSubLayer(viewMain)
+
+#Display Toggle Button
+LdisplayToggleM = new Layer
+    height: 25
+    width: 60
+    x: 55
+    y: 5
+LdisplayToggleM.html = "Waveform"
+LdisplayToggleM.backgroundColor = "transparent"
+LdisplayToggleM.style=
+  fontFamily: "Futura-CondensedExtraBold"
+  fontSize: "25px"
+  textAlign: "center"
+  color: "black"
+LfirstTrack.addSubLayer(LdisplayToggleM);
+
+#ontap for Display
+LdisplayToggleM.onTap ->
+    if LdisplayToggleM.html is "Waveform"
+      LdisplayToggleM.html = "Spectrum"
+      LmainWaveForm.image = "images/Deck_1_bpm.png"
+    else
+      LdisplayToggleM.html = "Waveform"
+      LmainWaveForm.image = "images/Deck_1_wave.png"
 
 viewMain2 = new ScrollComponent
     x:60
@@ -826,12 +1315,35 @@ viewMain2.scrollVertical = false
 LmainWaveForm2 = new Layer
     x:0
     y:20
-    width:1000
+    width:9000
     height:200
-    image:"images/wave.png"
+    image:"images/Deck_1_wave.png"
     superLayer: viewMain2.content
-
 LSecondTrack.addSubLayer(viewMain2)
+
+#Display Toggle Button
+LdisplayToggle2M = new Layer
+    height: 25
+    width: 60
+    x: 55
+    y: 5
+LdisplayToggle2M.html = "Waveform"
+LdisplayToggle2M.backgroundColor = "transparent"
+LdisplayToggle2M.style=
+  fontFamily: "Futura-CondensedExtraBold"
+  fontSize: "25px"
+  textAlign: "center"
+  color: "black"
+LSecondTrack.addSubLayer(LdisplayToggle2M);
+
+#ontap for Display
+LdisplayToggle2M.onTap ->
+    if LdisplayToggle2M.html is "Waveform"
+      LdisplayToggle2M.html = "Spectrum"
+      LmainWaveForm2.image = "images/Deck_1_bpm.png"
+    else
+      LdisplayToggle2M.html = "Waveform"
+      LmainWaveForm2.image = "images/Deck_1_wave.png"
 
 LMainControl = new Layer
     width: 1150
@@ -839,7 +1351,6 @@ LMainControl = new Layer
     x: Align.left
     y: Align.top(510)
 LMainWindow.addSubLayer(LMainControl)
-
 
 
 LMainControlBtns = new Layer
