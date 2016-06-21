@@ -764,6 +764,20 @@ LbpmDisplay = new Layer
     y: 65
     borderRadius: 4
     backgroundColor: "#ffffff"
+LbpmDisplay.html = 130
+LbpmDisplay.style =
+    fontSize: "20px"
+    textAlign: "center"
+    color: "black"
+    fontWeight: "bold"
+
+LvolDownBtn.onTap ->
+    if parseInt(LbpmDisplay.html) isnt 0
+      LbpmDisplay.html = parseInt(LbpmDisplay.html) - 5
+
+LvolUpBtn.onTap ->
+    if parseInt(LbpmDisplay.html) isnt 500
+      LbpmDisplay.html = parseInt(LbpmDisplay.html) + 5
 
 LbpmLabel = new Layer
     width: 70
@@ -835,7 +849,7 @@ LwaveFormR = new Layer
     y:20
     width:9000
     height:110
-    image:"images/Deck_1_wave.png"
+    image:"images/Deck_2_wave.png"
     superLayer: viewR.content
 LsongDisplayR.addSubLayer(viewR);
 
@@ -858,10 +872,10 @@ LsongDisplayR.addSubLayer(LdisplayToggleR);
 LdisplayToggleR.onTap ->
     if LdisplayToggleR.html is "WAVE"
       LdisplayToggleR.html = "SPECTRUM"
-      LwaveFormR.image = "images/Deck_1_bpm.png"
+      LwaveFormR.image = "images/Deck_2_bpm.png"
     else
       LdisplayToggleR.html = "WAVE"
-      LwaveFormR.image = "images/Deck_1_wave.png"
+      LwaveFormR.image = "images/Deck_2_wave.png"
 
 SliderTimelineR = new SliderComponent
     min: 0
@@ -898,7 +912,7 @@ LwaveForm2R = new Layer
     y:20
     width:9000
     height:110
-    image:"images/Deck_1_wave.png"
+    image:"images/Deck_2_bpm.png"
     superLayer: view2R.content
 LsongDisplay2R.addSubLayer(view2R);
 
@@ -908,7 +922,7 @@ LdisplayToggle2R = new Layer
     width: 300
     x: 0
     y: 0
-LdisplayToggle2R.html = "WAVE"
+LdisplayToggle2R.html = "SPECTRUM"
 LdisplayToggle2R.backgroundColor = "656565"
 LdisplayToggle2R.style=
   fontSize: "15px"
@@ -921,10 +935,10 @@ LsongDisplay2R.addSubLayer(LdisplayToggle2R);
 LdisplayToggle2R.onTap ->
     if LdisplayToggle2R.html is "WAVE"
       LdisplayToggle2R.html = "SPECTRUM"
-      LwaveForm2R.image = "images/Deck_1_bpm.png"
+      LwaveForm2R.image = "images/Deck_2_bpm.png"
     else
       LdisplayToggle2R.html = "WAVE"
-      LwaveForm2R.image = "images/Deck_1_wave.png"
+      LwaveForm2R.image = "images/Deck_2_wave.png"
 
 #SliderTimeline
 SliderTimeline2R = new SliderComponent
@@ -963,7 +977,7 @@ LwaveForm3R = new Layer
     y:15
     width:9000
     height:110
-    image:"images/Deck_1_wave.png"
+    image:"images/Deck_2_wave.png"
     superLayer: view3R.content
 LsongDisplay3R.addSubLayer(view3R);
 
@@ -986,10 +1000,10 @@ LsongDisplay3R.addSubLayer(LdisplayToggle3R);
 LdisplayToggle3R.onTap ->
     if LdisplayToggle3R.html is "WAVE"
       LdisplayToggle3R.html = "SPECTRUM"
-      LwaveForm3R.image = "images/Deck_1_bpm.png"
+      LwaveForm3R.image = "images/Deck_2_bpm.png"
     else
       LdisplayToggle3R.html = "WAVE"
-      LwaveForm3R.image = "images/Deck_1_wave.png"
+      LwaveForm3R.image = "images/Deck_2_wave.png"
 
 #SliderTimeline
 SliderTimeline3R = new SliderComponent
@@ -1540,6 +1554,20 @@ LbpmDisplayR = new Layer
     y: 65
     borderRadius: 4
     backgroundColor: "#ffffff"
+LbpmDisplayR.html = 170
+LbpmDisplayR.style =
+    fontSize: "20px"
+    textAlign: "center"
+    color: "black"
+    fontWeight: "bold"
+
+LvolDownBtnR.onTap ->
+    if parseInt(LbpmDisplayR.html) isnt 0
+      LbpmDisplayR.html = parseInt(LbpmDisplayR.html) - 5
+
+LvolUpBtnR.onTap ->
+    if parseInt(LbpmDisplayR.html) isnt 500
+      LbpmDisplayR.html = parseInt(LbpmDisplayR.html) + 5
 
 LbpmLabelR = new Layer
     width: 70
@@ -1710,14 +1738,14 @@ LMagPlus2 = new Layer
 LMuteBar2.addSubLayer(LMagPlus2)
 
 LMagPlus2.onTap ->
-    if LmainWaveForm2.image is "images/Deck_1_bpm.png"
-      LmainWaveForm2.image = "images/Deck_1_bpm_klein.png"
-    if LmainWaveForm2.image is "images/Deck_1_wave.png"
-      LmainWaveForm2.image = "images/Deck_1_klein.png"
-    if LmainWaveForm2.image is "images/Deck_1_gross.png"
-      LmainWaveForm2.image = "images/Deck_1_wave.png"
-    if LmainWaveForm2.image is "images/Deck_1_bpm_gross.png"
-      LmainWaveForm2.image = "images/Deck_1_bpm.png"
+    if LmainWaveForm2.image is "images/Deck_2_bpm.png"
+      LmainWaveForm2.image = "images/Deck_2_bpm_klein.png"
+    if LmainWaveForm2.image is "images/Deck_2_wave.png"
+      LmainWaveForm2.image = "images/Deck_2_klein.png"
+    if LmainWaveForm2.image is "images/Deck_2_gross.png"
+      LmainWaveForm2.image = "images/Deck_2_wave.png"
+    if LmainWaveForm2.image is "images/Deck_2_bpm_gross.png"
+      LmainWaveForm2.image = "images/Deck_2_bpm.png"
 
 LMagMinus2 = new Layer
     backgroundColor: "#525252"
@@ -1729,14 +1757,14 @@ LMagMinus2 = new Layer
 LMuteBar2.addSubLayer(LMagMinus2)
 
 LMagMinus2.onTap ->
-    if LmainWaveForm2.image is "images/Deck_1_bpm.png"
-      LmainWaveForm2.image = "images/Deck_1_bpm_gross.png"
-    if LmainWaveForm2.image is "images/Deck_1_wave.png"
-      LmainWaveForm2.image = "images/Deck_1_gross.png"
-    if LmainWaveForm2.image is "images/Deck_1_klein.png"
-      LmainWaveForm2.image = "images/Deck_1_wave.png"
-    if LmainWaveForm2.image is "images/Deck_1_bpm_klein.png"
-      LmainWaveForm2.image = "images/Deck_1_bpm.png"
+    if LmainWaveForm2.image is "images/Deck_2_bpm.png"
+      LmainWaveForm2.image = "images/Deck_2_bpm_gross.png"
+    if LmainWaveForm2.image is "images/Deck_2_wave.png"
+      LmainWaveForm2.image = "images/Deck_2_gross.png"
+    if LmainWaveForm2.image is "images/Deck_2_klein.png"
+      LmainWaveForm2.image = "images/Deck_2_wave.png"
+    if LmainWaveForm2.image is "images/Deck_2_bpm_klein.png"
+      LmainWaveForm2.image = "images/Deck_2_bpm.png"
 
 Lexpand2 = new Layer
     backgroundColor: "#525252"
@@ -1806,7 +1834,7 @@ LmainWaveForm2 = new Layer
     y:20
     width:9000
     height:200
-    image:"images/Deck_1_wave.png"
+    image:"images/Deck_2_wave.png"
     superLayer: viewMain2.content
 LSecondTrack.addSubLayer(viewMain2)
 
@@ -1829,10 +1857,10 @@ LSecondTrack.addSubLayer(LdisplayToggle2M);
 LdisplayToggle2M.onTap ->
     if LdisplayToggle2M.html is "WAVE"
       LdisplayToggle2M.html = "SPECTRUM"
-      LmainWaveForm2.image = "images/Deck_1_bpm.png"
+      LmainWaveForm2.image = "images/Deck_2_bpm.png"
     else
       LdisplayToggle2M.html = "WAVE"
-      LmainWaveForm2.image = "images/Deck_1_wave.png"
+      LmainWaveForm2.image = "images/Deck_2_wave.png"
 
 LMainControl = new Layer
     width: 1150
@@ -1845,8 +1873,8 @@ LMainWindow.addSubLayer(LMainControl)
 LMainControlBtns = new Layer
     width: 225
     height: 35
+    y: 20
     backgroundColor: "transparent"
-
 LMainControl.addSubLayer(LMainControlBtns)
 
 LskipToEndBtnM = new Layer
@@ -1870,6 +1898,14 @@ LPlayBtnM = new Layer
     borderRadius: 4
     image:"images/icons/play.png"
 
+LPauseBtnM = new Layer
+    width: 70
+    height: 35
+    x: 80
+    borderRadius: 4
+    visible: false
+    image:"images/icons/pause.png"
+
 LFastBackBtnM = new Layer
     width: 35
     height: 35
@@ -1886,6 +1922,7 @@ LskipToStartM = new Layer
 LMainControlBtns.addSubLayer(LskipToStartM);
 LMainControlBtns.addSubLayer(LFastBackBtnM);
 LMainControlBtns.addSubLayer(LPlayBtnM);
+LMainControlBtns.addSubLayer(LPauseBtnM);
 LMainControlBtns.addSubLayer(LFastForwardBtnM);
 LMainControlBtns.addSubLayer(LskipToEndBtnM);
 
@@ -1970,3 +2007,210 @@ viewMain2.onMove ->
 
 view3R.onMove ->
     SliderTimeline3R.value = view3R.scrollX
+
+
+LskipToStartM.onTap ->
+    viewMain.scrollX = 0
+    viewMain2.scrollX = 0
+    AFastBackBtnM = new Animation
+        layer: viewMain
+        properties:
+            scrollX: 0
+        curve: "linear"
+        time: 15
+
+    AFastBackBtnM2 = new Animation
+        layer: viewMain2
+        properties:
+            scrollX: 0
+        curve: "linear"
+        time: 15
+
+    AfastforwardM = new Animation
+        layer: viewMain
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: 15
+
+    AfastforwardM2 = new Animation
+        layer: viewMain2
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: 15
+
+    AplayM = new Animation
+        layer: viewMain
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: 30
+
+    AplayM2 = new Animation
+        layer: viewMain2
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: 30
+
+LskipToEndBtnM.onTap ->
+    viewMain.scrollX = 8750
+    viewMain2.scrollX = 8750
+
+    AFastBackBtnM = new Animation
+        layer: viewMain
+        properties:
+            scrollX: 0
+        curve: "linear"
+        time: 15
+
+    AFastBackBtnM2 = new Animation
+        layer: viewMain2
+        properties:
+            scrollX: 0
+        curve: "linear"
+        time: 15
+
+    AfastforwardM = new Animation
+        layer: viewMain
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: 15
+
+    AfastforwardM2 = new Animation
+        layer: viewMain2
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: 15
+
+    AplayM = new Animation
+        layer: viewMain
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: 30
+
+    AplayM2 = new Animation
+        layer: viewMain2
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: 30
+
+LFastForwardBtnM.onTap ->
+    if LPlayBtnM.visible is true
+        LPlayBtnM.visible = false
+        LPauseBtnM.visible = true
+    if viewMain.scrollX is 8750
+        LPlayBtnM.visible = true
+        LPauseBtnM.visible = false
+    AfastforwardM.start()
+    AfastforwardM2.start()
+
+    AfastforwardM.onAnimationEnd ->
+        LPlayBtnM.visible = true
+        LPauseBtnM.visible = false
+
+LFastBackBtnM.onTap ->
+    if LPlayBtnR.visible is true
+        LPlayBtnM.visible = false
+        LPauseBtnM.visible = true
+    if viewMain.scrollX is 0
+        LPlayBtnM.visible = true
+        LPauseBtnM.visible = false
+    AFastBackBtnM.start()
+    AFastBackBtnM2.start()
+    AFastBackBtnM.onAnimationEnd ->
+        LPlayBtnR.visible = true
+        LPauseBtnM.visible = false
+
+LPlayBtnM.onTap ->
+    if LPlayBtnM.visible is true
+        LPlayBtnM.visible = false
+        LPauseBtnM.visible = true
+
+    AplayM.onAnimationEnd ->
+        LPlayBtnM.visible = true
+        LPauseBtnM.visible = false
+        AplayR = new Animation
+            layer: viewMain
+            properties:
+                scrollX: 8750
+            curve: "linear"
+            time: 30
+
+    AplayM2.onAnimationEnd ->
+        LPlayBtnM.visible = true
+        LPauseBtnM.visible = false
+        AplayM2 = new Animation
+            layer: viewMain2
+            properties:
+                scrollX: 8750
+            curve: "linear"
+            time: 30
+
+    AplayM2.start()
+    AplayM.start()
+
+LPauseBtnM.onTap ->
+    if LPauseBtnM.visible is true
+        LPlayBtnM.visible = true
+        LPauseBtnM.visible = false
+    AplayM.stop()
+    AplayM2.stop()
+    AFastBackBtnM.stop()
+    AFastBackBtnM2.stop()
+    AfastforwardM.stop()
+    AfastforwardM2.stop()
+
+    AplayM = new Animation
+        layer: viewMain
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: (30 - (30/(8750/viewMain.scrollX)))
+
+    AplayM2 = new Animation
+        layer: viewMain2
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: (30 - (30/(8750/viewMain2.scrollX)))
+
+    AfastforwardM = new Animation
+        layer: viewMain
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: (15 - (15/(8750/viewMain.scrollX)))
+
+    AfastforwardM2 = new Animation
+        layer: viewMain2
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: (15 - (15/(8750/viewMain2.scrollX)))
+
+    AFastBackBtnM = new Animation
+        layer: viewMain
+        properties:
+            scrollX: 0
+        curve: "linear"
+        time: (0 + (15/(8750/viewMain.scrollX)))
+
+    AFastBackBtn2M = new Animation
+        layer: viewMain
+        properties:
+            scrollX: 0
+        curve: "linear"
+        time: (0 + (15/(8750/viewMain.scrollX)))
+
+      AFastBackBtnM2 = new Animation
+          layer: viewMain2
+          properties:
+              scrollX: 0
+          curve: "linear"
+          time: (0 + (15/(8750/viewMain2.scrollX)))

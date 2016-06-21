@@ -1,4 +1,4 @@
-var AFastBackBtn, AFastBackBtn2, AFastBackBtn2R, AFastBackBtnM, AFastBackBtnM2, AFastBackBtnR, Afastforward, Afastforward2, Afastforward2R, AfastforwardM, AfastforwardM2, AfastforwardR, Aplay, Aplay2, Aplay2R, AplayM, AplayM2, AplayR, LCtrlParent, LCtrlParentR, LFastBackBtn, LFastBackBtnM, LFastBackBtnR, LFastForwardBtn, LFastForwardBtnM, LFastForwardBtnR, LMagMinus, LMagMinus2, LMagPlus, LMagPlus2, LMainControl, LMainControlBtns, LMainWindow, LMuteBar, LMuteBar2, LMuteBtn, LMuteBtn2, LPauseBtn, LPauseBtnR, LPlayBtn, LPlayBtnM, LPlayBtnR, LSecondTrack, Lbg, LbpmDisplay, LbpmDisplayR, LbpmLabel, LbpmLabelR, Lcontract, Lcontract2, LdisplayToggle, LdisplayToggle2, LdisplayToggle2M, LdisplayToggle2R, LdisplayToggle3, LdisplayToggle3R, LdisplayToggleM, LdisplayToggleR, Lexpand, Lexpand2, LfirstTrack, Llogo, LmainWaveForm, LmainWaveForm2, Lmarker, LmarkerR, LnewCloseBtn, LnewCloseBtnR, LnewDisplay, LnewDisplayR, LopenSongListButton, LopenSongListButtonR, LskipToEndBtn, LskipToEndBtnM, LskipToEndBtnR, LskipToStart, LskipToStartM, LskipToStartR, Lsong1, Lsong1R, Lsong2, Lsong2R, Lsong3, Lsong3R, LsongDisplay, LsongDisplay2, LsongDisplay2R, LsongDisplay3, LsongDisplay3R, LsongDisplayR, LtitleDisplay, LtitleDisplayR, LvolDownBtn, LvolDownBtnR, LvolUpBtn, LvolUpBtnR, LvolumeBtn, LvolumeBtnR, LwaveForm, LwaveForm2, LwaveForm2R, LwaveForm3, LwaveForm3R, LwaveFormR, PlayDisplay, PlayDisplayR, ScrollSongList, ScrollSongListR, SliderTimeline, SliderTimeline2, SliderTimeline2R, SliderTimeline3, SliderTimeline3R, SliderTimelineR, bg, title, view, view2, view2R, view3, view3R, viewMain, viewMain2, viewR;
+var AFastBackBtn, AFastBackBtn2, AFastBackBtn2R, AFastBackBtnM, AFastBackBtnM2, AFastBackBtnR, Afastforward, Afastforward2, Afastforward2R, AfastforwardM, AfastforwardM2, AfastforwardR, Aplay, Aplay2, Aplay2R, AplayM, AplayM2, AplayR, LCtrlParent, LCtrlParentR, LFastBackBtn, LFastBackBtnM, LFastBackBtnR, LFastForwardBtn, LFastForwardBtnM, LFastForwardBtnR, LMagMinus, LMagMinus2, LMagPlus, LMagPlus2, LMainControl, LMainControlBtns, LMainWindow, LMuteBar, LMuteBar2, LMuteBtn, LMuteBtn2, LPauseBtn, LPauseBtnM, LPauseBtnR, LPlayBtn, LPlayBtnM, LPlayBtnR, LSecondTrack, Lbg, LbpmDisplay, LbpmDisplayR, LbpmLabel, LbpmLabelR, Lcontract, Lcontract2, LdisplayToggle, LdisplayToggle2, LdisplayToggle2M, LdisplayToggle2R, LdisplayToggle3, LdisplayToggle3R, LdisplayToggleM, LdisplayToggleR, Lexpand, Lexpand2, LfirstTrack, Llogo, LmainWaveForm, LmainWaveForm2, Lmarker, LmarkerR, LnewCloseBtn, LnewCloseBtnR, LnewDisplay, LnewDisplayR, LopenSongListButton, LopenSongListButtonR, LskipToEndBtn, LskipToEndBtnM, LskipToEndBtnR, LskipToStart, LskipToStartM, LskipToStartR, Lsong1, Lsong1R, Lsong2, Lsong2R, Lsong3, Lsong3R, LsongDisplay, LsongDisplay2, LsongDisplay2R, LsongDisplay3, LsongDisplay3R, LsongDisplayR, LtitleDisplay, LtitleDisplayR, LvolDownBtn, LvolDownBtnR, LvolUpBtn, LvolUpBtnR, LvolumeBtn, LvolumeBtnR, LwaveForm, LwaveForm2, LwaveForm2R, LwaveForm3, LwaveForm3R, LwaveFormR, PlayDisplay, PlayDisplayR, ScrollSongList, ScrollSongListR, SliderTimeline, SliderTimeline2, SliderTimeline2R, SliderTimeline3, SliderTimeline3R, SliderTimelineR, bg, title, view, view2, view2R, view3, view3R, viewMain, viewMain2, viewR;
 
 bg = new BackgroundLayer;
 
@@ -901,6 +901,27 @@ LbpmDisplay = new Layer({
   backgroundColor: "#ffffff"
 });
 
+LbpmDisplay.html = 130;
+
+LbpmDisplay.style = {
+  fontSize: "20px",
+  textAlign: "center",
+  color: "black",
+  fontWeight: "bold"
+};
+
+LvolDownBtn.onTap(function() {
+  if (parseInt(LbpmDisplay.html) !== 0) {
+    return LbpmDisplay.html = parseInt(LbpmDisplay.html) - 5;
+  }
+});
+
+LvolUpBtn.onTap(function() {
+  if (parseInt(LbpmDisplay.html) !== 500) {
+    return LbpmDisplay.html = parseInt(LbpmDisplay.html) + 5;
+  }
+});
+
 LbpmLabel = new Layer({
   width: 70,
   height: 35,
@@ -988,7 +1009,7 @@ LwaveFormR = new Layer({
   y: 20,
   width: 9000,
   height: 110,
-  image: "images/Deck_1_wave.png",
+  image: "images/Deck_2_wave.png",
   superLayer: viewR.content
 });
 
@@ -1017,10 +1038,10 @@ LsongDisplayR.addSubLayer(LdisplayToggleR);
 LdisplayToggleR.onTap(function() {
   if (LdisplayToggleR.html === "WAVE") {
     LdisplayToggleR.html = "SPECTRUM";
-    return LwaveFormR.image = "images/Deck_1_bpm.png";
+    return LwaveFormR.image = "images/Deck_2_bpm.png";
   } else {
     LdisplayToggleR.html = "WAVE";
-    return LwaveFormR.image = "images/Deck_1_wave.png";
+    return LwaveFormR.image = "images/Deck_2_wave.png";
   }
 });
 
@@ -1062,7 +1083,7 @@ LwaveForm2R = new Layer({
   y: 20,
   width: 9000,
   height: 110,
-  image: "images/Deck_1_wave.png",
+  image: "images/Deck_2_bpm.png",
   superLayer: view2R.content
 });
 
@@ -1075,7 +1096,7 @@ LdisplayToggle2R = new Layer({
   y: 0
 });
 
-LdisplayToggle2R.html = "WAVE";
+LdisplayToggle2R.html = "SPECTRUM";
 
 LdisplayToggle2R.backgroundColor = "656565";
 
@@ -1091,10 +1112,10 @@ LsongDisplay2R.addSubLayer(LdisplayToggle2R);
 LdisplayToggle2R.onTap(function() {
   if (LdisplayToggle2R.html === "WAVE") {
     LdisplayToggle2R.html = "SPECTRUM";
-    return LwaveForm2R.image = "images/Deck_1_bpm.png";
+    return LwaveForm2R.image = "images/Deck_2_bpm.png";
   } else {
     LdisplayToggle2R.html = "WAVE";
-    return LwaveForm2R.image = "images/Deck_1_wave.png";
+    return LwaveForm2R.image = "images/Deck_2_wave.png";
   }
 });
 
@@ -1137,7 +1158,7 @@ LwaveForm3R = new Layer({
   y: 15,
   width: 9000,
   height: 110,
-  image: "images/Deck_1_wave.png",
+  image: "images/Deck_2_wave.png",
   superLayer: view3R.content
 });
 
@@ -1166,10 +1187,10 @@ LsongDisplay3R.addSubLayer(LdisplayToggle3R);
 LdisplayToggle3R.onTap(function() {
   if (LdisplayToggle3R.html === "WAVE") {
     LdisplayToggle3R.html = "SPECTRUM";
-    return LwaveForm3R.image = "images/Deck_1_bpm.png";
+    return LwaveForm3R.image = "images/Deck_2_bpm.png";
   } else {
     LdisplayToggle3R.html = "WAVE";
-    return LwaveForm3R.image = "images/Deck_1_wave.png";
+    return LwaveForm3R.image = "images/Deck_2_wave.png";
   }
 });
 
@@ -1829,6 +1850,27 @@ LbpmDisplayR = new Layer({
   backgroundColor: "#ffffff"
 });
 
+LbpmDisplayR.html = 170;
+
+LbpmDisplayR.style = {
+  fontSize: "20px",
+  textAlign: "center",
+  color: "black",
+  fontWeight: "bold"
+};
+
+LvolDownBtnR.onTap(function() {
+  if (parseInt(LbpmDisplayR.html) !== 0) {
+    return LbpmDisplayR.html = parseInt(LbpmDisplayR.html) - 5;
+  }
+});
+
+LvolUpBtnR.onTap(function() {
+  if (parseInt(LbpmDisplayR.html) !== 500) {
+    return LbpmDisplayR.html = parseInt(LbpmDisplayR.html) + 5;
+  }
+});
+
 LbpmLabelR = new Layer({
   width: 70,
   height: 35,
@@ -2049,17 +2091,17 @@ LMagPlus2 = new Layer({
 LMuteBar2.addSubLayer(LMagPlus2);
 
 LMagPlus2.onTap(function() {
-  if (LmainWaveForm2.image === "images/Deck_1_bpm.png") {
-    LmainWaveForm2.image = "images/Deck_1_bpm_klein.png";
+  if (LmainWaveForm2.image === "images/Deck_2_bpm.png") {
+    LmainWaveForm2.image = "images/Deck_2_bpm_klein.png";
   }
-  if (LmainWaveForm2.image === "images/Deck_1_wave.png") {
-    LmainWaveForm2.image = "images/Deck_1_klein.png";
+  if (LmainWaveForm2.image === "images/Deck_2_wave.png") {
+    LmainWaveForm2.image = "images/Deck_2_klein.png";
   }
-  if (LmainWaveForm2.image === "images/Deck_1_gross.png") {
-    LmainWaveForm2.image = "images/Deck_1_wave.png";
+  if (LmainWaveForm2.image === "images/Deck_2_gross.png") {
+    LmainWaveForm2.image = "images/Deck_2_wave.png";
   }
-  if (LmainWaveForm2.image === "images/Deck_1_bpm_gross.png") {
-    return LmainWaveForm2.image = "images/Deck_1_bpm.png";
+  if (LmainWaveForm2.image === "images/Deck_2_bpm_gross.png") {
+    return LmainWaveForm2.image = "images/Deck_2_bpm.png";
   }
 });
 
@@ -2075,17 +2117,17 @@ LMagMinus2 = new Layer({
 LMuteBar2.addSubLayer(LMagMinus2);
 
 LMagMinus2.onTap(function() {
-  if (LmainWaveForm2.image === "images/Deck_1_bpm.png") {
-    LmainWaveForm2.image = "images/Deck_1_bpm_gross.png";
+  if (LmainWaveForm2.image === "images/Deck_2_bpm.png") {
+    LmainWaveForm2.image = "images/Deck_2_bpm_gross.png";
   }
-  if (LmainWaveForm2.image === "images/Deck_1_wave.png") {
-    LmainWaveForm2.image = "images/Deck_1_gross.png";
+  if (LmainWaveForm2.image === "images/Deck_2_wave.png") {
+    LmainWaveForm2.image = "images/Deck_2_gross.png";
   }
-  if (LmainWaveForm2.image === "images/Deck_1_klein.png") {
-    LmainWaveForm2.image = "images/Deck_1_wave.png";
+  if (LmainWaveForm2.image === "images/Deck_2_klein.png") {
+    LmainWaveForm2.image = "images/Deck_2_wave.png";
   }
-  if (LmainWaveForm2.image === "images/Deck_1_bpm_klein.png") {
-    return LmainWaveForm2.image = "images/Deck_1_bpm.png";
+  if (LmainWaveForm2.image === "images/Deck_2_bpm_klein.png") {
+    return LmainWaveForm2.image = "images/Deck_2_bpm.png";
   }
 });
 
@@ -2174,7 +2216,7 @@ LmainWaveForm2 = new Layer({
   y: 20,
   width: 9000,
   height: 200,
-  image: "images/Deck_1_wave.png",
+  image: "images/Deck_2_wave.png",
   superLayer: viewMain2.content
 });
 
@@ -2203,10 +2245,10 @@ LSecondTrack.addSubLayer(LdisplayToggle2M);
 LdisplayToggle2M.onTap(function() {
   if (LdisplayToggle2M.html === "WAVE") {
     LdisplayToggle2M.html = "SPECTRUM";
-    return LmainWaveForm2.image = "images/Deck_1_bpm.png";
+    return LmainWaveForm2.image = "images/Deck_2_bpm.png";
   } else {
     LdisplayToggle2M.html = "WAVE";
-    return LmainWaveForm2.image = "images/Deck_1_wave.png";
+    return LmainWaveForm2.image = "images/Deck_2_wave.png";
   }
 });
 
@@ -2222,6 +2264,7 @@ LMainWindow.addSubLayer(LMainControl);
 LMainControlBtns = new Layer({
   width: 225,
   height: 35,
+  y: 20,
   backgroundColor: "transparent"
 });
 
@@ -2251,6 +2294,15 @@ LPlayBtnM = new Layer({
   image: "images/icons/play.png"
 });
 
+LPauseBtnM = new Layer({
+  width: 70,
+  height: 35,
+  x: 80,
+  borderRadius: 4,
+  visible: false,
+  image: "images/icons/pause.png"
+});
+
 LFastBackBtnM = new Layer({
   width: 35,
   height: 35,
@@ -2271,6 +2323,8 @@ LMainControlBtns.addSubLayer(LskipToStartM);
 LMainControlBtns.addSubLayer(LFastBackBtnM);
 
 LMainControlBtns.addSubLayer(LPlayBtnM);
+
+LMainControlBtns.addSubLayer(LPauseBtnM);
 
 LMainControlBtns.addSubLayer(LFastForwardBtnM);
 
@@ -2376,4 +2430,247 @@ viewMain2.onMove(function() {
 
 view3R.onMove(function() {
   return SliderTimeline3R.value = view3R.scrollX;
+});
+
+LskipToStartM.onTap(function() {
+  viewMain.scrollX = 0;
+  viewMain2.scrollX = 0;
+  AFastBackBtnM = new Animation({
+    layer: viewMain,
+    properties: {
+      scrollX: 0
+    },
+    curve: "linear",
+    time: 15
+  });
+  AFastBackBtnM2 = new Animation({
+    layer: viewMain2,
+    properties: {
+      scrollX: 0
+    },
+    curve: "linear",
+    time: 15
+  });
+  AfastforwardM = new Animation({
+    layer: viewMain,
+    properties: {
+      scrollX: 8750
+    },
+    curve: "linear",
+    time: 15
+  });
+  AfastforwardM2 = new Animation({
+    layer: viewMain2,
+    properties: {
+      scrollX: 8750
+    },
+    curve: "linear",
+    time: 15
+  });
+  AplayM = new Animation({
+    layer: viewMain,
+    properties: {
+      scrollX: 8750
+    },
+    curve: "linear",
+    time: 30
+  });
+  return AplayM2 = new Animation({
+    layer: viewMain2,
+    properties: {
+      scrollX: 8750
+    },
+    curve: "linear",
+    time: 30
+  });
+});
+
+LskipToEndBtnM.onTap(function() {
+  viewMain.scrollX = 8750;
+  viewMain2.scrollX = 8750;
+  AFastBackBtnM = new Animation({
+    layer: viewMain,
+    properties: {
+      scrollX: 0
+    },
+    curve: "linear",
+    time: 15
+  });
+  AFastBackBtnM2 = new Animation({
+    layer: viewMain2,
+    properties: {
+      scrollX: 0
+    },
+    curve: "linear",
+    time: 15
+  });
+  AfastforwardM = new Animation({
+    layer: viewMain,
+    properties: {
+      scrollX: 8750
+    },
+    curve: "linear",
+    time: 15
+  });
+  AfastforwardM2 = new Animation({
+    layer: viewMain2,
+    properties: {
+      scrollX: 8750
+    },
+    curve: "linear",
+    time: 15
+  });
+  AplayM = new Animation({
+    layer: viewMain,
+    properties: {
+      scrollX: 8750
+    },
+    curve: "linear",
+    time: 30
+  });
+  return AplayM2 = new Animation({
+    layer: viewMain2,
+    properties: {
+      scrollX: 8750
+    },
+    curve: "linear",
+    time: 30
+  });
+});
+
+LFastForwardBtnM.onTap(function() {
+  if (LPlayBtnM.visible === true) {
+    LPlayBtnM.visible = false;
+    LPauseBtnM.visible = true;
+  }
+  if (viewMain.scrollX === 8750) {
+    LPlayBtnM.visible = true;
+    LPauseBtnM.visible = false;
+  }
+  AfastforwardM.start();
+  AfastforwardM2.start();
+  return AfastforwardM.onAnimationEnd(function() {
+    LPlayBtnM.visible = true;
+    return LPauseBtnM.visible = false;
+  });
+});
+
+LFastBackBtnM.onTap(function() {
+  if (LPlayBtnR.visible === true) {
+    LPlayBtnM.visible = false;
+    LPauseBtnM.visible = true;
+  }
+  if (viewMain.scrollX === 0) {
+    LPlayBtnM.visible = true;
+    LPauseBtnM.visible = false;
+  }
+  AFastBackBtnM.start();
+  AFastBackBtnM2.start();
+  return AFastBackBtnM.onAnimationEnd(function() {
+    LPlayBtnR.visible = true;
+    return LPauseBtnM.visible = false;
+  });
+});
+
+LPlayBtnM.onTap(function() {
+  if (LPlayBtnM.visible === true) {
+    LPlayBtnM.visible = false;
+    LPauseBtnM.visible = true;
+  }
+  AplayM.onAnimationEnd(function() {
+    LPlayBtnM.visible = true;
+    LPauseBtnM.visible = false;
+    return AplayR = new Animation({
+      layer: viewMain,
+      properties: {
+        scrollX: 8750
+      },
+      curve: "linear",
+      time: 30
+    });
+  });
+  AplayM2.onAnimationEnd(function() {
+    LPlayBtnM.visible = true;
+    LPauseBtnM.visible = false;
+    return AplayM2 = new Animation({
+      layer: viewMain2,
+      properties: {
+        scrollX: 8750
+      },
+      curve: "linear",
+      time: 30
+    });
+  });
+  AplayM2.start();
+  return AplayM.start();
+});
+
+LPauseBtnM.onTap(function() {
+  var AFastBackBtn2M;
+  if (LPauseBtnM.visible === true) {
+    LPlayBtnM.visible = true;
+    LPauseBtnM.visible = false;
+  }
+  AplayM.stop();
+  AplayM2.stop();
+  AFastBackBtnM.stop();
+  AFastBackBtnM2.stop();
+  AfastforwardM.stop();
+  AfastforwardM2.stop();
+  AplayM = new Animation({
+    layer: viewMain,
+    properties: {
+      scrollX: 8750
+    },
+    curve: "linear",
+    time: 30 - (30 / (8750 / viewMain.scrollX))
+  });
+  AplayM2 = new Animation({
+    layer: viewMain2,
+    properties: {
+      scrollX: 8750
+    },
+    curve: "linear",
+    time: 30 - (30 / (8750 / viewMain2.scrollX))
+  });
+  AfastforwardM = new Animation({
+    layer: viewMain,
+    properties: {
+      scrollX: 8750
+    },
+    curve: "linear",
+    time: 15 - (15 / (8750 / viewMain.scrollX))
+  });
+  AfastforwardM2 = new Animation({
+    layer: viewMain2,
+    properties: {
+      scrollX: 8750
+    },
+    curve: "linear",
+    time: 15 - (15 / (8750 / viewMain2.scrollX))
+  });
+  AFastBackBtnM = new Animation({
+    layer: viewMain,
+    properties: {
+      scrollX: 0
+    },
+    curve: "linear",
+    time: 0 + (15 / (8750 / viewMain.scrollX))
+  });
+  AFastBackBtn2M = new Animation({
+    layer: viewMain,
+    properties: {
+      scrollX: 0
+    },
+    curve: "linear",
+    time: 0 + (15 / (8750 / viewMain.scrollX))
+  });
+  return AFastBackBtnM2 = new Animation({
+    layer: viewMain2,
+    properties: {
+      scrollX: 0
+    },
+    curve: "linear",
+    time: 0 + (15 / (8750 / viewMain2.scrollX))
+  });
 });
