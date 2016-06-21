@@ -877,6 +877,23 @@ LskipToEndBtnR = new Layer
     y: 15
     borderRadius: 4
     image:"images/icons/endrechts.png"
+LskipToEndBtnR.onTap ->
+    viewR.scrollX = 8750
+    view2R.scrollX = 8750
+
+AfastforwardR = new Animation
+    layer: viewR
+    properties:
+        scrollX: 8750
+    curve: "linear"
+    time: 15
+
+Afastforward2R = new Animation
+    layer: view2R
+    properties:
+        scrollX: 8750
+    curve: "linear"
+    time: 15
 
 LFastForwardBtnR = new Layer
     width: 35
@@ -894,6 +911,43 @@ LPlayBtnR = new Layer
     borderRadius: 4
     image:"images/icons/play.png"
 
+LPauseBtnR = new Layer
+    width: 70
+    height: 35
+    x: 115
+    y: 15
+    borderRadius: 4
+    visible: false
+    image:"images/icons/pause.png"
+
+AplayR = new Animation
+    layer: viewR
+    properties:
+        scrollX: 8750
+    curve: "linear"
+    time: 30
+
+Aplay2R = new Animation
+    layer: view2R
+    properties:
+        scrollX: 8750
+    curve: "linear"
+    time: 30
+
+AFastBackBtnR = new Animation
+    layer: viewR
+    properties:
+        scrollX: 0
+    curve: "linear"
+    time: 15
+
+AFastBackBtn2R = new Animation
+    layer: view2R
+    properties:
+        scrollX: 0
+    curve: "linear"
+    time: 15
+
 LFastBackBtnR = new Layer
     width: 35
     height: 35
@@ -902,6 +956,91 @@ LFastBackBtnR = new Layer
     borderRadius: 4
     image:"images/icons/zurück.png"
 
+LFastForwardBtnR.onTap ->
+    if LPlayBtnR.visible is true
+        LPlayBtnR.visible = false
+        LPauseBtnR.visible = true
+    AfastforwardR.start()
+    Afastforward2R.start()
+    AfastforwardR.onAnimationEnd ->
+        LPlayBtnR.visible = true
+        LPauseBtnR.visible = false
+
+LFastBackBtnR.onTap ->
+    if LPlayBtnR.visible is true
+        LPlayBtnR.visible = false
+        LPauseBtnR.visible = true
+    AFastBackBtnR.start()
+    AFastBackBtn2R.start()
+    AFastBackBtnR.onAnimationEnd ->
+        LPlayBtnR.visible = true
+        LPauseBtnR.visible = false
+
+LPlayBtnR.onTap ->
+    if LPlayBtnR.visible is true
+        LPlayBtnR.visible = false
+        LPauseBtnR.visible = true
+
+    AplayR.onAnimationEnd ->
+        LPlayBtnR.visible = true
+        LPauseBtnR.visible = false
+
+    AplayR.start()
+    Aplay2R.start()
+
+LPauseBtnR.onTap ->
+    if LPauseBtnR.visible is true
+        LPlayBtnR.visible = true
+        LPauseBtnR.visible = false
+    AplayR.stop()
+    Aplay2R.stop()
+    AFastBackBtnR.stop()
+    AFastBackBtn2R.stop()
+    AfastforwardR.stop()
+    Afastforward2R.stop()
+
+    AplayR = new Animation
+        layer: viewR
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: (30 - (30/(8750/viewR.scrollX)))
+
+    Aplay2R = new Animation
+        layer: view2R
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: (30 - (30/(8750/view2R.scrollX)))
+
+    AfastforwardR = new Animation
+        layer: viewR
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: (15 - (15/(8750/viewR.scrollX)))
+
+    Afastforward2R = new Animation
+        layer: view2R
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: (15 - (15/(8750/view2R.scrollX)))
+
+    AFastBackBtnR = new Animation
+        layer: viewR
+        properties:
+            scrollX: 0
+        curve: "linear"
+        time: (0 + (15/(8750/viewR.scrollX)))
+
+    AFastBackBtn2R = new Animation
+        layer: view2R
+        properties:
+            scrollX: 0
+        curve: "linear"
+        time: (0 + (15/(8750/view2R.scrollX)))
+
 LskipToStartR = new Layer
     width: 35
     height: 35
@@ -909,6 +1048,9 @@ LskipToStartR = new Layer
     y: 15
     borderRadius: 4
     image:"images/icons/endlinks.png"
+LskipToStartR.onTap ->
+    viewR.scrollX = 0
+    view2R.scrollX = 0
 
 LvolumeBtnR = new Layer
     width: 60
@@ -963,6 +1105,7 @@ PlayDisplayR.addSubLayer(LFastForwardBtnR);
 PlayDisplayR.addSubLayer(LFastBackBtnR);
 PlayDisplayR.addSubLayer(LskipToStartR);
 PlayDisplayR.addSubLayer(LPlayBtnR);
+PlayDisplayR.addSubLayer(LPauseBtnR);
 PlayDisplayR.addSubLayer(LvolumeBtnR);
 PlayDisplayR.addSubLayer(LvolUpBtnR);
 PlayDisplayR.addSubLayer(LvolDownBtnR);

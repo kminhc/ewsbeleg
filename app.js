@@ -1,4 +1,4 @@
-var AFastBackBtn, AFastBackBtn2, Afastforward, Afastforward2, Aplay, Aplay2, LCtrlParent, LCtrlParentR, LFastBackBtn, LFastBackBtnM, LFastBackBtnR, LFastForwardBtn, LFastForwardBtnM, LFastForwardBtnR, LMagMinus, LMagMinus2, LMagPlus, LMagPlus2, LMainControl, LMainControlBtns, LMainWindow, LMuteBar, LMuteBar2, LMuteBtn, LMuteBtn2, LPauseBtn, LPlayBtn, LPlayBtnM, LPlayBtnR, LSecondTrack, Lbg, LbpmDisplay, LbpmDisplayR, LbpmLabel, LbpmLabelR, LdisplayToggle, LdisplayToggle2, LdisplayToggle2M, LdisplayToggle2R, LdisplayToggle3, LdisplayToggle3R, LdisplayToggleM, LdisplayToggleR, LfirstTrack, LmainWaveForm, LmainWaveForm2, LnewCloseBtn, LnewCloseBtnR, LnewDisplay, LnewDisplayR, LopenSongListButton, LopenSongListButtonR, LskipToEndBtn, LskipToEndBtnM, LskipToEndBtnR, LskipToStart, LskipToStartM, LskipToStartR, Lsong1, Lsong1R, Lsong2, Lsong2R, Lsong3, Lsong3R, LsongDisplay, LsongDisplay2, LsongDisplay2R, LsongDisplay3, LsongDisplay3R, LsongDisplayR, LtitleDisplay, LtitleDisplayR, LvolDownBtn, LvolDownBtnR, LvolUpBtn, LvolUpBtnR, LvolumeBtn, LvolumeBtnR, LwaveForm, LwaveForm2, LwaveForm2R, LwaveForm3, LwaveForm3R, LwaveFormR, PlayDisplay, PlayDisplayR, ScrollSongList, ScrollSongListR, SliderTimeline, SliderTimeline2, SliderTimeline2R, SliderTimeline3, SliderTimeline3R, SliderTimelineR, bg, title, view, view2, view2R, view3, view3R, viewMain, viewMain2, viewR;
+var AFastBackBtn, AFastBackBtn2, AFastBackBtn2R, AFastBackBtnR, Afastforward, Afastforward2, Afastforward2R, AfastforwardR, Aplay, Aplay2, Aplay2R, AplayR, LCtrlParent, LCtrlParentR, LFastBackBtn, LFastBackBtnM, LFastBackBtnR, LFastForwardBtn, LFastForwardBtnM, LFastForwardBtnR, LMagMinus, LMagMinus2, LMagPlus, LMagPlus2, LMainControl, LMainControlBtns, LMainWindow, LMuteBar, LMuteBar2, LMuteBtn, LMuteBtn2, LPauseBtn, LPauseBtnR, LPlayBtn, LPlayBtnM, LPlayBtnR, LSecondTrack, Lbg, LbpmDisplay, LbpmDisplayR, LbpmLabel, LbpmLabelR, LdisplayToggle, LdisplayToggle2, LdisplayToggle2M, LdisplayToggle2R, LdisplayToggle3, LdisplayToggle3R, LdisplayToggleM, LdisplayToggleR, LfirstTrack, LmainWaveForm, LmainWaveForm2, LnewCloseBtn, LnewCloseBtnR, LnewDisplay, LnewDisplayR, LopenSongListButton, LopenSongListButtonR, LskipToEndBtn, LskipToEndBtnM, LskipToEndBtnR, LskipToStart, LskipToStartM, LskipToStartR, Lsong1, Lsong1R, Lsong2, Lsong2R, Lsong3, Lsong3R, LsongDisplay, LsongDisplay2, LsongDisplay2R, LsongDisplay3, LsongDisplay3R, LsongDisplayR, LtitleDisplay, LtitleDisplayR, LvolDownBtn, LvolDownBtnR, LvolUpBtn, LvolUpBtnR, LvolumeBtn, LvolumeBtnR, LwaveForm, LwaveForm2, LwaveForm2R, LwaveForm3, LwaveForm3R, LwaveFormR, PlayDisplay, PlayDisplayR, ScrollSongList, ScrollSongListR, SliderTimeline, SliderTimeline2, SliderTimeline2R, SliderTimeline3, SliderTimeline3R, SliderTimelineR, bg, title, view, view2, view2R, view3, view3R, viewMain, viewMain2, viewR;
 
 bg = new BackgroundLayer;
 
@@ -1031,6 +1031,29 @@ LskipToEndBtnR = new Layer({
   image: "images/icons/endrechts.png"
 });
 
+LskipToEndBtnR.onTap(function() {
+  viewR.scrollX = 8750;
+  return view2R.scrollX = 8750;
+});
+
+AfastforwardR = new Animation({
+  layer: viewR,
+  properties: {
+    scrollX: 8750
+  },
+  curve: "linear",
+  time: 15
+});
+
+Afastforward2R = new Animation({
+  layer: view2R,
+  properties: {
+    scrollX: 8750
+  },
+  curve: "linear",
+  time: 15
+});
+
 LFastForwardBtnR = new Layer({
   width: 35,
   height: 35,
@@ -1049,6 +1072,52 @@ LPlayBtnR = new Layer({
   image: "images/icons/play.png"
 });
 
+LPauseBtnR = new Layer({
+  width: 70,
+  height: 35,
+  x: 115,
+  y: 15,
+  borderRadius: 4,
+  visible: false,
+  image: "images/icons/pause.png"
+});
+
+AplayR = new Animation({
+  layer: viewR,
+  properties: {
+    scrollX: 8750
+  },
+  curve: "linear",
+  time: 30
+});
+
+Aplay2R = new Animation({
+  layer: view2R,
+  properties: {
+    scrollX: 8750
+  },
+  curve: "linear",
+  time: 30
+});
+
+AFastBackBtnR = new Animation({
+  layer: viewR,
+  properties: {
+    scrollX: 0
+  },
+  curve: "linear",
+  time: 15
+});
+
+AFastBackBtn2R = new Animation({
+  layer: view2R,
+  properties: {
+    scrollX: 0
+  },
+  curve: "linear",
+  time: 15
+});
+
 LFastBackBtnR = new Layer({
   width: 35,
   height: 35,
@@ -1058,6 +1127,106 @@ LFastBackBtnR = new Layer({
   image: "images/icons/zurück.png"
 });
 
+LFastForwardBtnR.onTap(function() {
+  if (LPlayBtnR.visible === true) {
+    LPlayBtnR.visible = false;
+    LPauseBtnR.visible = true;
+  }
+  AfastforwardR.start();
+  Afastforward2R.start();
+  return AfastforwardR.onAnimationEnd(function() {
+    LPlayBtnR.visible = true;
+    return LPauseBtnR.visible = false;
+  });
+});
+
+LFastBackBtnR.onTap(function() {
+  if (LPlayBtnR.visible === true) {
+    LPlayBtnR.visible = false;
+    LPauseBtnR.visible = true;
+  }
+  AFastBackBtnR.start();
+  AFastBackBtn2R.start();
+  return AFastBackBtnR.onAnimationEnd(function() {
+    LPlayBtnR.visible = true;
+    return LPauseBtnR.visible = false;
+  });
+});
+
+LPlayBtnR.onTap(function() {
+  if (LPlayBtnR.visible === true) {
+    LPlayBtnR.visible = false;
+    LPauseBtnR.visible = true;
+  }
+  AplayR.onAnimationEnd(function() {
+    LPlayBtnR.visible = true;
+    return LPauseBtnR.visible = false;
+  });
+  AplayR.start();
+  return Aplay2R.start();
+});
+
+LPauseBtnR.onTap(function() {
+  if (LPauseBtnR.visible === true) {
+    LPlayBtnR.visible = true;
+    LPauseBtnR.visible = false;
+  }
+  AplayR.stop();
+  Aplay2R.stop();
+  AFastBackBtnR.stop();
+  AFastBackBtn2R.stop();
+  AfastforwardR.stop();
+  Afastforward2R.stop();
+  AplayR = new Animation({
+    layer: viewR,
+    properties: {
+      scrollX: 8750
+    },
+    curve: "linear",
+    time: 30 - (30 / (8750 / viewR.scrollX))
+  });
+  Aplay2R = new Animation({
+    layer: view2R,
+    properties: {
+      scrollX: 8750
+    },
+    curve: "linear",
+    time: 30 - (30 / (8750 / view2R.scrollX))
+  });
+  AfastforwardR = new Animation({
+    layer: viewR,
+    properties: {
+      scrollX: 8750
+    },
+    curve: "linear",
+    time: 15 - (15 / (8750 / viewR.scrollX))
+  });
+  Afastforward2R = new Animation({
+    layer: view2R,
+    properties: {
+      scrollX: 8750
+    },
+    curve: "linear",
+    time: 15 - (15 / (8750 / view2R.scrollX))
+  });
+  AFastBackBtnR = new Animation({
+    layer: viewR,
+    properties: {
+      scrollX: 0
+    },
+    curve: "linear",
+    time: 0 + (15 / (8750 / viewR.scrollX))
+  });
+  return AFastBackBtn2R = new Animation({
+    layer: view2R,
+    properties: {
+      scrollX: 0
+    },
+    curve: "linear",
+    time: 0 + (15 / (8750 / view2R.scrollX))
+  });
+});
+
 LskipToStartR = new Layer({
   width: 35,
   height: 35,
@@ -1065,6 +1234,11 @@ LskipToStartR = new Layer({
   y: 15,
   borderRadius: 4,
   image: "images/icons/endlinks.png"
+});
+
+LskipToStartR.onTap(function() {
+  viewR.scrollX = 0;
+  return view2R.scrollX = 0;
 });
 
 LvolumeBtnR = new Layer({
@@ -1131,6 +1305,8 @@ PlayDisplayR.addSubLayer(LFastBackBtnR);
 PlayDisplayR.addSubLayer(LskipToStartR);
 
 PlayDisplayR.addSubLayer(LPlayBtnR);
+
+PlayDisplayR.addSubLayer(LPauseBtnR);
 
 PlayDisplayR.addSubLayer(LvolumeBtnR);
 
