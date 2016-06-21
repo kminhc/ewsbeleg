@@ -20,7 +20,7 @@ LsongDisplay = new Layer
 LsongDisplay.style.boxShadow = "0 1px 2px rgba(0,0,0,0.1)"
 
 
-#Waveform SliderTimeline
+#Waveform Scrollimage
 view = new ScrollComponent
     x:25
     y:15
@@ -29,15 +29,41 @@ view = new ScrollComponent
 
 view.scrollVertical = false
 
+#Display content
 LwaveForm = new Layer
     x:0
     y:20
-    width:1000
+    width:9000
     height:110
-    image:"images/wave.png"
+    image:"images/Deck_1_wave.png"
     superLayer: view.content
-
 LsongDisplay.addSubLayer(view);
+
+#Display Toggle Button
+LdisplayToggle = new Layer
+    height: 25
+    width: 60
+    x: 25
+    y: 5
+LdisplayToggle.html = "BPM"
+LdisplayToggle.backgroundColor = "transparent"
+LdisplayToggle.style=
+  fontFamily: "Futura-CondensedExtraBold"
+  fontSize: "25px"
+  textAlign: "center"
+  color: "black"
+LsongDisplay.addSubLayer(LdisplayToggle);
+
+#ontap for Display
+LdisplayToggle.onTap ->
+    if LdisplayToggle.html is "BPM"
+      LdisplayToggle.html = "Spectrum"
+      LwaveForm.image = "images/Deck_1_bpm.png"
+    else
+      LdisplayToggle.html = "BPM"
+      LwaveForm.image = "images/Deck_1_wave.png"
+
+
 
 SliderTimeline = new SliderComponent
     min: 0
@@ -73,12 +99,36 @@ view2.scrollVertical = false
 LwaveForm2 = new Layer
     x:0
     y:20
-    width:1000
+    width:9000
     height:110
-    image:"images/wave.png"
+    image:"images/Deck_1_wave.png"
     superLayer: view2.content
-
 LsongDisplay2.addSubLayer(view2);
+
+#Display Toggle Button
+LdisplayToggle2 = new Layer
+    height: 25
+    width: 60
+    x: 25
+    y: 5
+LdisplayToggle2.html = "BPM"
+LdisplayToggle2.backgroundColor = "transparent"
+LdisplayToggle2.style=
+  fontFamily: "Futura-CondensedExtraBold"
+  fontSize: "25px"
+  textAlign: "center"
+  color: "black"
+LsongDisplay2.addSubLayer(LdisplayToggle2);
+
+#ontap for Display
+LdisplayToggle2.onTap ->
+    if LdisplayToggle2.html is "BPM"
+      LdisplayToggle2.html = "Spectrum"
+      LwaveForm2.image = "images/Deck_1_bpm.png"
+    else
+      LdisplayToggle2.html = "BPM"
+      LwaveForm2.image = "images/Deck_1_wave.png"
+
 #SliderTimeline
 SliderTimeline2 = new SliderComponent
     min: 0
@@ -115,12 +165,36 @@ view3.scrollVertical = false
 LwaveForm3 = new Layer
     x:0
     y:20
-    width:1000
+    width:9000
     height:110
-    image:"images/wave.png"
+    image:"images/Deck_1_wave.png"
     superLayer: view3.content
-
 LsongDisplay3.addSubLayer(view3);
+
+#Display Toggle Button
+LdisplayToggle3 = new Layer
+    height: 25
+    width: 60
+    x: 25
+    y: 5
+LdisplayToggle3.html = "BPM"
+LdisplayToggle3.backgroundColor = "transparent"
+LdisplayToggle3.style=
+  fontFamily: "Futura-CondensedExtraBold"
+  fontSize: "25px"
+  textAlign: "center"
+  color: "black"
+LsongDisplay3.addSubLayer(LdisplayToggle3);
+
+#ontap for Display
+LdisplayToggle3.onTap ->
+    if LdisplayToggle3.html is "BPM"
+      LdisplayToggle3.html = "Spectrum"
+      LwaveForm3.image = "images/Deck_1_bpm.png"
+    else
+      LdisplayToggle3.html = "BPM"
+      LwaveForm3.image = "images/Deck_1_wave.png"
+
 #SliderTimeline
 SliderTimeline3 = new SliderComponent
     min: 0
@@ -379,12 +453,35 @@ viewR.scrollVertical = false
 LwaveFormR = new Layer
     x:0
     y:20
-    width:1000
+    width:9000
     height:110
-    image:"images/wave.png"
+    image:"images/Deck_1_wave.png"
     superLayer: viewR.content
-
 LsongDisplayR.addSubLayer(viewR);
+
+#Display Toggle Button
+LdisplayToggleR = new Layer
+    height: 25
+    width: 60
+    x: 25
+    y: 5
+LdisplayToggleR.html = "BPM"
+LdisplayToggleR.backgroundColor = "transparent"
+LdisplayToggleR.style=
+  fontFamily: "Futura-CondensedExtraBold"
+  fontSize: "25px"
+  textAlign: "center"
+  color: "black"
+LsongDisplayR.addSubLayer(LdisplayToggleR);
+
+#ontap for Display
+LdisplayToggleR.onTap ->
+    if LdisplayToggleR.html is "BPM"
+      LdisplayToggleR.html = "Spectrum"
+      LwaveFormR.image = "images/Deck_1_bpm.png"
+    else
+      LdisplayToggleR.html = "BPM"
+      LwaveFormR.image = "images/Deck_1_wave.png"
 
 SliderTimelineR = new SliderComponent
     min: 0
@@ -420,12 +517,36 @@ view2R.scrollVertical = false
 LwaveForm2R = new Layer
     x:0
     y:20
-    width:1000
+    width:9000
     height:110
-    image:"images/wave.png"
+    image:"images/Deck_1_wave.png"
     superLayer: view2R.content
-
 LsongDisplay2R.addSubLayer(view2R);
+
+#Display Toggle Button
+LdisplayToggle2R = new Layer
+    height: 25
+    width: 60
+    x: 25
+    y: 5
+LdisplayToggle2R.html = "BPM"
+LdisplayToggle2R.backgroundColor = "transparent"
+LdisplayToggle2R.style=
+  fontFamily: "Futura-CondensedExtraBold"
+  fontSize: "25px"
+  textAlign: "center"
+  color: "black"
+LsongDisplay2R.addSubLayer(LdisplayToggle2R);
+
+#ontap for Display
+LdisplayToggle2R.onTap ->
+    if LdisplayToggle2R.html is "BPM"
+      LdisplayToggle2R.html = "Spectrum"
+      LwaveForm2R.image = "images/Deck_1_bpm.png"
+    else
+      LdisplayToggle2R.html = "BPM"
+      LwaveForm2R.image = "images/Deck_1_wave.png"
+
 #SliderTimeline
 SliderTimeline2R = new SliderComponent
     min: 0
@@ -462,12 +583,36 @@ view3R.scrollVertical = false
 LwaveForm3R = new Layer
     x:0
     y:20
-    width:1000
+    width:9000
     height:110
-    image:"images/wave.png"
+    image:"images/Deck_1_wave.png"
     superLayer: view3R.content
-
 LsongDisplay3R.addSubLayer(view3R);
+
+#Display Toggle Button
+LdisplayToggle3R = new Layer
+    height: 25
+    width: 60
+    x: 25
+    y: 5
+LdisplayToggle3R.html = "BPM"
+LdisplayToggle3R.backgroundColor = "transparent"
+LdisplayToggle3R.style=
+  fontFamily: "Futura-CondensedExtraBold"
+  fontSize: "25px"
+  textAlign: "center"
+  color: "black"
+LsongDisplay3R.addSubLayer(LdisplayToggle3R);
+
+#ontap for Display
+LdisplayToggle3R.onTap ->
+    if LdisplayToggle3R.html is "BPM"
+      LdisplayToggle3R.html = "Spectrum"
+      LwaveForm3R.image = "images/Deck_1_bpm.png"
+    else
+      LdisplayToggle3R.html = "BPM"
+      LwaveForm3R.image = "images/Deck_1_wave.png"
+
 #SliderTimeline
 SliderTimeline3R = new SliderComponent
     min: 0
@@ -810,10 +955,33 @@ LmainWaveForm = new Layer
     y:20
     width:9000
     height:200
-    image:"images/wave.png"
+    image:"images/Deck_1_wave.png"
     superLayer: viewMain.content
-
 LfirstTrack.addSubLayer(viewMain)
+
+#Display Toggle Button
+LdisplayToggleM = new Layer
+    height: 25
+    width: 60
+    x: 55
+    y: 5
+LdisplayToggleM.html = "BPM"
+LdisplayToggleM.backgroundColor = "transparent"
+LdisplayToggleM.style=
+  fontFamily: "Futura-CondensedExtraBold"
+  fontSize: "25px"
+  textAlign: "center"
+  color: "black"
+LfirstTrack.addSubLayer(LdisplayToggleM);
+
+#ontap for Display
+LdisplayToggleM.onTap ->
+    if LdisplayToggleM.html is "BPM"
+      LdisplayToggleM.html = "Spectrum"
+      LmainWaveForm.image = "images/Deck_1_bpm.png"
+    else
+      LdisplayToggleM.html = "BPM"
+      LmainWaveForm.image = "images/Deck_1_wave.png"
 
 viewMain2 = new ScrollComponent
     x:60
@@ -826,9 +994,9 @@ viewMain2.scrollVertical = false
 LmainWaveForm2 = new Layer
     x:0
     y:20
-    width:1000
+    width:9000
     height:200
-    image:"images/wave.png"
+    image:"images/Deck_1_wave.png"
     superLayer: viewMain2.content
 
 LSecondTrack.addSubLayer(viewMain2)

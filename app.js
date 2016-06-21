@@ -1,4 +1,4 @@
-var LCtrlParent, LCtrlParentR, LFastBackBtn, LFastBackBtnM, LFastBackBtnR, LFastForwardBtn, LFastForwardBtnM, LFastForwardBtnR, LMagMinus, LMagMinus2, LMagPlus, LMagPlus2, LMainControl, LMainControlBtns, LMainWindow, LMuteBar, LMuteBar2, LMuteBtn, LMuteBtn2, LPlayBtn, LPlayBtnM, LPlayBtnR, LSecondTrack, Lbg, LbpmDisplay, LbpmDisplayR, LbpmLabel, LbpmLabelR, LfirstTrack, LmainWaveForm, LmainWaveForm2, LnewCloseBtn, LnewCloseBtnR, LnewDisplay, LnewDisplayR, LopenSongListButton, LopenSongListButtonR, LskipToEndBtn, LskipToEndBtnM, LskipToEndBtnR, LskipToStart, LskipToStartM, LskipToStartR, Lsong1, Lsong1R, Lsong2, Lsong2R, Lsong3, Lsong3R, LsongDisplay, LsongDisplay2, LsongDisplay2R, LsongDisplay3, LsongDisplay3R, LsongDisplayR, LtitleDisplay, LtitleDisplayR, LvolDownBtn, LvolDownBtnR, LvolUpBtn, LvolUpBtnR, LvolumeBtn, LvolumeBtnR, LwaveForm, LwaveForm2, LwaveForm2R, LwaveForm3, LwaveForm3R, LwaveFormR, PlayDisplay, PlayDisplayR, ScrollSongList, ScrollSongListR, SliderTimeline, SliderTimeline2, SliderTimeline2R, SliderTimeline3, SliderTimeline3R, SliderTimelineR, bg, title, view, view2, view2R, view3, view3R, viewMain, viewMain2, viewR;
+var LCtrlParent, LCtrlParentR, LFastBackBtn, LFastBackBtnM, LFastBackBtnR, LFastForwardBtn, LFastForwardBtnM, LFastForwardBtnR, LMagMinus, LMagMinus2, LMagPlus, LMagPlus2, LMainControl, LMainControlBtns, LMainWindow, LMuteBar, LMuteBar2, LMuteBtn, LMuteBtn2, LPlayBtn, LPlayBtnM, LPlayBtnR, LSecondTrack, Lbg, LbpmDisplay, LbpmDisplayR, LbpmLabel, LbpmLabelR, LdisplayToggle, LdisplayToggle2, LdisplayToggle2R, LdisplayToggle3, LdisplayToggle3R, LdisplayToggleM, LdisplayToggleR, LfirstTrack, LmainWaveForm, LmainWaveForm2, LnewCloseBtn, LnewCloseBtnR, LnewDisplay, LnewDisplayR, LopenSongListButton, LopenSongListButtonR, LskipToEndBtn, LskipToEndBtnM, LskipToEndBtnR, LskipToStart, LskipToStartM, LskipToStartR, Lsong1, Lsong1R, Lsong2, Lsong2R, Lsong3, Lsong3R, LsongDisplay, LsongDisplay2, LsongDisplay2R, LsongDisplay3, LsongDisplay3R, LsongDisplayR, LtitleDisplay, LtitleDisplayR, LvolDownBtn, LvolDownBtnR, LvolUpBtn, LvolUpBtnR, LvolumeBtn, LvolumeBtnR, LwaveForm, LwaveForm2, LwaveForm2R, LwaveForm3, LwaveForm3R, LwaveFormR, PlayDisplay, PlayDisplayR, ScrollSongList, ScrollSongListR, SliderTimeline, SliderTimeline2, SliderTimeline2R, SliderTimeline3, SliderTimeline3R, SliderTimelineR, bg, title, view, view2, view2R, view3, view3R, viewMain, viewMain2, viewR;
 
 bg = new BackgroundLayer;
 
@@ -32,13 +32,43 @@ view.scrollVertical = false;
 LwaveForm = new Layer({
   x: 0,
   y: 20,
-  width: 1000,
+  width: 9000,
   height: 110,
-  image: "images/wave.png",
+  image: "images/Deck_1_wave.png",
   superLayer: view.content
 });
 
 LsongDisplay.addSubLayer(view);
+
+LdisplayToggle = new Layer({
+  height: 25,
+  width: 60,
+  x: 25,
+  y: 5
+});
+
+LdisplayToggle.html = "BPM";
+
+LdisplayToggle.backgroundColor = "transparent";
+
+LdisplayToggle.style = {
+  fontFamily: "Futura-CondensedExtraBold",
+  fontSize: "25px",
+  textAlign: "center",
+  color: "black"
+};
+
+LsongDisplay.addSubLayer(LdisplayToggle);
+
+LdisplayToggle.onTap(function() {
+  if (LdisplayToggle.html === "BPM") {
+    LdisplayToggle.html = "Spectrum";
+    return LwaveForm.image = "images/Deck_1_bpm.png";
+  } else {
+    LdisplayToggle.html = "BPM";
+    return LwaveForm.image = "images/Deck_1_wave.png";
+  }
+});
 
 SliderTimeline = new SliderComponent({
   min: 0,
@@ -76,13 +106,43 @@ view2.scrollVertical = false;
 LwaveForm2 = new Layer({
   x: 0,
   y: 20,
-  width: 1000,
+  width: 9000,
   height: 110,
-  image: "images/wave.png",
+  image: "images/Deck_1_wave.png",
   superLayer: view2.content
 });
 
 LsongDisplay2.addSubLayer(view2);
+
+LdisplayToggle2 = new Layer({
+  height: 25,
+  width: 60,
+  x: 25,
+  y: 5
+});
+
+LdisplayToggle2.html = "BPM";
+
+LdisplayToggle2.backgroundColor = "transparent";
+
+LdisplayToggle2.style = {
+  fontFamily: "Futura-CondensedExtraBold",
+  fontSize: "25px",
+  textAlign: "center",
+  color: "black"
+};
+
+LsongDisplay2.addSubLayer(LdisplayToggle2);
+
+LdisplayToggle2.onTap(function() {
+  if (LdisplayToggle2.html === "BPM") {
+    LdisplayToggle2.html = "Spectrum";
+    return LwaveForm2.image = "images/Deck_1_bpm.png";
+  } else {
+    LdisplayToggle2.html = "BPM";
+    return LwaveForm2.image = "images/Deck_1_wave.png";
+  }
+});
 
 SliderTimeline2 = new SliderComponent({
   min: 0,
@@ -121,13 +181,43 @@ view3.scrollVertical = false;
 LwaveForm3 = new Layer({
   x: 0,
   y: 20,
-  width: 1000,
+  width: 9000,
   height: 110,
-  image: "images/wave.png",
+  image: "images/Deck_1_wave.png",
   superLayer: view3.content
 });
 
 LsongDisplay3.addSubLayer(view3);
+
+LdisplayToggle3 = new Layer({
+  height: 25,
+  width: 60,
+  x: 25,
+  y: 5
+});
+
+LdisplayToggle3.html = "BPM";
+
+LdisplayToggle3.backgroundColor = "transparent";
+
+LdisplayToggle3.style = {
+  fontFamily: "Futura-CondensedExtraBold",
+  fontSize: "25px",
+  textAlign: "center",
+  color: "black"
+};
+
+LsongDisplay3.addSubLayer(LdisplayToggle3);
+
+LdisplayToggle3.onTap(function() {
+  if (LdisplayToggle3.html === "BPM") {
+    LdisplayToggle3.html = "Spectrum";
+    return LwaveForm3.image = "images/Deck_1_bpm.png";
+  } else {
+    LdisplayToggle3.html = "BPM";
+    return LwaveForm3.image = "images/Deck_1_wave.png";
+  }
+});
 
 SliderTimeline3 = new SliderComponent({
   min: 0,
@@ -431,13 +521,43 @@ viewR.scrollVertical = false;
 LwaveFormR = new Layer({
   x: 0,
   y: 20,
-  width: 1000,
+  width: 9000,
   height: 110,
-  image: "images/wave.png",
+  image: "images/Deck_1_wave.png",
   superLayer: viewR.content
 });
 
 LsongDisplayR.addSubLayer(viewR);
+
+LdisplayToggleR = new Layer({
+  height: 25,
+  width: 60,
+  x: 25,
+  y: 5
+});
+
+LdisplayToggleR.html = "BPM";
+
+LdisplayToggleR.backgroundColor = "transparent";
+
+LdisplayToggleR.style = {
+  fontFamily: "Futura-CondensedExtraBold",
+  fontSize: "25px",
+  textAlign: "center",
+  color: "black"
+};
+
+LsongDisplayR.addSubLayer(LdisplayToggleR);
+
+LdisplayToggleR.onTap(function() {
+  if (LdisplayToggleR.html === "BPM") {
+    LdisplayToggleR.html = "Spectrum";
+    return LwaveFormR.image = "images/Deck_1_bpm.png";
+  } else {
+    LdisplayToggleR.html = "BPM";
+    return LwaveFormR.image = "images/Deck_1_wave.png";
+  }
+});
 
 SliderTimelineR = new SliderComponent({
   min: 0,
@@ -475,13 +595,43 @@ view2R.scrollVertical = false;
 LwaveForm2R = new Layer({
   x: 0,
   y: 20,
-  width: 1000,
+  width: 9000,
   height: 110,
-  image: "images/wave.png",
+  image: "images/Deck_1_wave.png",
   superLayer: view2R.content
 });
 
 LsongDisplay2R.addSubLayer(view2R);
+
+LdisplayToggle2R = new Layer({
+  height: 25,
+  width: 60,
+  x: 25,
+  y: 5
+});
+
+LdisplayToggle2R.html = "BPM";
+
+LdisplayToggle2R.backgroundColor = "transparent";
+
+LdisplayToggle2R.style = {
+  fontFamily: "Futura-CondensedExtraBold",
+  fontSize: "25px",
+  textAlign: "center",
+  color: "black"
+};
+
+LsongDisplay2R.addSubLayer(LdisplayToggle2R);
+
+LdisplayToggle2R.onTap(function() {
+  if (LdisplayToggle2R.html === "BPM") {
+    LdisplayToggle2R.html = "Spectrum";
+    return LwaveForm2R.image = "images/Deck_1_bpm.png";
+  } else {
+    LdisplayToggle2R.html = "BPM";
+    return LwaveForm2R.image = "images/Deck_1_wave.png";
+  }
+});
 
 SliderTimeline2R = new SliderComponent({
   min: 0,
@@ -520,13 +670,43 @@ view3R.scrollVertical = false;
 LwaveForm3R = new Layer({
   x: 0,
   y: 20,
-  width: 1000,
+  width: 9000,
   height: 110,
-  image: "images/wave.png",
+  image: "images/Deck_1_wave.png",
   superLayer: view3R.content
 });
 
 LsongDisplay3R.addSubLayer(view3R);
+
+LdisplayToggle3R = new Layer({
+  height: 25,
+  width: 60,
+  x: 25,
+  y: 5
+});
+
+LdisplayToggle3R.html = "BPM";
+
+LdisplayToggle3R.backgroundColor = "transparent";
+
+LdisplayToggle3R.style = {
+  fontFamily: "Futura-CondensedExtraBold",
+  fontSize: "25px",
+  textAlign: "center",
+  color: "black"
+};
+
+LsongDisplay3R.addSubLayer(LdisplayToggle3R);
+
+LdisplayToggle3R.onTap(function() {
+  if (LdisplayToggle3R.html === "BPM") {
+    LdisplayToggle3R.html = "Spectrum";
+    return LwaveForm3R.image = "images/Deck_1_bpm.png";
+  } else {
+    LdisplayToggle3R.html = "BPM";
+    return LwaveForm3R.image = "images/Deck_1_wave.png";
+  }
+});
 
 SliderTimeline3R = new SliderComponent({
   min: 0,
@@ -940,11 +1120,41 @@ LmainWaveForm = new Layer({
   y: 20,
   width: 9000,
   height: 200,
-  image: "images/wave.png",
+  image: "images/Deck_1_wave.png",
   superLayer: viewMain.content
 });
 
 LfirstTrack.addSubLayer(viewMain);
+
+LdisplayToggleM = new Layer({
+  height: 25,
+  width: 60,
+  x: 55,
+  y: 5
+});
+
+LdisplayToggleM.html = "BPM";
+
+LdisplayToggleM.backgroundColor = "transparent";
+
+LdisplayToggleM.style = {
+  fontFamily: "Futura-CondensedExtraBold",
+  fontSize: "25px",
+  textAlign: "center",
+  color: "black"
+};
+
+LfirstTrack.addSubLayer(LdisplayToggleM);
+
+LdisplayToggleM.onTap(function() {
+  if (LdisplayToggleM.html === "BPM") {
+    LdisplayToggleM.html = "Spectrum";
+    return LmainWaveForm.image = "images/Deck_1_bpm.png";
+  } else {
+    LdisplayToggleM.html = "BPM";
+    return LmainWaveForm.image = "images/Deck_1_wave.png";
+  }
+});
 
 viewMain2 = new ScrollComponent({
   x: 60,
@@ -958,9 +1168,9 @@ viewMain2.scrollVertical = false;
 LmainWaveForm2 = new Layer({
   x: 0,
   y: 20,
-  width: 1000,
+  width: 9000,
   height: 200,
-  image: "images/wave.png",
+  image: "images/Deck_1_wave.png",
   superLayer: viewMain2.content
 });
 
