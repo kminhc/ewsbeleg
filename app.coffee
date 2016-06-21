@@ -33,6 +33,7 @@ view = new ScrollComponent
     y:25
     width:250
     height:130
+    scrollX:0
 view.scrollVertical = false
 
 #Display content
@@ -71,14 +72,13 @@ LdisplayToggle.onTap ->
 
 SliderTimeline = new SliderComponent
     min: 0
-    max: 1
+    max: 8750
     knobSize: 10
     width: 250
     height: 5
 SliderTimeline.x += 25
 SliderTimeline.y += 170
 LsongDisplay.addSubLayer(SliderTimeline)
-
 
 # new LsongDisplay
 LsongDisplay2 = new Layer
@@ -134,7 +134,7 @@ LdisplayToggle2.onTap ->
 #SliderTimeline
 SliderTimeline2 = new SliderComponent
     min: 0
-    max: 1
+    max: 8750
     knobSize: 10
     width: 250
     height: 5
@@ -200,7 +200,7 @@ LdisplayToggle3.onTap ->
 #SliderTimeline
 SliderTimeline3 = new SliderComponent
     min: 0
-    max: 1
+    max: 8750
     knobSize: 10
     width: 250
     height: 5
@@ -865,7 +865,7 @@ LdisplayToggleR.onTap ->
 
 SliderTimelineR = new SliderComponent
     min: 0
-    max: 1
+    max: 8750
     knobSize: 10
     width: 250
     height: 5
@@ -891,7 +891,6 @@ view2R = new ScrollComponent
     y:20
     width:250
     height:130
-
 view2R.scrollVertical = false
 
 LwaveForm2R = new Layer
@@ -930,7 +929,7 @@ LdisplayToggle2R.onTap ->
 #SliderTimeline
 SliderTimeline2R = new SliderComponent
     min: 0
-    max: 1
+    max: 8750
     knobSize: 10
     width: 250
     height: 5
@@ -949,7 +948,6 @@ LsongDisplay3R = new Layer
     visible: false
 
 LsongDisplay3R.style.boxShadow = "0 1px 2px rgba(0,0,0,0.1)"
-
 
 #Waveform SliderTimeline
 view3R = new ScrollComponent
@@ -996,7 +994,7 @@ LdisplayToggle3R.onTap ->
 #SliderTimeline
 SliderTimeline3R = new SliderComponent
     min: 0
-    max: 1
+    max: 8750
     knobSize: 10
     width: 250
     height: 5
@@ -1930,3 +1928,45 @@ Lexpand2.onTap ->
 Lcontract2.onTap ->
   if LmarkerR.width isnt 50
     LmarkerR.width -= 10
+
+view.onMove ->
+    SliderTimeline.value = view.scrollX
+    SliderTimeline2.value = view2.scrollX
+    view2.scrollX = view.scrollX
+    viewMain.scrollX = view.scrollX
+
+view2.onMove ->
+    SliderTimeline.value = view.scrollX
+    SliderTimeline2.value = view2.scrollX
+    view.scrollX = view2.scrollX
+    viewMain.scrollX = view2.scrollX
+
+viewMain.onMove ->
+    SliderTimeline.value = view.scrollX
+    SliderTimeline2.value = view2.scrollX
+    view.scrollX = viewMain.scrollX
+    view2.scrollX = viewMain.scrollX
+
+view3.onMove ->
+    SliderTimeline3.value = view3.scrollX
+
+viewR.onMove ->
+    SliderTimelineR.value = viewR.scrollX
+    SliderTimeline2R.value = view2R.scrollX
+    view2R.scrollX = viewR.scrollX
+    viewMain2.scrollX = viewR.scrollX
+
+view2R.onMove ->
+    SliderTimelineR.value = viewR.scrollX
+    SliderTimeline2R.value = view2R.scrollX
+    viewR.scrollX = view2R.scrollX
+    viewMain2.scrollX = view2R.scrollX
+
+viewMain2.onMove ->
+    SliderTimelineR.value = viewR.scrollX
+    SliderTimeline2R.value = view2R.scrollX
+    viewR.scrollX = viewMain2.scrollX
+    view2R.scrollX = viewMain2.scrollX
+
+view3R.onMove ->
+    SliderTimeline3R.value = view3R.scrollX

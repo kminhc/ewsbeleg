@@ -31,7 +31,8 @@ view = new ScrollComponent({
   x: 25,
   y: 25,
   width: 250,
-  height: 130
+  height: 130,
+  scrollX: 0
 });
 
 view.scrollVertical = false;
@@ -79,7 +80,7 @@ LdisplayToggle.onTap(function() {
 
 SliderTimeline = new SliderComponent({
   min: 0,
-  max: 1,
+  max: 8750,
   knobSize: 10,
   width: 250,
   height: 5
@@ -153,7 +154,7 @@ LdisplayToggle2.onTap(function() {
 
 SliderTimeline2 = new SliderComponent({
   min: 0,
-  max: 1,
+  max: 8750,
   knobSize: 10,
   width: 250,
   height: 5
@@ -228,7 +229,7 @@ LdisplayToggle3.onTap(function() {
 
 SliderTimeline3 = new SliderComponent({
   min: 0,
-  max: 1,
+  max: 8750,
   knobSize: 10,
   width: 250,
   height: 5
@@ -1025,7 +1026,7 @@ LdisplayToggleR.onTap(function() {
 
 SliderTimelineR = new SliderComponent({
   min: 0,
-  max: 1,
+  max: 8750,
   knobSize: 10,
   width: 250,
   height: 5
@@ -1099,7 +1100,7 @@ LdisplayToggle2R.onTap(function() {
 
 SliderTimeline2R = new SliderComponent({
   min: 0,
-  max: 1,
+  max: 8750,
   knobSize: 10,
   width: 250,
   height: 5
@@ -1174,7 +1175,7 @@ LdisplayToggle3R.onTap(function() {
 
 SliderTimeline3R = new SliderComponent({
   min: 0,
-  max: 1,
+  max: 8750,
   knobSize: 10,
   width: 250,
   height: 5
@@ -2325,4 +2326,54 @@ Lcontract2.onTap(function() {
   if (LmarkerR.width !== 50) {
     return LmarkerR.width -= 10;
   }
+});
+
+view.onMove(function() {
+  SliderTimeline.value = view.scrollX;
+  SliderTimeline2.value = view2.scrollX;
+  view2.scrollX = view.scrollX;
+  return viewMain.scrollX = view.scrollX;
+});
+
+view2.onMove(function() {
+  SliderTimeline.value = view.scrollX;
+  SliderTimeline2.value = view2.scrollX;
+  view.scrollX = view2.scrollX;
+  return viewMain.scrollX = view2.scrollX;
+});
+
+viewMain.onMove(function() {
+  SliderTimeline.value = view.scrollX;
+  SliderTimeline2.value = view2.scrollX;
+  view.scrollX = viewMain.scrollX;
+  return view2.scrollX = viewMain.scrollX;
+});
+
+view3.onMove(function() {
+  return SliderTimeline3.value = view3.scrollX;
+});
+
+viewR.onMove(function() {
+  SliderTimelineR.value = viewR.scrollX;
+  SliderTimeline2R.value = view2R.scrollX;
+  view2R.scrollX = viewR.scrollX;
+  return viewMain2.scrollX = viewR.scrollX;
+});
+
+view2R.onMove(function() {
+  SliderTimelineR.value = viewR.scrollX;
+  SliderTimeline2R.value = view2R.scrollX;
+  viewR.scrollX = view2R.scrollX;
+  return viewMain2.scrollX = view2R.scrollX;
+});
+
+viewMain2.onMove(function() {
+  SliderTimelineR.value = viewR.scrollX;
+  SliderTimeline2R.value = view2R.scrollX;
+  viewR.scrollX = viewMain2.scrollX;
+  return view2R.scrollX = viewMain2.scrollX;
+});
+
+view3R.onMove(function() {
+  return SliderTimeline3R.value = view3R.scrollX;
 });
