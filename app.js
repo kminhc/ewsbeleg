@@ -11,11 +11,10 @@ Lbg = new Layer({
 title = "Titel/Interpret";
 
 Llogo = new Layer({
-  width: 600,
+  width: 500,
   x: Align.left(700),
   y: Align.top(),
-  image: "images/titel.png",
-  backgroundColor: 525252
+  image: "images/titel.png"
 });
 
 LsongDisplay = new Layer({
@@ -241,6 +240,24 @@ SliderTimeline3.y += 170;
 
 LsongDisplay3.addSubLayer(SliderTimeline3);
 
+viewMain = new ScrollComponent({
+  x: 60,
+  y: 25,
+  width: 1065,
+  height: 200
+});
+
+viewMain.scrollVertical = false;
+
+viewMain2 = new ScrollComponent({
+  x: 60,
+  y: 25,
+  width: 1065,
+  height: 200
+});
+
+viewMain2.scrollVertical = false;
+
 ScrollSongList = new ScrollComponent({
   z: 50,
   width: 300,
@@ -376,7 +393,8 @@ LskipToEndBtn = new Layer({
 
 LskipToEndBtn.onTap(function() {
   view.scrollX = 8750;
-  return view2.scrollX = 8750;
+  view2.scrollX = 8750;
+  return viewMain.scrollX = 8750;
 });
 
 Afastforward = new Animation({
@@ -423,6 +441,24 @@ LPauseBtn = new Layer({
   borderRadius: 4,
   visible: false,
   image: "images/icons/pause.png"
+});
+
+AplayM = new Animation({
+  layer: viewMain,
+  properties: {
+    scrollX: 8750
+  },
+  curve: "linear",
+  time: 30
+});
+
+AplayM2 = new Animation({
+  layer: viewMain2,
+  properties: {
+    scrollX: 8750
+  },
+  curve: "linear",
+  time: 30
 });
 
 Aplay = new Animation({
@@ -520,7 +556,7 @@ LPlayBtn.onTap(function() {
   Aplay.onAnimationEnd(function() {
     LPlayBtn.visible = true;
     LPauseBtn.visible = false;
-    Aplay = new Animation({
+    return Aplay = new Animation({
       layer: view,
       properties: {
         scrollX: 8750
@@ -528,17 +564,17 @@ LPlayBtn.onTap(function() {
       curve: "linear",
       time: 30
     });
-    return Aplay2.onAnimationEnd(function() {
-      LPlayBtn.visible = true;
-      LPauseBtn.visible = false;
-      return Aplay2 = new Animation({
-        layer: view2,
-        properties: {
-          scrollX: 8750
-        },
-        curve: "linear",
-        time: 30
-      });
+  });
+  Aplay2.onAnimationEnd(function() {
+    LPlayBtn.visible = true;
+    LPauseBtn.visible = false;
+    return Aplay2 = new Animation({
+      layer: view2,
+      properties: {
+        scrollX: 8750
+      },
+      curve: "linear",
+      time: 30
     });
   });
   AplayM.start();
@@ -553,6 +589,7 @@ LPauseBtn.onTap(function() {
   }
   Aplay.stop();
   Aplay2.stop();
+  AplayM.stop();
   AFastBackBtn.stop();
   AFastBackBtn2.stop();
   Afastforward.stop();
@@ -572,6 +609,14 @@ LPauseBtn.onTap(function() {
     },
     curve: "linear",
     time: 30 - (30 / (8750 / view2.scrollX))
+  });
+  AplayM = new Animation({
+    layer: viewMain,
+    properties: {
+      scrollX: 8750
+    },
+    curve: "linear",
+    time: 30 - (30 / (8750 / viewMain.scrollX))
   });
   Afastforward = new Animation({
     layer: view,
@@ -618,7 +663,8 @@ LskipToStart = new Layer({
 
 LskipToStart.onTap(function() {
   view.scrollX = 0;
-  return view2.scrollX = 0;
+  view2.scrollX = 0;
+  return viewMain.scrollX = 0;
 });
 
 LvolumeBtn = new Layer({
@@ -1621,15 +1667,6 @@ LMainWindow.addSubLayer(LfirstTrack);
 
 LMainWindow.addSubLayer(LSecondTrack);
 
-viewMain = new ScrollComponent({
-  x: 60,
-  y: 25,
-  width: 1065,
-  height: 200
-});
-
-viewMain.scrollVertical = false;
-
 LmainWaveForm = new Layer({
   x: 0,
   y: 20,
@@ -1671,15 +1708,6 @@ LdisplayToggleM.onTap(function() {
   }
 });
 
-viewMain2 = new ScrollComponent({
-  x: 60,
-  y: 25,
-  width: 1065,
-  height: 200
-});
-
-viewMain2.scrollVertical = false;
-
 LmainWaveForm2 = new Layer({
   x: 0,
   y: 20,
@@ -1690,24 +1718,6 @@ LmainWaveForm2 = new Layer({
 });
 
 LSecondTrack.addSubLayer(viewMain2);
-
-AplayM = new Animation({
-  layer: viewMain,
-  properties: {
-    scrollX: 8750
-  },
-  curve: "linear",
-  time: 30
-});
-
-AplayM2 = new Animation({
-  layer: viewMain2,
-  properties: {
-    scrollX: 8750
-  },
-  curve: "linear",
-  time: 30
-});
 
 LdisplayToggle2M = new Layer({
   height: 25,

@@ -10,11 +10,11 @@ Lbg = new Layer
 title = "Titel/Interpret"
 
 Llogo = new Layer
-    width: 600
+    width: 500
     x: Align.left(700)
     y: Align.top()
     image: "images/titel.png"
-    backgroundColor: 525252
+
 
 # new LsongDisplay
 LsongDisplay = new Layer
@@ -206,8 +206,23 @@ SliderTimeline3 = new SliderComponent
     height: 5
 SliderTimeline3.x += 25
 SliderTimeline3.y += 170
-
 LsongDisplay3.addSubLayer(SliderTimeline3)
+
+viewMain = new ScrollComponent
+    x:60
+    y:25
+    width:1065
+    height:200
+
+viewMain.scrollVertical = false
+
+viewMain2 = new ScrollComponent
+    x:60
+    y:25
+    width:1065
+    height:200
+
+viewMain2.scrollVertical = false
 
 # Create a ScrollComponent
 ScrollSongList = new ScrollComponent
@@ -326,6 +341,7 @@ LskipToEndBtn = new Layer
 LskipToEndBtn.onTap ->
     view.scrollX = 8750
     view2.scrollX = 8750
+    viewMain.scrollX = 8750
 
 Afastforward = new Animation
     layer: view
@@ -365,6 +381,20 @@ LPauseBtn = new Layer
     borderRadius: 4
     visible: false
     image:"images/icons/pause.png"
+
+AplayM = new Animation
+    layer: viewMain
+    properties:
+        scrollX: 8750
+    curve: "linear"
+    time: 30
+
+AplayM2 = new Animation
+    layer: viewMain2
+    properties:
+        scrollX: 8750
+    curve: "linear"
+    time: 30
 
 Aplay = new Animation
     layer: view
@@ -450,15 +480,15 @@ LPlayBtn.onTap ->
             curve: "linear"
             time: 30
 
-        Aplay2.onAnimationEnd ->
-            LPlayBtn.visible = true
-            LPauseBtn.visible = false
-            Aplay2 = new Animation
-                layer: view2
-                properties:
-                    scrollX: 8750
-                curve: "linear"
-                time: 30
+    Aplay2.onAnimationEnd ->
+        LPlayBtn.visible = true
+        LPauseBtn.visible = false
+        Aplay2 = new Animation
+            layer: view2
+            properties:
+                scrollX: 8750
+            curve: "linear"
+            time: 30
 
     AplayM.start()
     Aplay.start()
@@ -471,6 +501,7 @@ LPauseBtn.onTap ->
         LPauseBtn.visible = false
     Aplay.stop()
     Aplay2.stop()
+    AplayM.stop()
     AFastBackBtn.stop()
     AFastBackBtn2.stop()
     Afastforward.stop()
@@ -489,6 +520,13 @@ LPauseBtn.onTap ->
             scrollX: 8750
         curve: "linear"
         time: (30 - (30/(8750/view2.scrollX)))
+
+    AplayM = new Animation
+        layer: viewMain
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: (30 - (30/(8750/viewMain.scrollX)))
 
     Afastforward = new Animation
         layer: view
@@ -528,6 +566,7 @@ LskipToStart = new Layer
 LskipToStart.onTap ->
     view.scrollX = 0
     view2.scrollX = 0
+    viewMain.scrollX = 0
 
 LvolumeBtn = new Layer
     width: 60
@@ -1349,14 +1388,6 @@ LMainWindow.x += 385
 LMainWindow.addSubLayer(LfirstTrack)
 LMainWindow.addSubLayer(LSecondTrack)
 
-viewMain = new ScrollComponent
-    x:60
-    y:25
-    width:1065
-    height:200
-
-viewMain.scrollVertical = false
-
 LmainWaveForm = new Layer
     x:0
     y:20
@@ -1390,14 +1421,6 @@ LdisplayToggleM.onTap ->
       LdisplayToggleM.html = "WAVE"
       LmainWaveForm.image = "images/Deck_1_wave.png"
 
-viewMain2 = new ScrollComponent
-    x:60
-    y:25
-    width:1065
-    height:200
-
-viewMain2.scrollVertical = false
-
 LmainWaveForm2 = new Layer
     x:0
     y:20
@@ -1406,20 +1429,6 @@ LmainWaveForm2 = new Layer
     image:"images/Deck_1_wave.png"
     superLayer: viewMain2.content
 LSecondTrack.addSubLayer(viewMain2)
-
-AplayM = new Animation
-    layer: viewMain
-    properties:
-        scrollX: 8750
-    curve: "linear"
-    time: 30
-
-AplayM2 = new Animation
-    layer: viewMain2
-    properties:
-        scrollX: 8750
-    curve: "linear"
-    time: 30
 
 #Display Toggle Button
 LdisplayToggle2M = new Layer
