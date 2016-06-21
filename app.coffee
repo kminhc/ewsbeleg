@@ -1,7 +1,5 @@
 # Prototyping with Framer
 # Create a background
-bg = new BackgroundLayer
-
 Lbg = new Layer
     width: 1920
     height:1080
@@ -740,6 +738,32 @@ LvolumeBtn = new Layer
     y: 60
     borderRadius: 6
     image:"images/icons/lauter.png"
+
+SvolSlider = new SliderComponent
+   height: 120
+   width: 5
+   knobSize: 10
+   backgroundColor: "#333333"
+   x: 15
+   y: 10
+SvolSlider.fill.backgroundColor = "lightgrey"
+
+LvolSlider = new Layer
+    height: 140
+    width: 35
+    visible: false
+    backgroundColor: "525252"
+LvolumeBtn.addSubLayer(LvolSlider)
+LvolSlider.x = Align.center(-5)
+LvolSlider.y = Align.top(60)
+LvolSlider.addSubLayer(SvolSlider)
+
+LvolumeBtn.onTap ->
+  if LvolSlider.visible is false
+    LvolSlider.visible = true
+  else
+    LvolSlider.visible = false
+
 
 LvolUpBtn = new Layer
     width: 40
@@ -1530,6 +1554,34 @@ LvolumeBtnR = new Layer
     y: 60
     borderRadius: 6
     image:"images/icons/lauter.png"
+
+SvolSliderR = new SliderComponent
+   height: 120
+   width: 5
+   knobSize: 10
+   backgroundColor: "#333333"
+   x: 15
+   y: 10
+SvolSliderR.fill.backgroundColor = "lightgrey"
+
+LvolSliderR = new Layer
+    height: 140
+    width: 35
+    backgroundColor: "525252"
+    visible: false
+LvolumeBtnR.addSubLayer(LvolSliderR)
+LvolSliderR.x = Align.center(-5)
+LvolSliderR.y = Align.top(60)
+LvolSliderR.addSubLayer(SvolSliderR)
+
+LvolumeBtnR.onTap ->
+  if LvolSliderR.visible is false
+    LvolSliderR.visible = true
+  else
+    LvolSliderR.visible = false
+
+
+
 
 LvolUpBtnR = new Layer
     width: 40

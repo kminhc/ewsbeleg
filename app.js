@@ -1,6 +1,4 @@
-var AFastBackBtn, AFastBackBtn2, AFastBackBtn2R, AFastBackBtnM, AFastBackBtnM2, AFastBackBtnR, Afastforward, Afastforward2, Afastforward2R, AfastforwardM, AfastforwardM2, AfastforwardR, Aplay, Aplay2, Aplay2R, AplayM, AplayM2, AplayR, LCtrlParent, LCtrlParentR, LFastBackBtn, LFastBackBtnM, LFastBackBtnR, LFastForwardBtn, LFastForwardBtnM, LFastForwardBtnR, LMagMinus, LMagMinus2, LMagPlus, LMagPlus2, LMainControl, LMainControlBtns, LMainWindow, LMuteBar, LMuteBar2, LMuteBtn, LMuteBtn2, LPauseBtn, LPauseBtnM, LPauseBtnR, LPlayBtn, LPlayBtnM, LPlayBtnR, LSecondTrack, Lbg, LbpmDisplay, LbpmDisplayR, LbpmLabel, LbpmLabelR, Lcontract, Lcontract2, LdisplayToggle, LdisplayToggle2, LdisplayToggle2M, LdisplayToggle2R, LdisplayToggle3, LdisplayToggle3R, LdisplayToggleM, LdisplayToggleR, Lexpand, Lexpand2, LfirstTrack, Llogo, LmainWaveForm, LmainWaveForm2, Lmarker, LmarkerR, LnewCloseBtn, LnewCloseBtnR, LnewDisplay, LnewDisplayR, LopenSongListButton, LopenSongListButtonR, LskipToEndBtn, LskipToEndBtnM, LskipToEndBtnR, LskipToStart, LskipToStartM, LskipToStartR, Lsong1, Lsong1R, Lsong2, Lsong2R, Lsong3, Lsong3R, LsongDisplay, LsongDisplay2, LsongDisplay2R, LsongDisplay3, LsongDisplay3R, LsongDisplayR, LtitleDisplay, LtitleDisplayR, LvolDownBtn, LvolDownBtnR, LvolUpBtn, LvolUpBtnR, LvolumeBtn, LvolumeBtnR, LwaveForm, LwaveForm2, LwaveForm2R, LwaveForm3, LwaveForm3R, LwaveFormR, PlayDisplay, PlayDisplayR, ScrollSongList, ScrollSongListR, SliderTimeline, SliderTimeline2, SliderTimeline2R, SliderTimeline3, SliderTimeline3R, SliderTimelineR, bg, title, view, view2, view2R, view3, view3R, viewMain, viewMain2, viewR;
-
-bg = new BackgroundLayer;
+var AFastBackBtn, AFastBackBtn2, AFastBackBtn2R, AFastBackBtnM, AFastBackBtnM2, AFastBackBtnR, Afastforward, Afastforward2, Afastforward2R, AfastforwardM, AfastforwardM2, AfastforwardR, Aplay, Aplay2, Aplay2R, AplayM, AplayM2, AplayR, LCtrlParent, LCtrlParentR, LFastBackBtn, LFastBackBtnM, LFastBackBtnR, LFastForwardBtn, LFastForwardBtnM, LFastForwardBtnR, LMagMinus, LMagMinus2, LMagPlus, LMagPlus2, LMainControl, LMainControlBtns, LMainWindow, LMuteBar, LMuteBar2, LMuteBtn, LMuteBtn2, LPauseBtn, LPauseBtnM, LPauseBtnR, LPlayBtn, LPlayBtnM, LPlayBtnR, LSecondTrack, Lbg, LbpmDisplay, LbpmDisplayR, LbpmLabel, LbpmLabelR, Lcontract, Lcontract2, LdisplayToggle, LdisplayToggle2, LdisplayToggle2M, LdisplayToggle2R, LdisplayToggle3, LdisplayToggle3R, LdisplayToggleM, LdisplayToggleR, Lexpand, Lexpand2, LfirstTrack, Llogo, LmainWaveForm, LmainWaveForm2, Lmarker, LmarkerR, LnewCloseBtn, LnewCloseBtnR, LnewDisplay, LnewDisplayR, LopenSongListButton, LopenSongListButtonR, LskipToEndBtn, LskipToEndBtnM, LskipToEndBtnR, LskipToStart, LskipToStartM, LskipToStartR, Lsong1, Lsong1R, Lsong2, Lsong2R, Lsong3, Lsong3R, LsongDisplay, LsongDisplay2, LsongDisplay2R, LsongDisplay3, LsongDisplay3R, LsongDisplayR, LtitleDisplay, LtitleDisplayR, LvolDownBtn, LvolDownBtnR, LvolSlider, LvolSliderR, LvolUpBtn, LvolUpBtnR, LvolumeBtn, LvolumeBtnR, LwaveForm, LwaveForm2, LwaveForm2R, LwaveForm3, LwaveForm3R, LwaveFormR, PlayDisplay, PlayDisplayR, ScrollSongList, ScrollSongListR, SliderTimeline, SliderTimeline2, SliderTimeline2R, SliderTimeline3, SliderTimeline3R, SliderTimelineR, SvolSlider, SvolSliderR, title, view, view2, view2R, view3, view3R, viewMain, viewMain2, viewR;
 
 Lbg = new Layer({
   width: 1920,
@@ -872,6 +870,40 @@ LvolumeBtn = new Layer({
   y: 60,
   borderRadius: 6,
   image: "images/icons/lauter.png"
+});
+
+SvolSlider = new SliderComponent({
+  height: 120,
+  width: 5,
+  knobSize: 10,
+  backgroundColor: "#333333",
+  x: 15,
+  y: 10
+});
+
+SvolSlider.fill.backgroundColor = "lightgrey";
+
+LvolSlider = new Layer({
+  height: 140,
+  width: 35,
+  visible: false,
+  backgroundColor: "525252"
+});
+
+LvolumeBtn.addSubLayer(LvolSlider);
+
+LvolSlider.x = Align.center(-5);
+
+LvolSlider.y = Align.top(60);
+
+LvolSlider.addSubLayer(SvolSlider);
+
+LvolumeBtn.onTap(function() {
+  if (LvolSlider.visible === false) {
+    return LvolSlider.visible = true;
+  } else {
+    return LvolSlider.visible = false;
+  }
 });
 
 LvolUpBtn = new Layer({
@@ -1821,6 +1853,40 @@ LvolumeBtnR = new Layer({
   y: 60,
   borderRadius: 6,
   image: "images/icons/lauter.png"
+});
+
+SvolSliderR = new SliderComponent({
+  height: 120,
+  width: 5,
+  knobSize: 10,
+  backgroundColor: "#333333",
+  x: 15,
+  y: 10
+});
+
+SvolSliderR.fill.backgroundColor = "lightgrey";
+
+LvolSliderR = new Layer({
+  height: 140,
+  width: 35,
+  backgroundColor: "525252",
+  visible: false
+});
+
+LvolumeBtnR.addSubLayer(LvolSliderR);
+
+LvolSliderR.x = Align.center(-5);
+
+LvolSliderR.y = Align.top(60);
+
+LvolSliderR.addSubLayer(SvolSliderR);
+
+LvolumeBtnR.onTap(function() {
+  if (LvolSliderR.visible === false) {
+    return LvolSliderR.visible = true;
+  } else {
+    return LvolSliderR.visible = false;
+  }
 });
 
 LvolUpBtnR = new Layer({
