@@ -398,20 +398,6 @@ LFastForwardBtn = new Layer({
   image: "images/icons/vor.png"
 });
 
-LFastForwardBtn.onTap(function() {
-  if (LPlayBtn.visible === true) {
-    LPlayBtn.visible = false;
-    LPauseBtn.visible = true;
-  }
-  Afastforward.start();
-  return Afastforward2.start();
-});
-
-Afastforward.onAnimationEnd(function() {
-  LPlayBtn.visible = true;
-  return LPauseBtn.visible = false;
-});
-
 LPlayBtn = new Layer({
   width: 70,
   height: 35,
@@ -449,26 +435,6 @@ Aplay2 = new Animation({
   time: 30
 });
 
-LPlayBtn.onTap(function() {
-  if (LPlayBtn.visible === true) {
-    LPlayBtn.visible = false;
-    LPauseBtn.visible = true;
-  }
-  Aplay.start();
-  return Aplay2.start();
-});
-
-LPauseBtn.onTap(function() {
-  if (LPauseBtn.visible === true) {
-    LPlayBtn.visible = true;
-    LPauseBtn.visible = false;
-  }
-  Aplay.stop();
-  Aplay2.stop();
-  Afastforward.stop();
-  return Afastforward2.stop();
-});
-
 AFastBackBtn = new Animation({
   layer: view,
   properties: {
@@ -494,6 +460,106 @@ LFastBackBtn = new Layer({
   y: 15,
   borderRadius: 4,
   image: "images/icons/zurück.png"
+});
+
+LFastForwardBtn.onTap(function() {
+  if (LPlayBtn.visible === true) {
+    LPlayBtn.visible = false;
+    LPauseBtn.visible = true;
+  }
+  Afastforward.start();
+  Afastforward2.start();
+  return Afastforward.onAnimationEnd(function() {
+    LPlayBtn.visible = true;
+    return LPauseBtn.visible = false;
+  });
+});
+
+LFastBackBtn.onTap(function() {
+  if (LPlayBtn.visible === true) {
+    LPlayBtn.visible = false;
+    LPauseBtn.visible = true;
+  }
+  AFastBackBtn.start();
+  AFastBackBtn2.start();
+  return AFastBackBtn.onAnimationEnd(function() {
+    LPlayBtn.visible = true;
+    return LPauseBtn.visible = false;
+  });
+});
+
+LPlayBtn.onTap(function() {
+  if (LPlayBtn.visible === true) {
+    LPlayBtn.visible = false;
+    LPauseBtn.visible = true;
+  }
+  Aplay.onAnimationEnd(function() {
+    LPlayBtn.visible = true;
+    return LPauseBtn.visible = false;
+  });
+  Aplay.start();
+  return Aplay2.start();
+});
+
+LPauseBtn.onTap(function() {
+  if (LPauseBtn.visible === true) {
+    LPlayBtn.visible = true;
+    LPauseBtn.visible = false;
+  }
+  Aplay.stop();
+  Aplay2.stop();
+  AFastBackBtn.stop();
+  AFastBackBtn2.stop();
+  Afastforward.stop();
+  Afastforward2.stop();
+  Aplay = new Animation({
+    layer: view,
+    properties: {
+      scrollX: 8750
+    },
+    curve: "linear",
+    time: 30 - (30 / (8750 / view.scrollX))
+  });
+  Aplay2 = new Animation({
+    layer: view2,
+    properties: {
+      scrollX: 8750
+    },
+    curve: "linear",
+    time: 30 - (30 / (8750 / view2.scrollX))
+  });
+  Afastforward = new Animation({
+    layer: view,
+    properties: {
+      scrollX: 8750
+    },
+    curve: "linear",
+    time: 15 - (15 / (8750 / view.scrollX))
+  });
+  Afastforward2 = new Animation({
+    layer: view2,
+    properties: {
+      scrollX: 8750
+    },
+    curve: "linear",
+    time: 15 - (15 / (8750 / view2.scrollX))
+  });
+  AFastBackBtn = new Animation({
+    layer: view,
+    properties: {
+      scrollX: 0
+    },
+    curve: "linear",
+    time: 0 + (15 / (8750 / view.scrollX))
+  });
+  return AFastBackBtn2 = new Animation({
+    layer: view2,
+    properties: {
+      scrollX: 0
+    },
+    curve: "linear",
+    time: 0 + (15 / (8750 / view2.scrollX))
+  });
 });
 
 LskipToStart = new Layer({
