@@ -1843,3 +1843,40 @@ LMainControlBtns.addSubLayer(LskipToEndBtnM);
 
 LMainControlBtns.x += 463
 LMainControlBtns.y += 10
+
+
+Lmarker = new Layer
+  width: 50
+  height: 180
+  x: 540
+  y: 45
+  backgroundColor: "red"
+  opacity: 0.3
+
+LfirstTrack.addSubLayer(Lmarker)
+
+LmarkerR = new Layer
+  width: 50
+  height: 180
+  x: 595
+  y: 45
+  backgroundColor: "blue"
+  opacity: 0.3
+
+LSecondTrack.addSubLayer(LmarkerR)
+
+Lexpand.onTap ->
+  if Lmarker.width isnt 530
+    Lmarker.width += 10
+    Lmarker.x -= 10
+Lcontract.onTap ->
+  if Lmarker.width isnt 50
+    Lmarker.width -= 10
+    Lmarker.x += 10
+
+Lexpand2.onTap ->
+  if LmarkerR.width isnt 530
+    LmarkerR.width += 10
+Lcontract2.onTap ->
+  if LmarkerR.width isnt 50
+    LmarkerR.width -= 10
