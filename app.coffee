@@ -338,25 +338,14 @@ LskipToEndBtn = new Layer
     y: 15
     borderRadius: 4
     image:"images/icons/endrechts.png"
-LskipToEndBtn.onTap ->
-    view.scrollX = 8750
-    view2.scrollX = 8750
-    viewMain.scrollX = 8750
 
-Afastforward = new Animation
-    layer: view
-    properties:
-        scrollX: 8750
-    curve: "linear"
-    time: 15
-
-Afastforward2 = new Animation
-    layer: view2
-    properties:
-        scrollX: 8750
-    curve: "linear"
-    time: 15
-
+LskipToStart = new Layer
+    width: 35
+    height: 35
+    x: 35
+    y: 15
+    borderRadius: 4
+    image:"images/icons/endlinks.png"
 LFastForwardBtn = new Layer
     width: 35
     height: 35
@@ -382,6 +371,20 @@ LPauseBtn = new Layer
     visible: false
     image:"images/icons/pause.png"
 
+Aplay = new Animation
+    layer: view
+    properties:
+        scrollX: 8750
+    curve: "linear"
+    time: 30
+
+Aplay2 = new Animation
+    layer: view2
+    properties:
+        scrollX: 8750
+    curve: "linear"
+    time: 30
+
 AplayM = new Animation
     layer: viewMain
     properties:
@@ -396,19 +399,33 @@ AplayM2 = new Animation
     curve: "linear"
     time: 30
 
-Aplay = new Animation
+Afastforward = new Animation
     layer: view
     properties:
         scrollX: 8750
     curve: "linear"
-    time: 30
+    time: 15
 
-Aplay2 = new Animation
+Afastforward2 = new Animation
     layer: view2
     properties:
         scrollX: 8750
     curve: "linear"
-    time: 30
+    time: 15
+
+AfastforwardM = new Animation
+    layer: viewMain
+    properties:
+        scrollX: 8750
+    curve: "linear"
+    time: 15
+
+AfastforwardM2 = new Animation
+    layer: viewMain2
+    properties:
+        scrollX: 8750
+    curve: "linear"
+    time: 15
 
 AFastBackBtn = new Animation
     layer: view
@@ -424,6 +441,20 @@ AFastBackBtn2 = new Animation
     curve: "linear"
     time: 15
 
+AFastBackBtnM = new Animation
+    layer: viewMain
+    properties:
+        scrollX: 0
+    curve: "linear"
+    time: 15
+
+AFastBackBtnM2 = new Animation
+    layer: viewMain2
+    properties:
+        scrollX: 0
+    curve: "linear"
+    time: 15
+
 LFastBackBtn = new Layer
     width: 35
     height: 35
@@ -432,12 +463,146 @@ LFastBackBtn = new Layer
     borderRadius: 4
     image:"images/icons/zurück.png"
 
+LskipToStart.onTap ->
+    view.scrollX = 0
+    view2.scrollX = 0
+    viewMain.scrollX = 0
+    AFastBackBtn = new Animation
+        layer: view
+        properties:
+            scrollX: 0
+        curve: "linear"
+        time: 15
+
+    AFastBackBtn2 = new Animation
+        layer: view2
+        properties:
+            scrollX: 0
+        curve: "linear"
+        time: 15
+
+    AFastBackBtnM = new Animation
+        layer: viewMain
+        properties:
+            scrollX: 0
+        curve: "linear"
+        time: 15
+
+    Afastforward = new Animation
+        layer: view
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: 15
+
+    Afastforward2 = new Animation
+        layer: view2
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: 15
+
+    AfastforwardM = new Animation
+        layer: viewMain
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: 15
+
+    Aplay = new Animation
+        layer: view
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: 30
+
+    Aplay2 = new Animation
+        layer: view2
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: 30
+
+    AplayM = new Animation
+        layer: viewMain
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: 30
+
+LskipToEndBtn.onTap ->
+    view.scrollX = 8750
+    view2.scrollX = 8750
+    viewMain.scrollX = 8750
+
+    AFastBackBtn = new Animation
+        layer: view
+        properties:
+            scrollX: 0
+        curve: "linear"
+        time: 15
+    AFastBackBtn2 = new Animation
+        layer: view2
+        properties:
+            scrollX: 0
+        curve: "linear"
+        time: 15
+    AFastBackBtnM = new Animation
+        layer: viewMain
+        properties:
+            scrollX: 0
+        curve: "linear"
+        time: 15
+    Afastforward = new Animation
+        layer: view
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: 15
+    Afastforward2 = new Animation
+        layer: view2
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: 15
+    AfastforwardM = new Animation
+        layer: viewMain
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: 15
+    Aplay = new Animation
+        layer: view
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: 30
+
+    Aplay2 = new Animation
+        layer: view2
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: 30
+
+    AplayM = new Animation
+        layer: viewMain
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: 30
+
 LFastForwardBtn.onTap ->
     if LPlayBtn.visible is true
         LPlayBtn.visible = false
         LPauseBtn.visible = true
+    if view.scrollX is 8750
+        LPlayBtn.visible = true
+        LPauseBtn.visible = false
     Afastforward.start()
     Afastforward2.start()
+    AfastforwardM.start()
+
     Afastforward.onAnimationEnd ->
         LPlayBtn.visible = true
         LPauseBtn.visible = false
@@ -455,15 +620,46 @@ LFastForwardBtn.onTap ->
             curve: "linear"
             time: 15
 
+        AFastBackBtn = new Animation
+            layer: view
+            properties:
+                scrollX: 8750
+            curve: "linear"
+            time: 15
+
+        AFastBackBtn2 = new Animation
+            layer: view2
+            properties:
+                scrollX: 8750
+            curve: "linear"
+            time: 15
+
 LFastBackBtn.onTap ->
     if LPlayBtn.visible is true
         LPlayBtn.visible = false
         LPauseBtn.visible = true
+    if view.scrollX is 0
+        LPlayBtn.visible = true
+        LPauseBtn.visible = false
     AFastBackBtn.start()
     AFastBackBtn2.start()
+    AFastBackBtnM.start()
     AFastBackBtn.onAnimationEnd ->
         LPlayBtn.visible = true
         LPauseBtn.visible = false
+        AFastBackBtn = new Animation
+            layer: view
+            properties:
+                scrollX: 8750
+            curve: "linear"
+            time: 15
+
+        AFastBackBtn2 = new Animation
+            layer: view2
+            properties:
+                scrollX: 8750
+            curve: "linear"
+            time: 15
 
 LPlayBtn.onTap ->
     if LPlayBtn.visible is true
@@ -504,8 +700,10 @@ LPauseBtn.onTap ->
     AplayM.stop()
     AFastBackBtn.stop()
     AFastBackBtn2.stop()
+    AFastBackBtnM.stop()
     Afastforward.stop()
     Afastforward2.stop()
+    AfastforwardM.stop()
 
     Aplay = new Animation
         layer: view
@@ -542,6 +740,13 @@ LPauseBtn.onTap ->
         curve: "linear"
         time: (15 - (15/(8750/view2.scrollX)))
 
+    AfastforwardM = new Animation
+        layer: viewMain
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: (15 - (15/(8750/viewMain.scrollX)))
+
     AFastBackBtn = new Animation
         layer: view
         properties:
@@ -556,17 +761,12 @@ LPauseBtn.onTap ->
         curve: "linear"
         time: (0 + (15/(8750/view2.scrollX)))
 
-LskipToStart = new Layer
-    width: 35
-    height: 35
-    x: 35
-    y: 15
-    borderRadius: 4
-    image:"images/icons/endlinks.png"
-LskipToStart.onTap ->
-    view.scrollX = 0
-    view2.scrollX = 0
-    viewMain.scrollX = 0
+      AFastBackBtnM = new Animation
+          layer: viewMain
+          properties:
+              scrollX: 0
+          curve: "linear"
+          time: (0 + (15/(8750/viewMain.scrollX)))
 
 LvolumeBtn = new Layer
     width: 60
