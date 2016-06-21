@@ -1,4 +1,4 @@
-var LCtrlParent, LCtrlParentR, LFastBackBtn, LFastBackBtnM, LFastBackBtnR, LFastForwardBtn, LFastForwardBtnM, LFastForwardBtnR, LMagMinus, LMagMinus2, LMagPlus, LMagPlus2, LMainControl, LMainControlBtns, LMainWindow, LMuteBar, LMuteBar2, LMuteBtn, LMuteBtn2, LPlayBtn, LPlayBtnM, LPlayBtnR, LSecondTrack, Lbg, LbpmDisplay, LbpmDisplayR, LbpmLabel, LbpmLabelR, LdisplayToggle, LdisplayToggle2, LdisplayToggle2R, LdisplayToggle3, LdisplayToggle3R, LdisplayToggleM, LdisplayToggleR, LfirstTrack, LmainWaveForm, LmainWaveForm2, LnewCloseBtn, LnewCloseBtnR, LnewDisplay, LnewDisplayR, LopenSongListButton, LopenSongListButtonR, LskipToEndBtn, LskipToEndBtnM, LskipToEndBtnR, LskipToStart, LskipToStartM, LskipToStartR, Lsong1, Lsong1R, Lsong2, Lsong2R, Lsong3, Lsong3R, LsongDisplay, LsongDisplay2, LsongDisplay2R, LsongDisplay3, LsongDisplay3R, LsongDisplayR, LtitleDisplay, LtitleDisplayR, LvolDownBtn, LvolDownBtnR, LvolUpBtn, LvolUpBtnR, LvolumeBtn, LvolumeBtnR, LwaveForm, LwaveForm2, LwaveForm2R, LwaveForm3, LwaveForm3R, LwaveFormR, PlayDisplay, PlayDisplayR, ScrollSongList, ScrollSongListR, SliderTimeline, SliderTimeline2, SliderTimeline2R, SliderTimeline3, SliderTimeline3R, SliderTimelineR, bg, title, view, view2, view2R, view3, view3R, viewMain, viewMain2, viewR;
+var LCtrlParent, LCtrlParentR, LFastBackBtn, LFastBackBtnM, LFastBackBtnR, LFastForwardBtn, LFastForwardBtnM, LFastForwardBtnR, LMagMinus, LMagMinus2, LMagPlus, LMagPlus2, LMainControl, LMainControlBtns, LMainWindow, LMuteBar, LMuteBar2, LMuteBtn, LMuteBtn2, LPlayBtn, LPlayBtnM, LPlayBtnR, LSecondTrack, Lbg, LbpmDisplay, LbpmDisplayR, LbpmLabel, LbpmLabelR, LdisplayToggle, LdisplayToggle2, LdisplayToggle2M, LdisplayToggle2R, LdisplayToggle3, LdisplayToggle3R, LdisplayToggleM, LdisplayToggleR, LfirstTrack, LmainWaveForm, LmainWaveForm2, LnewCloseBtn, LnewCloseBtnR, LnewDisplay, LnewDisplayR, LopenSongListButton, LopenSongListButtonR, LskipToEndBtn, LskipToEndBtnM, LskipToEndBtnR, LskipToStart, LskipToStartM, LskipToStartR, Lsong1, Lsong1R, Lsong2, Lsong2R, Lsong3, Lsong3R, LsongDisplay, LsongDisplay2, LsongDisplay2R, LsongDisplay3, LsongDisplay3R, LsongDisplayR, LtitleDisplay, LtitleDisplayR, LvolDownBtn, LvolDownBtnR, LvolUpBtn, LvolUpBtnR, LvolumeBtn, LvolumeBtnR, LwaveForm, LwaveForm2, LwaveForm2R, LwaveForm3, LwaveForm3R, LwaveFormR, PlayDisplay, PlayDisplayR, ScrollSongList, ScrollSongListR, SliderTimeline, SliderTimeline2, SliderTimeline2R, SliderTimeline3, SliderTimeline3R, SliderTimelineR, bg, title, view, view2, view2R, view3, view3R, viewMain, viewMain2, viewR;
 
 bg = new BackgroundLayer;
 
@@ -47,7 +47,7 @@ LdisplayToggle = new Layer({
   y: 5
 });
 
-LdisplayToggle.html = "BPM";
+LdisplayToggle.html = "Waveform";
 
 LdisplayToggle.backgroundColor = "transparent";
 
@@ -61,11 +61,11 @@ LdisplayToggle.style = {
 LsongDisplay.addSubLayer(LdisplayToggle);
 
 LdisplayToggle.onTap(function() {
-  if (LdisplayToggle.html === "BPM") {
+  if (LdisplayToggle.html === "Waveform") {
     LdisplayToggle.html = "Spectrum";
     return LwaveForm.image = "images/Deck_1_bpm.png";
   } else {
-    LdisplayToggle.html = "BPM";
+    LdisplayToggle.html = "Waveform";
     return LwaveForm.image = "images/Deck_1_wave.png";
   }
 });
@@ -121,7 +121,7 @@ LdisplayToggle2 = new Layer({
   y: 5
 });
 
-LdisplayToggle2.html = "BPM";
+LdisplayToggle2.html = "Waveform";
 
 LdisplayToggle2.backgroundColor = "transparent";
 
@@ -135,11 +135,11 @@ LdisplayToggle2.style = {
 LsongDisplay2.addSubLayer(LdisplayToggle2);
 
 LdisplayToggle2.onTap(function() {
-  if (LdisplayToggle2.html === "BPM") {
+  if (LdisplayToggle2.html === "Waveform") {
     LdisplayToggle2.html = "Spectrum";
     return LwaveForm2.image = "images/Deck_1_bpm.png";
   } else {
-    LdisplayToggle2.html = "BPM";
+    LdisplayToggle2.html = "Waveform";
     return LwaveForm2.image = "images/Deck_1_wave.png";
   }
 });
@@ -196,7 +196,7 @@ LdisplayToggle3 = new Layer({
   y: 5
 });
 
-LdisplayToggle3.html = "BPM";
+LdisplayToggle3.html = "Waveform";
 
 LdisplayToggle3.backgroundColor = "transparent";
 
@@ -210,11 +210,11 @@ LdisplayToggle3.style = {
 LsongDisplay3.addSubLayer(LdisplayToggle3);
 
 LdisplayToggle3.onTap(function() {
-  if (LdisplayToggle3.html === "BPM") {
+  if (LdisplayToggle3.html === "Waveform") {
     LdisplayToggle3.html = "Spectrum";
     return LwaveForm3.image = "images/Deck_1_bpm.png";
   } else {
-    LdisplayToggle3.html = "BPM";
+    LdisplayToggle3.html = "Waveform";
     return LwaveForm3.image = "images/Deck_1_wave.png";
   }
 });
@@ -536,7 +536,7 @@ LdisplayToggleR = new Layer({
   y: 5
 });
 
-LdisplayToggleR.html = "BPM";
+LdisplayToggleR.html = "Waveform";
 
 LdisplayToggleR.backgroundColor = "transparent";
 
@@ -550,11 +550,11 @@ LdisplayToggleR.style = {
 LsongDisplayR.addSubLayer(LdisplayToggleR);
 
 LdisplayToggleR.onTap(function() {
-  if (LdisplayToggleR.html === "BPM") {
+  if (LdisplayToggleR.html === "Waveform") {
     LdisplayToggleR.html = "Spectrum";
     return LwaveFormR.image = "images/Deck_1_bpm.png";
   } else {
-    LdisplayToggleR.html = "BPM";
+    LdisplayToggleR.html = "Waveform";
     return LwaveFormR.image = "images/Deck_1_wave.png";
   }
 });
@@ -610,7 +610,7 @@ LdisplayToggle2R = new Layer({
   y: 5
 });
 
-LdisplayToggle2R.html = "BPM";
+LdisplayToggle2R.html = "Waveform";
 
 LdisplayToggle2R.backgroundColor = "transparent";
 
@@ -624,11 +624,11 @@ LdisplayToggle2R.style = {
 LsongDisplay2R.addSubLayer(LdisplayToggle2R);
 
 LdisplayToggle2R.onTap(function() {
-  if (LdisplayToggle2R.html === "BPM") {
+  if (LdisplayToggle2R.html === "Waveform") {
     LdisplayToggle2R.html = "Spectrum";
     return LwaveForm2R.image = "images/Deck_1_bpm.png";
   } else {
-    LdisplayToggle2R.html = "BPM";
+    LdisplayToggle2R.html = "Waveform";
     return LwaveForm2R.image = "images/Deck_1_wave.png";
   }
 });
@@ -685,7 +685,7 @@ LdisplayToggle3R = new Layer({
   y: 5
 });
 
-LdisplayToggle3R.html = "BPM";
+LdisplayToggle3R.html = "Waveform";
 
 LdisplayToggle3R.backgroundColor = "transparent";
 
@@ -699,11 +699,11 @@ LdisplayToggle3R.style = {
 LsongDisplay3R.addSubLayer(LdisplayToggle3R);
 
 LdisplayToggle3R.onTap(function() {
-  if (LdisplayToggle3R.html === "BPM") {
+  if (LdisplayToggle3R.html === "Waveform") {
     LdisplayToggle3R.html = "Spectrum";
     return LwaveForm3R.image = "images/Deck_1_bpm.png";
   } else {
-    LdisplayToggle3R.html = "BPM";
+    LdisplayToggle3R.html = "Waveform";
     return LwaveForm3R.image = "images/Deck_1_wave.png";
   }
 });
@@ -1036,6 +1036,21 @@ LMagPlus = new Layer({
 
 LMuteBar.addSubLayer(LMagPlus);
 
+LMagPlus.onTap(function() {
+  if (LmainWaveForm.image === "images/Deck_1_bpm.png") {
+    LmainWaveForm.image = "images/Deck_1_bpm_klein.png";
+  }
+  if (LmainWaveForm.image === "images/Deck_1_wave.png") {
+    LmainWaveForm.image = "images/Deck_1_klein.png";
+  }
+  if (LmainWaveForm.image === "images/Deck_1_gross.png") {
+    LmainWaveForm.image = "images/Deck_1_wave.png";
+  }
+  if (LmainWaveForm.image === "images/Deck_1_bpm_gross.png") {
+    return LmainWaveForm.image = "images/Deck_1_bpm.png";
+  }
+});
+
 LMagMinus = new Layer({
   backgroundColor: "#525252",
   width: 30,
@@ -1046,6 +1061,21 @@ LMagMinus = new Layer({
 });
 
 LMuteBar.addSubLayer(LMagMinus);
+
+LMagMinus.onTap(function() {
+  if (LmainWaveForm.image === "images/Deck_1_bpm.png") {
+    LmainWaveForm.image = "images/Deck_1_bpm_gross.png";
+  }
+  if (LmainWaveForm.image === "images/Deck_1_wave.png") {
+    LmainWaveForm.image = "images/Deck_1_gross.png";
+  }
+  if (LmainWaveForm.image === "images/Deck_1_klein.png") {
+    LmainWaveForm.image = "images/Deck_1_wave.png";
+  }
+  if (LmainWaveForm.image === "images/Deck_1_bpm_klein.png") {
+    return LmainWaveForm.image = "images/Deck_1_bpm.png";
+  }
+});
 
 LMuteBar2 = new Layer({
   backgroundColor: "transparent",
@@ -1079,6 +1109,21 @@ LMagPlus2 = new Layer({
 
 LMuteBar2.addSubLayer(LMagPlus2);
 
+LMagPlus2.onTap(function() {
+  if (LmainWaveForm2.image === "images/Deck_1_bpm.png") {
+    LmainWaveForm2.image = "images/Deck_1_bpm_klein.png";
+  }
+  if (LmainWaveForm2.image === "images/Deck_1_wave.png") {
+    LmainWaveForm2.image = "images/Deck_1_klein.png";
+  }
+  if (LmainWaveForm2.image === "images/Deck_1_gross.png") {
+    LmainWaveForm2.image = "images/Deck_1_wave.png";
+  }
+  if (LmainWaveForm2.image === "images/Deck_1_bpm_gross.png") {
+    return LmainWaveForm2.image = "images/Deck_1_bpm.png";
+  }
+});
+
 LMagMinus2 = new Layer({
   backgroundColor: "#525252",
   width: 30,
@@ -1089,6 +1134,21 @@ LMagMinus2 = new Layer({
 });
 
 LMuteBar2.addSubLayer(LMagMinus2);
+
+LMagMinus2.onTap(function() {
+  if (LmainWaveForm2.image === "images/Deck_1_bpm.png") {
+    LmainWaveForm2.image = "images/Deck_1_bpm_gross.png";
+  }
+  if (LmainWaveForm2.image === "images/Deck_1_wave.png") {
+    LmainWaveForm2.image = "images/Deck_1_gross.png";
+  }
+  if (LmainWaveForm2.image === "images/Deck_1_klein.png") {
+    LmainWaveForm2.image = "images/Deck_1_wave.png";
+  }
+  if (LmainWaveForm2.image === "images/Deck_1_bpm_klein.png") {
+    return LmainWaveForm2.image = "images/Deck_1_bpm.png";
+  }
+});
 
 LMainWindow = new Layer({
   height: 610,
@@ -1133,7 +1193,7 @@ LdisplayToggleM = new Layer({
   y: 5
 });
 
-LdisplayToggleM.html = "BPM";
+LdisplayToggleM.html = "Waveform";
 
 LdisplayToggleM.backgroundColor = "transparent";
 
@@ -1147,11 +1207,11 @@ LdisplayToggleM.style = {
 LfirstTrack.addSubLayer(LdisplayToggleM);
 
 LdisplayToggleM.onTap(function() {
-  if (LdisplayToggleM.html === "BPM") {
+  if (LdisplayToggleM.html === "Waveform") {
     LdisplayToggleM.html = "Spectrum";
     return LmainWaveForm.image = "images/Deck_1_bpm.png";
   } else {
-    LdisplayToggleM.html = "BPM";
+    LdisplayToggleM.html = "Waveform";
     return LmainWaveForm.image = "images/Deck_1_wave.png";
   }
 });
@@ -1175,6 +1235,36 @@ LmainWaveForm2 = new Layer({
 });
 
 LSecondTrack.addSubLayer(viewMain2);
+
+LdisplayToggle2M = new Layer({
+  height: 25,
+  width: 60,
+  x: 55,
+  y: 5
+});
+
+LdisplayToggle2M.html = "Waveform";
+
+LdisplayToggle2M.backgroundColor = "transparent";
+
+LdisplayToggle2M.style = {
+  fontFamily: "Futura-CondensedExtraBold",
+  fontSize: "25px",
+  textAlign: "center",
+  color: "black"
+};
+
+LSecondTrack.addSubLayer(LdisplayToggle2M);
+
+LdisplayToggle2M.onTap(function() {
+  if (LdisplayToggle2M.html === "Waveform") {
+    LdisplayToggle2M.html = "Spectrum";
+    return LmainWaveForm2.image = "images/Deck_1_bpm.png";
+  } else {
+    LdisplayToggle2M.html = "Waveform";
+    return LmainWaveForm2.image = "images/Deck_1_wave.png";
+  }
+});
 
 LMainControl = new Layer({
   width: 1150,

@@ -45,7 +45,7 @@ LdisplayToggle = new Layer
     width: 60
     x: 25
     y: 5
-LdisplayToggle.html = "BPM"
+LdisplayToggle.html = "Waveform"
 LdisplayToggle.backgroundColor = "transparent"
 LdisplayToggle.style=
   fontFamily: "Futura-CondensedExtraBold"
@@ -56,11 +56,11 @@ LsongDisplay.addSubLayer(LdisplayToggle);
 
 #ontap for Display
 LdisplayToggle.onTap ->
-    if LdisplayToggle.html is "BPM"
+    if LdisplayToggle.html is "Waveform"
       LdisplayToggle.html = "Spectrum"
       LwaveForm.image = "images/Deck_1_bpm.png"
     else
-      LdisplayToggle.html = "BPM"
+      LdisplayToggle.html = "Waveform"
       LwaveForm.image = "images/Deck_1_wave.png"
 
 
@@ -111,7 +111,7 @@ LdisplayToggle2 = new Layer
     width: 60
     x: 25
     y: 5
-LdisplayToggle2.html = "BPM"
+LdisplayToggle2.html = "Waveform"
 LdisplayToggle2.backgroundColor = "transparent"
 LdisplayToggle2.style=
   fontFamily: "Futura-CondensedExtraBold"
@@ -122,11 +122,11 @@ LsongDisplay2.addSubLayer(LdisplayToggle2);
 
 #ontap for Display
 LdisplayToggle2.onTap ->
-    if LdisplayToggle2.html is "BPM"
+    if LdisplayToggle2.html is "Waveform"
       LdisplayToggle2.html = "Spectrum"
       LwaveForm2.image = "images/Deck_1_bpm.png"
     else
-      LdisplayToggle2.html = "BPM"
+      LdisplayToggle2.html = "Waveform"
       LwaveForm2.image = "images/Deck_1_wave.png"
 
 #SliderTimeline
@@ -177,7 +177,7 @@ LdisplayToggle3 = new Layer
     width: 60
     x: 25
     y: 5
-LdisplayToggle3.html = "BPM"
+LdisplayToggle3.html = "Waveform"
 LdisplayToggle3.backgroundColor = "transparent"
 LdisplayToggle3.style=
   fontFamily: "Futura-CondensedExtraBold"
@@ -188,11 +188,11 @@ LsongDisplay3.addSubLayer(LdisplayToggle3);
 
 #ontap for Display
 LdisplayToggle3.onTap ->
-    if LdisplayToggle3.html is "BPM"
+    if LdisplayToggle3.html is "Waveform"
       LdisplayToggle3.html = "Spectrum"
       LwaveForm3.image = "images/Deck_1_bpm.png"
     else
-      LdisplayToggle3.html = "BPM"
+      LdisplayToggle3.html = "Waveform"
       LwaveForm3.image = "images/Deck_1_wave.png"
 
 #SliderTimeline
@@ -465,7 +465,7 @@ LdisplayToggleR = new Layer
     width: 60
     x: 25
     y: 5
-LdisplayToggleR.html = "BPM"
+LdisplayToggleR.html = "Waveform"
 LdisplayToggleR.backgroundColor = "transparent"
 LdisplayToggleR.style=
   fontFamily: "Futura-CondensedExtraBold"
@@ -476,11 +476,11 @@ LsongDisplayR.addSubLayer(LdisplayToggleR);
 
 #ontap for Display
 LdisplayToggleR.onTap ->
-    if LdisplayToggleR.html is "BPM"
+    if LdisplayToggleR.html is "Waveform"
       LdisplayToggleR.html = "Spectrum"
       LwaveFormR.image = "images/Deck_1_bpm.png"
     else
-      LdisplayToggleR.html = "BPM"
+      LdisplayToggleR.html = "Waveform"
       LwaveFormR.image = "images/Deck_1_wave.png"
 
 SliderTimelineR = new SliderComponent
@@ -529,7 +529,7 @@ LdisplayToggle2R = new Layer
     width: 60
     x: 25
     y: 5
-LdisplayToggle2R.html = "BPM"
+LdisplayToggle2R.html = "Waveform"
 LdisplayToggle2R.backgroundColor = "transparent"
 LdisplayToggle2R.style=
   fontFamily: "Futura-CondensedExtraBold"
@@ -540,11 +540,11 @@ LsongDisplay2R.addSubLayer(LdisplayToggle2R);
 
 #ontap for Display
 LdisplayToggle2R.onTap ->
-    if LdisplayToggle2R.html is "BPM"
+    if LdisplayToggle2R.html is "Waveform"
       LdisplayToggle2R.html = "Spectrum"
       LwaveForm2R.image = "images/Deck_1_bpm.png"
     else
-      LdisplayToggle2R.html = "BPM"
+      LdisplayToggle2R.html = "Waveform"
       LwaveForm2R.image = "images/Deck_1_wave.png"
 
 #SliderTimeline
@@ -595,7 +595,7 @@ LdisplayToggle3R = new Layer
     width: 60
     x: 25
     y: 5
-LdisplayToggle3R.html = "BPM"
+LdisplayToggle3R.html = "Waveform"
 LdisplayToggle3R.backgroundColor = "transparent"
 LdisplayToggle3R.style=
   fontFamily: "Futura-CondensedExtraBold"
@@ -606,11 +606,11 @@ LsongDisplay3R.addSubLayer(LdisplayToggle3R);
 
 #ontap for Display
 LdisplayToggle3R.onTap ->
-    if LdisplayToggle3R.html is "BPM"
+    if LdisplayToggle3R.html is "Waveform"
       LdisplayToggle3R.html = "Spectrum"
       LwaveForm3R.image = "images/Deck_1_bpm.png"
     else
-      LdisplayToggle3R.html = "BPM"
+      LdisplayToggle3R.html = "Waveform"
       LwaveForm3R.image = "images/Deck_1_wave.png"
 
 #SliderTimeline
@@ -887,6 +887,16 @@ LMagPlus = new Layer
     image:"images/icons/lupeplus.png"
 LMuteBar.addSubLayer(LMagPlus)
 
+LMagPlus.onTap ->
+    if LmainWaveForm.image is "images/Deck_1_bpm.png"
+      LmainWaveForm.image = "images/Deck_1_bpm_klein.png"
+    if LmainWaveForm.image is "images/Deck_1_wave.png"
+      LmainWaveForm.image = "images/Deck_1_klein.png"
+    if LmainWaveForm.image is "images/Deck_1_gross.png"
+      LmainWaveForm.image = "images/Deck_1_wave.png"
+    if LmainWaveForm.image is "images/Deck_1_bpm_gross.png"
+      LmainWaveForm.image = "images/Deck_1_bpm.png"
+
 LMagMinus = new Layer
     backgroundColor: "#525252"
     width: 30
@@ -895,6 +905,16 @@ LMagMinus = new Layer
     borderRadius: 4
     image:"images/icons/lupeminus.png"
 LMuteBar.addSubLayer(LMagMinus)
+
+LMagMinus.onTap ->
+    if LmainWaveForm.image is "images/Deck_1_bpm.png"
+      LmainWaveForm.image = "images/Deck_1_bpm_gross.png"
+    if LmainWaveForm.image is "images/Deck_1_wave.png"
+      LmainWaveForm.image = "images/Deck_1_gross.png"
+    if LmainWaveForm.image is "images/Deck_1_klein.png"
+      LmainWaveForm.image = "images/Deck_1_wave.png"
+    if LmainWaveForm.image is "images/Deck_1_bpm_klein.png"
+      LmainWaveForm.image = "images/Deck_1_bpm.png"
 
 LMuteBar2 = new Layer
     backgroundColor: "transparent"
@@ -922,6 +942,16 @@ LMagPlus2 = new Layer
     image:"images/icons/lupeplus.png"
 LMuteBar2.addSubLayer(LMagPlus2)
 
+LMagPlus2.onTap ->
+    if LmainWaveForm2.image is "images/Deck_1_bpm.png"
+      LmainWaveForm2.image = "images/Deck_1_bpm_klein.png"
+    if LmainWaveForm2.image is "images/Deck_1_wave.png"
+      LmainWaveForm2.image = "images/Deck_1_klein.png"
+    if LmainWaveForm2.image is "images/Deck_1_gross.png"
+      LmainWaveForm2.image = "images/Deck_1_wave.png"
+    if LmainWaveForm2.image is "images/Deck_1_bpm_gross.png"
+      LmainWaveForm2.image = "images/Deck_1_bpm.png"
+
 LMagMinus2 = new Layer
     backgroundColor: "#525252"
     width: 30
@@ -930,6 +960,16 @@ LMagMinus2 = new Layer
     borderRadius: 4
     image:"images/icons/lupeminus.png"
 LMuteBar2.addSubLayer(LMagMinus2)
+
+LMagMinus2.onTap ->
+    if LmainWaveForm2.image is "images/Deck_1_bpm.png"
+      LmainWaveForm2.image = "images/Deck_1_bpm_gross.png"
+    if LmainWaveForm2.image is "images/Deck_1_wave.png"
+      LmainWaveForm2.image = "images/Deck_1_gross.png"
+    if LmainWaveForm2.image is "images/Deck_1_klein.png"
+      LmainWaveForm2.image = "images/Deck_1_wave.png"
+    if LmainWaveForm2.image is "images/Deck_1_bpm_klein.png"
+      LmainWaveForm2.image = "images/Deck_1_bpm.png"
 
 LMainWindow = new Layer
     height: 610
@@ -965,7 +1005,7 @@ LdisplayToggleM = new Layer
     width: 60
     x: 55
     y: 5
-LdisplayToggleM.html = "BPM"
+LdisplayToggleM.html = "Waveform"
 LdisplayToggleM.backgroundColor = "transparent"
 LdisplayToggleM.style=
   fontFamily: "Futura-CondensedExtraBold"
@@ -976,11 +1016,11 @@ LfirstTrack.addSubLayer(LdisplayToggleM);
 
 #ontap for Display
 LdisplayToggleM.onTap ->
-    if LdisplayToggleM.html is "BPM"
+    if LdisplayToggleM.html is "Waveform"
       LdisplayToggleM.html = "Spectrum"
       LmainWaveForm.image = "images/Deck_1_bpm.png"
     else
-      LdisplayToggleM.html = "BPM"
+      LdisplayToggleM.html = "Waveform"
       LmainWaveForm.image = "images/Deck_1_wave.png"
 
 viewMain2 = new ScrollComponent
@@ -998,8 +1038,31 @@ LmainWaveForm2 = new Layer
     height:200
     image:"images/Deck_1_wave.png"
     superLayer: viewMain2.content
-
 LSecondTrack.addSubLayer(viewMain2)
+
+#Display Toggle Button
+LdisplayToggle2M = new Layer
+    height: 25
+    width: 60
+    x: 55
+    y: 5
+LdisplayToggle2M.html = "Waveform"
+LdisplayToggle2M.backgroundColor = "transparent"
+LdisplayToggle2M.style=
+  fontFamily: "Futura-CondensedExtraBold"
+  fontSize: "25px"
+  textAlign: "center"
+  color: "black"
+LSecondTrack.addSubLayer(LdisplayToggle2M);
+
+#ontap for Display
+LdisplayToggle2M.onTap ->
+    if LdisplayToggle2M.html is "Waveform"
+      LdisplayToggle2M.html = "Spectrum"
+      LmainWaveForm2.image = "images/Deck_1_bpm.png"
+    else
+      LdisplayToggle2M.html = "Waveform"
+      LmainWaveForm2.image = "images/Deck_1_wave.png"
 
 LMainControl = new Layer
     width: 1150
@@ -1007,7 +1070,6 @@ LMainControl = new Layer
     x: Align.left
     y: Align.top(510)
 LMainWindow.addSubLayer(LMainControl)
-
 
 
 LMainControlBtns = new Layer
