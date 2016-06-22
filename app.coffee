@@ -2443,7 +2443,7 @@ LskipToStartM.onTap ->
         properties:
             scrollX: 8750
         curve: "linear"
-        time: trackSpeed
+        time: 30
 
     AplayM2 = new Animation
         layer: viewMain2
@@ -2489,7 +2489,7 @@ LskipToEndBtnM.onTap ->
         properties:
             scrollX: 8750
         curve: "linear"
-        time: AplayM
+        time: 30
 
     AplayM2 = new Animation
         layer: viewMain2
@@ -2513,7 +2513,7 @@ LFastForwardBtnM.onTap ->
         LPauseBtnM.visible = false
 
 LFastBackBtnM.onTap ->
-    if LPlayBtnR.visible is true
+    if LPlayBtnM.visible is true
         LPlayBtnM.visible = false
         LPauseBtnM.visible = true
     if viewMain.scrollX is 0
@@ -2521,11 +2521,25 @@ LFastBackBtnM.onTap ->
         LPauseBtnM.visible = false
     AFastBackBtnM.start()
     AFastBackBtnM2.start()
+
     AFastBackBtnM.onAnimationEnd ->
-        LPlayBtnR.visible = true
+        LPlayBtnM.visible = true
         LPauseBtnM.visible = false
 
 LPlayBtnM.onTap ->
+  AplayM = new Animation
+      layer: viewMain
+      properties:
+          scrollX: 8750
+      curve: "linear"
+      time: (30 - (30/(8750/viewMain.scrollX)))
+
+  AplayM2 = new Animation
+      layer: viewMain2
+      properties:
+          scrollX: 8750
+      curve: "linear"
+      time: (30 - (30/(8750/viewMain2.scrollX)))
     if LPlayBtnM.visible is true
         LPlayBtnM.visible = false
         LPauseBtnM.visible = true
@@ -2533,12 +2547,12 @@ LPlayBtnM.onTap ->
     AplayM.onAnimationEnd ->
         LPlayBtnM.visible = true
         LPauseBtnM.visible = false
-        AplayR = new Animation
+        AplayM = new Animation
             layer: viewMain
             properties:
                 scrollX: 8750
             curve: "linear"
-            time: trackSpeed
+            time: 30
 
     AplayM2.onAnimationEnd ->
         LPlayBtnM.visible = true
@@ -2569,7 +2583,7 @@ LPauseBtnM.onTap ->
         properties:
             scrollX: 8750
         curve: "linear"
-        time: (trackSpeed - (trackSpeed/(8750/viewMain.scrollX)))
+        time: (30 - (30/(8750/viewMain.scrollX)))
 
     AplayM2 = new Animation
         layer: viewMain2

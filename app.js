@@ -2953,7 +2953,7 @@ LskipToStartM.onTap(function() {
       scrollX: 8750
     },
     curve: "linear",
-    time: trackSpeed
+    time: 30
   });
   return AplayM2 = new Animation({
     layer: viewMain2,
@@ -3006,7 +3006,7 @@ LskipToEndBtnM.onTap(function() {
       scrollX: 8750
     },
     curve: "linear",
-    time: AplayM
+    time: 30
   });
   return AplayM2 = new Animation({
     layer: viewMain2,
@@ -3036,7 +3036,7 @@ LFastForwardBtnM.onTap(function() {
 });
 
 LFastBackBtnM.onTap(function() {
-  if (LPlayBtnR.visible === true) {
+  if (LPlayBtnM.visible === true) {
     LPlayBtnM.visible = false;
     LPauseBtnM.visible = true;
   }
@@ -3047,12 +3047,28 @@ LFastBackBtnM.onTap(function() {
   AFastBackBtnM.start();
   AFastBackBtnM2.start();
   return AFastBackBtnM.onAnimationEnd(function() {
-    LPlayBtnR.visible = true;
+    LPlayBtnM.visible = true;
     return LPauseBtnM.visible = false;
   });
 });
 
 LPlayBtnM.onTap(function() {
+  AplayM = new Animation({
+    layer: viewMain,
+    properties: {
+      scrollX: 8750
+    },
+    curve: "linear",
+    time: 30 - (30 / (8750 / viewMain.scrollX))
+  });
+  AplayM2 = new Animation({
+    layer: viewMain2,
+    properties: {
+      scrollX: 8750
+    },
+    curve: "linear",
+    time: 30 - (30 / (8750 / viewMain2.scrollX))
+  });
   if (LPlayBtnM.visible === true) {
     LPlayBtnM.visible = false;
     LPauseBtnM.visible = true;
@@ -3060,13 +3076,13 @@ LPlayBtnM.onTap(function() {
   AplayM.onAnimationEnd(function() {
     LPlayBtnM.visible = true;
     LPauseBtnM.visible = false;
-    return AplayR = new Animation({
+    return AplayM = new Animation({
       layer: viewMain,
       properties: {
         scrollX: 8750
       },
       curve: "linear",
-      time: trackSpeed
+      time: 30
     });
   });
   AplayM2.onAnimationEnd(function() {
@@ -3103,7 +3119,7 @@ LPauseBtnM.onTap(function() {
       scrollX: 8750
     },
     curve: "linear",
-    time: trackSpeed - (trackSpeed / (8750 / viewMain.scrollX))
+    time: 30 - (30 / (8750 / viewMain.scrollX))
   });
   AplayM2 = new Animation({
     layer: viewMain2,
