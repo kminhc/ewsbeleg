@@ -7,6 +7,9 @@ Lbg = new Layer
 
 title = "Titel/Interpret"
 
+trackSpeed = 60
+trackSpeed2 = 60
+
 Llogo = new Layer
     width: 500
     x: Align.left(700)
@@ -50,7 +53,7 @@ LdisplayToggle = new Layer
     width: 300
     x: 0
     y: 0
-LdisplayToggle.html = "WAVE"
+LdisplayToggle.html = "<u>WAVE</u>/SPECTRUM"
 LdisplayToggle.backgroundColor = "#656565"
 LdisplayToggle.style=
   fontSize: "15px"
@@ -61,11 +64,11 @@ LsongDisplay.addSubLayer(LdisplayToggle);
 
 #ontap for Display
 LdisplayToggle.onTap ->
-    if LdisplayToggle.html is "WAVE"
-      LdisplayToggle.html = "SPECTRUM"
+    if LdisplayToggle.html is "<u>WAVE</u>/SPECTRUM"
+      LdisplayToggle.html = "WAVE/<u>SPECTRUM</u>"
       LwaveForm.image = "images/Deck_1_bpm.png"
     else
-      LdisplayToggle.html = "WAVE"
+      LdisplayToggle.html = "<u>WAVE</u>/SPECTRUM"
       LwaveForm.image = "images/Deck_1_wave.png"
 
 SliderTimeline = new SliderComponent
@@ -112,7 +115,7 @@ LdisplayToggle2 = new Layer
     width: 300
     x: 0
     y: 0
-LdisplayToggle2.html = "SPECTRUM"
+LdisplayToggle2.html = "WAVE/<u>SPECTRUM</u>"
 LdisplayToggle2.backgroundColor = "#656565"
 LdisplayToggle2.style=
   fontSize: "15px"
@@ -123,11 +126,11 @@ LsongDisplay2.addSubLayer(LdisplayToggle2);
 
 #ontap for Display
 LdisplayToggle2.onTap ->
-    if LdisplayToggle2.html is "SPECTRUM"
-      LdisplayToggle2.html = "WAVE"
+    if LdisplayToggle2.html is "WAVE/<u>SPECTRUM</u>"
+      LdisplayToggle2.html = "<u>WAVE</u>/SPECTRUM"
       LwaveForm2.image = "images/Deck_1_wave.png"
     else
-      LdisplayToggle2.html = "SPECTRUM"
+      LdisplayToggle2.html = "WAVE/<u>SPECTRUM</u>"
       LwaveForm2.image = "images/Deck_1_bpm.png"
 
 #SliderTimeline
@@ -179,7 +182,7 @@ LdisplayToggle3 = new Layer
     width: 300
     x: 0
     y: 0
-LdisplayToggle3.html = "WAVE"
+LdisplayToggle3.html = "<u>WAVE</u>/SPECTRUM"
 LdisplayToggle3.backgroundColor = "#656565"
 LdisplayToggle3.style=
   fontSize: "15px"
@@ -190,11 +193,11 @@ LsongDisplay3.addSubLayer(LdisplayToggle3);
 
 #ontap for Display
 LdisplayToggle3.onTap ->
-    if LdisplayToggle3.html is "WAVE"
-      LdisplayToggle3.html = "SPECTRUM"
+    if LdisplayToggle3.html is "<u>WAVE</u>/SPECTRUM"
+      LdisplayToggle3.html = "WAVE/<u>SPECTRUM</u>"
       LwaveForm3.image = "images/Deck_1_bpm.png"
     else
-      LdisplayToggle3.html = "WAVE"
+      LdisplayToggle3.html = "<u>WAVE</u>/SPECTRUM"
       LwaveForm3.image = "images/Deck_1_wave.png"
 
 #SliderTimeline
@@ -402,21 +405,20 @@ Aplay = new Animation
     properties:
         scrollX: 8750
     curve: "linear"
-    time: 30
-
+    time: trackSpeed
 Aplay2 = new Animation
     layer: view2
     properties:
         scrollX: 8750
     curve: "linear"
-    time: 30
+    time: trackSpeed
 
 AplayM = new Animation
     layer: viewMain
     properties:
         scrollX: 8750
     curve: "linear"
-    time: 30
+    time: trackSpeed
 
 Afastforward = new Animation
     layer: view
@@ -436,6 +438,28 @@ AfastforwardM = new Animation
     layer: viewMain
     properties:
         scrollX: 8750
+    curve: "linear"
+    time: 15
+
+
+AplayS = new Animation
+    layer: SliderTimeline
+    properties:
+        value: 8750
+    curve: "linear"
+    time: trackSpeed
+
+AfastforwardS = new Animation
+    layer: SliderTimeline
+    properties:
+        value: 8750
+    curve: "linear"
+    time: 15
+
+AFastBackBtnS = new Animation
+    layer: SliderTimeline
+    properties:
+        value: 0
     curve: "linear"
     time: 15
 
@@ -472,6 +496,7 @@ LskipToStart.onTap ->
     view.scrollX = 0
     view2.scrollX = 0
     viewMain.scrollX = 0
+    SliderTimeline.value = 0
     AFastBackBtn = new Animation
         layer: view
         properties:
@@ -519,26 +544,34 @@ LskipToStart.onTap ->
         properties:
             scrollX: 8750
         curve: "linear"
-        time: 30
+        time: trackSpeed
+
+    AplayS = new Animation
+        layer: SliderTimeline
+        properties:
+            value: 8750
+        curve: "linear"
+        time: trackSpeed
 
     Aplay2 = new Animation
         layer: view2
         properties:
             scrollX: 8750
         curve: "linear"
-        time: 30
+        time: trackSpeed
 
     AplayM = new Animation
         layer: viewMain
         properties:
             scrollX: 8750
         curve: "linear"
-        time: 30
+        time: trackSpeed
 
 LskipToEndBtn.onTap ->
     view.scrollX = 8750
     view2.scrollX = 8750
     viewMain.scrollX = 8750
+    SliderTimeline.value = 8750
 
     AFastBackBtn = new Animation
         layer: view
@@ -576,26 +609,33 @@ LskipToEndBtn.onTap ->
             scrollX: 8750
         curve: "linear"
         time: 15
+
     Aplay = new Animation
         layer: view
         properties:
             scrollX: 8750
         curve: "linear"
-        time: 30
+        time: trackSpeed
+    AplayS = new Animation
+        layer: SliderTimeline
+        properties:
+            value: 8750
+        curve: "linear"
+        time: trackSpeed
 
     Aplay2 = new Animation
         layer: view2
         properties:
             scrollX: 8750
         curve: "linear"
-        time: 30
+        time: trackSpeed
 
     AplayM = new Animation
         layer: viewMain
         properties:
             scrollX: 8750
         curve: "linear"
-        time: 30
+        time: trackSpeed
 
 LFastForwardBtn.onTap ->
     if LPlayBtn.visible is true
@@ -607,6 +647,7 @@ LFastForwardBtn.onTap ->
     Afastforward.start()
     Afastforward2.start()
     AfastforwardM.start()
+    AfastforwardS.start()
 
     Afastforward.onAnimationEnd ->
         LPlayBtn.visible = true
@@ -622,6 +663,7 @@ LFastBackBtn.onTap ->
     AFastBackBtn.start()
     AFastBackBtn2.start()
     AFastBackBtnM.start()
+    AFastBackBtnS.start()
     AFastBackBtn.onAnimationEnd ->
         LPlayBtn.visible = true
         LPauseBtn.visible = false
@@ -649,11 +691,12 @@ LPlayBtn.onTap ->
             properties:
                 scrollX: 8750
             curve: "linear"
-            time: 30
+            time: trackSpeed
 
-    AplayM.start()
     Aplay.start()
     Aplay2.start()
+    AplayS.start()
+    AplayM.start()
 
 
 LPauseBtn.onTap ->
@@ -661,6 +704,7 @@ LPauseBtn.onTap ->
         LPlayBtn.visible = true
         LPauseBtn.visible = false
     Aplay.stop()
+    AplayS.stop()
     Aplay2.stop()
     AplayM.stop()
     AFastBackBtn.stop()
@@ -669,27 +713,29 @@ LPauseBtn.onTap ->
     Afastforward.stop()
     Afastforward2.stop()
     AfastforwardM.stop()
+    AfastforwardS.stop()
+    AFastBackBtnS.stop()
 
     Aplay = new Animation
         layer: view
         properties:
             scrollX: 8750
         curve: "linear"
-        time: (30 - (30/(8750/view.scrollX)))
+        time: (trackSpeed - (trackSpeed/(8750/view.scrollX)))
 
     Aplay2 = new Animation
         layer: view2
         properties:
             scrollX: 8750
         curve: "linear"
-        time: (30 - (30/(8750/view2.scrollX)))
+        time: (trackSpeed - (trackSpeed/(8750/view2.scrollX)))
 
     AplayM = new Animation
         layer: viewMain
         properties:
             scrollX: 8750
         curve: "linear"
-        time: (30 - (30/(8750/viewMain.scrollX)))
+        time: (trackSpeed - (trackSpeed/(8750/viewMain.scrollX)))
 
     Afastforward = new Animation
         layer: view
@@ -711,6 +757,28 @@ LPauseBtn.onTap ->
             scrollX: 8750
         curve: "linear"
         time: (15 - (15/(8750/viewMain.scrollX)))
+
+    AfastforwardS = new Animation
+        layer: SliderTimeline
+        properties:
+            value: 8750
+        curve: "linear"
+        time: (15 - (15/(8750/viewMain.scrollX)))
+
+      AFastBackBtnS = new Animation
+          layer: SliderTimeline
+          properties:
+              value: 0
+          curve: "linear"
+          time: (0 + (15/(8750/view.scrollX)))
+
+
+      AplayS = new Animation
+          layer: SliderTimeline
+          properties:
+              value: 8750
+          curve: "linear"
+          time: (trackSpeed - (trackSpeed/(8750/view.scrollX)))
 
     AFastBackBtn = new Animation
         layer: view
@@ -798,12 +866,82 @@ LbpmDisplay.style =
     fontWeight: "bold"
 
 LvolDownBtn.onTap ->
+    if LPauseBtn.visible is true
+        LPlayBtn.visible = true
+        LPauseBtn.visible = false
+    Aplay.stop()
+    AplayS.stop()
+    Aplay2.stop()
+    AplayM.stop()
     if parseInt(LbpmDisplay.html) isnt 0
       LbpmDisplay.html = parseInt(LbpmDisplay.html) - 5
+      trackSpeed += 5
+    Aplay = new Animation
+      layer: view
+      properties:
+          scrollX: 8750
+      curve: "linear"
+      time: (trackSpeed - (trackSpeed/(8750/view.scrollX)))
+
+    Aplay2 = new Animation
+      layer: view2
+      properties:
+          scrollX: 8750
+      curve: "linear"
+      time: (trackSpeed - (trackSpeed/(8750/view2.scrollX)))
+
+    AplayM = new Animation
+      layer: viewMain
+      properties:
+          scrollX: 8750
+      curve: "linear"
+      time: (trackSpeed - (trackSpeed/(8750/viewMain.scrollX)))
+    AplayS = new Animation
+      layer: SliderTimeline
+      properties:
+          value: 8750
+      curve: "linear"
+      time: (trackSpeed - (trackSpeed/(8750/view.scrollX)))
+
 
 LvolUpBtn.onTap ->
-    if parseInt(LbpmDisplay.html) isnt 500
+    if LPauseBtn.visible is true
+        LPlayBtn.visible = true
+        LPauseBtn.visible = false
+    Aplay.stop()
+    AplayS.stop()
+    Aplay2.stop()
+    AplayM.stop()
+    if parseInt(LbpmDisplay.html) isnt 185
       LbpmDisplay.html = parseInt(LbpmDisplay.html) + 5
+      trackSpeed -= 5
+      Aplay = new Animation
+          layer: view
+          properties:
+              scrollX: 8750
+          curve: "linear"
+          time: (trackSpeed - (trackSpeed/(8750/view.scrollX)))
+
+      Aplay2 = new Animation
+          layer: view2
+          properties:
+              scrollX: 8750
+          curve: "linear"
+          time: (trackSpeed - (trackSpeed/(8750/view2.scrollX)))
+
+      AplayM = new Animation
+          layer: viewMain
+          properties:
+              scrollX: 8750
+          curve: "linear"
+          time: (trackSpeed - (trackSpeed/(8750/viewMain.scrollX)))
+      AplayS = new Animation
+          layer: SliderTimeline
+          properties:
+              value: 8750
+          curve: "linear"
+          time: (trackSpeed - (trackSpeed/(8750/view.scrollX)))
+
 
 LbpmLabel = new Layer
     width: 70
@@ -904,7 +1042,7 @@ LdisplayToggleR = new Layer
     width: 300
     x: 0
     y: 0
-LdisplayToggleR.html = "WAVE"
+LdisplayToggleR.html = "<u>WAVE</u>/SPECTRUM"
 LdisplayToggleR.backgroundColor = "#656565"
 LdisplayToggleR.style=
   fontSize: "15px"
@@ -915,11 +1053,11 @@ LsongDisplayR.addSubLayer(LdisplayToggleR);
 
 #ontap for Display
 LdisplayToggleR.onTap ->
-    if LdisplayToggleR.html is "WAVE"
-      LdisplayToggleR.html = "SPECTRUM"
+    if LdisplayToggleR.html is "<u>WAVE</u>/SPECTRUM"
+      LdisplayToggleR.html = "WAVE/<u>SPECTRUM</u>"
       LwaveFormR.image = "images/Deck_2_bpm.png"
     else
-      LdisplayToggleR.html = "WAVE"
+      LdisplayToggleR.html = "<u>WAVE</u>/SPECTRUM"
       LwaveFormR.image = "images/Deck_2_wave.png"
 
 SliderTimelineR = new SliderComponent
@@ -968,7 +1106,7 @@ LdisplayToggle2R = new Layer
     width: 300
     x: 0
     y: 0
-LdisplayToggle2R.html = "SPECTRUM"
+LdisplayToggle2R.html = "WAVE/<u>SPECTRUM</u>"
 LdisplayToggle2R.backgroundColor = "656565"
 LdisplayToggle2R.style=
   fontSize: "15px"
@@ -979,11 +1117,11 @@ LsongDisplay2R.addSubLayer(LdisplayToggle2R);
 
 #ontap for Display
 LdisplayToggle2R.onTap ->
-    if LdisplayToggle2R.html is "WAVE"
-      LdisplayToggle2R.html = "SPECTRUM"
+    if LdisplayToggle2R.html is "<u>WAVE</u>/SPECTRUM"
+      LdisplayToggle2R.html = "WAVE/<u>SPECTRUM</u>"
       LwaveForm2R.image = "images/Deck_2_bpm.png"
     else
-      LdisplayToggle2R.html = "WAVE"
+      LdisplayToggle2R.html = "<u>WAVE</u>/SPECTRUM"
       LwaveForm2R.image = "images/Deck_2_wave.png"
 
 #SliderTimeline
@@ -1034,7 +1172,7 @@ LdisplayToggle3R = new Layer
     width: 300
     x: 0
     y: 0
-LdisplayToggle3R.html = "WAVE"
+LdisplayToggle3R.html = "<u>WAVE</u>/SPECTRUM"
 LdisplayToggle3R.backgroundColor = "656565"
 LdisplayToggle3R.style=
   fontSize: "15px"
@@ -1045,11 +1183,11 @@ LsongDisplay3R.addSubLayer(LdisplayToggle3R);
 
 #ontap for Display
 LdisplayToggle3R.onTap ->
-    if LdisplayToggle3R.html is "WAVE"
-      LdisplayToggle3R.html = "SPECTRUM"
+    if LdisplayToggle3R.html is "<u>WAVE</u>/SPECTRUM"
+      LdisplayToggle3R.html = "WAVE/<u>SPECTRUM</u>"
       LwaveForm3R.image = "images/Deck_2_bpm.png"
     else
-      LdisplayToggle3R.html = "WAVE"
+      LdisplayToggle3R.html = "<u>WAVE</u>/SPECTRUM"
       LwaveForm3R.image = "images/Deck_2_wave.png"
 
 #SliderTimeline
@@ -1255,6 +1393,27 @@ AplayM2 = new Animation
     curve: "linear"
     time: 30
 
+AplaySR = new Animation
+    layer: SliderTimelineR
+    properties:
+        value: 8750
+    curve: "linear"
+    time: 30
+
+AfastforwardSR = new Animation
+    layer: SliderTimelineR
+    properties:
+        value: 8750
+    curve: "linear"
+    time: 15
+
+AFastBackBtnSR = new Animation
+    layer: SliderTimelineR
+    properties:
+        value: 0
+    curve: "linear"
+    time: 15
+
 AfastforwardR = new Animation
     layer: viewR
     properties:
@@ -1309,6 +1468,15 @@ LskipToStartR.onTap ->
     viewR.scrollX = 0
     view2R.scrollX = 0
     viewMain2.scrollX = 0
+    SliderTimelineR.value = 0
+
+    AplaySR = new Animation
+        layer: SliderTimelineR
+        properties:
+            value: 8750
+        curve: "linear"
+        time: trackSpeed2
+
     AFastBackBtnR = new Animation
         layer: viewR
         properties:
@@ -1356,27 +1524,34 @@ LskipToStartR.onTap ->
         properties:
             scrollX: 8750
         curve: "linear"
-        time: 30
+        time: trackSpeed2
 
     Aplay2R = new Animation
         layer: view2R
         properties:
             scrollX: 8750
         curve: "linear"
-        time: 30
+        time: trackSpeed2
 
     AplayM2 = new Animation
         layer: viewMain2
         properties:
             scrollX: 8750
         curve: "linear"
-        time: 30
+        time: trackSpeed2
 
 LskipToEndBtnR.onTap ->
     viewR.scrollX = 8750
     view2R.scrollX = 8750
     viewMain2.scrollX = 8750
+    SliderTimelineR.value = 8750
 
+    AplaySR = new Animation
+        layer: SliderTimelineR
+        properties:
+            value: 8750
+        curve: "linear"
+        time: trackSpeed2
     AFastBackBtnR = new Animation
         layer: viewR
         properties:
@@ -1393,6 +1568,12 @@ LskipToEndBtnR.onTap ->
         layer: viewMain2
         properties:
             scrollX: 0
+        curve: "linear"
+        time: 15
+    AFastBackBtnSR = new Animation
+        layer: SliderTimelineR
+        properties:
+            value: 0
         curve: "linear"
         time: 15
     AfastforwardR = new Animation
@@ -1413,26 +1594,32 @@ LskipToEndBtnR.onTap ->
             scrollX: 8750
         curve: "linear"
         time: 15
+    AfastforwardSR = new Animation
+        layer: SliderTimelineR
+        properties:
+            value: 0
+        curve: "linear"
+        time: 15
     AplayR = new Animation
         layer: viewR
         properties:
             scrollX: 8750
         curve: "linear"
-        time: 30
+        time: trackSpeed2
 
     Aplay2R = new Animation
         layer: view2R
         properties:
             scrollX: 8750
         curve: "linear"
-        time: 30
+        time: trackSpeed2
 
     AplayM2 = new Animation
         layer: viewMain2
         properties:
             scrollX: 8750
         curve: "linear"
-        time: 30
+        time: trackSpeed2
 
 LFastForwardBtnR.onTap ->
     if LPlayBtnR.visible is true
@@ -1444,6 +1631,7 @@ LFastForwardBtnR.onTap ->
     AfastforwardR.start()
     Afastforward2R.start()
     AfastforwardM2.start()
+    AfastforwardSR.start()
 
     AfastforwardR.onAnimationEnd ->
         LPlayBtnR.visible = true
@@ -1459,6 +1647,8 @@ LFastBackBtnR.onTap ->
     AFastBackBtnR.start()
     AFastBackBtn2R.start()
     AFastBackBtnM2.start()
+    AFastBackBtnSR.start()
+
     AFastBackBtnR.onAnimationEnd ->
         LPlayBtnR.visible = true
         LPauseBtnR.visible = false
@@ -1488,9 +1678,31 @@ LPlayBtnR.onTap ->
             curve: "linear"
             time: 30
 
-    AplayM2.start()
+    AplayM2.onAnimationEnd ->
+        LPlayBtnR.visible = true
+        LPauseBtnR.visible = false
+        AplayM2 = new Animation
+            layer: viewMain2
+            properties:
+                scrollX: 8750
+            curve: "linear"
+            time: 30
+
+    AplaySR.onAnimationEnd ->
+        LPlayBtnR.visible = true
+        LPauseBtnR.visible = false
+        AplaySR = new Animation
+            layer: SliderTimelineR
+            properties:
+                value: 8750
+            curve: "linear"
+            time: 30
+
+
     AplayR.start()
     Aplay2R.start()
+    AplayM2.start()
+    AplaySR.start()
 
 
 LPauseBtnR.onTap ->
@@ -1500,12 +1712,15 @@ LPauseBtnR.onTap ->
     AplayR.stop()
     Aplay2R.stop()
     AplayM2.stop()
+    AplaySR.stop()
     AFastBackBtnR.stop()
     AFastBackBtn2R.stop()
     AFastBackBtnM2.stop()
+    AFastBackBtnSR.stop()
     AfastforwardR.stop()
     Afastforward2R.stop()
     AfastforwardM2.stop()
+    AfastforwardSR.stop()
 
     AplayR = new Animation
         layer: viewR
@@ -1570,6 +1785,27 @@ LPauseBtnR.onTap ->
           curve: "linear"
           time: (0 + (15/(8750/viewMain2.scrollX)))
 
+      AfastforwardSR = new Animation
+          layer: SliderTimelineR
+          properties:
+              value: 8750
+          curve: "linear"
+          time: (15 - (15/(8750/viewMain2.scrollX)))
+
+      AFastBackBtnSR = new Animation
+          layer: SliderTimelineR
+          properties:
+              value: 0
+          curve: "linear"
+          time: (0 + (15/(8750/viewR.scrollX)))
+
+      AplaySR = new Animation
+          layer: SliderTimelineR
+          properties:
+              value: 8750
+          curve: "linear"
+          time: (30 - (30/(8750/viewR.scrollX)))
+
 LvolumeBtnR = new Layer
     width: 60
     height: 46
@@ -1603,9 +1839,6 @@ LvolumeBtnR.onTap ->
   else
     LvolSliderR.visible = false
 
-
-
-
 LvolUpBtnR = new Layer
     width: 40
     height: 23
@@ -1629,7 +1862,7 @@ LbpmDisplayR = new Layer
     y: 65
     borderRadius: 4
     backgroundColor: "#ffffff"
-LbpmDisplayR.html = 170
+LbpmDisplayR.html = 130
 LbpmDisplayR.style =
     fontSize: "20px"
     textAlign: "center"
@@ -1637,12 +1870,82 @@ LbpmDisplayR.style =
     fontWeight: "bold"
 
 LvolDownBtnR.onTap ->
+    if LPauseBtnR.visible is true
+        LPlayBtnR.visible = true
+        LPauseBtnR.visible = false
+    AplayR.stop()
+    Aplay2R.stop()
+    AplayM2.stop()
+    AplaySR.stop()
     if parseInt(LbpmDisplayR.html) isnt 0
       LbpmDisplayR.html = parseInt(LbpmDisplayR.html) - 5
+      trackSpeed2 += 5
+      AplayR = new Animation
+        layer: viewR
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: (trackSpeed2 - (trackSpeed2/(8750/viewR.scrollX)))
+
+      Aplay2R = new Animation
+        layer: view2R
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: (trackSpeed2 - (trackSpeed2/(8750/view2R.scrollX)))
+
+      AplayM2 = new Animation
+        layer: viewMain2
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: (trackSpeed2 - (trackSpeed2/(8750/viewMain2.scrollX)))
+
+      AplaySR = new Animation
+        layer: SliderTimelineR
+        properties:
+            value: 8750
+        curve: "linear"
+        time: (trackSpeed2 - (trackSpeed2/(8750/viewR.scrollX)))
 
 LvolUpBtnR.onTap ->
-    if parseInt(LbpmDisplayR.html) isnt 500
+    if LPauseBtnR.visible is true
+        LPlayBtnR.visible = true
+        LPauseBtnR.visible = false
+    AplayR.stop()
+    Aplay2R.stop()
+    AplayM2.stop()
+    AplaySR.stop()
+    if parseInt(LbpmDisplayR.html) isnt 185
       LbpmDisplayR.html = parseInt(LbpmDisplayR.html) + 5
+      trackSpeed2 -= 5
+      AplayR = new Animation
+        layer: viewR
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: (trackSpeed2 - (trackSpeed2/(8750/viewR.scrollX)))
+
+      Aplay2R = new Animation
+        layer: view2R
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: (trackSpeed2 - (trackSpeed2/(8750/view2R.scrollX)))
+
+      AplayM2 = new Animation
+        layer: viewMain2
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: (trackSpeed2 - (trackSpeed2/(8750/viewMain2.scrollX)))
+
+      AplaySR = new Animation
+        layer: SliderTimelineR
+        properties:
+            value: 8750
+        curve: "linear"
+        time: (trackSpeed2 - (trackSpeed2/(8750/viewR.scrollX)))
 
 LbpmLabelR = new Layer
     width: 70
@@ -1904,7 +2207,7 @@ LdisplayToggleM = new Layer
     width: 1150
     x: 0
     y: 0
-LdisplayToggleM.html = "WAVE"
+LdisplayToggleM.html = "<u>WAVE</u>/SPECTRUM"
 LdisplayToggleM.backgroundColor = "#525252"
 LdisplayToggleM.style=
   fontSize: "15px"
@@ -1915,11 +2218,11 @@ LfirstTrack.addSubLayer(LdisplayToggleM);
 
 #ontap for Display
 LdisplayToggleM.onTap ->
-    if LdisplayToggleM.html is "WAVE"
-      LdisplayToggleM.html = "SPECTRUM"
+    if LdisplayToggleM.html is "<u>WAVE</u>/SPECTRUM"
+      LdisplayToggleM.html = "WAVE/<u>SPECTRUM</u>"
       LmainWaveForm.image = "images/Deck_1_bpm.png"
     else
-      LdisplayToggleM.html = "WAVE"
+      LdisplayToggleM.html = "<u>WAVE</u>/SPECTRUM"
       LmainWaveForm.image = "images/Deck_1_wave.png"
 
 LmainWaveForm2 = new Layer
@@ -1937,7 +2240,7 @@ LdisplayToggle2M = new Layer
     width: 1150
     x: 0
     y: 0
-LdisplayToggle2M.html = "WAVE"
+LdisplayToggle2M.html = "<u>WAVE</u>/SPECTRUM"
 LdisplayToggle2M.backgroundColor = "#525252"
 LdisplayToggle2M.style=
     fontSize: "15px"
@@ -1948,11 +2251,11 @@ LSecondTrack.addSubLayer(LdisplayToggle2M);
 
 #ontap for Display
 LdisplayToggle2M.onTap ->
-    if LdisplayToggle2M.html is "WAVE"
-      LdisplayToggle2M.html = "SPECTRUM"
+    if LdisplayToggle2M.html is "<u>WAVE</u>/SPECTRUM"
+      LdisplayToggle2M.html = "WAVE/<u>SPECTRUM</u>"
       LmainWaveForm2.image = "images/Deck_2_bpm.png"
     else
-      LdisplayToggle2M.html = "WAVE"
+      LdisplayToggle2M.html = "<u>WAVE</u>/SPECTRUM"
       LmainWaveForm2.image = "images/Deck_2_wave.png"
 
 LMainControl = new Layer
@@ -2028,7 +2331,7 @@ LMainControlBtns.y += 10
 Lmarker = new Layer
   width: 50
   height: 180
-  x: 540
+  x: 565
   y: 45
   backgroundColor: "red"
   opacity: 0.3
@@ -2038,7 +2341,7 @@ LfirstTrack.addSubLayer(Lmarker)
 LmarkerR = new Layer
   width: 50
   height: 180
-  x: 595
+  x: 565
   y: 45
   backgroundColor: "blue"
   opacity: 0.3
@@ -2046,7 +2349,8 @@ LmarkerR = new Layer
 LSecondTrack.addSubLayer(LmarkerR)
 
 Lexpand.onTap ->
-  if Lmarker.width isnt 530
+  print Lmarker.width
+  if Lmarker.width isnt 550
     Lmarker.width += 10
     Lmarker.x -= 10
 Lcontract.onTap ->
@@ -2055,7 +2359,8 @@ Lcontract.onTap ->
     Lmarker.x += 10
 
 Lexpand2.onTap ->
-  if LmarkerR.width isnt 530
+  print LmarkerR.width
+  if LmarkerR.width isnt 560
     LmarkerR.width += 10
 Lcontract2.onTap ->
   if LmarkerR.width isnt 50
@@ -2210,7 +2515,7 @@ LFastForwardBtnM.onTap ->
         LPauseBtnM.visible = false
 
 LFastBackBtnM.onTap ->
-    if LPlayBtnR.visible is true
+    if LPlayBtnM.visible is true
         LPlayBtnM.visible = false
         LPauseBtnM.visible = true
     if viewMain.scrollX is 0
@@ -2218,11 +2523,25 @@ LFastBackBtnM.onTap ->
         LPauseBtnM.visible = false
     AFastBackBtnM.start()
     AFastBackBtnM2.start()
+
     AFastBackBtnM.onAnimationEnd ->
-        LPlayBtnR.visible = true
+        LPlayBtnM.visible = true
         LPauseBtnM.visible = false
 
 LPlayBtnM.onTap ->
+  AplayM = new Animation
+      layer: viewMain
+      properties:
+          scrollX: 8750
+      curve: "linear"
+      time: (30 - (30/(8750/viewMain.scrollX)))
+
+  AplayM2 = new Animation
+      layer: viewMain2
+      properties:
+          scrollX: 8750
+      curve: "linear"
+      time: (30 - (30/(8750/viewMain2.scrollX)))
     if LPlayBtnM.visible is true
         LPlayBtnM.visible = false
         LPauseBtnM.visible = true
@@ -2230,7 +2549,7 @@ LPlayBtnM.onTap ->
     AplayM.onAnimationEnd ->
         LPlayBtnM.visible = true
         LPauseBtnM.visible = false
-        AplayR = new Animation
+        AplayM = new Animation
             layer: viewMain
             properties:
                 scrollX: 8750
@@ -2479,3 +2798,33 @@ Lsave.onTap ->
     LsaveLayer.visible = false
     Lsave.image = "images/icons/download.png"
     LsaveBtnText.html = "Speichern"
+
+SliderTimeline.on "change:value", ->
+    view.scrollX = this.value
+    view2.scrollX = this.value
+    viewMain.scrollX = this.value
+    SliderTimeline2.value = this.value
+
+SliderTimeline2.on "change:value", ->
+    view.scrollX = this.value
+    view2.scrollX = this.value
+    viewMain.scrollX = this.value
+    SliderTimeline.value = this.value
+
+SliderTimelineR.on "change:value", ->
+    viewR.scrollX = this.value
+    view2R.scrollX = this.value
+    viewMain2.scrollX = this.value
+    SliderTimeline2R.value = this.value
+
+SliderTimeline2R.on "change:value", ->
+    viewR.scrollX = this.value
+    view2R.scrollX = this.value
+    viewMain2.scrollX = this.value
+    SliderTimelineR.value = this.value
+
+SliderTimeline3R.on "change:value", ->
+    view3R.scrollX = this.value
+
+SliderTimeline3.on "change:value", ->
+    view3.scrollX = this.value
