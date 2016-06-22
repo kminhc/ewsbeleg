@@ -53,7 +53,7 @@ LdisplayToggle = new Layer
     width: 300
     x: 0
     y: 0
-LdisplayToggle.html = "WAVE"
+LdisplayToggle.html = "<u>WAVE</u>/SPECTRUM"
 LdisplayToggle.backgroundColor = "#656565"
 LdisplayToggle.style=
   fontSize: "15px"
@@ -64,11 +64,11 @@ LsongDisplay.addSubLayer(LdisplayToggle);
 
 #ontap for Display
 LdisplayToggle.onTap ->
-    if LdisplayToggle.html is "WAVE"
-      LdisplayToggle.html = "SPECTRUM"
+    if LdisplayToggle.html is "<u>WAVE</u>/SPECTRUM"
+      LdisplayToggle.html = "WAVE/<u>SPECTRUM</u>"
       LwaveForm.image = "images/Deck_1_bpm.png"
     else
-      LdisplayToggle.html = "WAVE"
+      LdisplayToggle.html = "<u>WAVE</u>/SPECTRUM"
       LwaveForm.image = "images/Deck_1_wave.png"
 
 SliderTimeline = new SliderComponent
@@ -115,7 +115,7 @@ LdisplayToggle2 = new Layer
     width: 300
     x: 0
     y: 0
-LdisplayToggle2.html = "SPECTRUM"
+LdisplayToggle2.html = "WAVE/<u>SPECTRUM</u>"
 LdisplayToggle2.backgroundColor = "#656565"
 LdisplayToggle2.style=
   fontSize: "15px"
@@ -126,11 +126,11 @@ LsongDisplay2.addSubLayer(LdisplayToggle2);
 
 #ontap for Display
 LdisplayToggle2.onTap ->
-    if LdisplayToggle2.html is "SPECTRUM"
-      LdisplayToggle2.html = "WAVE"
+    if LdisplayToggle2.html is "WAVE/<u>SPECTRUM</u>"
+      LdisplayToggle2.html = "<u>WAVE</u>/SPECTRUM"
       LwaveForm2.image = "images/Deck_1_wave.png"
     else
-      LdisplayToggle2.html = "SPECTRUM"
+      LdisplayToggle2.html = "WAVE/<u>SPECTRUM</u>"
       LwaveForm2.image = "images/Deck_1_bpm.png"
 
 #SliderTimeline
@@ -182,7 +182,7 @@ LdisplayToggle3 = new Layer
     width: 300
     x: 0
     y: 0
-LdisplayToggle3.html = "WAVE"
+LdisplayToggle3.html = "<u>WAVE</u>/SPECTRUM"
 LdisplayToggle3.backgroundColor = "#656565"
 LdisplayToggle3.style=
   fontSize: "15px"
@@ -193,11 +193,11 @@ LsongDisplay3.addSubLayer(LdisplayToggle3);
 
 #ontap for Display
 LdisplayToggle3.onTap ->
-    if LdisplayToggle3.html is "WAVE"
-      LdisplayToggle3.html = "SPECTRUM"
+    if LdisplayToggle3.html is "<u>WAVE</u>/SPECTRUM"
+      LdisplayToggle3.html = "WAVE/<u>SPECTRUM</u>"
       LwaveForm3.image = "images/Deck_1_bpm.png"
     else
-      LdisplayToggle3.html = "WAVE"
+      LdisplayToggle3.html = "<u>WAVE</u>/SPECTRUM"
       LwaveForm3.image = "images/Deck_1_wave.png"
 
 #SliderTimeline
@@ -1042,7 +1042,7 @@ LdisplayToggleR = new Layer
     width: 300
     x: 0
     y: 0
-LdisplayToggleR.html = "WAVE"
+LdisplayToggleR.html = "<u>WAVE</u>/SPECTRUM"
 LdisplayToggleR.backgroundColor = "#656565"
 LdisplayToggleR.style=
   fontSize: "15px"
@@ -1053,11 +1053,11 @@ LsongDisplayR.addSubLayer(LdisplayToggleR);
 
 #ontap for Display
 LdisplayToggleR.onTap ->
-    if LdisplayToggleR.html is "WAVE"
-      LdisplayToggleR.html = "SPECTRUM"
+    if LdisplayToggleR.html is "<u>WAVE</u>/SPECTRUM"
+      LdisplayToggleR.html = "WAVE/<u>SPECTRUM</u>"
       LwaveFormR.image = "images/Deck_2_bpm.png"
     else
-      LdisplayToggleR.html = "WAVE"
+      LdisplayToggleR.html = "<u>WAVE</u>/SPECTRUM"
       LwaveFormR.image = "images/Deck_2_wave.png"
 
 SliderTimelineR = new SliderComponent
@@ -1106,7 +1106,7 @@ LdisplayToggle2R = new Layer
     width: 300
     x: 0
     y: 0
-LdisplayToggle2R.html = "SPECTRUM"
+LdisplayToggle2R.html = "WAVE/<u>SPECTRUM</u>"
 LdisplayToggle2R.backgroundColor = "656565"
 LdisplayToggle2R.style=
   fontSize: "15px"
@@ -1117,11 +1117,11 @@ LsongDisplay2R.addSubLayer(LdisplayToggle2R);
 
 #ontap for Display
 LdisplayToggle2R.onTap ->
-    if LdisplayToggle2R.html is "WAVE"
-      LdisplayToggle2R.html = "SPECTRUM"
+    if LdisplayToggle2R.html is "<u>WAVE</u>/SPECTRUM"
+      LdisplayToggle2R.html = "WAVE/<u>SPECTRUM</u>"
       LwaveForm2R.image = "images/Deck_2_bpm.png"
     else
-      LdisplayToggle2R.html = "WAVE"
+      LdisplayToggle2R.html = "<u>WAVE</u>/SPECTRUM"
       LwaveForm2R.image = "images/Deck_2_wave.png"
 
 #SliderTimeline
@@ -1172,7 +1172,7 @@ LdisplayToggle3R = new Layer
     width: 300
     x: 0
     y: 0
-LdisplayToggle3R.html = "WAVE"
+LdisplayToggle3R.html = "<u>WAVE</u>/SPECTRUM"
 LdisplayToggle3R.backgroundColor = "656565"
 LdisplayToggle3R.style=
   fontSize: "15px"
@@ -1183,11 +1183,11 @@ LsongDisplay3R.addSubLayer(LdisplayToggle3R);
 
 #ontap for Display
 LdisplayToggle3R.onTap ->
-    if LdisplayToggle3R.html is "WAVE"
-      LdisplayToggle3R.html = "SPECTRUM"
+    if LdisplayToggle3R.html is "<u>WAVE</u>/SPECTRUM"
+      LdisplayToggle3R.html = "WAVE/<u>SPECTRUM</u>"
       LwaveForm3R.image = "images/Deck_2_bpm.png"
     else
-      LdisplayToggle3R.html = "WAVE"
+      LdisplayToggle3R.html = "<u>WAVE</u>/SPECTRUM"
       LwaveForm3R.image = "images/Deck_2_wave.png"
 
 #SliderTimeline
@@ -1678,25 +1678,25 @@ LPlayBtnR.onTap ->
             curve: "linear"
             time: 30
 
-      AplayM2.onAnimationEnd ->
-          LPlayBtnR.visible = true
-          LPauseBtnR.visible = false
-          AplayM2 = new Animation
-              layer: viewMain2
-              properties:
-                  scrollX: 8750
-              curve: "linear"
-              time: 30
+    AplayM2.onAnimationEnd ->
+        LPlayBtnR.visible = true
+        LPauseBtnR.visible = false
+        AplayM2 = new Animation
+            layer: viewMain2
+            properties:
+                scrollX: 8750
+            curve: "linear"
+            time: 30
 
-      AplaySR.onAnimationEnd ->
-          LPlayBtnR.visible = true
-          LPauseBtnR.visible = false
-          AplaySR = new Animation
-              layer: SliderTimelineR
-              properties:
-                  value: 8750
-              curve: "linear"
-              time: 30
+    AplaySR.onAnimationEnd ->
+        LPlayBtnR.visible = true
+        LPauseBtnR.visible = false
+        AplaySR = new Animation
+            layer: SliderTimelineR
+            properties:
+                value: 8750
+            curve: "linear"
+            time: 30
 
 
     AplayR.start()
@@ -2207,7 +2207,7 @@ LdisplayToggleM = new Layer
     width: 1150
     x: 0
     y: 0
-LdisplayToggleM.html = "WAVE"
+LdisplayToggleM.html = "<u>WAVE</u>/SPECTRUM"
 LdisplayToggleM.backgroundColor = "#525252"
 LdisplayToggleM.style=
   fontSize: "15px"
@@ -2218,11 +2218,11 @@ LfirstTrack.addSubLayer(LdisplayToggleM);
 
 #ontap for Display
 LdisplayToggleM.onTap ->
-    if LdisplayToggleM.html is "WAVE"
-      LdisplayToggleM.html = "SPECTRUM"
+    if LdisplayToggleM.html is "<u>WAVE</u>/SPECTRUM"
+      LdisplayToggleM.html = "WAVE/<u>SPECTRUM</u>"
       LmainWaveForm.image = "images/Deck_1_bpm.png"
     else
-      LdisplayToggleM.html = "WAVE"
+      LdisplayToggleM.html = "<u>WAVE</u>/SPECTRUM"
       LmainWaveForm.image = "images/Deck_1_wave.png"
 
 LmainWaveForm2 = new Layer
@@ -2240,7 +2240,7 @@ LdisplayToggle2M = new Layer
     width: 1150
     x: 0
     y: 0
-LdisplayToggle2M.html = "WAVE"
+LdisplayToggle2M.html = "<u>WAVE</u>/SPECTRUM"
 LdisplayToggle2M.backgroundColor = "#525252"
 LdisplayToggle2M.style=
     fontSize: "15px"
@@ -2251,11 +2251,11 @@ LSecondTrack.addSubLayer(LdisplayToggle2M);
 
 #ontap for Display
 LdisplayToggle2M.onTap ->
-    if LdisplayToggle2M.html is "WAVE"
-      LdisplayToggle2M.html = "SPECTRUM"
+    if LdisplayToggle2M.html is "<u>WAVE</u>/SPECTRUM"
+      LdisplayToggle2M.html = "WAVE/<u>SPECTRUM</u>"
       LmainWaveForm2.image = "images/Deck_2_bpm.png"
     else
-      LdisplayToggle2M.html = "WAVE"
+      LdisplayToggle2M.html = "<u>WAVE</u>/SPECTRUM"
       LmainWaveForm2.image = "images/Deck_2_wave.png"
 
 LMainControl = new Layer

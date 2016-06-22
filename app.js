@@ -57,7 +57,7 @@ LdisplayToggle = new Layer({
   y: 0
 });
 
-LdisplayToggle.html = "WAVE";
+LdisplayToggle.html = "<u>WAVE</u>/SPECTRUM";
 
 LdisplayToggle.backgroundColor = "#656565";
 
@@ -71,11 +71,11 @@ LdisplayToggle.style = {
 LsongDisplay.addSubLayer(LdisplayToggle);
 
 LdisplayToggle.onTap(function() {
-  if (LdisplayToggle.html === "WAVE") {
-    LdisplayToggle.html = "SPECTRUM";
+  if (LdisplayToggle.html === "<u>WAVE</u>/SPECTRUM") {
+    LdisplayToggle.html = "WAVE/<u>SPECTRUM</u>";
     return LwaveForm.image = "images/Deck_1_bpm.png";
   } else {
-    LdisplayToggle.html = "WAVE";
+    LdisplayToggle.html = "<u>WAVE</u>/SPECTRUM";
     return LwaveForm.image = "images/Deck_1_wave.png";
   }
 });
@@ -133,7 +133,7 @@ LdisplayToggle2 = new Layer({
   y: 0
 });
 
-LdisplayToggle2.html = "SPECTRUM";
+LdisplayToggle2.html = "WAVE/<u>SPECTRUM</u>";
 
 LdisplayToggle2.backgroundColor = "#656565";
 
@@ -147,11 +147,11 @@ LdisplayToggle2.style = {
 LsongDisplay2.addSubLayer(LdisplayToggle2);
 
 LdisplayToggle2.onTap(function() {
-  if (LdisplayToggle2.html === "SPECTRUM") {
-    LdisplayToggle2.html = "WAVE";
+  if (LdisplayToggle2.html === "WAVE/<u>SPECTRUM</u>") {
+    LdisplayToggle2.html = "<u>WAVE</u>/SPECTRUM";
     return LwaveForm2.image = "images/Deck_1_wave.png";
   } else {
-    LdisplayToggle2.html = "SPECTRUM";
+    LdisplayToggle2.html = "WAVE/<u>SPECTRUM</u>";
     return LwaveForm2.image = "images/Deck_1_bpm.png";
   }
 });
@@ -210,7 +210,7 @@ LdisplayToggle3 = new Layer({
   y: 0
 });
 
-LdisplayToggle3.html = "WAVE";
+LdisplayToggle3.html = "<u>WAVE</u>/SPECTRUM";
 
 LdisplayToggle3.backgroundColor = "#656565";
 
@@ -224,11 +224,11 @@ LdisplayToggle3.style = {
 LsongDisplay3.addSubLayer(LdisplayToggle3);
 
 LdisplayToggle3.onTap(function() {
-  if (LdisplayToggle3.html === "WAVE") {
-    LdisplayToggle3.html = "SPECTRUM";
+  if (LdisplayToggle3.html === "<u>WAVE</u>/SPECTRUM") {
+    LdisplayToggle3.html = "WAVE/<u>SPECTRUM</u>";
     return LwaveForm3.image = "images/Deck_1_bpm.png";
   } else {
-    LdisplayToggle3.html = "WAVE";
+    LdisplayToggle3.html = "<u>WAVE</u>/SPECTRUM";
     return LwaveForm3.image = "images/Deck_1_wave.png";
   }
 });
@@ -1239,7 +1239,7 @@ LdisplayToggleR = new Layer({
   y: 0
 });
 
-LdisplayToggleR.html = "WAVE";
+LdisplayToggleR.html = "<u>WAVE</u>/SPECTRUM";
 
 LdisplayToggleR.backgroundColor = "#656565";
 
@@ -1253,11 +1253,11 @@ LdisplayToggleR.style = {
 LsongDisplayR.addSubLayer(LdisplayToggleR);
 
 LdisplayToggleR.onTap(function() {
-  if (LdisplayToggleR.html === "WAVE") {
-    LdisplayToggleR.html = "SPECTRUM";
+  if (LdisplayToggleR.html === "<u>WAVE</u>/SPECTRUM") {
+    LdisplayToggleR.html = "WAVE/<u>SPECTRUM</u>";
     return LwaveFormR.image = "images/Deck_2_bpm.png";
   } else {
-    LdisplayToggleR.html = "WAVE";
+    LdisplayToggleR.html = "<u>WAVE</u>/SPECTRUM";
     return LwaveFormR.image = "images/Deck_2_wave.png";
   }
 });
@@ -1315,7 +1315,7 @@ LdisplayToggle2R = new Layer({
   y: 0
 });
 
-LdisplayToggle2R.html = "SPECTRUM";
+LdisplayToggle2R.html = "WAVE/<u>SPECTRUM</u>";
 
 LdisplayToggle2R.backgroundColor = "656565";
 
@@ -1329,11 +1329,11 @@ LdisplayToggle2R.style = {
 LsongDisplay2R.addSubLayer(LdisplayToggle2R);
 
 LdisplayToggle2R.onTap(function() {
-  if (LdisplayToggle2R.html === "WAVE") {
-    LdisplayToggle2R.html = "SPECTRUM";
+  if (LdisplayToggle2R.html === "<u>WAVE</u>/SPECTRUM") {
+    LdisplayToggle2R.html = "WAVE/<u>SPECTRUM</u>";
     return LwaveForm2R.image = "images/Deck_2_bpm.png";
   } else {
-    LdisplayToggle2R.html = "WAVE";
+    LdisplayToggle2R.html = "<u>WAVE</u>/SPECTRUM";
     return LwaveForm2R.image = "images/Deck_2_wave.png";
   }
 });
@@ -1392,7 +1392,7 @@ LdisplayToggle3R = new Layer({
   y: 0
 });
 
-LdisplayToggle3R.html = "WAVE";
+LdisplayToggle3R.html = "<u>WAVE</u>/SPECTRUM";
 
 LdisplayToggle3R.backgroundColor = "656565";
 
@@ -1406,11 +1406,11 @@ LdisplayToggle3R.style = {
 LsongDisplay3R.addSubLayer(LdisplayToggle3R);
 
 LdisplayToggle3R.onTap(function() {
-  if (LdisplayToggle3R.html === "WAVE") {
-    LdisplayToggle3R.html = "SPECTRUM";
+  if (LdisplayToggle3R.html === "<u>WAVE</u>/SPECTRUM") {
+    LdisplayToggle3R.html = "WAVE/<u>SPECTRUM</u>";
     return LwaveForm3R.image = "images/Deck_2_bpm.png";
   } else {
-    LdisplayToggle3R.html = "WAVE";
+    LdisplayToggle3R.html = "<u>WAVE</u>/SPECTRUM";
     return LwaveForm3R.image = "images/Deck_2_wave.png";
   }
 });
@@ -2664,7 +2664,7 @@ LdisplayToggleM = new Layer({
   y: 0
 });
 
-LdisplayToggleM.html = "WAVE";
+LdisplayToggleM.html = "<u>WAVE</u>/SPECTRUM";
 
 LdisplayToggleM.backgroundColor = "#525252";
 
@@ -2678,11 +2678,11 @@ LdisplayToggleM.style = {
 LfirstTrack.addSubLayer(LdisplayToggleM);
 
 LdisplayToggleM.onTap(function() {
-  if (LdisplayToggleM.html === "WAVE") {
-    LdisplayToggleM.html = "SPECTRUM";
+  if (LdisplayToggleM.html === "<u>WAVE</u>/SPECTRUM") {
+    LdisplayToggleM.html = "WAVE/<u>SPECTRUM</u>";
     return LmainWaveForm.image = "images/Deck_1_bpm.png";
   } else {
-    LdisplayToggleM.html = "WAVE";
+    LdisplayToggleM.html = "<u>WAVE</u>/SPECTRUM";
     return LmainWaveForm.image = "images/Deck_1_wave.png";
   }
 });
@@ -2705,7 +2705,7 @@ LdisplayToggle2M = new Layer({
   y: 0
 });
 
-LdisplayToggle2M.html = "WAVE";
+LdisplayToggle2M.html = "<u>WAVE</u>/SPECTRUM";
 
 LdisplayToggle2M.backgroundColor = "#525252";
 
@@ -2719,11 +2719,11 @@ LdisplayToggle2M.style = {
 LSecondTrack.addSubLayer(LdisplayToggle2M);
 
 LdisplayToggle2M.onTap(function() {
-  if (LdisplayToggle2M.html === "WAVE") {
-    LdisplayToggle2M.html = "SPECTRUM";
+  if (LdisplayToggle2M.html === "<u>WAVE</u>/SPECTRUM") {
+    LdisplayToggle2M.html = "WAVE/<u>SPECTRUM</u>";
     return LmainWaveForm2.image = "images/Deck_2_bpm.png";
   } else {
-    LdisplayToggle2M.html = "WAVE";
+    LdisplayToggle2M.html = "<u>WAVE</u>/SPECTRUM";
     return LmainWaveForm2.image = "images/Deck_2_wave.png";
   }
 });
