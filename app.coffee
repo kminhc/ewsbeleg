@@ -258,14 +258,14 @@ Lsong1 = new Layer
     #backgroundColor: "#12bbf0"
     superLayer: ScrollSongList.content
     backgroundColor: "656565"
-Lsong1.html = "Lied 1"
+Lsong1.html = "Miranda / Ratatat"
 Lsong1.style =
     fontSize: "15px"
     textAlign: "center"
     color: "white"
     fontWeight: "bold"
 Lsong1.onTap ->
-    LtitleDisplay.html = "Lied 1"
+    LtitleDisplay.html = "Miranda / Ratatat"
     ScrollSongList.visible = false
 
 Lsong2 = new Layer
@@ -1097,14 +1097,14 @@ Lsong1R = new Layer
     #backgroundColor: "#12bbf0"
     superLayer: ScrollSongListR.content
     backgroundColor: "656565"
-Lsong1R.html = "Lied 1"
+Lsong1R.html = "Rugs / Ratatat"
 Lsong1R.style =
     fontSize: "15px"
     textAlign: "center"
     color: "white"
     fontWeight: "bold"
 Lsong1R.onTap ->
-    LtitleDisplayR.html = "Lied 1"
+    LtitleDisplayR.html = "Rugs / Ratatat"
     ScrollSongListR.visible = false
 
 Lsong2R = new Layer

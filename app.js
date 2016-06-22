@@ -299,7 +299,7 @@ Lsong1 = new Layer({
   backgroundColor: "656565"
 });
 
-Lsong1.html = "Lied 1";
+Lsong1.html = "Miranda / Ratatat";
 
 Lsong1.style = {
   fontSize: "15px",
@@ -309,7 +309,7 @@ Lsong1.style = {
 };
 
 Lsong1.onTap(function() {
-  LtitleDisplay.html = "Lied 1";
+  LtitleDisplay.html = "Miranda / Ratatat";
   return ScrollSongList.visible = false;
 });
 
@@ -1306,7 +1306,7 @@ Lsong1R = new Layer({
   backgroundColor: "656565"
 });
 
-Lsong1R.html = "Lied 1";
+Lsong1R.html = "Rugs / Ratatat";
 
 Lsong1R.style = {
   fontSize: "15px",
@@ -1316,7 +1316,7 @@ Lsong1R.style = {
 };
 
 Lsong1R.onTap(function() {
-  LtitleDisplayR.html = "Lied 1";
+  LtitleDisplayR.html = "Rugs / Ratatat";
   return ScrollSongListR.visible = false;
 });
 
