@@ -403,7 +403,6 @@ Aplay = new Animation
         scrollX: 8750
     curve: "linear"
     time: 30
-
 Aplay2 = new Animation
     layer: view2
     properties:
@@ -436,6 +435,28 @@ AfastforwardM = new Animation
     layer: viewMain
     properties:
         scrollX: 8750
+    curve: "linear"
+    time: 15
+
+
+AplayS = new Animation
+    layer: SliderTimeline
+    properties:
+        value: 8750
+    curve: "linear"
+    time: 30
+
+AfastforwardS = new Animation
+    layer: SliderTimeline
+    properties:
+        value: 8750
+    curve: "linear"
+    time: 15
+
+AFastBackBtnS = new Animation
+    layer: SliderTimeline
+    properties:
+        value: 0
     curve: "linear"
     time: 15
 
@@ -472,6 +493,7 @@ LskipToStart.onTap ->
     view.scrollX = 0
     view2.scrollX = 0
     viewMain.scrollX = 0
+    SliderTimeline.value = 0
     AFastBackBtn = new Animation
         layer: view
         properties:
@@ -518,6 +540,13 @@ LskipToStart.onTap ->
         layer: view
         properties:
             scrollX: 8750
+        curve: "linear"
+        time: 30
+
+    AplayS = new Animation
+        layer: SliderTimeline
+        properties:
+            value: 8750
         curve: "linear"
         time: 30
 
@@ -539,6 +568,7 @@ LskipToEndBtn.onTap ->
     view.scrollX = 8750
     view2.scrollX = 8750
     viewMain.scrollX = 8750
+    SliderTimeline.value = 8750
 
     AFastBackBtn = new Animation
         layer: view
@@ -576,12 +606,19 @@ LskipToEndBtn.onTap ->
             scrollX: 8750
         curve: "linear"
         time: 15
+
     Aplay = new Animation
         layer: view
         properties:
             scrollX: 8750
         curve: "linear"
         time: 30
+        AplayS = new Animation
+            layer: SliderTimeline
+            properties:
+                value: 8750
+            curve: "linear"
+            time: 30
 
     Aplay2 = new Animation
         layer: view2
@@ -607,6 +644,7 @@ LFastForwardBtn.onTap ->
     Afastforward.start()
     Afastforward2.start()
     AfastforwardM.start()
+    AfastforwardS.start()
 
     Afastforward.onAnimationEnd ->
         LPlayBtn.visible = true
@@ -622,6 +660,7 @@ LFastBackBtn.onTap ->
     AFastBackBtn.start()
     AFastBackBtn2.start()
     AFastBackBtnM.start()
+    AFastBackBtnS.start()
     AFastBackBtn.onAnimationEnd ->
         LPlayBtn.visible = true
         LPauseBtn.visible = false
@@ -651,9 +690,10 @@ LPlayBtn.onTap ->
             curve: "linear"
             time: 30
 
-    AplayM.start()
     Aplay.start()
     Aplay2.start()
+    AplayS.start()
+    AplayM.start()
 
 
 LPauseBtn.onTap ->
@@ -661,6 +701,7 @@ LPauseBtn.onTap ->
         LPlayBtn.visible = true
         LPauseBtn.visible = false
     Aplay.stop()
+    AplayS.stop()
     Aplay2.stop()
     AplayM.stop()
     AFastBackBtn.stop()
@@ -669,6 +710,8 @@ LPauseBtn.onTap ->
     Afastforward.stop()
     Afastforward2.stop()
     AfastforwardM.stop()
+    AfastforwardS.stop()
+    AFastBackBtnS.stop()
 
     Aplay = new Animation
         layer: view
@@ -711,6 +754,28 @@ LPauseBtn.onTap ->
             scrollX: 8750
         curve: "linear"
         time: (15 - (15/(8750/viewMain.scrollX)))
+
+    AfastforwardS = new Animation
+        layer: SliderTimeline
+        properties:
+            value: 8750
+        curve: "linear"
+        time: (15 - (15/(8750/viewMain.scrollX)))
+
+      AFastBackBtnS = new Animation
+          layer: SliderTimeline
+          properties:
+              value: 0
+          curve: "linear"
+          time: (0 + (15/(8750/view.scrollX)))
+
+
+      AplayS = new Animation
+          layer: SliderTimeline
+          properties:
+              value: 8750
+          curve: "linear"
+          time: (30 - (30/(8750/view.scrollX)))
 
     AFastBackBtn = new Animation
         layer: view
@@ -1255,6 +1320,27 @@ AplayM2 = new Animation
     curve: "linear"
     time: 30
 
+AplaySR = new Animation
+    layer: SliderTimelineR
+    properties:
+        value: 8750
+    curve: "linear"
+    time: 30
+
+AfastforwardSR = new Animation
+    layer: SliderTimelineR
+    properties:
+        value: 8750
+    curve: "linear"
+    time: 15
+
+AFastBackBtnSR = new Animation
+    layer: SliderTimelineR
+    properties:
+        value: 0
+    curve: "linear"
+    time: 15
+
 AfastforwardR = new Animation
     layer: viewR
     properties:
@@ -1309,6 +1395,15 @@ LskipToStartR.onTap ->
     viewR.scrollX = 0
     view2R.scrollX = 0
     viewMain2.scrollX = 0
+    SliderTimelineR.value = 0
+
+    AplaySR = new Animation
+        layer: SliderTimelineR
+        properties:
+            value: 8750
+        curve: "linear"
+        time: 30
+
     AFastBackBtnR = new Animation
         layer: viewR
         properties:
@@ -1376,7 +1471,14 @@ LskipToEndBtnR.onTap ->
     viewR.scrollX = 8750
     view2R.scrollX = 8750
     viewMain2.scrollX = 8750
+    SliderTimelineR.value = 8750
 
+    AplaySR = new Animation
+        layer: SliderTimelineR
+        properties:
+            value: 8750
+        curve: "linear"
+        time: 30
     AFastBackBtnR = new Animation
         layer: viewR
         properties:
@@ -1395,6 +1497,12 @@ LskipToEndBtnR.onTap ->
             scrollX: 0
         curve: "linear"
         time: 15
+    AFastBackBtnSR = new Animation
+        layer: SliderTimelineR
+        properties:
+            value: 0
+        curve: "linear"
+        time: 15
     AfastforwardR = new Animation
         layer: viewR
         properties:
@@ -1411,6 +1519,12 @@ LskipToEndBtnR.onTap ->
         layer: viewMain2
         properties:
             scrollX: 8750
+        curve: "linear"
+        time: 15
+    AfastforwardSR = new Animation
+        layer: SliderTimelineR
+        properties:
+            value: 0
         curve: "linear"
         time: 15
     AplayR = new Animation
@@ -1444,6 +1558,7 @@ LFastForwardBtnR.onTap ->
     AfastforwardR.start()
     Afastforward2R.start()
     AfastforwardM2.start()
+    AfastforwardSR.start()
 
     AfastforwardR.onAnimationEnd ->
         LPlayBtnR.visible = true
@@ -1459,6 +1574,8 @@ LFastBackBtnR.onTap ->
     AFastBackBtnR.start()
     AFastBackBtn2R.start()
     AFastBackBtnM2.start()
+    AFastBackBtnSR.start()
+
     AFastBackBtnR.onAnimationEnd ->
         LPlayBtnR.visible = true
         LPauseBtnR.visible = false
@@ -1488,9 +1605,31 @@ LPlayBtnR.onTap ->
             curve: "linear"
             time: 30
 
-    AplayM2.start()
+      AplayM2.onAnimationEnd ->
+          LPlayBtnR.visible = true
+          LPauseBtnR.visible = false
+          AplayM2 = new Animation
+              layer: viewMain2
+              properties:
+                  scrollX: 8750
+              curve: "linear"
+              time: 30
+
+      AplaySR.onAnimationEnd ->
+          LPlayBtnR.visible = true
+          LPauseBtnR.visible = false
+          AplaySR = new Animation
+              layer: SliderTimelineR
+              properties:
+                  value: 8750
+              curve: "linear"
+              time: 30
+
+
     AplayR.start()
     Aplay2R.start()
+    AplayM2.start()
+    AplaySR.start()
 
 
 LPauseBtnR.onTap ->
@@ -1500,12 +1639,15 @@ LPauseBtnR.onTap ->
     AplayR.stop()
     Aplay2R.stop()
     AplayM2.stop()
+    AplaySR.stop()
     AFastBackBtnR.stop()
     AFastBackBtn2R.stop()
     AFastBackBtnM2.stop()
+    AFastBackBtnSR.stop()
     AfastforwardR.stop()
     Afastforward2R.stop()
     AfastforwardM2.stop()
+    AfastforwardSR.stop()
 
     AplayR = new Animation
         layer: viewR
@@ -1569,6 +1711,27 @@ LPauseBtnR.onTap ->
               scrollX: 0
           curve: "linear"
           time: (0 + (15/(8750/viewMain2.scrollX)))
+
+      AfastforwardSR = new Animation
+          layer: SliderTimelineR
+          properties:
+              value: 8750
+          curve: "linear"
+          time: (15 - (15/(8750/viewMain2.scrollX)))
+
+      AFastBackBtnSR = new Animation
+          layer: SliderTimelineR
+          properties:
+              value: 0
+          curve: "linear"
+          time: (0 + (15/(8750/viewR.scrollX)))
+
+      AplaySR = new Animation
+          layer: SliderTimelineR
+          properties:
+              value: 8750
+          curve: "linear"
+          time: (30 - (30/(8750/viewR.scrollX)))
 
 LvolumeBtnR = new Layer
     width: 60
@@ -2479,3 +2642,21 @@ Lsave.onTap ->
     LsaveLayer.visible = false
     Lsave.image = "images/icons/download.png"
     LsaveBtnText.html = "Speichern"
+
+SliderTimeline.on "change:value", ->
+    view.scrollX = this.value
+    view2.scrollX = this.value
+    viewMain.scrollX = this.value
+    SliderTimeline2.value = this.value
+
+SliderTimeline2.on "change:value", ->
+    view.scrollX = this.value
+    view2.scrollX = this.value
+    viewMain.scrollX = this.value
+    SliderTimeline.value = this.value
+
+SliderTimeline2R.on "change:value", ->
+    viewR.scrollX = this.value
+    view2R.scrollX = this.value
+    viewMain2.scrollX = this.value
+    SliderTimelineR.value = this.value
