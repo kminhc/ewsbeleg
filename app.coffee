@@ -74,6 +74,7 @@ SliderTimeline = new SliderComponent
     knobSize: 10
     width: 250
     height: 5
+SliderTimeline.fill.backgroundColor = "red"
 SliderTimeline.x += 25
 SliderTimeline.y += 170
 LsongDisplay.addSubLayer(SliderTimeline)
@@ -101,7 +102,7 @@ LwaveForm2 = new Layer
     y:15
     width:9000
     height:110
-    image:"images/Deck_1_wave.png"
+    image:"images/Deck_1_bpm.png"
     superLayer: view2.content
 LsongDisplay2.addSubLayer(view2);
 
@@ -111,7 +112,7 @@ LdisplayToggle2 = new Layer
     width: 300
     x: 0
     y: 0
-LdisplayToggle2.html = "WAVE"
+LdisplayToggle2.html = "SPECTRUM"
 LdisplayToggle2.backgroundColor = "#656565"
 LdisplayToggle2.style=
   fontSize: "15px"
@@ -122,12 +123,12 @@ LsongDisplay2.addSubLayer(LdisplayToggle2);
 
 #ontap for Display
 LdisplayToggle2.onTap ->
-    if LdisplayToggle2.html is "WAVE"
-      LdisplayToggle2.html = "SPECTRUM"
-      LwaveForm2.image = "images/Deck_1_bpm.png"
-    else
+    if LdisplayToggle2.html is "SPECTRUM"
       LdisplayToggle2.html = "WAVE"
       LwaveForm2.image = "images/Deck_1_wave.png"
+    else
+      LdisplayToggle2.html = "SPECTRUM"
+      LwaveForm2.image = "images/Deck_1_bpm.png"
 
 #SliderTimeline
 SliderTimeline2 = new SliderComponent
@@ -136,6 +137,7 @@ SliderTimeline2 = new SliderComponent
     knobSize: 10
     width: 250
     height: 5
+SliderTimeline2.fill.backgroundColor = "red"
 SliderTimeline2.x += 25
 SliderTimeline2.y += 170
 
@@ -811,6 +813,24 @@ LbpmLabel = new Layer
     borderRadius: 4
     image:"images/icons/bpm2.png"
 
+Lsave = new Layer
+    width: 70
+    height: 35
+    y: Align.top(30)
+    x: Align.right(-820)
+    z:100
+    borderRadius: 4
+    image:"images/icons/download.png"
+
+Lsettings = new Layer
+    width: 70
+    height: 35
+    y: Align.top(30)
+    x: Align.left(30)
+    z:100
+    borderRadius: 4
+    image:"images/icons/tool.png"
+
 #-----Playbuttons-----#
 PlayDisplay = new Layer
     y: Align.top(445)
@@ -845,6 +865,7 @@ LCtrlParent.addSubLayer(LsongDisplay2)
 LCtrlParent.addSubLayer(LsongDisplay3)
 LCtrlParent.addSubLayer(PlayDisplay)
 LCtrlParent.addSubLayer(LnewDisplay)
+
 
 #RECHTE SEITE
 
@@ -907,6 +928,7 @@ SliderTimelineR = new SliderComponent
     knobSize: 10
     width: 250
     height: 5
+SliderTimelineR.fill.backgroundColor = "blue"
 SliderTimelineR.x += 25
 SliderTimelineR.y += 170
 
@@ -971,6 +993,7 @@ SliderTimeline2R = new SliderComponent
     knobSize: 10
     width: 250
     height: 5
+SliderTimeline2R.fill.backgroundColor = "blue"
 SliderTimeline2R.x += 25
 SliderTimeline2R.y += 170
 
@@ -1697,6 +1720,15 @@ LMuteBtn = new Layer
     borderRadius: 4
     image:"images/icons/mute.png"
 LMuteBar.addSubLayer(LMuteBtn)
+LMuteBtn.onTap ->
+  if LmainWaveForm.opacity is 1
+    LmainWaveForm.opacity = 0.5
+    LwaveForm.opacity = 0.5
+    LwaveForm2.opacity = 0.5
+  else
+    LmainWaveForm.opacity = 1
+    LwaveForm.opacity = 1
+    LwaveForm2.opacity = 1
 
 LMagPlus = new Layer
     backgroundColor: "#525252"
@@ -1779,6 +1811,15 @@ LMuteBtn2 = new Layer
     borderRadius: 4
     image:"images/icons/mute.png"
 LMuteBar2.addSubLayer(LMuteBtn2)
+LMuteBtn2.onTap ->
+  if LmainWaveForm2.opacity is 1
+    LmainWaveForm2.opacity = 0.5
+    LwaveFormR.opacity = 0.5
+    LwaveForm2R.opacity = 0.5
+  else
+    LmainWaveForm2.opacity = 1
+    LwaveFormR.opacity = 1
+    LwaveForm2R.opacity = 1
 
 LMagPlus2 = new Layer
     backgroundColor: "#525252"
@@ -1928,6 +1969,8 @@ LMainControlBtns = new Layer
     y: 20
     backgroundColor: "transparent"
 LMainControl.addSubLayer(LMainControlBtns)
+LMainControl.addSubLayer(Lsave)
+LMainControl.addSubLayer(Lsettings)
 
 LskipToEndBtnM = new Layer
     width: 35
@@ -2266,3 +2309,173 @@ LPauseBtnM.onTap ->
               scrollX: 0
           curve: "linear"
           time: (0 + (15/(8750/viewMain2.scrollX)))
+
+LsaveLayer = new Layer
+  width: 1150
+  height: 120
+  backgroundColor: "525252"
+  visible: false
+  x:Align.left
+  y: Align.top(615)
+LMainWindow.addSubLayer(LsaveLayer)
+
+ScrollTransList = new ScrollComponent
+    width: 150
+    height: 120
+    visible: false
+    backgroundColor: "transparent"
+ScrollTransList.scrollHorizontal = false
+
+LtransLayer = new Layer
+    width: 150
+    height: 30
+    borderRadius: 4
+    x: Align.left(505)
+    y: 20
+LsaveLayer.addSubLayer(LtransLayer)
+
+LsaveText = new Layer
+  width: 300
+  height: 30
+  borderRadius: 4
+  x: Align.left(75)
+  y: 20
+  html: "Wählen Sie die gewünschte Übergangsart"
+  backgroundColor: "transparent"
+LsaveText.style =
+    fontSize: "20px"
+    textAlign: "center"
+    color: "black"
+    fontWeight: "bold"
+LsaveLayer.addSubLayer(LsaveText)
+
+LtransLayer.html = "Übergang?"
+LtransLayer.style =
+    fontSize: "15px"
+    textAlign: "center"
+    color: "black"
+    fontWeight: "bold"
+
+LtransLayer.addSubLayer(ScrollTransList);
+ScrollTransList.y = Align.top(35)
+
+Ltrans = new Layer
+    width: 150
+    height: 30
+    borderRadius: 4
+    superLayer: ScrollTransList.content
+    backgroundColor: "656565"
+Ltrans.html = "Linear"
+Ltrans.style =
+    fontSize: "15px"
+    textAlign: "center"
+    color: "black"
+    fontWeight: "bold"
+
+Ltrans.onTap ->
+    LtransLayer.html = "Linear"
+    ScrollTransList.visible = false
+
+Ltrans2 = new Layer
+    width: 150
+    height: 30
+    borderRadius: 4
+    y: 35
+    z: 100
+    superLayer: ScrollTransList.content
+    backgroundColor: "656565"
+Ltrans2.html = "Bezier"
+Ltrans2.style =
+    fontSize: "15px"
+    textAlign: "center"
+    color: "black"
+    fontWeight: "bold"
+
+Ltrans2.onTap ->
+    LtransLayer.html = "Bezier"
+    ScrollTransList.visible = false
+
+LtransLayer.onTap ->
+    if ScrollTransList.visible is false
+        ScrollTransList.visible = true
+    else
+      ScrollTransList.visible = false
+
+LcloseTrans = new Layer
+    width: 70
+    height: 35
+    y: Align.top(30)
+    x: Align.right(-820)
+    z:100
+    borderRadius: 4
+    image:"images/icons/download.png"
+
+LcloseText = new Layer
+    width: 70
+    height: 35
+    y: Align.top(60)
+    x: Align.right(-820)
+    z:100
+    borderRadius: 4
+    html:"Speichern"
+    backgroundColor: "transparent"
+LcloseText.style =
+    fontSize: "15px"
+    textAlign: "center"
+    color: "black"
+    fontWeight: "bold"
+
+LsaveLayer.addSubLayer(LcloseTrans)
+LsaveLayer.addSubLayer(LcloseText)
+
+LsaveBtnText = new Layer
+    width: 70
+    height: 35
+    y: Align.top(60)
+    x: Align.right(-820)
+    z:100
+    borderRadius: 4
+    html:"Speichern"
+    backgroundColor: "transparent"
+LsaveBtnText.style =
+    fontSize: "15px"
+    textAlign: "center"
+    color: "black"
+    fontWeight: "bold"
+
+LMainControl.addSubLayer(LsaveBtnText)
+
+LsettingsText = new Layer
+    width: 70
+    height: 35
+    y: Align.top(60)
+    x: Align.left(19)
+    z:100
+    borderRadius: 4
+    html:"Einstellungen"
+    backgroundColor: "transparent"
+LsettingsText.style =
+    fontSize: "15px"
+    textAlign: "center"
+    color: "black"
+    fontWeight: "bold"
+
+LMainControl.addSubLayer(LsettingsText)
+
+LcloseTrans.onTap ->
+  if LsaveLayer.visible is true
+    LsaveLayer.visible = false
+    Lsave.image = "images/icons/download.png"
+    LsaveBtnText.html = "Speichern"
+  else
+    LsaveLayer.visible = true
+
+Lsave.onTap ->
+  if LsaveLayer.visible is false
+    LsaveLayer.visible = true
+    Lsave.image = "images/icons/close.png"
+    LsaveBtnText.html = "Abbrechen"
+  else
+    LsaveLayer.visible = false
+    Lsave.image = "images/icons/download.png"
+    LsaveBtnText.html = "Speichern"

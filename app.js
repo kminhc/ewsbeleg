@@ -1,4 +1,4 @@
-var AFastBackBtn, AFastBackBtn2, AFastBackBtn2R, AFastBackBtnM, AFastBackBtnM2, AFastBackBtnR, Afastforward, Afastforward2, Afastforward2R, AfastforwardM, AfastforwardM2, AfastforwardR, Aplay, Aplay2, Aplay2R, AplayM, AplayM2, AplayR, LCtrlParent, LCtrlParentR, LFastBackBtn, LFastBackBtnM, LFastBackBtnR, LFastForwardBtn, LFastForwardBtnM, LFastForwardBtnR, LMagMinus, LMagMinus2, LMagPlus, LMagPlus2, LMainControl, LMainControlBtns, LMainWindow, LMuteBar, LMuteBar2, LMuteBtn, LMuteBtn2, LPauseBtn, LPauseBtnM, LPauseBtnR, LPlayBtn, LPlayBtnM, LPlayBtnR, LSecondTrack, Lbg, LbpmDisplay, LbpmDisplayR, LbpmLabel, LbpmLabelR, Lcontract, Lcontract2, LdisplayToggle, LdisplayToggle2, LdisplayToggle2M, LdisplayToggle2R, LdisplayToggle3, LdisplayToggle3R, LdisplayToggleM, LdisplayToggleR, Lexpand, Lexpand2, LfirstTrack, Llogo, LmainWaveForm, LmainWaveForm2, Lmarker, LmarkerR, LnewCloseBtn, LnewCloseBtnR, LnewDisplay, LnewDisplayR, LopenSongListButton, LopenSongListButtonR, LskipToEndBtn, LskipToEndBtnM, LskipToEndBtnR, LskipToStart, LskipToStartM, LskipToStartR, Lsong1, Lsong1R, Lsong2, Lsong2R, Lsong3, Lsong3R, LsongDisplay, LsongDisplay2, LsongDisplay2R, LsongDisplay3, LsongDisplay3R, LsongDisplayR, LtitleDisplay, LtitleDisplayR, LvolDownBtn, LvolDownBtnR, LvolSlider, LvolSliderR, LvolUpBtn, LvolUpBtnR, LvolumeBtn, LvolumeBtnR, LwaveForm, LwaveForm2, LwaveForm2R, LwaveForm3, LwaveForm3R, LwaveFormR, PlayDisplay, PlayDisplayR, ScrollSongList, ScrollSongListR, SliderTimeline, SliderTimeline2, SliderTimeline2R, SliderTimeline3, SliderTimeline3R, SliderTimelineR, SvolSlider, SvolSliderR, title, view, view2, view2R, view3, view3R, viewMain, viewMain2, viewR;
+var AFastBackBtn, AFastBackBtn2, AFastBackBtn2R, AFastBackBtnM, AFastBackBtnM2, AFastBackBtnR, Afastforward, Afastforward2, Afastforward2R, AfastforwardM, AfastforwardM2, AfastforwardR, Aplay, Aplay2, Aplay2R, AplayM, AplayM2, AplayR, LCtrlParent, LCtrlParentR, LFastBackBtn, LFastBackBtnM, LFastBackBtnR, LFastForwardBtn, LFastForwardBtnM, LFastForwardBtnR, LMagMinus, LMagMinus2, LMagPlus, LMagPlus2, LMainControl, LMainControlBtns, LMainWindow, LMuteBar, LMuteBar2, LMuteBtn, LMuteBtn2, LPauseBtn, LPauseBtnM, LPauseBtnR, LPlayBtn, LPlayBtnM, LPlayBtnR, LSecondTrack, Lbg, LbpmDisplay, LbpmDisplayR, LbpmLabel, LbpmLabelR, LcloseText, LcloseTrans, Lcontract, Lcontract2, LdisplayToggle, LdisplayToggle2, LdisplayToggle2M, LdisplayToggle2R, LdisplayToggle3, LdisplayToggle3R, LdisplayToggleM, LdisplayToggleR, Lexpand, Lexpand2, LfirstTrack, Llogo, LmainWaveForm, LmainWaveForm2, Lmarker, LmarkerR, LnewCloseBtn, LnewCloseBtnR, LnewDisplay, LnewDisplayR, LopenSongListButton, LopenSongListButtonR, Lsave, LsaveBtnText, LsaveLayer, LsaveText, Lsettings, LsettingsText, LskipToEndBtn, LskipToEndBtnM, LskipToEndBtnR, LskipToStart, LskipToStartM, LskipToStartR, Lsong1, Lsong1R, Lsong2, Lsong2R, Lsong3, Lsong3R, LsongDisplay, LsongDisplay2, LsongDisplay2R, LsongDisplay3, LsongDisplay3R, LsongDisplayR, LtitleDisplay, LtitleDisplayR, Ltrans, Ltrans2, LtransLayer, LvolDownBtn, LvolDownBtnR, LvolSlider, LvolSliderR, LvolUpBtn, LvolUpBtnR, LvolumeBtn, LvolumeBtnR, LwaveForm, LwaveForm2, LwaveForm2R, LwaveForm3, LwaveForm3R, LwaveFormR, PlayDisplay, PlayDisplayR, ScrollSongList, ScrollSongListR, ScrollTransList, SliderTimeline, SliderTimeline2, SliderTimeline2R, SliderTimeline3, SliderTimeline3R, SliderTimelineR, SvolSlider, SvolSliderR, title, view, view2, view2R, view3, view3R, viewMain, viewMain2, viewR;
 
 Lbg = new Layer({
   width: 1920,
@@ -84,6 +84,8 @@ SliderTimeline = new SliderComponent({
   height: 5
 });
 
+SliderTimeline.fill.backgroundColor = "red";
+
 SliderTimeline.x += 25;
 
 SliderTimeline.y += 170;
@@ -114,7 +116,7 @@ LwaveForm2 = new Layer({
   y: 15,
   width: 9000,
   height: 110,
-  image: "images/Deck_1_wave.png",
+  image: "images/Deck_1_bpm.png",
   superLayer: view2.content
 });
 
@@ -127,7 +129,7 @@ LdisplayToggle2 = new Layer({
   y: 0
 });
 
-LdisplayToggle2.html = "WAVE";
+LdisplayToggle2.html = "SPECTRUM";
 
 LdisplayToggle2.backgroundColor = "#656565";
 
@@ -141,12 +143,12 @@ LdisplayToggle2.style = {
 LsongDisplay2.addSubLayer(LdisplayToggle2);
 
 LdisplayToggle2.onTap(function() {
-  if (LdisplayToggle2.html === "WAVE") {
-    LdisplayToggle2.html = "SPECTRUM";
-    return LwaveForm2.image = "images/Deck_1_bpm.png";
-  } else {
+  if (LdisplayToggle2.html === "SPECTRUM") {
     LdisplayToggle2.html = "WAVE";
     return LwaveForm2.image = "images/Deck_1_wave.png";
+  } else {
+    LdisplayToggle2.html = "SPECTRUM";
+    return LwaveForm2.image = "images/Deck_1_bpm.png";
   }
 });
 
@@ -157,6 +159,8 @@ SliderTimeline2 = new SliderComponent({
   width: 250,
   height: 5
 });
+
+SliderTimeline2.fill.backgroundColor = "red";
 
 SliderTimeline2.x += 25;
 
@@ -963,6 +967,26 @@ LbpmLabel = new Layer({
   image: "images/icons/bpm2.png"
 });
 
+Lsave = new Layer({
+  width: 70,
+  height: 35,
+  y: Align.top(30),
+  x: Align.right(-820),
+  z: 100,
+  borderRadius: 4,
+  image: "images/icons/download.png"
+});
+
+Lsettings = new Layer({
+  width: 70,
+  height: 35,
+  y: Align.top(30),
+  x: Align.left(30),
+  z: 100,
+  borderRadius: 4,
+  image: "images/icons/tool.png"
+});
+
 PlayDisplay = new Layer({
   y: Align.top(445),
   width: 300,
@@ -1085,6 +1109,8 @@ SliderTimelineR = new SliderComponent({
   height: 5
 });
 
+SliderTimelineR.fill.backgroundColor = "blue";
+
 SliderTimelineR.x += 25;
 
 SliderTimelineR.y += 170;
@@ -1158,6 +1184,8 @@ SliderTimeline2R = new SliderComponent({
   width: 250,
   height: 5
 });
+
+SliderTimeline2R.fill.backgroundColor = "blue";
 
 SliderTimeline2R.x += 25;
 
@@ -2039,6 +2067,18 @@ LMuteBtn = new Layer({
 
 LMuteBar.addSubLayer(LMuteBtn);
 
+LMuteBtn.onTap(function() {
+  if (LmainWaveForm.opacity === 1) {
+    LmainWaveForm.opacity = 0.5;
+    LwaveForm.opacity = 0.5;
+    return LwaveForm2.opacity = 0.5;
+  } else {
+    LmainWaveForm.opacity = 1;
+    LwaveForm.opacity = 1;
+    return LwaveForm2.opacity = 1;
+  }
+});
+
 LMagPlus = new Layer({
   backgroundColor: "#525252",
   width: 30,
@@ -2144,6 +2184,18 @@ LMuteBtn2 = new Layer({
 });
 
 LMuteBar2.addSubLayer(LMuteBtn2);
+
+LMuteBtn2.onTap(function() {
+  if (LmainWaveForm2.opacity === 1) {
+    LmainWaveForm2.opacity = 0.5;
+    LwaveFormR.opacity = 0.5;
+    return LwaveForm2R.opacity = 0.5;
+  } else {
+    LmainWaveForm2.opacity = 1;
+    LwaveFormR.opacity = 1;
+    return LwaveForm2R.opacity = 1;
+  }
+});
 
 LMagPlus2 = new Layer({
   backgroundColor: "#525252",
@@ -2335,6 +2387,10 @@ LMainControlBtns = new Layer({
 });
 
 LMainControl.addSubLayer(LMainControlBtns);
+
+LMainControl.addSubLayer(Lsave);
+
+LMainControl.addSubLayer(Lsettings);
 
 LskipToEndBtnM = new Layer({
   width: 35,
@@ -2739,4 +2795,214 @@ LPauseBtnM.onTap(function() {
     curve: "linear",
     time: 0 + (15 / (8750 / viewMain2.scrollX))
   });
+});
+
+LsaveLayer = new Layer({
+  width: 1150,
+  height: 120,
+  backgroundColor: "525252",
+  visible: false,
+  x: Align.left,
+  y: Align.top(615)
+});
+
+LMainWindow.addSubLayer(LsaveLayer);
+
+ScrollTransList = new ScrollComponent({
+  width: 150,
+  height: 120,
+  visible: false,
+  backgroundColor: "transparent"
+});
+
+ScrollTransList.scrollHorizontal = false;
+
+LtransLayer = new Layer({
+  width: 150,
+  height: 30,
+  borderRadius: 4,
+  x: Align.left(505),
+  y: 20
+});
+
+LsaveLayer.addSubLayer(LtransLayer);
+
+LsaveText = new Layer({
+  width: 300,
+  height: 30,
+  borderRadius: 4,
+  x: Align.left(75),
+  y: 20,
+  html: "Wählen Sie die gewünschte Übergangsart",
+  backgroundColor: "transparent"
+});
+
+LsaveText.style = {
+  fontSize: "20px",
+  textAlign: "center",
+  color: "black",
+  fontWeight: "bold"
+};
+
+LsaveLayer.addSubLayer(LsaveText);
+
+LtransLayer.html = "Übergang?";
+
+LtransLayer.style = {
+  fontSize: "15px",
+  textAlign: "center",
+  color: "black",
+  fontWeight: "bold"
+};
+
+LtransLayer.addSubLayer(ScrollTransList);
+
+ScrollTransList.y = Align.top(35);
+
+Ltrans = new Layer({
+  width: 150,
+  height: 30,
+  borderRadius: 4,
+  superLayer: ScrollTransList.content,
+  backgroundColor: "656565"
+});
+
+Ltrans.html = "Linear";
+
+Ltrans.style = {
+  fontSize: "15px",
+  textAlign: "center",
+  color: "black",
+  fontWeight: "bold"
+};
+
+Ltrans.onTap(function() {
+  LtransLayer.html = "Linear";
+  return ScrollTransList.visible = false;
+});
+
+Ltrans2 = new Layer({
+  width: 150,
+  height: 30,
+  borderRadius: 4,
+  y: 35,
+  z: 100,
+  superLayer: ScrollTransList.content,
+  backgroundColor: "656565"
+});
+
+Ltrans2.html = "Bezier";
+
+Ltrans2.style = {
+  fontSize: "15px",
+  textAlign: "center",
+  color: "black",
+  fontWeight: "bold"
+};
+
+Ltrans2.onTap(function() {
+  LtransLayer.html = "Bezier";
+  return ScrollTransList.visible = false;
+});
+
+LtransLayer.onTap(function() {
+  if (ScrollTransList.visible === false) {
+    return ScrollTransList.visible = true;
+  } else {
+    return ScrollTransList.visible = false;
+  }
+});
+
+LcloseTrans = new Layer({
+  width: 70,
+  height: 35,
+  y: Align.top(30),
+  x: Align.right(-820),
+  z: 100,
+  borderRadius: 4,
+  image: "images/icons/download.png"
+});
+
+LcloseText = new Layer({
+  width: 70,
+  height: 35,
+  y: Align.top(60),
+  x: Align.right(-820),
+  z: 100,
+  borderRadius: 4,
+  html: "Speichern",
+  backgroundColor: "transparent"
+});
+
+LcloseText.style = {
+  fontSize: "15px",
+  textAlign: "center",
+  color: "black",
+  fontWeight: "bold"
+};
+
+LsaveLayer.addSubLayer(LcloseTrans);
+
+LsaveLayer.addSubLayer(LcloseText);
+
+LsaveBtnText = new Layer({
+  width: 70,
+  height: 35,
+  y: Align.top(60),
+  x: Align.right(-820),
+  z: 100,
+  borderRadius: 4,
+  html: "Speichern",
+  backgroundColor: "transparent"
+});
+
+LsaveBtnText.style = {
+  fontSize: "15px",
+  textAlign: "center",
+  color: "black",
+  fontWeight: "bold"
+};
+
+LMainControl.addSubLayer(LsaveBtnText);
+
+LsettingsText = new Layer({
+  width: 70,
+  height: 35,
+  y: Align.top(60),
+  x: Align.left(19),
+  z: 100,
+  borderRadius: 4,
+  html: "Einstellungen",
+  backgroundColor: "transparent"
+});
+
+LsettingsText.style = {
+  fontSize: "15px",
+  textAlign: "center",
+  color: "black",
+  fontWeight: "bold"
+};
+
+LMainControl.addSubLayer(LsettingsText);
+
+LcloseTrans.onTap(function() {
+  if (LsaveLayer.visible === true) {
+    LsaveLayer.visible = false;
+    Lsave.image = "images/icons/download.png";
+    return LsaveBtnText.html = "Speichern";
+  } else {
+    return LsaveLayer.visible = true;
+  }
+});
+
+Lsave.onTap(function() {
+  if (LsaveLayer.visible === false) {
+    LsaveLayer.visible = true;
+    Lsave.image = "images/icons/close.png";
+    return LsaveBtnText.html = "Abbrechen";
+  } else {
+    LsaveLayer.visible = false;
+    Lsave.image = "images/icons/download.png";
+    return LsaveBtnText.html = "Speichern";
+  }
 });
