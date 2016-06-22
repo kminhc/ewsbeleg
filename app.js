@@ -3408,3 +3408,11 @@ SliderTimeline2R.on("change:value", function() {
   viewMain2.scrollX = this.value;
   return SliderTimelineR.value = this.value;
 });
+
+SliderTimeline3R.on("change:value", function() {
+  return view3R.scrollX = this.value;
+});
+
+SliderTimeline3.on("change:value", function() {
+  return view3.scrollX = this.value;
+});

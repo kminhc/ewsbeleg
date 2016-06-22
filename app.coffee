@@ -2820,3 +2820,9 @@ SliderTimeline2R.on "change:value", ->
     view2R.scrollX = this.value
     viewMain2.scrollX = this.value
     SliderTimelineR.value = this.value
+
+SliderTimeline3R.on "change:value", ->
+    view3R.scrollX = this.value
+
+SliderTimeline3.on "change:value", ->
+    view3.scrollX = this.value
