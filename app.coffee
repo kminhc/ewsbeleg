@@ -1,7 +1,5 @@
 # Prototyping with Framer
 # Create a background
-bg = new BackgroundLayer
-
 Lbg = new Layer
     width: 1920
     height:1080
@@ -33,6 +31,7 @@ view = new ScrollComponent
     y:25
     width:250
     height:130
+    scrollX:0
 view.scrollVertical = false
 
 #Display content
@@ -71,14 +70,14 @@ LdisplayToggle.onTap ->
 
 SliderTimeline = new SliderComponent
     min: 0
-    max: 1
+    max: 8750
     knobSize: 10
     width: 250
     height: 5
+SliderTimeline.fill.backgroundColor = "red"
 SliderTimeline.x += 25
 SliderTimeline.y += 170
 LsongDisplay.addSubLayer(SliderTimeline)
-
 
 # new LsongDisplay
 LsongDisplay2 = new Layer
@@ -103,7 +102,7 @@ LwaveForm2 = new Layer
     y:15
     width:9000
     height:110
-    image:"images/Deck_1_wave.png"
+    image:"images/Deck_1_bpm.png"
     superLayer: view2.content
 LsongDisplay2.addSubLayer(view2);
 
@@ -113,7 +112,7 @@ LdisplayToggle2 = new Layer
     width: 300
     x: 0
     y: 0
-LdisplayToggle2.html = "WAVE"
+LdisplayToggle2.html = "SPECTRUM"
 LdisplayToggle2.backgroundColor = "#656565"
 LdisplayToggle2.style=
   fontSize: "15px"
@@ -124,20 +123,21 @@ LsongDisplay2.addSubLayer(LdisplayToggle2);
 
 #ontap for Display
 LdisplayToggle2.onTap ->
-    if LdisplayToggle2.html is "WAVE"
-      LdisplayToggle2.html = "SPECTRUM"
-      LwaveForm2.image = "images/Deck_1_bpm.png"
-    else
+    if LdisplayToggle2.html is "SPECTRUM"
       LdisplayToggle2.html = "WAVE"
       LwaveForm2.image = "images/Deck_1_wave.png"
+    else
+      LdisplayToggle2.html = "SPECTRUM"
+      LwaveForm2.image = "images/Deck_1_bpm.png"
 
 #SliderTimeline
 SliderTimeline2 = new SliderComponent
     min: 0
-    max: 1
+    max: 8750
     knobSize: 10
     width: 250
     height: 5
+SliderTimeline2.fill.backgroundColor = "red"
 SliderTimeline2.x += 25
 SliderTimeline2.y += 170
 
@@ -200,7 +200,7 @@ LdisplayToggle3.onTap ->
 #SliderTimeline
 SliderTimeline3 = new SliderComponent
     min: 0
-    max: 1
+    max: 8750
     knobSize: 10
     width: 250
     height: 5
@@ -741,6 +741,32 @@ LvolumeBtn = new Layer
     borderRadius: 6
     image:"images/icons/lauter.png"
 
+SvolSlider = new SliderComponent
+   height: 120
+   width: 5
+   knobSize: 10
+   backgroundColor: "#333333"
+   x: 15
+   y: 10
+SvolSlider.fill.backgroundColor = "lightgrey"
+
+LvolSlider = new Layer
+    height: 140
+    width: 35
+    visible: false
+    backgroundColor: "525252"
+LvolumeBtn.addSubLayer(LvolSlider)
+LvolSlider.x = Align.center(-5)
+LvolSlider.y = Align.top(60)
+LvolSlider.addSubLayer(SvolSlider)
+
+LvolumeBtn.onTap ->
+  if LvolSlider.visible is false
+    LvolSlider.visible = true
+  else
+    LvolSlider.visible = false
+
+
 LvolUpBtn = new Layer
     width: 40
     height: 23
@@ -764,6 +790,20 @@ LbpmDisplay = new Layer
     y: 65
     borderRadius: 4
     backgroundColor: "#ffffff"
+LbpmDisplay.html = 130
+LbpmDisplay.style =
+    fontSize: "20px"
+    textAlign: "center"
+    color: "black"
+    fontWeight: "bold"
+
+LvolDownBtn.onTap ->
+    if parseInt(LbpmDisplay.html) isnt 0
+      LbpmDisplay.html = parseInt(LbpmDisplay.html) - 5
+
+LvolUpBtn.onTap ->
+    if parseInt(LbpmDisplay.html) isnt 500
+      LbpmDisplay.html = parseInt(LbpmDisplay.html) + 5
 
 LbpmLabel = new Layer
     width: 70
@@ -772,6 +812,24 @@ LbpmLabel = new Layer
     y: 65
     borderRadius: 4
     image:"images/icons/bpm2.png"
+
+Lsave = new Layer
+    width: 70
+    height: 35
+    y: Align.top(30)
+    x: Align.right(-820)
+    z:100
+    borderRadius: 4
+    image:"images/icons/download.png"
+
+Lsettings = new Layer
+    width: 70
+    height: 35
+    y: Align.top(30)
+    x: Align.left(30)
+    z:100
+    borderRadius: 4
+    image:"images/icons/tool.png"
 
 #-----Playbuttons-----#
 PlayDisplay = new Layer
@@ -808,6 +866,7 @@ LCtrlParent.addSubLayer(LsongDisplay3)
 LCtrlParent.addSubLayer(PlayDisplay)
 LCtrlParent.addSubLayer(LnewDisplay)
 
+
 #RECHTE SEITE
 
 # new LsongDisplay
@@ -835,7 +894,7 @@ LwaveFormR = new Layer
     y:20
     width:9000
     height:110
-    image:"images/Deck_1_wave.png"
+    image:"images/Deck_2_wave.png"
     superLayer: viewR.content
 LsongDisplayR.addSubLayer(viewR);
 
@@ -858,17 +917,18 @@ LsongDisplayR.addSubLayer(LdisplayToggleR);
 LdisplayToggleR.onTap ->
     if LdisplayToggleR.html is "WAVE"
       LdisplayToggleR.html = "SPECTRUM"
-      LwaveFormR.image = "images/Deck_1_bpm.png"
+      LwaveFormR.image = "images/Deck_2_bpm.png"
     else
       LdisplayToggleR.html = "WAVE"
-      LwaveFormR.image = "images/Deck_1_wave.png"
+      LwaveFormR.image = "images/Deck_2_wave.png"
 
 SliderTimelineR = new SliderComponent
     min: 0
-    max: 1
+    max: 8750
     knobSize: 10
     width: 250
     height: 5
+SliderTimelineR.fill.backgroundColor = "blue"
 SliderTimelineR.x += 25
 SliderTimelineR.y += 170
 
@@ -891,7 +951,6 @@ view2R = new ScrollComponent
     y:20
     width:250
     height:130
-
 view2R.scrollVertical = false
 
 LwaveForm2R = new Layer
@@ -899,7 +958,7 @@ LwaveForm2R = new Layer
     y:20
     width:9000
     height:110
-    image:"images/Deck_1_wave.png"
+    image:"images/Deck_2_bpm.png"
     superLayer: view2R.content
 LsongDisplay2R.addSubLayer(view2R);
 
@@ -909,7 +968,7 @@ LdisplayToggle2R = new Layer
     width: 300
     x: 0
     y: 0
-LdisplayToggle2R.html = "WAVE"
+LdisplayToggle2R.html = "SPECTRUM"
 LdisplayToggle2R.backgroundColor = "656565"
 LdisplayToggle2R.style=
   fontSize: "15px"
@@ -922,18 +981,19 @@ LsongDisplay2R.addSubLayer(LdisplayToggle2R);
 LdisplayToggle2R.onTap ->
     if LdisplayToggle2R.html is "WAVE"
       LdisplayToggle2R.html = "SPECTRUM"
-      LwaveForm2R.image = "images/Deck_1_bpm.png"
+      LwaveForm2R.image = "images/Deck_2_bpm.png"
     else
       LdisplayToggle2R.html = "WAVE"
-      LwaveForm2R.image = "images/Deck_1_wave.png"
+      LwaveForm2R.image = "images/Deck_2_wave.png"
 
 #SliderTimeline
 SliderTimeline2R = new SliderComponent
     min: 0
-    max: 1
+    max: 8750
     knobSize: 10
     width: 250
     height: 5
+SliderTimeline2R.fill.backgroundColor = "blue"
 SliderTimeline2R.x += 25
 SliderTimeline2R.y += 170
 
@@ -950,7 +1010,6 @@ LsongDisplay3R = new Layer
 
 LsongDisplay3R.style.boxShadow = "0 1px 2px rgba(0,0,0,0.1)"
 
-
 #Waveform SliderTimeline
 view3R = new ScrollComponent
     x:25
@@ -965,7 +1024,7 @@ LwaveForm3R = new Layer
     y:15
     width:9000
     height:110
-    image:"images/Deck_1_wave.png"
+    image:"images/Deck_2_wave.png"
     superLayer: view3R.content
 LsongDisplay3R.addSubLayer(view3R);
 
@@ -988,15 +1047,15 @@ LsongDisplay3R.addSubLayer(LdisplayToggle3R);
 LdisplayToggle3R.onTap ->
     if LdisplayToggle3R.html is "WAVE"
       LdisplayToggle3R.html = "SPECTRUM"
-      LwaveForm3R.image = "images/Deck_1_bpm.png"
+      LwaveForm3R.image = "images/Deck_2_bpm.png"
     else
       LdisplayToggle3R.html = "WAVE"
-      LwaveForm3R.image = "images/Deck_1_wave.png"
+      LwaveForm3R.image = "images/Deck_2_wave.png"
 
 #SliderTimeline
 SliderTimeline3R = new SliderComponent
     min: 0
-    max: 1
+    max: 8750
     knobSize: 10
     width: 250
     height: 5
@@ -1519,6 +1578,34 @@ LvolumeBtnR = new Layer
     borderRadius: 6
     image:"images/icons/lauter.png"
 
+SvolSliderR = new SliderComponent
+   height: 120
+   width: 5
+   knobSize: 10
+   backgroundColor: "#333333"
+   x: 15
+   y: 10
+SvolSliderR.fill.backgroundColor = "lightgrey"
+
+LvolSliderR = new Layer
+    height: 140
+    width: 35
+    backgroundColor: "525252"
+    visible: false
+LvolumeBtnR.addSubLayer(LvolSliderR)
+LvolSliderR.x = Align.center(-5)
+LvolSliderR.y = Align.top(60)
+LvolSliderR.addSubLayer(SvolSliderR)
+
+LvolumeBtnR.onTap ->
+  if LvolSliderR.visible is false
+    LvolSliderR.visible = true
+  else
+    LvolSliderR.visible = false
+
+
+
+
 LvolUpBtnR = new Layer
     width: 40
     height: 23
@@ -1542,6 +1629,20 @@ LbpmDisplayR = new Layer
     y: 65
     borderRadius: 4
     backgroundColor: "#ffffff"
+LbpmDisplayR.html = 170
+LbpmDisplayR.style =
+    fontSize: "20px"
+    textAlign: "center"
+    color: "black"
+    fontWeight: "bold"
+
+LvolDownBtnR.onTap ->
+    if parseInt(LbpmDisplayR.html) isnt 0
+      LbpmDisplayR.html = parseInt(LbpmDisplayR.html) - 5
+
+LvolUpBtnR.onTap ->
+    if parseInt(LbpmDisplayR.html) isnt 500
+      LbpmDisplayR.html = parseInt(LbpmDisplayR.html) + 5
 
 LbpmLabelR = new Layer
     width: 70
@@ -1619,6 +1720,15 @@ LMuteBtn = new Layer
     borderRadius: 4
     image:"images/icons/mute.png"
 LMuteBar.addSubLayer(LMuteBtn)
+LMuteBtn.onTap ->
+  if LmainWaveForm.opacity is 1
+    LmainWaveForm.opacity = 0.5
+    LwaveForm.opacity = 0.5
+    LwaveForm2.opacity = 0.5
+  else
+    LmainWaveForm.opacity = 1
+    LwaveForm.opacity = 1
+    LwaveForm2.opacity = 1
 
 LMagPlus = new Layer
     backgroundColor: "#525252"
@@ -1701,6 +1811,15 @@ LMuteBtn2 = new Layer
     borderRadius: 4
     image:"images/icons/mute.png"
 LMuteBar2.addSubLayer(LMuteBtn2)
+LMuteBtn2.onTap ->
+  if LmainWaveForm2.opacity is 1
+    LmainWaveForm2.opacity = 0.5
+    LwaveFormR.opacity = 0.5
+    LwaveForm2R.opacity = 0.5
+  else
+    LmainWaveForm2.opacity = 1
+    LwaveFormR.opacity = 1
+    LwaveForm2R.opacity = 1
 
 LMagPlus2 = new Layer
     backgroundColor: "#525252"
@@ -1712,14 +1831,14 @@ LMagPlus2 = new Layer
 LMuteBar2.addSubLayer(LMagPlus2)
 
 LMagPlus2.onTap ->
-    if LmainWaveForm2.image is "images/Deck_1_bpm.png"
-      LmainWaveForm2.image = "images/Deck_1_bpm_klein.png"
-    if LmainWaveForm2.image is "images/Deck_1_wave.png"
-      LmainWaveForm2.image = "images/Deck_1_klein.png"
-    if LmainWaveForm2.image is "images/Deck_1_gross.png"
-      LmainWaveForm2.image = "images/Deck_1_wave.png"
-    if LmainWaveForm2.image is "images/Deck_1_bpm_gross.png"
-      LmainWaveForm2.image = "images/Deck_1_bpm.png"
+    if LmainWaveForm2.image is "images/Deck_2_bpm.png"
+      LmainWaveForm2.image = "images/Deck_2_bpm_klein.png"
+    if LmainWaveForm2.image is "images/Deck_2_wave.png"
+      LmainWaveForm2.image = "images/Deck_2_klein.png"
+    if LmainWaveForm2.image is "images/Deck_2_gross.png"
+      LmainWaveForm2.image = "images/Deck_2_wave.png"
+    if LmainWaveForm2.image is "images/Deck_2_bpm_gross.png"
+      LmainWaveForm2.image = "images/Deck_2_bpm.png"
 
 LMagMinus2 = new Layer
     backgroundColor: "#525252"
@@ -1731,14 +1850,14 @@ LMagMinus2 = new Layer
 LMuteBar2.addSubLayer(LMagMinus2)
 
 LMagMinus2.onTap ->
-    if LmainWaveForm2.image is "images/Deck_1_bpm.png"
-      LmainWaveForm2.image = "images/Deck_1_bpm_gross.png"
-    if LmainWaveForm2.image is "images/Deck_1_wave.png"
-      LmainWaveForm2.image = "images/Deck_1_gross.png"
-    if LmainWaveForm2.image is "images/Deck_1_klein.png"
-      LmainWaveForm2.image = "images/Deck_1_wave.png"
-    if LmainWaveForm2.image is "images/Deck_1_bpm_klein.png"
-      LmainWaveForm2.image = "images/Deck_1_bpm.png"
+    if LmainWaveForm2.image is "images/Deck_2_bpm.png"
+      LmainWaveForm2.image = "images/Deck_2_bpm_gross.png"
+    if LmainWaveForm2.image is "images/Deck_2_wave.png"
+      LmainWaveForm2.image = "images/Deck_2_gross.png"
+    if LmainWaveForm2.image is "images/Deck_2_klein.png"
+      LmainWaveForm2.image = "images/Deck_2_wave.png"
+    if LmainWaveForm2.image is "images/Deck_2_bpm_klein.png"
+      LmainWaveForm2.image = "images/Deck_2_bpm.png"
 
 Lexpand2 = new Layer
     backgroundColor: "#525252"
@@ -1808,7 +1927,7 @@ LmainWaveForm2 = new Layer
     y:20
     width:9000
     height:200
-    image:"images/Deck_1_wave.png"
+    image:"images/Deck_2_wave.png"
     superLayer: viewMain2.content
 LSecondTrack.addSubLayer(viewMain2)
 
@@ -1831,10 +1950,10 @@ LSecondTrack.addSubLayer(LdisplayToggle2M);
 LdisplayToggle2M.onTap ->
     if LdisplayToggle2M.html is "WAVE"
       LdisplayToggle2M.html = "SPECTRUM"
-      LmainWaveForm2.image = "images/Deck_1_bpm.png"
+      LmainWaveForm2.image = "images/Deck_2_bpm.png"
     else
       LdisplayToggle2M.html = "WAVE"
-      LmainWaveForm2.image = "images/Deck_1_wave.png"
+      LmainWaveForm2.image = "images/Deck_2_wave.png"
 
 LMainControl = new Layer
     width: 1150
@@ -1847,9 +1966,11 @@ LMainWindow.addSubLayer(LMainControl)
 LMainControlBtns = new Layer
     width: 225
     height: 35
+    y: 20
     backgroundColor: "transparent"
-
 LMainControl.addSubLayer(LMainControlBtns)
+LMainControl.addSubLayer(Lsave)
+LMainControl.addSubLayer(Lsettings)
 
 LskipToEndBtnM = new Layer
     width: 35
@@ -1872,6 +1993,14 @@ LPlayBtnM = new Layer
     borderRadius: 4
     image:"images/icons/play.png"
 
+LPauseBtnM = new Layer
+    width: 70
+    height: 35
+    x: 80
+    borderRadius: 4
+    visible: false
+    image:"images/icons/pause.png"
+
 LFastBackBtnM = new Layer
     width: 35
     height: 35
@@ -1888,6 +2017,7 @@ LskipToStartM = new Layer
 LMainControlBtns.addSubLayer(LskipToStartM);
 LMainControlBtns.addSubLayer(LFastBackBtnM);
 LMainControlBtns.addSubLayer(LPlayBtnM);
+LMainControlBtns.addSubLayer(LPauseBtnM);
 LMainControlBtns.addSubLayer(LFastForwardBtnM);
 LMainControlBtns.addSubLayer(LskipToEndBtnM);
 
@@ -1930,3 +2060,422 @@ Lexpand2.onTap ->
 Lcontract2.onTap ->
   if LmarkerR.width isnt 50
     LmarkerR.width -= 10
+
+view.onMove ->
+    SliderTimeline.value = view.scrollX
+    SliderTimeline2.value = view2.scrollX
+    view2.scrollX = view.scrollX
+    viewMain.scrollX = view.scrollX
+
+view2.onMove ->
+    SliderTimeline.value = view.scrollX
+    SliderTimeline2.value = view2.scrollX
+    view.scrollX = view2.scrollX
+    viewMain.scrollX = view2.scrollX
+
+viewMain.onMove ->
+    SliderTimeline.value = view.scrollX
+    SliderTimeline2.value = view2.scrollX
+    view.scrollX = viewMain.scrollX
+    view2.scrollX = viewMain.scrollX
+
+view3.onMove ->
+    SliderTimeline3.value = view3.scrollX
+
+viewR.onMove ->
+    SliderTimelineR.value = viewR.scrollX
+    SliderTimeline2R.value = view2R.scrollX
+    view2R.scrollX = viewR.scrollX
+    viewMain2.scrollX = viewR.scrollX
+
+view2R.onMove ->
+    SliderTimelineR.value = viewR.scrollX
+    SliderTimeline2R.value = view2R.scrollX
+    viewR.scrollX = view2R.scrollX
+    viewMain2.scrollX = view2R.scrollX
+
+viewMain2.onMove ->
+    SliderTimelineR.value = viewR.scrollX
+    SliderTimeline2R.value = view2R.scrollX
+    viewR.scrollX = viewMain2.scrollX
+    view2R.scrollX = viewMain2.scrollX
+
+view3R.onMove ->
+    SliderTimeline3R.value = view3R.scrollX
+
+
+LskipToStartM.onTap ->
+    viewMain.scrollX = 0
+    viewMain2.scrollX = 0
+    AFastBackBtnM = new Animation
+        layer: viewMain
+        properties:
+            scrollX: 0
+        curve: "linear"
+        time: 15
+
+    AFastBackBtnM2 = new Animation
+        layer: viewMain2
+        properties:
+            scrollX: 0
+        curve: "linear"
+        time: 15
+
+    AfastforwardM = new Animation
+        layer: viewMain
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: 15
+
+    AfastforwardM2 = new Animation
+        layer: viewMain2
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: 15
+
+    AplayM = new Animation
+        layer: viewMain
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: 30
+
+    AplayM2 = new Animation
+        layer: viewMain2
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: 30
+
+LskipToEndBtnM.onTap ->
+    viewMain.scrollX = 8750
+    viewMain2.scrollX = 8750
+
+    AFastBackBtnM = new Animation
+        layer: viewMain
+        properties:
+            scrollX: 0
+        curve: "linear"
+        time: 15
+
+    AFastBackBtnM2 = new Animation
+        layer: viewMain2
+        properties:
+            scrollX: 0
+        curve: "linear"
+        time: 15
+
+    AfastforwardM = new Animation
+        layer: viewMain
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: 15
+
+    AfastforwardM2 = new Animation
+        layer: viewMain2
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: 15
+
+    AplayM = new Animation
+        layer: viewMain
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: 30
+
+    AplayM2 = new Animation
+        layer: viewMain2
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: 30
+
+LFastForwardBtnM.onTap ->
+    if LPlayBtnM.visible is true
+        LPlayBtnM.visible = false
+        LPauseBtnM.visible = true
+    if viewMain.scrollX is 8750
+        LPlayBtnM.visible = true
+        LPauseBtnM.visible = false
+    AfastforwardM.start()
+    AfastforwardM2.start()
+
+    AfastforwardM.onAnimationEnd ->
+        LPlayBtnM.visible = true
+        LPauseBtnM.visible = false
+
+LFastBackBtnM.onTap ->
+    if LPlayBtnR.visible is true
+        LPlayBtnM.visible = false
+        LPauseBtnM.visible = true
+    if viewMain.scrollX is 0
+        LPlayBtnM.visible = true
+        LPauseBtnM.visible = false
+    AFastBackBtnM.start()
+    AFastBackBtnM2.start()
+    AFastBackBtnM.onAnimationEnd ->
+        LPlayBtnR.visible = true
+        LPauseBtnM.visible = false
+
+LPlayBtnM.onTap ->
+    if LPlayBtnM.visible is true
+        LPlayBtnM.visible = false
+        LPauseBtnM.visible = true
+
+    AplayM.onAnimationEnd ->
+        LPlayBtnM.visible = true
+        LPauseBtnM.visible = false
+        AplayR = new Animation
+            layer: viewMain
+            properties:
+                scrollX: 8750
+            curve: "linear"
+            time: 30
+
+    AplayM2.onAnimationEnd ->
+        LPlayBtnM.visible = true
+        LPauseBtnM.visible = false
+        AplayM2 = new Animation
+            layer: viewMain2
+            properties:
+                scrollX: 8750
+            curve: "linear"
+            time: 30
+
+    AplayM2.start()
+    AplayM.start()
+
+LPauseBtnM.onTap ->
+    if LPauseBtnM.visible is true
+        LPlayBtnM.visible = true
+        LPauseBtnM.visible = false
+    AplayM.stop()
+    AplayM2.stop()
+    AFastBackBtnM.stop()
+    AFastBackBtnM2.stop()
+    AfastforwardM.stop()
+    AfastforwardM2.stop()
+
+    AplayM = new Animation
+        layer: viewMain
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: (30 - (30/(8750/viewMain.scrollX)))
+
+    AplayM2 = new Animation
+        layer: viewMain2
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: (30 - (30/(8750/viewMain2.scrollX)))
+
+    AfastforwardM = new Animation
+        layer: viewMain
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: (15 - (15/(8750/viewMain.scrollX)))
+
+    AfastforwardM2 = new Animation
+        layer: viewMain2
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: (15 - (15/(8750/viewMain2.scrollX)))
+
+    AFastBackBtnM = new Animation
+        layer: viewMain
+        properties:
+            scrollX: 0
+        curve: "linear"
+        time: (0 + (15/(8750/viewMain.scrollX)))
+
+    AFastBackBtn2M = new Animation
+        layer: viewMain
+        properties:
+            scrollX: 0
+        curve: "linear"
+        time: (0 + (15/(8750/viewMain.scrollX)))
+
+      AFastBackBtnM2 = new Animation
+          layer: viewMain2
+          properties:
+              scrollX: 0
+          curve: "linear"
+          time: (0 + (15/(8750/viewMain2.scrollX)))
+
+LsaveLayer = new Layer
+  width: 1150
+  height: 120
+  backgroundColor: "525252"
+  visible: false
+  x:Align.left
+  y: Align.top(615)
+LMainWindow.addSubLayer(LsaveLayer)
+
+ScrollTransList = new ScrollComponent
+    width: 150
+    height: 120
+    visible: false
+    backgroundColor: "transparent"
+ScrollTransList.scrollHorizontal = false
+
+LtransLayer = new Layer
+    width: 150
+    height: 30
+    borderRadius: 4
+    x: Align.left(505)
+    y: 20
+LsaveLayer.addSubLayer(LtransLayer)
+
+LsaveText = new Layer
+  width: 300
+  height: 30
+  borderRadius: 4
+  x: Align.left(75)
+  y: 20
+  html: "Wählen Sie die gewünschte Übergangsart"
+  backgroundColor: "transparent"
+LsaveText.style =
+    fontSize: "20px"
+    textAlign: "center"
+    color: "black"
+    fontWeight: "bold"
+LsaveLayer.addSubLayer(LsaveText)
+
+LtransLayer.html = "Übergang?"
+LtransLayer.style =
+    fontSize: "15px"
+    textAlign: "center"
+    color: "black"
+    fontWeight: "bold"
+
+LtransLayer.addSubLayer(ScrollTransList);
+ScrollTransList.y = Align.top(35)
+
+Ltrans = new Layer
+    width: 150
+    height: 30
+    borderRadius: 4
+    superLayer: ScrollTransList.content
+    backgroundColor: "656565"
+Ltrans.html = "Linear"
+Ltrans.style =
+    fontSize: "15px"
+    textAlign: "center"
+    color: "black"
+    fontWeight: "bold"
+
+Ltrans.onTap ->
+    LtransLayer.html = "Linear"
+    ScrollTransList.visible = false
+
+Ltrans2 = new Layer
+    width: 150
+    height: 30
+    borderRadius: 4
+    y: 35
+    z: 100
+    superLayer: ScrollTransList.content
+    backgroundColor: "656565"
+Ltrans2.html = "Bezier"
+Ltrans2.style =
+    fontSize: "15px"
+    textAlign: "center"
+    color: "black"
+    fontWeight: "bold"
+
+Ltrans2.onTap ->
+    LtransLayer.html = "Bezier"
+    ScrollTransList.visible = false
+
+LtransLayer.onTap ->
+    if ScrollTransList.visible is false
+        ScrollTransList.visible = true
+    else
+      ScrollTransList.visible = false
+
+LcloseTrans = new Layer
+    width: 70
+    height: 35
+    y: Align.top(30)
+    x: Align.right(-820)
+    z:100
+    borderRadius: 4
+    image:"images/icons/download.png"
+
+LcloseText = new Layer
+    width: 70
+    height: 35
+    y: Align.top(60)
+    x: Align.right(-820)
+    z:100
+    borderRadius: 4
+    html:"Speichern"
+    backgroundColor: "transparent"
+LcloseText.style =
+    fontSize: "15px"
+    textAlign: "center"
+    color: "black"
+    fontWeight: "bold"
+
+LsaveLayer.addSubLayer(LcloseTrans)
+LsaveLayer.addSubLayer(LcloseText)
+
+LsaveBtnText = new Layer
+    width: 70
+    height: 35
+    y: Align.top(60)
+    x: Align.right(-820)
+    z:100
+    borderRadius: 4
+    html:"Speichern"
+    backgroundColor: "transparent"
+LsaveBtnText.style =
+    fontSize: "15px"
+    textAlign: "center"
+    color: "black"
+    fontWeight: "bold"
+
+LMainControl.addSubLayer(LsaveBtnText)
+
+LsettingsText = new Layer
+    width: 70
+    height: 35
+    y: Align.top(60)
+    x: Align.left(19)
+    z:100
+    borderRadius: 4
+    html:"Einstellungen"
+    backgroundColor: "transparent"
+LsettingsText.style =
+    fontSize: "15px"
+    textAlign: "center"
+    color: "black"
+    fontWeight: "bold"
+
+LMainControl.addSubLayer(LsettingsText)
+
+LcloseTrans.onTap ->
+  if LsaveLayer.visible is true
+    LsaveLayer.visible = false
+    Lsave.image = "images/icons/download.png"
+    LsaveBtnText.html = "Speichern"
+  else
+    LsaveLayer.visible = true
+
+Lsave.onTap ->
+  if LsaveLayer.visible is false
+    LsaveLayer.visible = true
+    Lsave.image = "images/icons/close.png"
+    LsaveBtnText.html = "Abbrechen"
+  else
+    LsaveLayer.visible = false
+    Lsave.image = "images/icons/download.png"
+    LsaveBtnText.html = "Speichern"
