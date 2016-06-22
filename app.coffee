@@ -2331,7 +2331,7 @@ LMainControlBtns.y += 10
 Lmarker = new Layer
   width: 50
   height: 180
-  x: 540
+  x: 565
   y: 45
   backgroundColor: "red"
   opacity: 0.3
@@ -2341,7 +2341,7 @@ LfirstTrack.addSubLayer(Lmarker)
 LmarkerR = new Layer
   width: 50
   height: 180
-  x: 595
+  x: 565
   y: 45
   backgroundColor: "blue"
   opacity: 0.3
@@ -2349,7 +2349,8 @@ LmarkerR = new Layer
 LSecondTrack.addSubLayer(LmarkerR)
 
 Lexpand.onTap ->
-  if Lmarker.width isnt 530
+  print Lmarker.width
+  if Lmarker.width isnt 550
     Lmarker.width += 10
     Lmarker.x -= 10
 Lcontract.onTap ->
@@ -2358,7 +2359,8 @@ Lcontract.onTap ->
     Lmarker.x += 10
 
 Lexpand2.onTap ->
-  if LmarkerR.width isnt 530
+  print LmarkerR.width
+  if LmarkerR.width isnt 560
     LmarkerR.width += 10
 Lcontract2.onTap ->
   if LmarkerR.width isnt 50

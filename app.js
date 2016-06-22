@@ -2817,7 +2817,7 @@ LMainControlBtns.y += 10;
 Lmarker = new Layer({
   width: 50,
   height: 180,
-  x: 540,
+  x: 565,
   y: 45,
   backgroundColor: "red",
   opacity: 0.3
@@ -2828,7 +2828,7 @@ LfirstTrack.addSubLayer(Lmarker);
 LmarkerR = new Layer({
   width: 50,
   height: 180,
-  x: 595,
+  x: 565,
   y: 45,
   backgroundColor: "blue",
   opacity: 0.3
@@ -2837,7 +2837,8 @@ LmarkerR = new Layer({
 LSecondTrack.addSubLayer(LmarkerR);
 
 Lexpand.onTap(function() {
-  if (Lmarker.width !== 530) {
+  print(Lmarker.width);
+  if (Lmarker.width !== 550) {
     Lmarker.width += 10;
     return Lmarker.x -= 10;
   }
@@ -2851,7 +2852,8 @@ Lcontract.onTap(function() {
 });
 
 Lexpand2.onTap(function() {
-  if (LmarkerR.width !== 530) {
+  print(LmarkerR.width);
+  if (LmarkerR.width !== 560) {
     return LmarkerR.width += 10;
   }
 });
