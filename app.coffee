@@ -2077,7 +2077,7 @@ Lexpand = new Layer
     height: 30
     y: 145
     borderRadius: 4
-    image:"images/icons/grpfeile.png"
+    image:"images/grpfeile.png"
 LMuteBar.addSubLayer(Lexpand)
 
 Lcontract = new Layer
@@ -2086,7 +2086,7 @@ Lcontract = new Layer
     height: 30
     y: 180
     borderRadius: 4
-    image:"images/icons/klpfeile.png"
+    image:"images/klpfeile.png"
 LMuteBar.addSubLayer(Lcontract)
 
 LMagMinus = new Layer
@@ -2168,7 +2168,7 @@ Lexpand2 = new Layer
     height: 30
     y: 145
     borderRadius: 4
-    image:"images/icons/grpfeile.png"
+    image:"images/grpfeile.png"
 LMuteBar2.addSubLayer(Lexpand2)
 
 Lcontract2 = new Layer
@@ -2177,7 +2177,7 @@ Lcontract2 = new Layer
     height: 30
     y: 180
     borderRadius: 4
-    image:"images/icons/klpfeile.png"
+    image:"images/klpfeile.png"
 LMuteBar2.addSubLayer(Lcontract2)
 
 LMainWindow = new Layer
@@ -2349,7 +2349,6 @@ LmarkerR = new Layer
 LSecondTrack.addSubLayer(LmarkerR)
 
 Lexpand.onTap ->
-  #print Lmarker.width
   if Lmarker.width isnt 550
     Lmarker.width += 10
     Lmarker.x -= 10
@@ -2359,7 +2358,6 @@ Lcontract.onTap ->
     Lmarker.x += 10
 
 Lexpand2.onTap ->
-#  print LmarkerR.width
   if LmarkerR.width isnt 560
     LmarkerR.width += 10
 Lcontract2.onTap ->

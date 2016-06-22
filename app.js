@@ -2495,7 +2495,7 @@ Lexpand = new Layer({
   height: 30,
   y: 145,
   borderRadius: 4,
-  image: "images/icons/grpfeile.png"
+  image: "images/grpfeile.png"
 });
 
 LMuteBar.addSubLayer(Lexpand);
@@ -2506,7 +2506,7 @@ Lcontract = new Layer({
   height: 30,
   y: 180,
   borderRadius: 4,
-  image: "images/icons/klpfeile.png"
+  image: "images/klpfeile.png"
 });
 
 LMuteBar.addSubLayer(Lcontract);
@@ -2613,7 +2613,7 @@ Lexpand2 = new Layer({
   height: 30,
   y: 145,
   borderRadius: 4,
-  image: "images/icons/grpfeile.png"
+  image: "images/grpfeile.png"
 });
 
 LMuteBar2.addSubLayer(Lexpand2);
@@ -2624,7 +2624,7 @@ Lcontract2 = new Layer({
   height: 30,
   y: 180,
   borderRadius: 4,
-  image: "images/icons/klpfeile.png"
+  image: "images/klpfeile.png"
 });
 
 LMuteBar2.addSubLayer(Lcontract2);
