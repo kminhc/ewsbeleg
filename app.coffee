@@ -7,6 +7,9 @@ Lbg = new Layer
 
 title = "Titel/Interpret"
 
+trackSpeed = 60
+trackSpeed2 = 60
+
 Llogo = new Layer
     width: 500
     x: Align.left(700)
@@ -402,20 +405,20 @@ Aplay = new Animation
     properties:
         scrollX: 8750
     curve: "linear"
-    time: 30
+    time: trackSpeed
 Aplay2 = new Animation
     layer: view2
     properties:
         scrollX: 8750
     curve: "linear"
-    time: 30
+    time: trackSpeed
 
 AplayM = new Animation
     layer: viewMain
     properties:
         scrollX: 8750
     curve: "linear"
-    time: 30
+    time: trackSpeed
 
 Afastforward = new Animation
     layer: view
@@ -444,7 +447,7 @@ AplayS = new Animation
     properties:
         value: 8750
     curve: "linear"
-    time: 30
+    time: trackSpeed
 
 AfastforwardS = new Animation
     layer: SliderTimeline
@@ -541,28 +544,28 @@ LskipToStart.onTap ->
         properties:
             scrollX: 8750
         curve: "linear"
-        time: 30
+        time: trackSpeed
 
     AplayS = new Animation
         layer: SliderTimeline
         properties:
             value: 8750
         curve: "linear"
-        time: 30
+        time: trackSpeed
 
     Aplay2 = new Animation
         layer: view2
         properties:
             scrollX: 8750
         curve: "linear"
-        time: 30
+        time: trackSpeed
 
     AplayM = new Animation
         layer: viewMain
         properties:
             scrollX: 8750
         curve: "linear"
-        time: 30
+        time: trackSpeed
 
 LskipToEndBtn.onTap ->
     view.scrollX = 8750
@@ -612,27 +615,27 @@ LskipToEndBtn.onTap ->
         properties:
             scrollX: 8750
         curve: "linear"
-        time: 30
-        AplayS = new Animation
-            layer: SliderTimeline
-            properties:
-                value: 8750
-            curve: "linear"
-            time: 30
+        time: trackSpeed
+    AplayS = new Animation
+        layer: SliderTimeline
+        properties:
+            value: 8750
+        curve: "linear"
+        time: trackSpeed
 
     Aplay2 = new Animation
         layer: view2
         properties:
             scrollX: 8750
         curve: "linear"
-        time: 30
+        time: trackSpeed
 
     AplayM = new Animation
         layer: viewMain
         properties:
             scrollX: 8750
         curve: "linear"
-        time: 30
+        time: trackSpeed
 
 LFastForwardBtn.onTap ->
     if LPlayBtn.visible is true
@@ -688,7 +691,7 @@ LPlayBtn.onTap ->
             properties:
                 scrollX: 8750
             curve: "linear"
-            time: 30
+            time: trackSpeed
 
     Aplay.start()
     Aplay2.start()
@@ -718,21 +721,21 @@ LPauseBtn.onTap ->
         properties:
             scrollX: 8750
         curve: "linear"
-        time: (30 - (30/(8750/view.scrollX)))
+        time: (trackSpeed - (trackSpeed/(8750/view.scrollX)))
 
     Aplay2 = new Animation
         layer: view2
         properties:
             scrollX: 8750
         curve: "linear"
-        time: (30 - (30/(8750/view2.scrollX)))
+        time: (trackSpeed - (trackSpeed/(8750/view2.scrollX)))
 
     AplayM = new Animation
         layer: viewMain
         properties:
             scrollX: 8750
         curve: "linear"
-        time: (30 - (30/(8750/viewMain.scrollX)))
+        time: (trackSpeed - (trackSpeed/(8750/viewMain.scrollX)))
 
     Afastforward = new Animation
         layer: view
@@ -775,7 +778,7 @@ LPauseBtn.onTap ->
           properties:
               value: 8750
           curve: "linear"
-          time: (30 - (30/(8750/view.scrollX)))
+          time: (trackSpeed - (trackSpeed/(8750/view.scrollX)))
 
     AFastBackBtn = new Animation
         layer: view
@@ -863,12 +866,82 @@ LbpmDisplay.style =
     fontWeight: "bold"
 
 LvolDownBtn.onTap ->
+    if LPauseBtn.visible is true
+        LPlayBtn.visible = true
+        LPauseBtn.visible = false
+    Aplay.stop()
+    AplayS.stop()
+    Aplay2.stop()
+    AplayM.stop()
     if parseInt(LbpmDisplay.html) isnt 0
       LbpmDisplay.html = parseInt(LbpmDisplay.html) - 5
+      trackSpeed += 5
+    Aplay = new Animation
+      layer: view
+      properties:
+          scrollX: 8750
+      curve: "linear"
+      time: (trackSpeed - (trackSpeed/(8750/view.scrollX)))
+
+    Aplay2 = new Animation
+      layer: view2
+      properties:
+          scrollX: 8750
+      curve: "linear"
+      time: (trackSpeed - (trackSpeed/(8750/view2.scrollX)))
+
+    AplayM = new Animation
+      layer: viewMain
+      properties:
+          scrollX: 8750
+      curve: "linear"
+      time: (trackSpeed - (trackSpeed/(8750/viewMain.scrollX)))
+    AplayS = new Animation
+      layer: SliderTimeline
+      properties:
+          value: 8750
+      curve: "linear"
+      time: (trackSpeed - (trackSpeed/(8750/view.scrollX)))
+
 
 LvolUpBtn.onTap ->
-    if parseInt(LbpmDisplay.html) isnt 500
+    if LPauseBtn.visible is true
+        LPlayBtn.visible = true
+        LPauseBtn.visible = false
+    Aplay.stop()
+    AplayS.stop()
+    Aplay2.stop()
+    AplayM.stop()
+    if parseInt(LbpmDisplay.html) isnt 185
       LbpmDisplay.html = parseInt(LbpmDisplay.html) + 5
+      trackSpeed -= 5
+      Aplay = new Animation
+          layer: view
+          properties:
+              scrollX: 8750
+          curve: "linear"
+          time: (trackSpeed - (trackSpeed/(8750/view.scrollX)))
+
+      Aplay2 = new Animation
+          layer: view2
+          properties:
+              scrollX: 8750
+          curve: "linear"
+          time: (trackSpeed - (trackSpeed/(8750/view2.scrollX)))
+
+      AplayM = new Animation
+          layer: viewMain
+          properties:
+              scrollX: 8750
+          curve: "linear"
+          time: (trackSpeed - (trackSpeed/(8750/viewMain.scrollX)))
+      AplayS = new Animation
+          layer: SliderTimeline
+          properties:
+              value: 8750
+          curve: "linear"
+          time: (trackSpeed - (trackSpeed/(8750/view.scrollX)))
+
 
 LbpmLabel = new Layer
     width: 70
@@ -1402,7 +1475,7 @@ LskipToStartR.onTap ->
         properties:
             value: 8750
         curve: "linear"
-        time: 30
+        time: trackSpeed2
 
     AFastBackBtnR = new Animation
         layer: viewR
@@ -1451,21 +1524,21 @@ LskipToStartR.onTap ->
         properties:
             scrollX: 8750
         curve: "linear"
-        time: 30
+        time: trackSpeed2
 
     Aplay2R = new Animation
         layer: view2R
         properties:
             scrollX: 8750
         curve: "linear"
-        time: 30
+        time: trackSpeed2
 
     AplayM2 = new Animation
         layer: viewMain2
         properties:
             scrollX: 8750
         curve: "linear"
-        time: 30
+        time: trackSpeed2
 
 LskipToEndBtnR.onTap ->
     viewR.scrollX = 8750
@@ -1478,7 +1551,7 @@ LskipToEndBtnR.onTap ->
         properties:
             value: 8750
         curve: "linear"
-        time: 30
+        time: trackSpeed2
     AFastBackBtnR = new Animation
         layer: viewR
         properties:
@@ -1532,21 +1605,21 @@ LskipToEndBtnR.onTap ->
         properties:
             scrollX: 8750
         curve: "linear"
-        time: 30
+        time: trackSpeed2
 
     Aplay2R = new Animation
         layer: view2R
         properties:
             scrollX: 8750
         curve: "linear"
-        time: 30
+        time: trackSpeed2
 
     AplayM2 = new Animation
         layer: viewMain2
         properties:
             scrollX: 8750
         curve: "linear"
-        time: 30
+        time: trackSpeed2
 
 LFastForwardBtnR.onTap ->
     if LPlayBtnR.visible is true
@@ -1766,9 +1839,6 @@ LvolumeBtnR.onTap ->
   else
     LvolSliderR.visible = false
 
-
-
-
 LvolUpBtnR = new Layer
     width: 40
     height: 23
@@ -1792,7 +1862,7 @@ LbpmDisplayR = new Layer
     y: 65
     borderRadius: 4
     backgroundColor: "#ffffff"
-LbpmDisplayR.html = 170
+LbpmDisplayR.html = 130
 LbpmDisplayR.style =
     fontSize: "20px"
     textAlign: "center"
@@ -1800,12 +1870,82 @@ LbpmDisplayR.style =
     fontWeight: "bold"
 
 LvolDownBtnR.onTap ->
+    if LPauseBtnR.visible is true
+        LPlayBtnR.visible = true
+        LPauseBtnR.visible = false
+    AplayR.stop()
+    Aplay2R.stop()
+    AplayM2.stop()
+    AplaySR.stop()
     if parseInt(LbpmDisplayR.html) isnt 0
       LbpmDisplayR.html = parseInt(LbpmDisplayR.html) - 5
+      trackSpeed2 += 5
+      AplayR = new Animation
+        layer: viewR
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: (trackSpeed2 - (trackSpeed2/(8750/viewR.scrollX)))
+
+      Aplay2R = new Animation
+        layer: view2R
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: (trackSpeed2 - (trackSpeed2/(8750/view2R.scrollX)))
+
+      AplayM2 = new Animation
+        layer: viewMain2
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: (trackSpeed2 - (trackSpeed2/(8750/viewMain2.scrollX)))
+
+      AplaySR = new Animation
+        layer: SliderTimelineR
+        properties:
+            value: 8750
+        curve: "linear"
+        time: (trackSpeed2 - (trackSpeed2/(8750/viewR.scrollX)))
 
 LvolUpBtnR.onTap ->
-    if parseInt(LbpmDisplayR.html) isnt 500
+    if LPauseBtnR.visible is true
+        LPlayBtnR.visible = true
+        LPauseBtnR.visible = false
+    AplayR.stop()
+    Aplay2R.stop()
+    AplayM2.stop()
+    AplaySR.stop()
+    if parseInt(LbpmDisplayR.html) isnt 185
       LbpmDisplayR.html = parseInt(LbpmDisplayR.html) + 5
+      trackSpeed2 -= 5
+      AplayR = new Animation
+        layer: viewR
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: (trackSpeed2 - (trackSpeed2/(8750/viewR.scrollX)))
+
+      Aplay2R = new Animation
+        layer: view2R
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: (trackSpeed2 - (trackSpeed2/(8750/view2R.scrollX)))
+
+      AplayM2 = new Animation
+        layer: viewMain2
+        properties:
+            scrollX: 8750
+        curve: "linear"
+        time: (trackSpeed2 - (trackSpeed2/(8750/viewMain2.scrollX)))
+
+      AplaySR = new Animation
+        layer: SliderTimelineR
+        properties:
+            value: 8750
+        curve: "linear"
+        time: (trackSpeed2 - (trackSpeed2/(8750/viewR.scrollX)))
 
 LbpmLabelR = new Layer
     width: 70
@@ -2303,7 +2443,7 @@ LskipToStartM.onTap ->
         properties:
             scrollX: 8750
         curve: "linear"
-        time: 30
+        time: trackSpeed
 
     AplayM2 = new Animation
         layer: viewMain2
@@ -2349,7 +2489,7 @@ LskipToEndBtnM.onTap ->
         properties:
             scrollX: 8750
         curve: "linear"
-        time: 30
+        time: AplayM
 
     AplayM2 = new Animation
         layer: viewMain2
@@ -2398,7 +2538,7 @@ LPlayBtnM.onTap ->
             properties:
                 scrollX: 8750
             curve: "linear"
-            time: 30
+            time: trackSpeed
 
     AplayM2.onAnimationEnd ->
         LPlayBtnM.visible = true
@@ -2429,7 +2569,7 @@ LPauseBtnM.onTap ->
         properties:
             scrollX: 8750
         curve: "linear"
-        time: (30 - (30/(8750/viewMain.scrollX)))
+        time: (trackSpeed - (trackSpeed/(8750/viewMain.scrollX)))
 
     AplayM2 = new Animation
         layer: viewMain2
@@ -2654,6 +2794,12 @@ SliderTimeline2.on "change:value", ->
     view2.scrollX = this.value
     viewMain.scrollX = this.value
     SliderTimeline.value = this.value
+
+SliderTimelineR.on "change:value", ->
+    viewR.scrollX = this.value
+    view2R.scrollX = this.value
+    viewMain2.scrollX = this.value
+    SliderTimeline2R.value = this.value
 
 SliderTimeline2R.on "change:value", ->
     viewR.scrollX = this.value

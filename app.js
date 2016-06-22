@@ -1,4 +1,4 @@
-var AFastBackBtn, AFastBackBtn2, AFastBackBtn2R, AFastBackBtnM, AFastBackBtnM2, AFastBackBtnR, AFastBackBtnS, AFastBackBtnSR, Afastforward, Afastforward2, Afastforward2R, AfastforwardM, AfastforwardM2, AfastforwardR, AfastforwardS, AfastforwardSR, Aplay, Aplay2, Aplay2R, AplayM, AplayM2, AplayR, AplayS, AplaySR, LCtrlParent, LCtrlParentR, LFastBackBtn, LFastBackBtnM, LFastBackBtnR, LFastForwardBtn, LFastForwardBtnM, LFastForwardBtnR, LMagMinus, LMagMinus2, LMagPlus, LMagPlus2, LMainControl, LMainControlBtns, LMainWindow, LMuteBar, LMuteBar2, LMuteBtn, LMuteBtn2, LPauseBtn, LPauseBtnM, LPauseBtnR, LPlayBtn, LPlayBtnM, LPlayBtnR, LSecondTrack, Lbg, LbpmDisplay, LbpmDisplayR, LbpmLabel, LbpmLabelR, LcloseText, LcloseTrans, Lcontract, Lcontract2, LdisplayToggle, LdisplayToggle2, LdisplayToggle2M, LdisplayToggle2R, LdisplayToggle3, LdisplayToggle3R, LdisplayToggleM, LdisplayToggleR, Lexpand, Lexpand2, LfirstTrack, Llogo, LmainWaveForm, LmainWaveForm2, Lmarker, LmarkerR, LnewCloseBtn, LnewCloseBtnR, LnewDisplay, LnewDisplayR, LopenSongListButton, LopenSongListButtonR, Lsave, LsaveBtnText, LsaveLayer, LsaveText, Lsettings, LsettingsText, LskipToEndBtn, LskipToEndBtnM, LskipToEndBtnR, LskipToStart, LskipToStartM, LskipToStartR, Lsong1, Lsong1R, Lsong2, Lsong2R, Lsong3, Lsong3R, LsongDisplay, LsongDisplay2, LsongDisplay2R, LsongDisplay3, LsongDisplay3R, LsongDisplayR, LtitleDisplay, LtitleDisplayR, Ltrans, Ltrans2, LtransLayer, LvolDownBtn, LvolDownBtnR, LvolSlider, LvolSliderR, LvolUpBtn, LvolUpBtnR, LvolumeBtn, LvolumeBtnR, LwaveForm, LwaveForm2, LwaveForm2R, LwaveForm3, LwaveForm3R, LwaveFormR, PlayDisplay, PlayDisplayR, ScrollSongList, ScrollSongListR, ScrollTransList, SliderTimeline, SliderTimeline2, SliderTimeline2R, SliderTimeline3, SliderTimeline3R, SliderTimelineR, SvolSlider, SvolSliderR, title, view, view2, view2R, view3, view3R, viewMain, viewMain2, viewR;
+var AFastBackBtn, AFastBackBtn2, AFastBackBtn2R, AFastBackBtnM, AFastBackBtnM2, AFastBackBtnR, AFastBackBtnS, AFastBackBtnSR, Afastforward, Afastforward2, Afastforward2R, AfastforwardM, AfastforwardM2, AfastforwardR, AfastforwardS, AfastforwardSR, Aplay, Aplay2, Aplay2R, AplayM, AplayM2, AplayR, AplayS, AplaySR, LCtrlParent, LCtrlParentR, LFastBackBtn, LFastBackBtnM, LFastBackBtnR, LFastForwardBtn, LFastForwardBtnM, LFastForwardBtnR, LMagMinus, LMagMinus2, LMagPlus, LMagPlus2, LMainControl, LMainControlBtns, LMainWindow, LMuteBar, LMuteBar2, LMuteBtn, LMuteBtn2, LPauseBtn, LPauseBtnM, LPauseBtnR, LPlayBtn, LPlayBtnM, LPlayBtnR, LSecondTrack, Lbg, LbpmDisplay, LbpmDisplayR, LbpmLabel, LbpmLabelR, LcloseText, LcloseTrans, Lcontract, Lcontract2, LdisplayToggle, LdisplayToggle2, LdisplayToggle2M, LdisplayToggle2R, LdisplayToggle3, LdisplayToggle3R, LdisplayToggleM, LdisplayToggleR, Lexpand, Lexpand2, LfirstTrack, Llogo, LmainWaveForm, LmainWaveForm2, Lmarker, LmarkerR, LnewCloseBtn, LnewCloseBtnR, LnewDisplay, LnewDisplayR, LopenSongListButton, LopenSongListButtonR, Lsave, LsaveBtnText, LsaveLayer, LsaveText, Lsettings, LsettingsText, LskipToEndBtn, LskipToEndBtnM, LskipToEndBtnR, LskipToStart, LskipToStartM, LskipToStartR, Lsong1, Lsong1R, Lsong2, Lsong2R, Lsong3, Lsong3R, LsongDisplay, LsongDisplay2, LsongDisplay2R, LsongDisplay3, LsongDisplay3R, LsongDisplayR, LtitleDisplay, LtitleDisplayR, Ltrans, Ltrans2, LtransLayer, LvolDownBtn, LvolDownBtnR, LvolSlider, LvolSliderR, LvolUpBtn, LvolUpBtnR, LvolumeBtn, LvolumeBtnR, LwaveForm, LwaveForm2, LwaveForm2R, LwaveForm3, LwaveForm3R, LwaveFormR, PlayDisplay, PlayDisplayR, ScrollSongList, ScrollSongListR, ScrollTransList, SliderTimeline, SliderTimeline2, SliderTimeline2R, SliderTimeline3, SliderTimeline3R, SliderTimelineR, SvolSlider, SvolSliderR, title, trackSpeed, trackSpeed2, view, view2, view2R, view3, view3R, viewMain, viewMain2, viewR;
 
 Lbg = new Layer({
   width: 1920,
@@ -7,6 +7,10 @@ Lbg = new Layer({
 });
 
 title = "Titel/Interpret";
+
+trackSpeed = 60;
+
+trackSpeed2 = 60;
 
 Llogo = new Layer({
   width: 500,
@@ -469,7 +473,7 @@ Aplay = new Animation({
     scrollX: 8750
   },
   curve: "linear",
-  time: 30
+  time: trackSpeed
 });
 
 Aplay2 = new Animation({
@@ -478,7 +482,7 @@ Aplay2 = new Animation({
     scrollX: 8750
   },
   curve: "linear",
-  time: 30
+  time: trackSpeed
 });
 
 AplayM = new Animation({
@@ -487,7 +491,7 @@ AplayM = new Animation({
     scrollX: 8750
   },
   curve: "linear",
-  time: 30
+  time: trackSpeed
 });
 
 Afastforward = new Animation({
@@ -523,7 +527,7 @@ AplayS = new Animation({
     value: 8750
   },
   curve: "linear",
-  time: 30
+  time: trackSpeed
 });
 
 AfastforwardS = new Animation({
@@ -639,7 +643,7 @@ LskipToStart.onTap(function() {
       scrollX: 8750
     },
     curve: "linear",
-    time: 30
+    time: trackSpeed
   });
   AplayS = new Animation({
     layer: SliderTimeline,
@@ -647,7 +651,7 @@ LskipToStart.onTap(function() {
       value: 8750
     },
     curve: "linear",
-    time: 30
+    time: trackSpeed
   });
   Aplay2 = new Animation({
     layer: view2,
@@ -655,7 +659,7 @@ LskipToStart.onTap(function() {
       scrollX: 8750
     },
     curve: "linear",
-    time: 30
+    time: trackSpeed
   });
   return AplayM = new Animation({
     layer: viewMain,
@@ -663,7 +667,7 @@ LskipToStart.onTap(function() {
       scrollX: 8750
     },
     curve: "linear",
-    time: 30
+    time: trackSpeed
   });
 });
 
@@ -726,22 +730,23 @@ LskipToEndBtn.onTap(function() {
       scrollX: 8750
     },
     curve: "linear",
-    time: 30
-  }, AplayS = new Animation({
+    time: trackSpeed
+  });
+  AplayS = new Animation({
     layer: SliderTimeline,
     properties: {
       value: 8750
     },
     curve: "linear",
-    time: 30
-  }));
+    time: trackSpeed
+  });
   Aplay2 = new Animation({
     layer: view2,
     properties: {
       scrollX: 8750
     },
     curve: "linear",
-    time: 30
+    time: trackSpeed
   });
   return AplayM = new Animation({
     layer: viewMain,
@@ -749,7 +754,7 @@ LskipToEndBtn.onTap(function() {
       scrollX: 8750
     },
     curve: "linear",
-    time: 30
+    time: trackSpeed
   });
 });
 
@@ -817,7 +822,7 @@ LPlayBtn.onTap(function() {
         scrollX: 8750
       },
       curve: "linear",
-      time: 30
+      time: trackSpeed
     });
   });
   Aplay.start();
@@ -849,7 +854,7 @@ LPauseBtn.onTap(function() {
       scrollX: 8750
     },
     curve: "linear",
-    time: 30 - (30 / (8750 / view.scrollX))
+    time: trackSpeed - (trackSpeed / (8750 / view.scrollX))
   });
   Aplay2 = new Animation({
     layer: view2,
@@ -857,7 +862,7 @@ LPauseBtn.onTap(function() {
       scrollX: 8750
     },
     curve: "linear",
-    time: 30 - (30 / (8750 / view2.scrollX))
+    time: trackSpeed - (trackSpeed / (8750 / view2.scrollX))
   });
   AplayM = new Animation({
     layer: viewMain,
@@ -865,7 +870,7 @@ LPauseBtn.onTap(function() {
       scrollX: 8750
     },
     curve: "linear",
-    time: 30 - (30 / (8750 / viewMain.scrollX))
+    time: trackSpeed - (trackSpeed / (8750 / viewMain.scrollX))
   });
   Afastforward = new Animation({
     layer: view,
@@ -913,7 +918,7 @@ LPauseBtn.onTap(function() {
       value: 8750
     },
     curve: "linear",
-    time: 30 - (30 / (8750 / view.scrollX))
+    time: trackSpeed - (trackSpeed / (8750 / view.scrollX))
   });
   AFastBackBtn = new Animation({
     layer: view,
@@ -1021,14 +1026,96 @@ LbpmDisplay.style = {
 };
 
 LvolDownBtn.onTap(function() {
-  if (parseInt(LbpmDisplay.html) !== 0) {
-    return LbpmDisplay.html = parseInt(LbpmDisplay.html) - 5;
+  if (LPauseBtn.visible === true) {
+    LPlayBtn.visible = true;
+    LPauseBtn.visible = false;
   }
+  Aplay.stop();
+  AplayS.stop();
+  Aplay2.stop();
+  AplayM.stop();
+  if (parseInt(LbpmDisplay.html) !== 0) {
+    LbpmDisplay.html = parseInt(LbpmDisplay.html) - 5;
+    trackSpeed += 5;
+  }
+  Aplay = new Animation({
+    layer: view,
+    properties: {
+      scrollX: 8750
+    },
+    curve: "linear",
+    time: trackSpeed - (trackSpeed / (8750 / view.scrollX))
+  });
+  Aplay2 = new Animation({
+    layer: view2,
+    properties: {
+      scrollX: 8750
+    },
+    curve: "linear",
+    time: trackSpeed - (trackSpeed / (8750 / view2.scrollX))
+  });
+  AplayM = new Animation({
+    layer: viewMain,
+    properties: {
+      scrollX: 8750
+    },
+    curve: "linear",
+    time: trackSpeed - (trackSpeed / (8750 / viewMain.scrollX))
+  });
+  return AplayS = new Animation({
+    layer: SliderTimeline,
+    properties: {
+      value: 8750
+    },
+    curve: "linear",
+    time: trackSpeed - (trackSpeed / (8750 / view.scrollX))
+  });
 });
 
 LvolUpBtn.onTap(function() {
-  if (parseInt(LbpmDisplay.html) !== 500) {
-    return LbpmDisplay.html = parseInt(LbpmDisplay.html) + 5;
+  if (LPauseBtn.visible === true) {
+    LPlayBtn.visible = true;
+    LPauseBtn.visible = false;
+  }
+  Aplay.stop();
+  AplayS.stop();
+  Aplay2.stop();
+  AplayM.stop();
+  if (parseInt(LbpmDisplay.html) !== 185) {
+    LbpmDisplay.html = parseInt(LbpmDisplay.html) + 5;
+    trackSpeed -= 5;
+    Aplay = new Animation({
+      layer: view,
+      properties: {
+        scrollX: 8750
+      },
+      curve: "linear",
+      time: trackSpeed - (trackSpeed / (8750 / view.scrollX))
+    });
+    Aplay2 = new Animation({
+      layer: view2,
+      properties: {
+        scrollX: 8750
+      },
+      curve: "linear",
+      time: trackSpeed - (trackSpeed / (8750 / view2.scrollX))
+    });
+    AplayM = new Animation({
+      layer: viewMain,
+      properties: {
+        scrollX: 8750
+      },
+      curve: "linear",
+      time: trackSpeed - (trackSpeed / (8750 / viewMain.scrollX))
+    });
+    return AplayS = new Animation({
+      layer: SliderTimeline,
+      properties: {
+        value: 8750
+      },
+      curve: "linear",
+      time: trackSpeed - (trackSpeed / (8750 / view.scrollX))
+    });
   }
 });
 
@@ -1672,7 +1759,7 @@ LskipToStartR.onTap(function() {
       value: 8750
     },
     curve: "linear",
-    time: 30
+    time: trackSpeed2
   });
   AFastBackBtnR = new Animation({
     layer: viewR,
@@ -1728,7 +1815,7 @@ LskipToStartR.onTap(function() {
       scrollX: 8750
     },
     curve: "linear",
-    time: 30
+    time: trackSpeed2
   });
   Aplay2R = new Animation({
     layer: view2R,
@@ -1736,7 +1823,7 @@ LskipToStartR.onTap(function() {
       scrollX: 8750
     },
     curve: "linear",
-    time: 30
+    time: trackSpeed2
   });
   return AplayM2 = new Animation({
     layer: viewMain2,
@@ -1744,7 +1831,7 @@ LskipToStartR.onTap(function() {
       scrollX: 8750
     },
     curve: "linear",
-    time: 30
+    time: trackSpeed2
   });
 });
 
@@ -1759,7 +1846,7 @@ LskipToEndBtnR.onTap(function() {
       value: 8750
     },
     curve: "linear",
-    time: 30
+    time: trackSpeed2
   });
   AFastBackBtnR = new Animation({
     layer: viewR,
@@ -1831,7 +1918,7 @@ LskipToEndBtnR.onTap(function() {
       scrollX: 8750
     },
     curve: "linear",
-    time: 30
+    time: trackSpeed2
   });
   Aplay2R = new Animation({
     layer: view2R,
@@ -1839,7 +1926,7 @@ LskipToEndBtnR.onTap(function() {
       scrollX: 8750
     },
     curve: "linear",
-    time: 30
+    time: trackSpeed2
   });
   return AplayM2 = new Animation({
     layer: viewMain2,
@@ -1847,7 +1934,7 @@ LskipToEndBtnR.onTap(function() {
       scrollX: 8750
     },
     curve: "linear",
-    time: 30
+    time: trackSpeed2
   });
 });
 
@@ -2133,7 +2220,7 @@ LbpmDisplayR = new Layer({
   backgroundColor: "#ffffff"
 });
 
-LbpmDisplayR.html = 170;
+LbpmDisplayR.html = 130;
 
 LbpmDisplayR.style = {
   fontSize: "20px",
@@ -2143,14 +2230,96 @@ LbpmDisplayR.style = {
 };
 
 LvolDownBtnR.onTap(function() {
+  if (LPauseBtnR.visible === true) {
+    LPlayBtnR.visible = true;
+    LPauseBtnR.visible = false;
+  }
+  AplayR.stop();
+  Aplay2R.stop();
+  AplayM2.stop();
+  AplaySR.stop();
   if (parseInt(LbpmDisplayR.html) !== 0) {
-    return LbpmDisplayR.html = parseInt(LbpmDisplayR.html) - 5;
+    LbpmDisplayR.html = parseInt(LbpmDisplayR.html) - 5;
+    trackSpeed2 += 5;
+    AplayR = new Animation({
+      layer: viewR,
+      properties: {
+        scrollX: 8750
+      },
+      curve: "linear",
+      time: trackSpeed2 - (trackSpeed2 / (8750 / viewR.scrollX))
+    });
+    Aplay2R = new Animation({
+      layer: view2R,
+      properties: {
+        scrollX: 8750
+      },
+      curve: "linear",
+      time: trackSpeed2 - (trackSpeed2 / (8750 / view2R.scrollX))
+    });
+    AplayM2 = new Animation({
+      layer: viewMain2,
+      properties: {
+        scrollX: 8750
+      },
+      curve: "linear",
+      time: trackSpeed2 - (trackSpeed2 / (8750 / viewMain2.scrollX))
+    });
+    return AplaySR = new Animation({
+      layer: SliderTimelineR,
+      properties: {
+        value: 8750
+      },
+      curve: "linear",
+      time: trackSpeed2 - (trackSpeed2 / (8750 / viewR.scrollX))
+    });
   }
 });
 
 LvolUpBtnR.onTap(function() {
-  if (parseInt(LbpmDisplayR.html) !== 500) {
-    return LbpmDisplayR.html = parseInt(LbpmDisplayR.html) + 5;
+  if (LPauseBtnR.visible === true) {
+    LPlayBtnR.visible = true;
+    LPauseBtnR.visible = false;
+  }
+  AplayR.stop();
+  Aplay2R.stop();
+  AplayM2.stop();
+  AplaySR.stop();
+  if (parseInt(LbpmDisplayR.html) !== 185) {
+    LbpmDisplayR.html = parseInt(LbpmDisplayR.html) + 5;
+    trackSpeed2 -= 5;
+    AplayR = new Animation({
+      layer: viewR,
+      properties: {
+        scrollX: 8750
+      },
+      curve: "linear",
+      time: trackSpeed2 - (trackSpeed2 / (8750 / viewR.scrollX))
+    });
+    Aplay2R = new Animation({
+      layer: view2R,
+      properties: {
+        scrollX: 8750
+      },
+      curve: "linear",
+      time: trackSpeed2 - (trackSpeed2 / (8750 / view2R.scrollX))
+    });
+    AplayM2 = new Animation({
+      layer: viewMain2,
+      properties: {
+        scrollX: 8750
+      },
+      curve: "linear",
+      time: trackSpeed2 - (trackSpeed2 / (8750 / viewMain2.scrollX))
+    });
+    return AplaySR = new Animation({
+      layer: SliderTimelineR,
+      properties: {
+        value: 8750
+      },
+      curve: "linear",
+      time: trackSpeed2 - (trackSpeed2 / (8750 / viewR.scrollX))
+    });
   }
 });
 
@@ -2784,7 +2953,7 @@ LskipToStartM.onTap(function() {
       scrollX: 8750
     },
     curve: "linear",
-    time: 30
+    time: trackSpeed
   });
   return AplayM2 = new Animation({
     layer: viewMain2,
@@ -2837,7 +3006,7 @@ LskipToEndBtnM.onTap(function() {
       scrollX: 8750
     },
     curve: "linear",
-    time: 30
+    time: AplayM
   });
   return AplayM2 = new Animation({
     layer: viewMain2,
@@ -2897,7 +3066,7 @@ LPlayBtnM.onTap(function() {
         scrollX: 8750
       },
       curve: "linear",
-      time: 30
+      time: trackSpeed
     });
   });
   AplayM2.onAnimationEnd(function() {
@@ -2934,7 +3103,7 @@ LPauseBtnM.onTap(function() {
       scrollX: 8750
     },
     curve: "linear",
-    time: 30 - (30 / (8750 / viewMain.scrollX))
+    time: trackSpeed - (trackSpeed / (8750 / viewMain.scrollX))
   });
   AplayM2 = new Animation({
     layer: viewMain2,
@@ -3208,6 +3377,13 @@ SliderTimeline2.on("change:value", function() {
   view2.scrollX = this.value;
   viewMain.scrollX = this.value;
   return SliderTimeline.value = this.value;
+});
+
+SliderTimelineR.on("change:value", function() {
+  viewR.scrollX = this.value;
+  view2R.scrollX = this.value;
+  viewMain2.scrollX = this.value;
+  return SliderTimeline2R.value = this.value;
 });
 
 SliderTimeline2R.on("change:value", function() {
