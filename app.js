@@ -2837,7 +2837,6 @@ LmarkerR = new Layer({
 LSecondTrack.addSubLayer(LmarkerR);
 
 Lexpand.onTap(function() {
-  print(Lmarker.width);
   if (Lmarker.width !== 550) {
     Lmarker.width += 10;
     return Lmarker.x -= 10;
@@ -2852,7 +2851,6 @@ Lcontract.onTap(function() {
 });
 
 Lexpand2.onTap(function() {
-  print(LmarkerR.width);
   if (LmarkerR.width !== 560) {
     return LmarkerR.width += 10;
   }

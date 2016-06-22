@@ -2349,7 +2349,7 @@ LmarkerR = new Layer
 LSecondTrack.addSubLayer(LmarkerR)
 
 Lexpand.onTap ->
-  print Lmarker.width
+  #print Lmarker.width
   if Lmarker.width isnt 550
     Lmarker.width += 10
     Lmarker.x -= 10
@@ -2359,7 +2359,7 @@ Lcontract.onTap ->
     Lmarker.x += 10
 
 Lexpand2.onTap ->
-  print LmarkerR.width
+#  print LmarkerR.width
   if LmarkerR.width isnt 560
     LmarkerR.width += 10
 Lcontract2.onTap ->
