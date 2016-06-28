@@ -6,7 +6,15 @@ Lbg = new Layer
     backgroundColor:"#262626"
 
 audioLayer = new VideoLayer
-    video: "uebergang.mp3"
+    video: "Deck 1_Ratatat-Mirando.mp3"
+    visible: false
+
+audioLayer2 = new VideoLayer
+    video: "Deck2_Ratatat-Drugs.mp3"
+    visible: false
+
+audioLayer3 = new VideoLayer
+    video: "Übergang_mixdown.mp3"
     visible: false
 
 title = "Titel/Interpret"
@@ -256,6 +264,19 @@ LtitleDisplay.style =
 
 LtitleDisplay.addSubLayer(ScrollSongList);
 ScrollSongList.y = Align.top(35)
+
+LDeckLabel = new Layer
+    width:50
+    height:30
+    x: 5
+    backgroundColor: "#525252"
+LDeckLabel.html = "Deck 1"
+LDeckLabel.style =
+    fontSize: "15px"
+    textAlign: "left"
+    color: "white"
+    fontWeight: "bold"
+LtitleDisplay.addSubLayer(LDeckLabel)
 
 # Create the content layers
 Lsong1 = new Layer
@@ -1278,6 +1299,20 @@ LtitleDisplayR.style =
 LtitleDisplayR.addSubLayer(ScrollSongListR);
 ScrollSongListR.y = Align.top(35)
 
+LDeckLabel2 = new Layer
+    width: 50
+    height: 30
+    x: 5
+    backgroundColor: "#525252"
+LDeckLabel2.html = "Deck 2"
+LDeckLabel2.style =
+    fontSize: "15px"
+    textAlign: "left"
+    color: "white"
+    fontWeight: "bold"
+LtitleDisplayR.addSubLayer(LDeckLabel2)
+
+
 # Create the content layers
 Lsong1R = new Layer
     width: 300
@@ -1520,6 +1555,7 @@ LskipToStartR.onTap ->
     view2R.scrollX = 0
     viewMain2.scrollX = 0
     SliderTimelineR.value = 0
+    audioLayer2.player.currentTime = 0
 
     AplayR = new Animation
         layer: viewR
@@ -1610,6 +1646,7 @@ LskipToEndBtnR.onTap ->
     view2R.scrollX = 8750
     viewMain2.scrollX = 8750
     SliderTimelineR.value = 8750
+    audioLayer2.player.currentTime = trackSpeed
 
     AFastBackBtnR = new Animation
         layer: viewR
@@ -1702,12 +1739,15 @@ LFastForwardBtnR.onTap ->
     if viewR.scrollX is 8750
         LPlayBtnR.visible = true
         LPauseBtnR.visible = false
+    audioLayer2.player.playbackRate = 2.5;
+    audioLayer2.player.play()
     AfastforwardR.start()
     Afastforward2R.start()
     AfastforwardM2.start()
     AfastforwardSR.start()
 
     AfastforwardR.onAnimationEnd ->
+        audioLayer2.player.pause()
         LPlayBtnR.visible = true
         LPauseBtnR.visible = false
 
@@ -1724,6 +1764,7 @@ LFastBackBtnR.onTap ->
     AFastBackBtnSR.start()
 
     AFastBackBtnR.onAnimationEnd ->
+        audioLayer2.player.pause()
         LPlayBtnR.visible = true
         LPauseBtnR.visible = false
 
@@ -1731,7 +1772,8 @@ LPlayBtnR.onTap ->
     if LPlayBtnR.visible is true
         LPlayBtnR.visible = false
         LPauseBtnR.visible = true
-
+    audioLayer2.player.playbackRate = 1;
+    audioLayer2.player.play()
     AplayR.onAnimationEnd ->
         LPlayBtnR.visible = true
         LPauseBtnR.visible = false
@@ -1762,6 +1804,7 @@ LPauseBtnR.onTap ->
     if LPauseBtnR.visible is true
         LPlayBtnR.visible = true
         LPauseBtnR.visible = false
+    audioLayer2.player.pause()
     AplayR.stop()
     AplaySR.stop()
     Aplay2R.stop()
@@ -2269,6 +2312,20 @@ LdisplayToggleM.style=
   fontWeight: "bold"
 LfirstTrack.addSubLayer(LdisplayToggleM);
 
+LDeckLabel3 = new Layer
+    width:50
+    height:0
+    x: 5
+    y:-2
+    backgroundColor: "#525252"
+LDeckLabel3.html = "Deck 1"
+LDeckLabel3.style =
+    fontSize: "15px"
+    textAlign: "left"
+    color: "white"
+    fontWeight: "bold"
+LdisplayToggleM.addSubLayer(LDeckLabel3)
+
 #ontap for Display
 LdisplayToggleM.onTap ->
     if LdisplayToggleM.html is "<u>WAVE</u>/SPECTRUM"
@@ -2301,6 +2358,20 @@ LdisplayToggle2M.style=
     color: "black"
     fontWeight: "bold"
 LSecondTrack.addSubLayer(LdisplayToggle2M);
+
+LDeckLabel4 = new Layer
+    width:50
+    height:0
+    x: 5
+    y:-2
+    backgroundColor: "#525252"
+LDeckLabel4.html = "Deck 2"
+LDeckLabel4.style =
+    fontSize: "15px"
+    textAlign: "left"
+    color: "white"
+    fontWeight: "bold"
+LdisplayToggle2M.addSubLayer(LDeckLabel4)
 
 #ontap for Display
 LdisplayToggle2M.onTap ->
@@ -2388,8 +2459,14 @@ Lmarker = new Layer
   y: 45
   backgroundColor: "red"
   opacity: 0.3
-
 LfirstTrack.addSubLayer(Lmarker)
+Lmarker.draggable.horizontal = true
+Lmarker.draggable.vertical = false
+Lmarker.draggable.constraints =
+    x: 60
+    y: 0
+    width: 1065
+    height: 200
 
 LmarkerR = new Layer
   width: 50
@@ -2398,8 +2475,14 @@ LmarkerR = new Layer
   y: 45
   backgroundColor: "blue"
   opacity: 0.3
-
 LSecondTrack.addSubLayer(LmarkerR)
+LmarkerR.draggable.horizontal = true
+LmarkerR.draggable.vertical = false
+LmarkerR.draggable.constraints =
+    x: 60
+    y: 0
+    width: 1065
+    height: 200
 
 Lexpand.onTap ->
   if Lmarker.width isnt 550
@@ -2463,6 +2546,7 @@ view3R.onMove ->
 LskipToStartM.onTap ->
     viewMain.scrollX = 0
     viewMain2.scrollX = 0
+    audioLayer3.player.currentTime = 0
     AFastBackBtnM = new Animation
         layer: viewMain
         properties:
@@ -2508,6 +2592,7 @@ LskipToStartM.onTap ->
 LskipToEndBtnM.onTap ->
     viewMain.scrollX = 8750
     viewMain2.scrollX = 8750
+    audioLayer3.player.currentTime = trackSpeed
 
     AFastBackBtnM = new Animation
         layer: viewMain
@@ -2558,10 +2643,13 @@ LFastForwardBtnM.onTap ->
     if viewMain.scrollX is 8750
         LPlayBtnM.visible = true
         LPauseBtnM.visible = false
+    audioLayer3.player.playbackRate = 2.5;
+    audioLayer3.player.play()
     AfastforwardM.start()
     AfastforwardM2.start()
 
     AfastforwardM.onAnimationEnd ->
+        audioLayer3.player.pause()
         LPlayBtnM.visible = true
         LPauseBtnM.visible = false
 
@@ -2576,10 +2664,13 @@ LFastBackBtnM.onTap ->
     AFastBackBtnM2.start()
 
     AFastBackBtnM.onAnimationEnd ->
+        audioLayer3.player.pause()
         LPlayBtnM.visible = true
         LPauseBtnM.visible = false
 
 LPlayBtnM.onTap ->
+  audioLayer3.player.playbackRate = 1;
+  audioLayer3.player.play()
   AplayM = new Animation
       layer: viewMain
       properties:
@@ -2624,6 +2715,7 @@ LPauseBtnM.onTap ->
     if LPauseBtnM.visible is true
         LPlayBtnM.visible = true
         LPauseBtnM.visible = false
+    audioLayer3.player.pause()
     AplayM.stop()
     AplayM2.stop()
     AFastBackBtnM.stop()
@@ -2834,6 +2926,9 @@ LMainControl.addSubLayer(LsettingsText)
 
 LcloseTrans.onTap ->
   if LsaveLayer.visible is true
+    Lsave.x = 1027
+    Lsave.width = 75
+    Lsave.height = 35
     LsaveLayer.visible = false
     Lsave.image = "images/icons/download.png"
     LsaveBtnText.html = "Speichern"
@@ -2843,10 +2938,16 @@ LcloseTrans.onTap ->
 Lsave.onTap ->
   if LsaveLayer.visible is false
     LsaveLayer.visible = true
+    Lsave.x = 1050
+    Lsave.width = 35
+    Lsave.height = 35
     Lsave.image = "images/icons/close.png"
     LsaveBtnText.html = "Abbrechen"
   else
     LsaveLayer.visible = false
+    Lsave.x = 1027
+    Lsave.width = 75
+    Lsave.height = 35
     Lsave.image = "images/icons/download.png"
     LsaveBtnText.html = "Speichern"
 
@@ -2880,41 +2981,41 @@ SliderTimeline3R.on "change:value", ->
 SliderTimeline3.on "change:value", ->
     view3.scrollX = this.value
 
-knobDisplay = new Layer
-    width: 20
-    height: 20
-    y: 12
-    x: -5
-    backgroundColor: "green"
-    visible: false
-    html: 0
-knobDisplay.style =
-    fontSize: "20px"
-    textAlign: "center"
-    color: "black"
-    fontWeight: "bold"
-SliderTimeline.knob.addSubLayer(knobDisplay)
+# knobDisplay = new Layer
+#     width: 20
+#     height: 20
+#     y: 12
+#     x: -5
+#     backgroundColor: "green"
+#     visible: false
+#     html: 0
+# knobDisplay.style =
+#     fontSize: "20px"
+#     textAlign: "center"
+#     color: "black"
+#     fontWeight: "bold"
+# SliderTimeline.knob.addSubLayer(knobDisplay)
 
 knobDisplay2 = knobDisplay.copySingle()
 
-knobDisplay2.style =
-    fontSize: "20px"
-    textAlign: "center"
-    color: "black"
-    fontWeight: "bold"
-SliderTimeline2.knob.addSubLayer(knobDisplay2)
+# knobDisplay2.style =
+#     fontSize: "20px"
+#     textAlign: "center"
+#     color: "black"
+#     fontWeight: "bold"
+# SliderTimeline2.knob.addSubLayer(knobDisplay2)
 
 Events.wrap(audioLayer.player).on "timeupdate", ->
     if audioLayer.player.playbackRate is -2.5
         knobDisplay.html = Math.trunc(audioLayer.player.currentTime)
         knobDisplay2.html = Math.trunc(audioLayer.player.currentTime)
 
-SliderTimeline.knob.onMouseOver ->
-  knobDisplay.visible = true
-SliderTimeline.knob.onMouseOut ->
-  knobDisplay.visible = false
-
-SliderTimeline2.knob.onMouseOver ->
-  knobDisplay2.visible = true
-SliderTimeline2.knob.onMouseOut ->
-  knobDisplay2.visible = false
+# SliderTimeline.knob.onMouseOver ->
+#   knobDisplay.visible = true
+# SliderTimeline.knob.onMouseOut ->
+#   knobDisplay.visible = false
+#
+# SliderTimeline2.knob.onMouseOver ->
+#   knobDisplay2.visible = true
+# SliderTimeline2.knob.onMouseOut ->
+#   knobDisplay2.visible = false
