@@ -1,4 +1,4 @@
-var AFastBackBtn, AFastBackBtn2, AFastBackBtn2R, AFastBackBtnM, AFastBackBtnM2, AFastBackBtnR, AFastBackBtnS, AFastBackBtnSR, Afastforward, Afastforward2, Afastforward2R, AfastforwardM, AfastforwardM2, AfastforwardR, AfastforwardS, AfastforwardSR, Aplay, Aplay2, Aplay2R, AplayM, AplayM2, AplayR, AplayS, AplaySR, LCtrlParent, LCtrlParentR, LFastBackBtn, LFastBackBtnM, LFastBackBtnR, LFastForwardBtn, LFastForwardBtnM, LFastForwardBtnR, LMagMinus, LMagMinus2, LMagPlus, LMagPlus2, LMainControl, LMainControlBtns, LMainWindow, LMuteBar, LMuteBar2, LMuteBtn, LMuteBtn2, LPauseBtn, LPauseBtnM, LPauseBtnR, LPlayBtn, LPlayBtnM, LPlayBtnR, LSecondTrack, Lbg, LbpmDisplay, LbpmDisplayR, LbpmLabel, LbpmLabelR, LcloseText, LcloseTrans, Lcontract, Lcontract2, LdisplayToggle, LdisplayToggle2, LdisplayToggle2M, LdisplayToggle2R, LdisplayToggle3, LdisplayToggle3R, LdisplayToggleM, LdisplayToggleR, Lexpand, Lexpand2, LfirstTrack, Llogo, LmainWaveForm, LmainWaveForm2, Lmarker, LmarkerR, LnewCloseBtn, LnewCloseBtnR, LnewDisplay, LnewDisplayR, LopenSongListButton, LopenSongListButtonR, Lsave, LsaveBtnText, LsaveLayer, LsaveText, Lsettings, LsettingsText, LskipToEndBtn, LskipToEndBtnM, LskipToEndBtnR, LskipToStart, LskipToStartM, LskipToStartR, Lsong1, Lsong1R, Lsong2, Lsong2R, Lsong3, Lsong3R, LsongDisplay, LsongDisplay2, LsongDisplay2R, LsongDisplay3, LsongDisplay3R, LsongDisplayR, LtitleDisplay, LtitleDisplayR, Ltrans, Ltrans2, LtransLayer, LvolDownBtn, LvolDownBtnR, LvolSlider, LvolSliderR, LvolUpBtn, LvolUpBtnR, LvolumeBtn, LvolumeBtnR, LwaveForm, LwaveForm2, LwaveForm2R, LwaveForm3, LwaveForm3R, LwaveFormR, PlayDisplay, PlayDisplayR, ScrollSongList, ScrollSongListR, ScrollTransList, SliderTimeline, SliderTimeline2, SliderTimeline2R, SliderTimeline3, SliderTimeline3R, SliderTimelineR, SvolSlider, SvolSliderR, audioLayer, knobDisplay, knobDisplay2, title, trackSpeed, trackSpeed2, view, view2, view2R, view3, view3R, viewMain, viewMain2, viewR;
+var AFastBackBtn, AFastBackBtn2, AFastBackBtn2R, AFastBackBtnM, AFastBackBtnM2, AFastBackBtnR, AFastBackBtnS, AFastBackBtnSR, Afastforward, Afastforward2, Afastforward2R, AfastforwardM, AfastforwardM2, AfastforwardR, AfastforwardS, AfastforwardSR, Aplay, Aplay2, Aplay2R, AplayM, AplayM2, AplayR, AplayS, AplaySR, LCtrlParent, LCtrlParentR, LDeckLabel, LDeckLabel2, LDeckLabel3, LDeckLabel4, LFastBackBtn, LFastBackBtnM, LFastBackBtnR, LFastForwardBtn, LFastForwardBtnM, LFastForwardBtnR, LMagMinus, LMagMinus2, LMagPlus, LMagPlus2, LMainControl, LMainControlBtns, LMainWindow, LMuteBar, LMuteBar2, LMuteBtn, LMuteBtn2, LPauseBtn, LPauseBtnM, LPauseBtnR, LPlayBtn, LPlayBtnM, LPlayBtnR, LSecondTrack, Lbg, LbpmDisplay, LbpmDisplayR, LbpmLabel, LbpmLabelR, LcloseText, LcloseTrans, Lcontract, Lcontract2, LdisplayToggle, LdisplayToggle2, LdisplayToggle2M, LdisplayToggle2R, LdisplayToggle3, LdisplayToggle3R, LdisplayToggleM, LdisplayToggleR, Lexpand, Lexpand2, LfirstTrack, Llogo, LmainWaveForm, LmainWaveForm2, Lmarker, LmarkerR, LnewCloseBtn, LnewCloseBtnR, LnewDisplay, LnewDisplayR, LopenSongListButton, LopenSongListButtonR, Lsave, LsaveBtnText, LsaveLayer, LsaveText, Lsettings, LsettingsText, LskipToEndBtn, LskipToEndBtnM, LskipToEndBtnR, LskipToStart, LskipToStartM, LskipToStartR, Lsong1, Lsong1R, Lsong2, Lsong2R, Lsong3, Lsong3R, LsongDisplay, LsongDisplay2, LsongDisplay2R, LsongDisplay3, LsongDisplay3R, LsongDisplayR, LtitleDisplay, LtitleDisplayR, Ltrans, Ltrans2, LtransLayer, LvolDownBtn, LvolDownBtnR, LvolSlider, LvolSliderR, LvolUpBtn, LvolUpBtnR, LvolumeBtn, LvolumeBtnR, LwaveForm, LwaveForm2, LwaveForm2R, LwaveForm3, LwaveForm3R, LwaveFormR, PlayDisplay, PlayDisplayR, ScrollSongList, ScrollSongListR, ScrollTransList, SliderTimeline, SliderTimeline2, SliderTimeline2R, SliderTimeline3, SliderTimeline3R, SliderTimelineR, SvolSlider, SvolSliderR, audioLayer, audioLayer2, audioLayer3, knobDisplay2, title, trackSpeed, trackSpeed2, view, view2, view2R, view3, view3R, viewMain, viewMain2, viewR;
 
 Lbg = new Layer({
   width: 1920,
@@ -7,7 +7,17 @@ Lbg = new Layer({
 });
 
 audioLayer = new VideoLayer({
-  video: "uebergang.mp3",
+  video: "Deck 1_Ratatat-Mirando.mp3",
+  visible: false
+});
+
+audioLayer2 = new VideoLayer({
+  video: "Deck2_Ratatat-Drugs.mp3",
+  visible: false
+});
+
+audioLayer3 = new VideoLayer({
+  video: "Übergang_mixdown.mp3",
   visible: false
 });
 
@@ -299,6 +309,24 @@ LtitleDisplay.style = {
 LtitleDisplay.addSubLayer(ScrollSongList);
 
 ScrollSongList.y = Align.top(35);
+
+LDeckLabel = new Layer({
+  width: 50,
+  height: 30,
+  x: 5,
+  backgroundColor: "#525252"
+});
+
+LDeckLabel.html = "Deck 1";
+
+LDeckLabel.style = {
+  fontSize: "15px",
+  textAlign: "left",
+  color: "white",
+  fontWeight: "bold"
+};
+
+LtitleDisplay.addSubLayer(LDeckLabel);
 
 Lsong1 = new Layer({
   width: 300,
@@ -1508,6 +1536,24 @@ LtitleDisplayR.addSubLayer(ScrollSongListR);
 
 ScrollSongListR.y = Align.top(35);
 
+LDeckLabel2 = new Layer({
+  width: 50,
+  height: 30,
+  x: 5,
+  backgroundColor: "#525252"
+});
+
+LDeckLabel2.html = "Deck 2";
+
+LDeckLabel2.style = {
+  fontSize: "15px",
+  textAlign: "left",
+  color: "white",
+  fontWeight: "bold"
+};
+
+LtitleDisplayR.addSubLayer(LDeckLabel2);
+
 Lsong1R = new Layer({
   width: 300,
   height: 30,
@@ -1802,6 +1848,7 @@ LskipToStartR.onTap(function() {
   view2R.scrollX = 0;
   viewMain2.scrollX = 0;
   SliderTimelineR.value = 0;
+  audioLayer2.player.currentTime = 0;
   AplayR = new Animation({
     layer: viewR,
     properties: {
@@ -1905,6 +1952,7 @@ LskipToEndBtnR.onTap(function() {
   view2R.scrollX = 8750;
   viewMain2.scrollX = 8750;
   SliderTimelineR.value = 8750;
+  audioLayer2.player.currentTime = trackSpeed;
   AFastBackBtnR = new Animation({
     layer: viewR,
     properties: {
@@ -2012,11 +2060,14 @@ LFastForwardBtnR.onTap(function() {
     LPlayBtnR.visible = true;
     LPauseBtnR.visible = false;
   }
+  audioLayer2.player.playbackRate = 2.5;
+  audioLayer2.player.play();
   AfastforwardR.start();
   Afastforward2R.start();
   AfastforwardM2.start();
   AfastforwardSR.start();
   return AfastforwardR.onAnimationEnd(function() {
+    audioLayer2.player.pause();
     LPlayBtnR.visible = true;
     return LPauseBtnR.visible = false;
   });
@@ -2036,6 +2087,7 @@ LFastBackBtnR.onTap(function() {
   AFastBackBtnM2.start();
   AFastBackBtnSR.start();
   return AFastBackBtnR.onAnimationEnd(function() {
+    audioLayer2.player.pause();
     LPlayBtnR.visible = true;
     return LPauseBtnR.visible = false;
   });
@@ -2046,6 +2098,8 @@ LPlayBtnR.onTap(function() {
     LPlayBtnR.visible = false;
     LPauseBtnR.visible = true;
   }
+  audioLayer2.player.playbackRate = 1;
+  audioLayer2.player.play();
   AplayR.onAnimationEnd(function() {
     LPlayBtnR.visible = true;
     LPauseBtnR.visible = false;
@@ -2081,6 +2135,7 @@ LPauseBtnR.onTap(function() {
     LPlayBtnR.visible = true;
     LPauseBtnR.visible = false;
   }
+  audioLayer2.player.pause();
   AplayR.stop();
   AplaySR.stop();
   Aplay2R.stop();
@@ -2718,6 +2773,25 @@ LdisplayToggleM.style = {
 
 LfirstTrack.addSubLayer(LdisplayToggleM);
 
+LDeckLabel3 = new Layer({
+  width: 50,
+  height: 0,
+  x: 5,
+  y: -2,
+  backgroundColor: "#525252"
+});
+
+LDeckLabel3.html = "Deck 1";
+
+LDeckLabel3.style = {
+  fontSize: "15px",
+  textAlign: "left",
+  color: "white",
+  fontWeight: "bold"
+};
+
+LdisplayToggleM.addSubLayer(LDeckLabel3);
+
 LdisplayToggleM.onTap(function() {
   if (LdisplayToggleM.html === "<u>WAVE</u>/SPECTRUM") {
     LdisplayToggleM.html = "WAVE/<u>SPECTRUM</u>";
@@ -2758,6 +2832,25 @@ LdisplayToggle2M.style = {
 };
 
 LSecondTrack.addSubLayer(LdisplayToggle2M);
+
+LDeckLabel4 = new Layer({
+  width: 50,
+  height: 0,
+  x: 5,
+  y: -2,
+  backgroundColor: "#525252"
+});
+
+LDeckLabel4.html = "Deck 2";
+
+LDeckLabel4.style = {
+  fontSize: "15px",
+  textAlign: "left",
+  color: "white",
+  fontWeight: "bold"
+};
+
+LdisplayToggle2M.addSubLayer(LDeckLabel4);
 
 LdisplayToggle2M.onTap(function() {
   if (LdisplayToggle2M.html === "<u>WAVE</u>/SPECTRUM") {
@@ -2866,6 +2959,17 @@ Lmarker = new Layer({
 
 LfirstTrack.addSubLayer(Lmarker);
 
+Lmarker.draggable.horizontal = true;
+
+Lmarker.draggable.vertical = false;
+
+Lmarker.draggable.constraints = {
+  x: 60,
+  y: 0,
+  width: 1065,
+  height: 200
+};
+
 LmarkerR = new Layer({
   width: 50,
   height: 180,
@@ -2876,6 +2980,17 @@ LmarkerR = new Layer({
 });
 
 LSecondTrack.addSubLayer(LmarkerR);
+
+LmarkerR.draggable.horizontal = true;
+
+LmarkerR.draggable.vertical = false;
+
+LmarkerR.draggable.constraints = {
+  x: 60,
+  y: 0,
+  width: 1065,
+  height: 200
+};
 
 Lexpand.onTap(function() {
   if (Lmarker.width !== 550) {
@@ -2956,6 +3071,7 @@ view3R.onMove(function() {
 LskipToStartM.onTap(function() {
   viewMain.scrollX = 0;
   viewMain2.scrollX = 0;
+  audioLayer3.player.currentTime = 0;
   AFastBackBtnM = new Animation({
     layer: viewMain,
     properties: {
@@ -3009,6 +3125,7 @@ LskipToStartM.onTap(function() {
 LskipToEndBtnM.onTap(function() {
   viewMain.scrollX = 8750;
   viewMain2.scrollX = 8750;
+  audioLayer3.player.currentTime = trackSpeed;
   AFastBackBtnM = new Animation({
     layer: viewMain,
     properties: {
@@ -3068,9 +3185,12 @@ LFastForwardBtnM.onTap(function() {
     LPlayBtnM.visible = true;
     LPauseBtnM.visible = false;
   }
+  audioLayer3.player.playbackRate = 2.5;
+  audioLayer3.player.play();
   AfastforwardM.start();
   AfastforwardM2.start();
   return AfastforwardM.onAnimationEnd(function() {
+    audioLayer3.player.pause();
     LPlayBtnM.visible = true;
     return LPauseBtnM.visible = false;
   });
@@ -3088,12 +3208,15 @@ LFastBackBtnM.onTap(function() {
   AFastBackBtnM.start();
   AFastBackBtnM2.start();
   return AFastBackBtnM.onAnimationEnd(function() {
+    audioLayer3.player.pause();
     LPlayBtnM.visible = true;
     return LPauseBtnM.visible = false;
   });
 });
 
 LPlayBtnM.onTap(function() {
+  audioLayer3.player.playbackRate = 1;
+  audioLayer3.player.play();
   AplayM = new Animation({
     layer: viewMain,
     properties: {
@@ -3148,6 +3271,7 @@ LPauseBtnM.onTap(function() {
     LPlayBtnM.visible = true;
     LPauseBtnM.visible = false;
   }
+  audioLayer3.player.pause();
   AplayM.stop();
   AplayM2.stop();
   AFastBackBtnM.stop();
@@ -3402,6 +3526,9 @@ LMainControl.addSubLayer(LsettingsText);
 
 LcloseTrans.onTap(function() {
   if (LsaveLayer.visible === true) {
+    Lsave.x = 1027;
+    Lsave.width = 75;
+    Lsave.height = 35;
     LsaveLayer.visible = false;
     Lsave.image = "images/icons/download.png";
     return LsaveBtnText.html = "Speichern";
@@ -3413,10 +3540,16 @@ LcloseTrans.onTap(function() {
 Lsave.onTap(function() {
   if (LsaveLayer.visible === false) {
     LsaveLayer.visible = true;
+    Lsave.x = 1050;
+    Lsave.width = 35;
+    Lsave.height = 35;
     Lsave.image = "images/icons/close.png";
     return LsaveBtnText.html = "Abbrechen";
   } else {
     LsaveLayer.visible = false;
+    Lsave.x = 1027;
+    Lsave.width = 75;
+    Lsave.height = 35;
     Lsave.image = "images/icons/download.png";
     return LsaveBtnText.html = "Speichern";
   }
@@ -3458,55 +3591,11 @@ SliderTimeline3.on("change:value", function() {
   return view3.scrollX = this.value;
 });
 
-knobDisplay = new Layer({
-  width: 20,
-  height: 20,
-  y: 12,
-  x: -5,
-  backgroundColor: "green",
-  visible: false,
-  html: 0
-});
-
-knobDisplay.style = {
-  fontSize: "20px",
-  textAlign: "center",
-  color: "black",
-  fontWeight: "bold"
-};
-
-SliderTimeline.knob.addSubLayer(knobDisplay);
-
 knobDisplay2 = knobDisplay.copySingle();
-
-knobDisplay2.style = {
-  fontSize: "20px",
-  textAlign: "center",
-  color: "black",
-  fontWeight: "bold"
-};
-
-SliderTimeline2.knob.addSubLayer(knobDisplay2);
 
 Events.wrap(audioLayer.player).on("timeupdate", function() {
   if (audioLayer.player.playbackRate === -2.5) {
     knobDisplay.html = Math.trunc(audioLayer.player.currentTime);
     return knobDisplay2.html = Math.trunc(audioLayer.player.currentTime);
   }
-});
-
-SliderTimeline.knob.onMouseOver(function() {
-  return knobDisplay.visible = true;
-});
-
-SliderTimeline.knob.onMouseOut(function() {
-  return knobDisplay.visible = false;
-});
-
-SliderTimeline2.knob.onMouseOver(function() {
-  return knobDisplay2.visible = true;
-});
-
-SliderTimeline2.knob.onMouseOut(function() {
-  return knobDisplay2.visible = false;
 });
